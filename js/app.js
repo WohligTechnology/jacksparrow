@@ -21,7 +21,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
         templateUrl: "views/template.html",
         controller: 'HomeCtrl'
     })
- 
+
     .state('feature', {
         url: "/feature",
         templateUrl: "views/template.html",
@@ -35,10 +35,15 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
     })
 
     .state('infinite', {
-        url: "/infinite",
-        templateUrl: "views/template.html",
-        controller: 'InfiniteCtrl'
-    })
+            url: "/infinite",
+            templateUrl: "views/template.html",
+            controller: 'InfiniteCtrl'
+        })
+        .state('pro', {
+            url: "/pro",
+            templateUrl: "views/template.html",
+            controller: 'ProCtrl'
+        })
 
     $urlRouterProvider.otherwise("/home");
 

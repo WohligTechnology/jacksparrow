@@ -15,14 +15,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 })
 
-.controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("search-pro");
-    $scope.menutitle = NavigationService.makeactive("search-pro");
-    $scope.menutitle = NavigationService.makeactive("Search");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-})
+.controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("pro");
+        $scope.menutitle = NavigationService.makeactive("pro");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("search-pro");
+        $scope.menutitle = NavigationService.makeactive("search-pro");
+        $scope.menutitle = NavigationService.makeactive("Search");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        //    $scope.professional = [{
+        //            img: 'img/info/info1.jpg',
+        //            name: 'Nishant Rathod',
+        //            link: 'azzaroco',
+        //            Price: '7000',
+        //            number: '256',
+        //    },
+        //        {
+        //            img: 'img/info/info1.jpg',
+        //            name: 'Amar Chhetri',
+        //            link: 'jdktrml',
+        //            Price: '5000',
+        //            number: '200',
+        //                },
+        //        {
+        //            img: 'img/info/info1.jpg',
+        //            name: 'Amar Chhetri',
+        //            link: 'jdktrml',
+        //            Price: '5000',
+        //            number: '200',
+        //                },
+        //        {
+        //            img: 'img/info/info1.jpg',
+        //            name: 'Amar Chhetri',
+        //            link: 'jdktrml',
+        //            Price: '5000',
+        //            number: '200',
+        //        }];
+    })
 
 .controller('FeatureCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, toaster, ngDialog, valdr) {
     $scope.template = TemplateService.changecontent("feature");
