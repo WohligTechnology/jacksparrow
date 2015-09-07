@@ -40,6 +40,10 @@
         opacity: 1;
     }
     
+    .bg-light {
+        background: @color-white;
+    }
+    
     nav li:hover .dropdown-menu {
         display: block;
     }
@@ -302,6 +306,7 @@
             padding-left: 0;
             li {
                 list-style: none;
+                line-height: 150%;
                 a {
                     color: @color-white;
                     text-transform: capitalize;
@@ -315,9 +320,10 @@
     }
     
     .bar-head {
-        margin: 30px 0 10px 0;
+        margin: 30px 0 0px 0;
         padding: 20px 15px 20px 0px;
         border: 1px solid @color-border;
+        box-shadow: 0px 3px 5px #ddd;
         label {
             margin-top: 6px;
         }
@@ -395,7 +401,7 @@
     .holder-pro {
         padding: 25px 20px;
         cursor: pointer;
-        margin-bottom: 2px;
+        margin-bottom: 5px;
         border: 1px solid #F7F6F4;
         .transition(all 1s ease);
         &:hover {
@@ -432,6 +438,7 @@
     
     .submit-btn {
         padding: 15px 0;
+        text-align: right;
         .btn {
             border-radius: 0px;
             border-color: @btn-primary-color;
@@ -471,6 +478,7 @@
             background-color: @color-white;
             padding: 20px;
             border: 1px solid @color-border;
+            box-shadow: 0px 3px 5px #ddd;
             .title {
                 font-size: 16px;
                 line-height: 20px;
@@ -523,7 +531,7 @@
                 }
             }
             .details.box-pro {
-                padding: 20px 20px 52px 20px;
+                padding: 20px;
                 border: 0px;
             }
         }
@@ -531,6 +539,7 @@
             background-color: @color-white;
             padding: 20px 20px 70px;
             border: 1px solid @color-border;
+            box-shadow: 0px 3px 5px #ddd;
             p.price {
                 font-size: 20px;
                 font-weight: 400;
@@ -569,4 +578,102 @@
     label {
         font-weight: 500;
         text-transform: capitalize;
+    }
+    
+    .pad-btm {
+        padding-bottom: 20px;
+    }
+    
+    section.content-min {
+        min-height: 600px;
+    }
+    
+    .full-tab {
+        padding: 20px;
+        margin-top: 25px;
+        .grp-tabs {
+            ul {
+                padding: 0px;
+                list-style: none;
+                display: block;
+                margin: 0px;
+                li {
+                    display: inline-block;
+                    margin-right: 5px;
+                    text-align: center;
+                    padding: 8px 20px;
+                    border: 1px solid @btn-primary-color;
+                    color: @btn-primary-color;
+                    border-bottom: 0px;
+                    cursor: pointer;
+                }
+            }
+            li.active {
+                background-color: @btn-primary-color;
+                color: @color-white;
+            }
+        }
+        .tab-cont-main {
+            padding: 0 20px;
+            border: 1px solid @btn-primary-color;
+            box-shadow: 0 3px 5px #ddd;
+            .tab-cont + .tab-cont {
+                border-top: 1px solid #ddd;
+            }
+            .tab-cont {
+                padding: 20px 0;
+                h1 {
+                    font-size: 24px;
+                    margin-top: 5px;
+                    margin-bottom: 0px;
+                }
+                .price {
+                    font-size: 18px;
+                }
+                .history-btn {
+                    text-align: center;
+                    padding-bottom: 20px;
+                    .btn-success {
+                        background-color: #3A8C3A;
+                        border-color: #3A8C3A;
+                        width: 145px;
+                        border-radius: 0px;
+                        text-transform: uppercase;
+                    }
+                    .btn-danger {
+                        color: @color-white;
+                        background-color: #D20F0A;
+                        border-color: #D20F0A;
+                        width: 145px;
+                        border-radius: 0px;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+    
+    .btn:focus {
+        outline: 0px !important;
+        text-decoration: none;
+    }
+    
+    .checkout {
+        .row {
+            padding-bottom: 8px;
+        }
+        label {
+            text-transform: uppercase;
+        }
+    }
+    
+    .btn-grp {
+        text-align: center;
+        .btn {
+            background-color: #93B1C6;
+            border-color: #93B1C6;
+            border-radius: 0px;
+            padding: 10px 50px;
+            text-transform: uppercase;
+        }
     }

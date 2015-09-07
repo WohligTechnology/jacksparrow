@@ -23,19 +23,19 @@ var navigationservice = angular.module('navigationservice', [])
     }, {
             name: "QTS Asked 30",
             active: "",
-            link: "#/feature",
+            link: "#/booking",
             classis: "active",
             subnav: []
     }, {
             name: "Nishant Rathod Rs 17000/-",
             active: "",
-            link: "#/infinite",
+            link: "#/booking",
             classis: "active",
             subnav: []
     }, {
             name: "logout",
             active: "",
-            link: "#/infinite",
+            link: "#/booking",
             classis: "active",
             subnav: []
     }

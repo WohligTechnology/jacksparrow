@@ -8,57 +8,78 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
-    $scope.mySlides = [{
-        img: 'img/slider/slider1.jpg',
-        imgcaption: 'Get an expert on a click of button'
-    }];
+    $scope.mySlides = [
+          'img/slider/slider1.jpg',
+         'img/slider/slider2.jpg'
+    ];
 })
 
 .controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
-        //Used to name the .html file
-        $scope.template = TemplateService.changecontent("pro");
-        $scope.menutitle = NavigationService.makeactive("pro");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
-    })
-    .controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
-        //Used to name the .html file
-        $scope.template = TemplateService.changecontent("search-pro");
-        $scope.menutitle = NavigationService.makeactive("search-pro");
-        $scope.menutitle = NavigationService.makeactive("Search");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("pro");
+    $scope.menutitle = NavigationService.makeactive("Pro");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.showAmature = false;
 
-        //    $scope.professional = [{
-        //            img: 'img/info/info1.jpg',
-        //            name: 'Nishant Rathod',
-        //            link: 'azzaroco',
-        //            Price: '7000',
-        //            number: '256',
-        //    },
-        //        {
-        //            img: 'img/info/info1.jpg',
-        //            name: 'Amar Chhetri',
-        //            link: 'jdktrml',
-        //            Price: '5000',
-        //            number: '200',
-        //                },
-        //        {
-        //            img: 'img/info/info1.jpg',
-        //            name: 'Amar Chhetri',
-        //            link: 'jdktrml',
-        //            Price: '5000',
-        //            number: '200',
-        //                },
-        //        {
-        //            img: 'img/info/info1.jpg',
-        //            name: 'Amar Chhetri',
-        //            link: 'jdktrml',
-        //            Price: '5000',
-        //            number: '200',
-        //        }];
-    })
+    $scope.toggle = function () {
+        $scope.showAmature = !$scope.showAmature;
+    }
+})
+
+.controller('HistoryCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("history");
+    $scope.menutitle = NavigationService.makeactive("History");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
+.controller('CheckoutCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("checkout");
+    $scope.menutitle = NavigationService.makeactive("Checkout");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
+
+.controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("search-pro");
+    $scope.menutitle = NavigationService.makeactive("search-pro");
+    $scope.menutitle = NavigationService.makeactive("Search");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    //    $scope.professional = [{
+    //            img: 'img/info/info1.jpg',
+    //            name: 'Nishant Rathod',
+    //            link: 'azzaroco',
+    //            Price: '7000',
+    //            number: '256',
+    //    },
+    //        {
+    //            img: 'img/info/info1.jpg',
+    //            name: 'Amar Chhetri',
+    //            link: 'jdktrml',
+    //            Price: '5000',
+    //            number: '200',
+    //                },
+    //        {
+    //            img: 'img/info/info1.jpg',
+    //            name: 'Amar Chhetri',
+    //            link: 'jdktrml',
+    //            Price: '5000',
+    //            number: '200',
+    //                },
+    //        {
+    //            img: 'img/info/info1.jpg',
+    //            name: 'Amar Chhetri',
+    //            link: 'jdktrml',
+    //            Price: '5000',
+    //            number: '200',
+    //        }];
+})
 
 .controller('FeatureCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, toaster, ngDialog, valdr) {
     $scope.template = TemplateService.changecontent("feature");

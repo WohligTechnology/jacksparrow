@@ -35,20 +35,30 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
     })
 
     .state('infinite', {
-            url: "/infinite",
+        url: "/infinite",
+        templateUrl: "views/template.html",
+        controller: 'InfiniteCtrl'
+    })
+
+    .state('pro', {
+        url: "/pro",
+        templateUrl: "views/template.html",
+        controller: 'ProCtrl'
+    })
+
+    .state('history', {
+            url: "/history",
             templateUrl: "views/template.html",
-            controller: 'InfiniteCtrl'
+            controller: 'HistoryCtrl'
         })
-        .state('pro', {
-            url: "/pro",
+        .state('checkout', {
+            url: "/checkout",
             templateUrl: "views/template.html",
-            controller: 'ProCtrl'
+            controller: 'CheckoutCtrl'
         })
 
     $urlRouterProvider.otherwise("/home");
-
 });
-
 
 
 firstapp.directive('img', function ($compile, $parse) {
