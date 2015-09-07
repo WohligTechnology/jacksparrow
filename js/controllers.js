@@ -42,6 +42,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 })
+.controller('AccountCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("account");
+    $scope.menutitle = NavigationService.makeactive("Account");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+})
 
 .controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
     //Used to name the .html file

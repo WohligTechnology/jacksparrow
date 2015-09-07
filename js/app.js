@@ -51,10 +51,17 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
             templateUrl: "views/template.html",
             controller: 'HistoryCtrl'
         })
+       
         .state('checkout', {
             url: "/checkout",
             templateUrl: "views/template.html",
             controller: 'CheckoutCtrl'
+        })      
+        
+        .state('account', {
+            url: "/account",
+            templateUrl: "views/template.html",
+            controller: 'AccountCtrl'
         })
 
     $urlRouterProvider.otherwise("/home");
