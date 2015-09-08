@@ -47,22 +47,28 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
     })
 
     .state('history', {
-            url: "/history",
-            templateUrl: "views/template.html",
-            controller: 'HistoryCtrl'
-        })
-       
-        .state('checkout', {
-            url: "/checkout",
-            templateUrl: "views/template.html",
-            controller: 'CheckoutCtrl'
-        })      
-        
-        .state('account', {
-            url: "/account",
-            templateUrl: "views/template.html",
-            controller: 'AccountCtrl'
-        })
+        url: "/history",
+        templateUrl: "views/template.html",
+        controller: 'HistoryCtrl'
+    })
+
+    .state('checkout', {
+        url: "/checkout",
+        templateUrl: "views/template.html",
+        controller: 'CheckoutCtrl'
+    })
+
+    .state('account', {
+        url: "/account",
+        templateUrl: "views/template.html",
+        controller: 'AccountCtrl'
+    })
+
+    .state('setting', {
+        url: "/setting",
+        templateUrl: "views/template.html",
+        controller: 'SettingCtrl'
+    })
 
     $urlRouterProvider.otherwise("/home");
 });

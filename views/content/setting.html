@@ -1,0 +1,145 @@
+<section class="container-fluid content-min-set">
+    <div class="setting">
+        <div class="row">
+            <!--            <h4 class="head">My Profile</h4>-->
+            <div class="col-md-2 sides">
+                <div class="sidemenu">
+                    <ul>
+                        <li class="{{li.class}}" ng-repeat="li in uljson">
+                            <a ng-click="changetab(li.name);">{{li.name}} </a>
+                        </li>
+                        <li>
+                            <a href="#">Add More</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 bg-white box-shwd">
+                <div class="col-md-offset-1 col-md-10 ">
+                    <div class="cont-setting">
+                        <div class="tab1" ng-show="uljson[0].active">
+                            <h4 class="head">Personal Details</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="First Name">
+                                    <input type="text" class="form-control text-large" placeholder="Last Name">
+                                    <input type="text" class="form-control text-large" placeholder="Age">
+                                    <div>
+                                        <div>
+                                            <label class="radio-inline pad-zero">Gender :</label>
+                                        </div>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">Male</label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">Female</label>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="Last Name">
+                                </div>
+-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Image</label>
+                                        <div class="photo-holder">
+                                            <span ng-hide="user.image" class="">Photo</span>
+                                            <div class="image-contain" style="background-image:url('');"></div>
+                                        </div>
+                                        <!-- ngIf: user.image -->
+                                    </div>
+                                    <div class="upload-div">
+                                        <div class="upload-buttons">
+                                            <input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+                                        </div>
+                                        <div class="response ng-hide" ng-show="uploadResult.length > 0">
+                                            <!-- ngRepeat: result in uploadResult -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<!--
+<div class="row">
+    <div class="col-md-6">
+        <input type="text" class="form-control text-large" placeholder="Age">
+    </div>
+    <div class="col-md-6">
+        <label class="radio-inline pad-zero">Gender :</label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio">Male</label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio">Female</label>
+    </div>
+</div>
+-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="Country">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="State">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="City">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control text-large" placeholder="Pincode">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab2" ng-show="uljson[1].active">
+                            <h4 class="head">professional Details</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="Designation">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control text-large" placeholder="Company Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea type="text" class="form-control text-large" placeholder="Skills"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!--                            <textarea type="text" class="form-control text-large" placeholder="Websites"> </textarea>-->
+                                    <input type="text" class="form-control text-large" placeholder="Links">
+                                    <div class="pull-right submit-btn">
+                                        <button type="button" class="btn btn-default">Add More Links</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea type="text" class="form-control text-large" placeholder="Honors & Awards"> </textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab3" ng-show="uljson[2].active">
+                            <h4 class="head">Amature</h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control text-large" placeholder="Profession">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control text-large" placeholder="Link">
+                                    <div class="pull-right submit-btn">
+                                        <button type="button" class="btn btn-default">Add Link</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

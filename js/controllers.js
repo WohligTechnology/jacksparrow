@@ -36,19 +36,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('CheckoutCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("checkout");
-    $scope.menutitle = NavigationService.makeactive("Checkout");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-})
-.controller('AccountCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("account");
-    $scope.menutitle = NavigationService.makeactive("Account");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-})
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("checkout");
+        $scope.menutitle = NavigationService.makeactive("Checkout");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('AccountCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("account");
+        $scope.menutitle = NavigationService.makeactive("Account");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+    .controller('SettingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("setting");
+        $scope.menutitle = NavigationService.makeactive("Setting");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.uljson = [{
+            name: "Personal",
+            active: true,
+            class: "active"
+        }, {
+            name: "Professional",
+            active: false,
+            class: ""
+        }, {
+            name: "Amature",
+            active: false,
+            class: ""
+        }]
+
+        $scope.changetab = function (name) {
+            console.log(name);
+            _.each($scope.uljson, function (n) {
+                if (n.name === name) {
+                    n.active = true;
+                    n.class = "active";
+                } else {
+                    n.active = false;
+                    n.class = "";
+                }
+            })
+        }
+
+    })
 
 .controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
     //Used to name the .html file
