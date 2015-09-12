@@ -4,53 +4,125 @@
             <div class="col-md-offset-1 col-md-10">
                 <div class="grp-tabs">
                     <ul>
-                        <li class="tab active">You Made</li>
-                        <li class="tab">For you</li>
+                        <li class="tab active" ng-click="changeTab(1)" ng-class="active">You Made</li>
+                        <li class="tab" ng-click="changeTab(2)" ng-class="active">For you</li>
                     </ul>
                 </div>
                 <div class="tab-cont-main">
-                    <div class="tab-cont">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="img-holder">
-                                    <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
-                                    <img src="img/info/pro.png" class="pro-tab doneLoading">
+                    <div class="made" ng-if="historytab=='1'">
+                        <div class="tab-cont">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <img src="img/info/pro.png" class="pro-tab doneLoading">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>Amar Chhetri</h1>
+                                        <p> Web developer</p>
+                                        <p> 13/06/15</p>
+                                        <p class="price"> <i class="fa fa-inr"></i> 5000/-</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!--
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-success">Book</button>
+                                    </div>
+-->
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <h1>Amar Chhetri</h1>
-                                <p> Web developer</p>
-                                <p class="price"> <i class="fa fa-inr"></i> 5000/-</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="history-btn">
-                                    <button type="button" class="btn btn-success">Book</button>
+                        </div>
+                        <div class="tab-cont">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <img src="img/info/pro.png" class="pro-tab doneLoading">
+                                    </div>
                                 </div>
-                                <div class="history-btn">
-                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>Mahesh Mauraya</h1>
+                                        <p> Web developer</p>
+                                        <p> 13/06/15</p>
+                                        <p class="price"> <i class="fa fa-inr"></i> 5000/-</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!--
+                                    <div class="history-btn">
+                                         <button type="button" class="btn btn-success">Book</button>
+                                    </div>
+-->
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-cont">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="img-holder">
-                                    <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
-                                    <img src="img/info/pro.png" class="pro-tab doneLoading">
+
+                    <div class="you" ng-if="historytab=='2'">
+                        <div class="tab-cont">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <img src="img/info/pro.png" class="pro-tab doneLoading">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>Mahesh Mauraya</h1>
+                                        <p> Web developer</p>
+                                        <p> 13/06/15</p>
+                                        <p class="price"> <i class="fa fa-inr"></i> 5000/-</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!--
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-success">Book</button>
+                                    </div>
+-->
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <h1>Amar Chhetri</h1>
-                                <p> Web developer</p>
-                                <p class="price"> <i class="fa fa-inr"></i> 5000/-</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="history-btn">
-                                    <button type="button" class="btn btn-success">Book</button>
+                        </div>
+                        <div class="tab-cont">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <img src="img/info/pro.png" class="pro-tab doneLoading">
+                                    </div>
                                 </div>
-                                <div class="history-btn">
-                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>Amar Chhetri</h1>
+                                        <p> Web developer</p>
+                                        <p> 13/06/15</p>
+                                        <p class="price"> <i class="fa fa-inr"></i> 5000/-</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!--
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-success">Book</button>
+                                    </div>
+-->
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

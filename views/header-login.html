@@ -1,4 +1,4 @@
-<header>
+<header ng-controller="headerctrl">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -16,10 +16,10 @@
 
             <div class="collapse navbar-collapse" id="nav-collapse">
                 <ul class="nav navbar-nav navbar-right nav-outer">
-                    <li>
+                    <li ng-click="showLogin();">
                         <a href="#" class="btn btn-primary">Login</a>
                     </li>
-                    <li>
+                    <li ng-click="showSignup();">
                         <a href="#" class="btn btn-primary">SignUp</a>
                     </li>
                 </ul>

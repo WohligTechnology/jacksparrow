@@ -1,3 +1,5 @@
+var tabvalue = '1';
+
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider'])
 
 .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
@@ -33,6 +35,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("History");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.historytab = 1;
+    $scope.changeTab = function (tab) {
+        $scope.historytab = tab;
+    }
 })
 
 .controller('CheckoutCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
@@ -246,8 +252,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('headerctrl', function ($scope, TemplateService) {
+.controller('headerctrl', function ($scope, TemplateService, ngDialog) {
     $scope.template = TemplateService;
+    $scope.logintab = {};
+    $scope.logintab.tab = tabvalue;
+
+    $scope.showLogin = function () {
+        tabvalue = '1';
+        ngDialog.open({
+            scope: $scope,
+            template: 'views/content/modal-login.html'
+        });
+    };
+
+    //    $scope.showsignup = function () {
+    //        ngDialog.open({
+    //            template: 'views/content/signup.html'
+    //        });
+    //    };
+
+    $scope.changeTab = function (tab) {
+        $scope.logintab.tab = tab;
+    }
+
+    $scope.showSignup = function () {
+        tabvalue = '2';
+        ngDialog.open({
+            scope: $scope,
+            template: 'views/content/modal-login.html'
+        });
+    }
 })
 
 ;

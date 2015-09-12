@@ -21,7 +21,7 @@ var navigationservice = angular.module('navigationservice', [])
 //        }
         ]
     }, {
-            name: "QTS Asked 30",
+            name: "QTS Asked",
             active: "",
             link: "#/booking",
             classis: "active",
@@ -55,6 +55,5 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
-
     }
 });
