@@ -4,44 +4,25 @@
             <div class="col-md-offset-1 col-md-10">
                 <div class="grp-tabs">
                     <ul>
-                        <li class="tab" ng-click="changeTab(1)" ng-class="{active:activate}">You Made</li>
-                        <li class="tab" ng-click="changeTab(2)" ng-class="{active:!activate}">For you</li>
+                        <li class="tab" ng-click="changeTab(1)" ng-class="{active:activate}">You asked</li>
+                        <li class="tab" ng-click="changeTab(2)" ng-class="{active:!activate}">Asked you</li>
                     </ul>
                 </div>
                 <div class="tab-cont-main">
                     <div class="made" ng-if="historytab=='1'">
-                        <div class="tab-cont" ng-repeat="user in history">
+                        <div class="tab-cont">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="img-holder">
-                                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
-                                        <img src="img/info/pro.png" class="pro-tab doneLoading">
-                                    </div>
+                                <div class="col-md-8">
+                                    <textarea type="text" class="form-control text-large" placeholder="What do you want to ask?"></textarea>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="made-cont">
-                                        <h1>{{user.name}}</h1>
-                                        <p> {{user.designation}}</p>
-                                        <p> {{user.date}}</p>
-                                        <p class="price"> <i class="fa fa-inr"></i>{{user.cost}}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <!--
                                     <div class="history-btn">
-                                        <button type="button" class="btn btn-success">Book</button>
-                                    </div>
--->
-                                    <div class="history-btn">
-                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                        <button type="button" class="btn btn-success">Ask</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                            </div>
-
-                    <div class="you" ng-if="historytab=='2'">
-                        <div class="tab-cont" ng-repeat="user in history">
+                        <div class="tab-cont" ng-repeat="user in youasked">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="img-holder">
@@ -52,20 +33,50 @@
                                 <div class="col-md-4">
                                     <div class="made-cont">
                                         <h1>{{user.name}}</h1>
-                                        <p>{{user.designation}}</p>
-                                        <p>{{user.date}}</p>
-                                        <p class="price"> <i class="fa fa-inr"></i> {{user.cost}}</p>
-
+                                        <p>{{user.expertice}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <!--
+
                                     <div class="history-btn">
-                                        <button type="button" class="btn btn-success">Book</button>
+                                        <button type="button" class="btn btn-success" ng-show="{{user.buttons.yes}}">Yes</button>
+
+                                        <button type="button" class="btn btn-danger" ng-show="{{user.buttons.no}}">No</button>
+
+                                        <button type="button" class="btn btn-success" ng-show="{{user.buttons.waiting}}">Waiting</button>
                                     </div>
--->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="you" ng-if="historytab=='2'">
+                        <div class="tab-cont" ng-repeat="user in askedyou">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <img src="img/info/pro.png" class="pro-tab doneLoading">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>{{user.name}}</h1>
+                                        <p> For:&nbsp;{{user.questiontag}}</p>
+                                        <p>
+                                            <textarea name="" id="" cols="30" rows="1">{{user.question}}</textarea>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+
                                     <div class="history-btn">
-                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                        <button type="button" class="btn btn-success">Yes</button>
+                                    </div>
+
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">No</button>
                                     </div>
                                 </div>
                             </div>

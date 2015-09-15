@@ -80,44 +80,41 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="mobile">
-                                    <h1 class="head-name">Amar Chhetri</h1>
-                                    <p class="title">Sr. Web Developer at WNS </p>
+                                    <h1 class="head-name">{{profile.name}}i</h1>
+                                    <p class="title">{{profile.current}} </p>
                                     <p class="company">
-                                        Global Services</p>
+                                        {{profile.company}}</p>
                                     <p class="locality">
-                                        Mumbai City, India</p>
+                                        {{profile.location}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="skills box-pro">
                         <h4 class="sub-head">Skills</h4>
-                        <p>HTML , CSS , Javascript , Jquery , Drupal , Magento , PL/SQL , C++ , C</p>
+                        <p>{{profile.skills}}</p>
                     </div>
                     <div class="web box-pro">
                         <h4 class="sub-head">Websites</h4>
                         <ul class="website-link">
-                            <li><a href="">Panic.com</a> </li>
-                            <li><a href="">wohlig.com</a></li>
-                            <li><a href="">magicmirror.com</a></li>
-                            <li><a href="">auraart.com</a></li>
+                            <li ng-repeat="website in profile.websites"><a href="">{{website.link}}</a> </li>
                         </ul>
                     </div>
                     <div class="honors box-pro">
                         <h4 class="sub-head">Honors &amp; Awards:</h4>
-                        <p>from ICICI Lombard - Project Manager</p>
-                        <p>Project developed &amp; completed with good presentation in absence of Team Leader along with half of actual timelines.</p>
+                        <p>{{profile.honors.name}}</p>
+                        <p>{{profile.honors.desc}}.</p>
                     </div>
                     <div class="details box-pro">
                         <h4 class="sub-head">Personal Details :</h4>
                         <p>
-                            <label>Experince :</label> 12 yrs</p>
+                            <label>Experince :</label> {{profile.experience}} yrs</p>
                         <p>
-                            <label>Country :</label> India</p>
+                            <label>Country :</label> {{profile.country}}</p>
                         <p>
-                            <label>City :</label> Mumbai</p>
+                            <label>City :</label> {{profile.city}}</p>
                         <p>
-                            <label>Age :</label> 35 yrs</p>
+                            <label>Age :</label> {{profile.age}} yrs</p>
                     </div>
                 </div>
                 <div class="pull-right submit-btn">
@@ -126,7 +123,7 @@
             </div>
             <div class="col-md-4">
                 <div class="box-book">
-                    <p class="price"><i class="fa fa-inr"></i> 20000/-</p>
+                    <p class="price"><i class="fa fa-inr"></i> {{profile.cost}}</p>
                     <div class="star">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -135,7 +132,7 @@
                         <i class="fa fa-star-o"></i>
                     </div>
                     <p class="consult">
-                        <label>No of Consult:</label>171</p>
+                        <label>No of Consult:</label>{{profile.consultcount}}</p>
                     <div class="pull-right submit-btn">
                         <button type="button" class="btn btn-default">Book</button>
                     </div>
@@ -149,20 +146,17 @@
                 <div class="pro-full">
                     <div class="amture box-pro">
                         <h3>Amature</h3>
-                        <p>Singer , Musician</p>
+                        <p>Singer,Musician</p>
                     </div>
-                    <div class="amture">
-                        <h4 class="sub-head">Singer</h4>
+                    <div class="amture" ng-repeat="job in amature.jobs">
+                        <h4 class="sub-head">{{job.name}}</h4>
                         <ul class="website-link">
-                            <li>
-                                <a href="https://www.youtube.com/watch?v=fA29WPCJVMY" target="_blank">https://www.youtube.com/watch?v=fA29WPCJVMY</a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/watch?v=fA29WPCJVMY" target="_blank"> https://www.youtube.com/watch?v=fA29WPCJVMY</a>
+                            <li ng-repeat="weblink in job.weblinks">
+                                <a href="https://www.youtube.com/watch?v=fA29WPCJVMY" target="_blank">{{weblink.link}}
                             </li>
                         </ul>
                         <p>
-                            <label for="">Follower:</label> 900
+                            <label for="">Follower:</label> {{amature.followercount}}
                         </p>
                     </div>
 
@@ -170,7 +164,7 @@
             </div>
             <div class="col-md-4">
                 <div class="box-book">
-                    <p class="price"><i class="fa fa-inr"></i> 500/-</p>
+                    <p class="price"><i class="fa fa-inr"></i> {{amature.cost}}/-</p>
                     <div class="star">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -179,7 +173,7 @@
                         <i class="fa fa-star-o"></i>
                     </div>
                     <p class="consult">
-                        <label>No of Consult:</label>15</p>
+                        <label>No of Consult:</label>{{amature.consultcount}}</p>
                     <div class="pull-right submit-btn">
                         <button type="button" class="btn btn-default">Book</button>
                     </div>

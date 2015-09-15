@@ -67,32 +67,32 @@
         <button type="button" class="btn btn-default">Send</button>
     </div>
     <div class="pad-btm">
-        <div class="holder-pro bg-white">
+        <div class="holder-pro bg-white" ng-repeat="pro in professional">
             <div class="row">
                 <div class="col-md-2">
                     <div class="img-holder">
-                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height">
+                        <img ng-src="{{pro.img}}" class="img-responsive img-height">
                         <img src="img/info/pro.png" class="pro-tab">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="box-name">
-                        <h3>Nishant Rathod</h3>
-                        <a href="">azzaroco</a>
+                        <h3>{{pro.name}}</h3>
+                        <a href="">{{pro.companylink}}</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="cont-decript">
                         <p>
-                            in <a href="#">JavaScript </a>/<a href="#"> Miscellaneous</a>
-                            <br> High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery
+                            in <a href="#">{{pro.tech}}</a>
+                            <br> {{pro.desc}}
                         </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="cont-price">
                         <p class="price">
-                            <i class="fa fa-inr"></i> 7000/-
+                            <i class="fa fa-inr"></i> {{pro.price}}
                         </p>
                         <div class="star">
                             <i class="fa fa-star"></i>
@@ -105,7 +105,7 @@
                             No of Consult
                         </p>
                         <p>
-                            490
+                            {{pro.consultcount}}
                         </p>
                     </div>
                 </div>
@@ -116,103 +116,6 @@
                 </div>
             </div>
         </div>
-        <div class="holder-pro bg-white">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="img-holder">
-                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height">
-                        <!--                    <img src="img/info/pro.png" class="pro-tab">-->
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box-name">
-                        <h3>Mahesh Mauraya</h3>
-                        <a href="">Wohlig</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cont-decript">
-                        <p>
-                            in <a href="#">HTML </a>/<a href="#"> Miscellaneous</a>
-                            <br> High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cont-price">
-                        <p class="price">
-                            <i class="fa fa-inr"></i> 2000/-
-                        </p>
-                        <div class="star">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>
-                            No of Consult
-                        </p>
-                        <p>
-                            490
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <label class="input-check">
-                        <input type="checkbox">
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="holder-pro bg-white">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="img-holder">
-                        <img ng-src="img/info/info1.jpg" class="img-responsive img-height">
-                        <img src="img/info/pro.png" class="pro-tab">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box-name">
-                        <h3>Amit Verma</h3>
-                        <a href="">azzaroco</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cont-decript">
-                        <p>
-                            in <a href="#">JavaScript </a>/<a href="#"> Miscellaneous</a>
-                            <br> High Resolution: Yes, Compatible Browsers: IE9, IE10, Firefox, Safari, Opera, Chrome, jQuery
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cont-price">
-                        <p class="price">
-                            <i class="fa fa-inr"></i> 1000/-
-                        </p>
-                        <div class="star">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>
-                            No of Consult
-                        </p>
-                        <p>
-                            490
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <label class="input-check">
-                        <input type="checkbox">
-                    </label>
-                </div>
-            </div>
-        </div>
+    </div>
     </div>
 </section>

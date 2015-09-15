@@ -28,6 +28,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
         controller: 'FeatureCtrl'
     })
 
+    
     .state('searchpro', {
         url: "/search-pro",
         templateUrl: "views/template.html",
@@ -62,6 +63,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
         url: "/account",
         templateUrl: "views/template.html",
         controller: 'AccountCtrl'
+    })
+     .state('qtsasked', {
+        url: "/qtsasked",
+        templateUrl: "views/template.html",
+        controller: 'QuestionsCtrl'
     })
 
     .state('setting', {
