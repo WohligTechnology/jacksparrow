@@ -27,9 +27,9 @@ var navigationservice = angular.module('navigationservice', [])
             classis: "active",
             subnav: []
     }, {
-            name: "Nishant Rathod Rs 17000/-",
+            name: "Nishant Rathod Rs 4000/-",
             active: "",
-            link: "#/booking",
+            link: "#/account",
             classis: "active",
             subnav: []
     }, {

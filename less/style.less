@@ -601,6 +601,10 @@ section.content-min {
     min-height: 600px;
 }
 
+.shwd {
+    box-shadow: 1px 3px 6px #ddd;
+}
+
 .full-tab {
     padding: 20px;
     margin-top: 25px;
@@ -970,6 +974,17 @@ input.form-control.text-large.margin-zero {
 
 .head-main {
     margin-top: 0px;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: #FFF;
+    opacity: 1;
+    margin-top: 10px;
+    &:focus {
+        border-color: #DDD;
+    }
 }
 
 @import "mobile.less";

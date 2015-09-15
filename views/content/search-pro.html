@@ -67,55 +67,57 @@
         <button type="button" class="btn btn-default">Send</button>
     </div>
     <div class="pad-btm">
-        <div class="holder-pro bg-white" ng-repeat="pro in professional">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="img-holder">
-                        <img ng-src="{{pro.img}}" class="img-responsive img-height">
-                        <img src="img/info/pro.png" class="pro-tab">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="box-name">
-                        <h3>{{pro.name}}</h3>
-                        <a href="">{{pro.companylink}}</a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cont-decript">
-                        <p>
-                            in <a href="#">{{pro.tech}}</a>
-                            <br> {{pro.desc}}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="cont-price">
-                        <p class="price">
-                            <i class="fa fa-inr"></i> {{pro.price}}
-                        </p>
-                        <div class="star">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
+        <a href="#/pro">
+            <div class="holder-pro bg-white" ng-repeat="pro in professional">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="img-holder">
+                            <img ng-src="{{pro.img}}" class="img-responsive img-height">
+                            <img src="img/info/pro.png" class="pro-tab">
                         </div>
-                        <p>
-                            No of Consult
-                        </p>
-                        <p>
-                            {{pro.consultcount}}
-                        </p>
                     </div>
-                </div>
-                <div class="col-md-1">
-                    <label class="input-check">
-                        <input type="checkbox">
-                    </label>
+                    <div class="col-md-3">
+                        <div class="box-name">
+                            <h3>{{pro.name}}</h3>
+                            <a href="">{{pro.companylink}}</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cont-decript">
+                            <p>
+                                in <a href="#">{{pro.tech}}</a>
+                                <br> {{pro.desc}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cont-price">
+                            <p class="price">
+                                <i class="fa fa-inr"></i> {{pro.price}}
+                            </p>
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <p>
+                                No of Consult
+                            </p>
+                            <p>
+                                {{pro.consultcount}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="input-check">
+                            <input type="checkbox">
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     </div>
 </section>

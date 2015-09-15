@@ -79,7 +79,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
     $urlRouterProvider.otherwise("/home");
 });
 
-
 firstapp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
