@@ -128,7 +128,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             active: false,
             class: ""
         }, {
-            name: "Amature",
+            name: "Amateur",
             active: false,
             class: ""
         }]
@@ -335,7 +335,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }, {
             name: "Mahesh Maurya",
-            expertice: "Amature",
+            expertice: "Amatuer",
             buttons: {
                 yes: false,
                 no: true,
@@ -352,7 +352,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
         $scope.askedyou = [{
             name: "Mahesh Maurya",
-            questiontag: "Amature(Music)",
+            questiontag: "Music(Amateur)",
             question: "Do you know about cords in a guitar?"
     }, {
             name: "Aman Chhetri",
