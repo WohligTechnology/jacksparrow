@@ -52,6 +52,12 @@ nav li:hover .dropdown-menu {
     background: @color-white;
 }
 
+a.btn.btn-default {
+    background-color: @btn-primary-color;
+    color: @color-white;
+    border-color: @btn-primary-color;
+}
+
 .flexslider {
     margin: 0px;
     border: 0px;
@@ -432,6 +438,11 @@ footer.footer-menu {
     }
 }
 
+.active a {
+    border-color: @btn-primary-color;
+    background-color: @btn-primary-color;
+}
+
 .submit-btn {
     padding: 15px 0;
     text-align: right;
@@ -447,10 +458,13 @@ footer.footer-menu {
         &:focus {
             outline: 0px;
         }
-        &:active:hover {
-            border-color: @btn-primary-color;
-            background-color: @btn-primary-color;
-            color: @color-white;
+        &:hover {
+            background-color: darken(@btn-primary-color, 20%) !important;
+            border-color: darken(@btn-primary-color, 20%) !important;
+        }
+        &.active:focus {
+            background-color: darken(@btn-primary-color, 20%) !important;
+            border-color: darken(@btn-primary-color, 20%) !important;
         }
     }
 }
@@ -684,11 +698,19 @@ section.content-min {
 .btn-grp {
     text-align: center;
     .btn {
-        background-color: #93B1C6;
-        border-color: #93B1C6;
+        background-color: @btn-primary-color;
+        border-color: @btn-primary-color;
         border-radius: 0px;
         padding: 10px 50px;
         text-transform: uppercase;
+        &:hover {
+            background-color: darken(@btn-primary-color, 20%) !important;
+            border-color: darken(@btn-primary-color, 20%) !important;
+        }
+        &.active:focus {
+            background-color: draken(@btn-primary-color, 20%) !important;
+            border-color: darken(@btn-primary-color, 20%) !important;
+        }
     }
 }
 
@@ -902,8 +924,9 @@ textarea {
         }
         a.btnsoc {
             border-radius: 0px;
+            padding: 6px 0px;
             color: #fff;
-            padding: 6px 20px;
+            //            padding: 6px 20px;
             width: 110px;
             text-transform: uppercase;
             &.gplus {
@@ -935,6 +958,18 @@ textarea {
 .made-cont p {
     margin: 0;
     text-transform: capitalize;
+}
+
+input.form-control.text-large.margin-zero {
+    margin-bottom: 0;
+}
+
+.padding-btm-zero {
+    padding-bottom: 0px!important;
+}
+
+.head-main {
+    margin-top: 0px;
 }
 
 @import "mobile.less";
