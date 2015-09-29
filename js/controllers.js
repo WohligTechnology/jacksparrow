@@ -72,21 +72,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	}
 })
 
-.controller('HistoryCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('BookingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
 	//Used to name the .html file
-	$scope.template = TemplateService.changecontent("history");
-	$scope.menutitle = NavigationService.makeactive("History");
+	$scope.template = TemplateService.changecontent("booking");
+	$scope.menutitle = NavigationService.makeactive("Booking");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
 	$scope.history = [{
-			name: "Aman Chhetri",
+			name: "Rohan Chedha",
+			username: "Rakesh Joshi",
+			img: "img/info/info4.jpg",
 			designation: "Web developer",
 			date: "13/06/1970",
 			cost: "5000/-"
         },
 		{
 			name: "Mahesh Maurya",
+			img: "img/info/info3.jpg",
+			username: "Mahesh Joshi",
+			designation: "Electrician",
+			date: "13/06/1970",
+			cost: "5000/-"
+        }];
+
+	$scope.history1 = [{
+			name: "Aman Chhetri",
+			img: "img/info/info1.jpg",
+			username: "Rakesh Joshi",
+			designation: "Architect",
+			date: "13/06/1970",
+			cost: "5000/-"
+        },
+		{
+			name: "Jagruti Patil",
+			img: "img/info/info2.jpg",
 			designation: "Web developer",
+			username: "Mahesh Joshi",
 			date: "13/06/1970",
 			cost: "5000/-"
         }];
@@ -112,6 +133,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		TemplateService.title = $scope.menutitle;
 		$scope.navigation = NavigationService.getnav();
 	})
+	.controller('WithdrawalCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+		//Used to name the .html file
+		$scope.template = TemplateService.changecontent("withdrawal");
+		$scope.menutitle = NavigationService.makeactive("Withdrawal");
+		TemplateService.title = $scope.menutitle;
+		$scope.navigation = NavigationService.getnav();
+	})
 	.controller('SettingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
 		//Used to name the .html file
 		$scope.template = TemplateService.changecontent("setting");
@@ -128,7 +156,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			active: false,
 			class: ""
         }, {
-			name: "Amateur",
+			name: "Amateur (Musician)",
 			active: false,
 			class: ""
         }]
@@ -166,8 +194,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			consultcount: '256',
         },
 		{
-			img: 'img/info/info1.jpg',
-			name: 'Amar Chhetri',
+			img: 'img/info/info2.jpg',
+			name: 'Rani Chhetri',
 			companylink: 'jdktrml',
 			tech: 'Javascript/miscellaneous',
 			desc: 'High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery',
@@ -175,7 +203,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			consultcount: '300',
                     },
 		{
-			img: 'img/info/info1.jpg',
+			img: 'img/info/info3.jpg',
 			name: 'Aman Verma',
 			companylink: 'jdktrml',
 			tech: 'Javascript/miscellaneous',
@@ -184,7 +212,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			consultcount: '210',
                     },
 		{
-			img: 'img/info/info1.jpg',
+			img: 'img/info/info4.jpg',
 			name: 'Aman Sharma',
 			companylink: 'jdktrml',
 			tech: 'Javascript/miscellaneous',
@@ -328,6 +356,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		$scope.youasked = [{
 			name: "Aman Chhetri",
 			expertice: "Professional",
+			img: "img/info/info1.jpg",
 			buttons: {
 				yes: true,
 				no: false,
@@ -336,14 +365,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
 			name: "Mahesh Maurya",
 			expertice: "Amatuer",
+			img: "img/info/info3.jpg",
 			buttons: {
 				yes: false,
 				no: true,
 				waiting: false
 			}
         }, {
-			name: "Amit Verma",
+			name: "Rani Verma",
 			expertice: "Professional",
+			img: "img/info/info2.jpg",
 			buttons: {
 				yes: false,
 				no: false,
@@ -352,10 +383,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 		$scope.askedyou = [{
 			name: "Mahesh Maurya",
+			img: "img/info/info1.jpg",
 			questiontag: "Music(Amateur)",
 			question: "Do you know about cords in a guitar?"
     }, {
 			name: "Aman Chhetri",
+			img: "img/info/info3.jpg",
 			questiontag: "Web Developer(Pro)",
 			question: "Do you know how to translate css?"
     }];

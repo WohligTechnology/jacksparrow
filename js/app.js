@@ -8,93 +8,100 @@ var firstapp = angular.module('firstapp', [
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $httpProvider) {
 
-    // for http request with session
-    $httpProvider.defaults.withCredentials = true;
+	// for http request with session
+	$httpProvider.defaults.withCredentials = true;
 
-    //Turn the spinner on or off
-    cfpLoadingBarProvider.includeSpinner = false;
+	//Turn the spinner on or off
+	cfpLoadingBarProvider.includeSpinner = false;
 
-    $stateProvider
+	$stateProvider
 
-        .state('home', {
-        url: "/home",
-        templateUrl: "views/template.html",
-        controller: 'HomeCtrl'
-    })
+		.state('home', {
+		url: "/home",
+		templateUrl: "views/template.html",
+		controller: 'HomeCtrl'
+	})
 
-    .state('feature', {
-        url: "/feature",
-        templateUrl: "views/template.html",
-        controller: 'FeatureCtrl'
-    })
+	.state('feature', {
+		url: "/feature",
+		templateUrl: "views/template.html",
+		controller: 'FeatureCtrl'
+	})
 
-    
-    .state('searchpro', {
-        url: "/search-pro",
-        templateUrl: "views/template.html",
-        controller: 'SearchProCtrl'
-    })
 
-    .state('infinite', {
-        url: "/infinite",
-        templateUrl: "views/template.html",
-        controller: 'InfiniteCtrl'
-    })
+	.state('searchpro', {
+		url: "/search-pro",
+		templateUrl: "views/template.html",
+		controller: 'SearchProCtrl'
+	})
 
-    .state('pro', {
-        url: "/pro",
-        templateUrl: "views/template.html",
-        controller: 'ProCtrl'
-    })
+	.state('infinite', {
+		url: "/infinite",
+		templateUrl: "views/template.html",
+		controller: 'InfiniteCtrl'
+	})
 
-    .state('history', {
-        url: "/history",
-        templateUrl: "views/template.html",
-        controller: 'HistoryCtrl'
-    })
+	.state('pro', {
+		url: "/pro",
+		templateUrl: "views/template.html",
+		controller: 'ProCtrl'
+	})
 
-    .state('checkout', {
-        url: "/checkout",
-        templateUrl: "views/template.html",
-        controller: 'CheckoutCtrl'
-    })
+	.state('booking', {
+		url: "/booking",
+		templateUrl: "views/template.html",
+		controller: 'BookingCtrl'
+	})
 
-    .state('account', {
-        url: "/account",
-        templateUrl: "views/template.html",
-        controller: 'AccountCtrl'
-    })
-     .state('qtsasked', {
-        url: "/qtsasked",
-        templateUrl: "views/template.html",
-        controller: 'QuestionsCtrl'
-    })
+	.state('checkout', {
+		url: "/checkout",
+		templateUrl: "views/template.html",
+		controller: 'CheckoutCtrl'
+	})
 
-    .state('setting', {
-        url: "/setting",
-        templateUrl: "views/template.html",
-        controller: 'SettingCtrl'
-    })
+	.state('account', {
+		url: "/account",
+		templateUrl: "views/template.html",
+		controller: 'AccountCtrl'
+	})
 
-    $urlRouterProvider.otherwise("/home");
+	.state('qtsasked', {
+		url: "/qtsasked",
+		templateUrl: "views/template.html",
+		controller: 'QuestionsCtrl'
+	})
+
+	.state('withdrawal', {
+		url: "/withdrawal",
+		templateUrl: "views/template.html",
+		controller: 'WithdrawalCtrl'
+	})
+
+	.state('setting', {
+		url: "/setting",
+		templateUrl: "views/template.html",
+		controller: 'SettingCtrl'
+	})
+
+	$urlRouterProvider.otherwise("/home");
 });
 
 firstapp.directive('img', function ($compile, $parse) {
-    return {
-        restrict: 'E',
-        replace: false,
-        link: function ($scope, element, attrs) {
-            var $element = $(element);
-            if (!attrs.noloading) {
-                $element.after("<img src='img/loading.gif' class='loading' />");
-                var $loading = $element.next(".loading");
-                $element.load(function () {
-                    $loading.remove();
-                    $(this).addClass("doneLoading");
-                });
-            } else {
-                $($element).addClass("doneLoading");
-            }
-        }
-    };
+	return {
+		restrict: 'E',
+		replace: false,
+		link: function ($scope, element, attrs) {
+			var $element = $(element);
+			if (!attrs.noloading) {
+				$element.after("<img src='img/loading.gif' class='loading' />");
+				var $loading = $element.next(".loading");
+				$element.load(function () {
+					$loading.remove();
+					$(this).addClass("doneLoading");
+				});
+			} else {
+				$($element).addClass("doneLoading");
+			}
+		}
+	};
 });
