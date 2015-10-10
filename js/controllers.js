@@ -1,6 +1,6 @@
 var tabvalue = '1';
 
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider', 'mwl.calendar'])
 
 .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
 	//Used to name the .html file
@@ -14,6 +14,103 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           'img/slider/slider1.jpg',
          'img/slider/slider2.jpg'
     ];
+})
+
+.controller('CalendarCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $modal,ngDialog) {
+	//Used to name the .html file
+	$scope.template = TemplateService.changecontent("calendar");
+	$scope.menutitle = NavigationService.makeactive("Calendar");
+	TemplateService.title = $scope.menutitle;
+	$scope.navigation = NavigationService.getnav();
+
+	$scope.vm = this;
+	//These variables MUST be set as a minimum for the calendar to work
+	$scope.vm.calendarView = 'month';
+	$scope.vm.calendarDay = new Date();
+	$scope.vm.events = [
+		{
+			title: 'An event',
+			type: 'warning',
+			startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
+			endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+			draggable: true,
+			resizable: true
+      }, {
+			title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
+			type: 'info',
+			startsAt: moment().subtract(1, 'day').toDate(),
+			endsAt: moment().add(5, 'days').toDate(),
+			draggable: true,
+			resizable: true
+      }, {
+			title: 'This is a really long event title that occurs on every year',
+			type: 'important',
+			startsAt: moment().startOf('day').add(7, 'hours').toDate(),
+			endsAt: moment().startOf('day').add(19, 'hours').toDate(),
+			recursOn: 'year',
+			draggable: true,
+			resizable: true
+      }
+    ];
+
+	/*
+	 var currentYear = moment().year();
+	 var currentMonth = moment().month();
+
+	function random(min, max) {
+	  return Math.floor((Math.random() * max) + min);
+	}
+
+	for (var i = 0; i < 1000; i++) {
+	  var start = new Date(currentYear,random(0, 11),random(1, 28),random(0, 24),random(0, 59));
+	 vm.events.push({
+	    title: 'Event ' + i,
+	    type: 'warning',
+	    startsAt: start,
+	    endsAt: moment(start).add(2, 'hours').toDate()
+	  })
+	}*/
+
+	function showModal(action, event) {
+//				$modal.open({
+//					templateUrl: 'views/content/modal-login.html',
+//					controller: function () {
+//						$scope.vm = this;
+//						$scope.vm.action = action;
+//						$scope.vm.event = event;
+//					},
+//					controllerAs: 'CalendarCtrl'
+//				});
+		ngDialog.open({
+			scope: $scope,
+			template: 'views/content/modal-login.html'
+		});
+	}
+
+	$scope.eventClicked = function (event) {
+		console.log("sjnkjndv0");
+		showModal('Clicked', event);
+	};
+
+	$scope.eventEdited = function (event) {
+		showModal('Edited', event);
+	};
+
+	$scope.eventDeleted = function (event) {
+		showModal('Deleted', event);
+	};
+
+	$scope.eventTimesChanged = function (event) {
+		showModal('Dropped or resized', event);
+	};
+
+	$scope.toggle = function ($event, field, event) {
+		$event.preventDefault();
+		$event.stopPropagation();
+		event[field] = !event[field];
+	};
+
+
 })
 
 .controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
@@ -159,6 +256,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			name: "Amateur (Musician)",
 			active: false,
 			class: ""
+        }, {
+			name: "Calendar",
+			active: false,
+			class: ""
         }]
 
 		$scope.changetab = function (name) {
@@ -173,6 +274,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 				}
 			})
 		}
+		$scope.uiConfig = {
+			calendar: {
+				height: 450,
+				editable: true,
+				header: {
+					left: 'month basicWeek basicDay agendaWeek agendaDay',
+					center: 'title',
+					right: 'today prev,next'
+				},
+				dayClick: $scope.alertEventOnClick,
+				eventDrop: $scope.alertOnDrop,
+				eventResize: $scope.alertOnResize
+			}
+		};
 
 	})
 
@@ -183,9 +298,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.menutitle = NavigationService.makeactive("Search");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
-
+	//	$scope.reload = function () {
+	//		cfpLoadingBar.start();
 	$scope.professional = [{
 			img: 'img/info/info1.jpg',
+			bandimg: 'img/info/pro.png',
 			name: 'Nishant Rathod',
 			companylink: 'azzaroco',
 			tech: 'Javascript/miscellaneous',
@@ -195,6 +312,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         },
 		{
 			img: 'img/info/info2.jpg',
+			bandimg: 'img/info/pro.png',
 			name: 'Rani Chhetri',
 			companylink: 'jdktrml',
 			tech: 'Javascript/miscellaneous',
@@ -204,22 +322,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     },
 		{
 			img: 'img/info/info3.jpg',
+			bandimg: 'img/info/pro.png',
 			name: 'Aman Verma',
 			companylink: 'jdktrml',
 			tech: 'Javascript/miscellaneous',
 			desc: 'High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery',
 			price: '4000',
 			consultcount: '210',
-                    },
-		{
-			img: 'img/info/info4.jpg',
-			name: 'Aman Sharma',
-			companylink: 'jdktrml',
-			tech: 'Javascript/miscellaneous',
-			desc: 'High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery',
-			price: '4000',
-			consultcount: '100',
-            }];
+                    }];
+	//		cfpLoadingBar.complete();
+	//	}
 })
 
 .controller('FeatureCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, toaster, ngDialog, valdr) {

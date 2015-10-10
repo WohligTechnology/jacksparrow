@@ -1,0 +1,23 @@
+<!--
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Angular Bootstrap Calendar</a>
+		</div>
+		<ul class="nav navbar-nav hidden-xs">
+			<li><a href="#demo">Demo</a></li>
+			<li><a href="#event-editor">Event editor</a></li>
+			<li><a href="https://github.com/mattlewis92/angular-bootstrap-calendar#installation">Installation</a></li>
+			<li><a href="https://github.com/mattlewis92/angular-bootstrap-calendar#documentation">Documentation</a></li>
+		</ul>
+	</div>
+</nav>
+-->
+
+<div class="container">
+	<div class="calendar">
+		<h4 class="head">March 2013</h4>
+		<mwl-calendar view="vm.calendarView" current-day="vm.calendarDay" events="vm.events" view-title="calendarTitle" on-event-click="eventClicked(calendarEvent)" on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd" edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'" delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'" on-edit-event-click="eventEdited(calendarEvent)" on-delete-event-click="eventDeleted(calendarEvent)" auto-open="true">
+		</mwl-calendar>
+	</div>
+</div>

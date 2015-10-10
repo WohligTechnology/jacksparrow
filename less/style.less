@@ -1,4 +1,5 @@
 @import "variable.less";
+@import "../css/loader.css";
 @import "../bower_components/lesshat/build/lesshat.less";
 @import "../bower_components/bootstrap/dist/css/bootstrap.min.css";
 @import "../bower_components/angular-loading-bar/build/loading-bar.min.css";
@@ -9,6 +10,7 @@
 @import "../bower_components/ngDialog/css/ngDialog.min.css";
 @import "../bower_components/fontawesome/css/font-awesome.min.css";
 @import "../bower_components/ui-select/dist/select.min.css";
+@import "../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css";
 body {
 	padding-top: 70px;
 	font-family: 'Lato', sans-serif!important;
@@ -56,6 +58,18 @@ a.btn.btn-default {
 	background-color: @btn-primary-color;
 	color: @color-white;
 	border-color: @btn-primary-color;
+}
+
+.loading h1 {
+	top: 50%;
+	left: 50%;
+	position: absolute
+}
+
+.loading h1 {
+	font-weight: 300;
+	font-family: Merge;
+	font-size: 20px
 }
 
 .flexslider {
@@ -334,8 +348,12 @@ footer.footer-menu {
 	}
 }
 
+.margin-top {
+	margin-top: 30px;
+}
+
 .bar-head {
-	margin: 30px 0 0px 0;
+	//	margin: 30px 0 0px 0;
 	padding: 20px 15px 20px 0px;
 	border: 1px solid @color-border;
 	.box-shadow(0px 3px 5px #ddd);
@@ -622,7 +640,7 @@ section.content-min {
 
 .full-tab {
 	padding: 20px;
-	margin-top: 25px;
+	//	margin-top: 25px;
 	.grp-tabs {
 		ul {
 			padding: 0px;
@@ -969,7 +987,6 @@ textarea {
 			border-radius: 0px;
 			padding: 6px 0px;
 			color: #fff;
-			//            padding: 6px 20px;
 			width: 110px;
 			text-transform: uppercase;
 			&.gplus {
@@ -979,7 +996,7 @@ textarea {
 				background: #2F4675;
 			}
 			&.twit {
-				background: #3C89E2;
+				background: #0077B5;
 			}
 			i {
 				margin-right: 5px;
@@ -1115,6 +1132,10 @@ tags-input {
 	.padding {
 		padding: 12px 0;
 	}
+}
+
+.calendar {
+	margin: 30px 0;
 }
 
 @import "mobile.less";
