@@ -26,6 +26,16 @@ h6 {
 	font-family: 'Lato', sans-serif;
 }
 
+.btn, a {
+	.transition(all 300ms ease);
+	border-radius: 0;
+	border: none;
+}
+
+.btn-primary {
+	background-color: @primary;
+}
+
 img.loading {
 	text-align: center;
 	opacity: 1;
@@ -35,7 +45,7 @@ img.loading {
 
 img {
 	opacity: 0;
-	.transition(all 1s ease);
+	.transition(all 300ms ease);
 }
 
 img.doneLoading {
@@ -55,9 +65,9 @@ nav li:hover .dropdown-menu {
 }
 
 a.btn.btn-default {
-	background-color: @btn-primary-color;
+	background-color: @primary;
 	color: @color-white;
-	border-color: @btn-primary-color;
+	border-color: @primary;
 }
 
 .loading h1 {
@@ -83,17 +93,13 @@ a.btn.btn-default {
 			right: 0px !important;
 		}
 		a {
-			opacity: 0.5 !important;
-			padding: 26px 0px;
-			height: 100px;
+			opacity: 1 !important;
+			padding: 0;
+    		height: 38px;
 			text-align: center !important;
 			width: 40px;
-			margin: -55px 0 0;
-			//            background-color: rgba(255, 255, 255, 0.25);
+			margin: 0;
 			.transition(all 1s ease);
-			&:hover {
-				opacity: 1 !important;
-			}
 		}
 	}
 	.carousel li {
@@ -104,7 +110,7 @@ a.btn.btn-default {
 .navbar {
 	margin-bottom: 0;
 	padding: 7px 0;
-	.box-shadow( 0px 2px 8px rgba(0, 0, 0, 0.35));
+	//.box-shadow( 0px 2px 8px rgba(0, 0, 0, 0.35));
 	background: @color-base;
 	border-color: @color-base;
 	.container {
@@ -113,19 +119,23 @@ a.btn.btn-default {
 		}
 		.navbar-brand {
 			padding: 15px;
-			font-size: 36px;
+			font-size: 24px;
+			font-weight: bold;
 			color: @color-logo;
 		}
 		ul.nav.navbar-nav.navbar-right {
 			margin-top: 7px;
 			li {
 				a {
-					background-color: @btn-primary-color;
-					border-color: @btn-primary-color;
+					background-color: transparent;
+					border-color: transparent;
 					color: @color-white;
 					margin-right: 15px;
 					padding: 6px 20px;
 					text-transform: uppercase;
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.1);
+					}
 				}
 			}
 		}
@@ -149,15 +159,22 @@ a.btn.btn-default {
 	height: auto;
 	overflow: hidden;
 	position: relative;
-	figcaption {
+	.tag-line {
+		>span {
+			margin: 0 auto;
+		}
 		position: absolute;
-		bottom: 50px;
-		background-color: rgba(147, 177, 198, 0.7);
-		padding: 14px 30px;
-		text-transform: uppercase;
-		right: 0;
-		font-weight: 600;
-		font-size: 16px;
+		top: 0;
+		color: white;
+		left: 0;
+		font-weight: 400;
+		font-size: 35px;
+		height: 100%;
+	    width: 100%;
+	    display: flex;
+	    align-items: center;
+	    text-align: center;
+	    background-color: rgba(37, 43, 47, 0.45);
 	}
 }
 
@@ -206,18 +223,10 @@ input[type=checkbox]:focus {
 	background-attachment: fixed;
 	//    margin: 5px 0;
 	.head-home {
-		padding: 30px 0;
+		padding: 20px 0 10px;
 		h1 {
-			font-size: 60px;
-		}
-		h2 {
-			font-size: 40px;
-		}
-		h1,
-		h2 {
-			color: @color-white;
-			font-weight: 100;
-			text-transform: uppercase;
+			font-size: 35px;
+			color: white;
 		}
 	}
 	.form-control {
@@ -225,13 +234,13 @@ input[type=checkbox]:focus {
 		border-radius: 0px;
 	}
 	.or {
-		font-size: 20px;
-		padding-bottom: 20px;
+		font-size: 24px;
+		padding-bottom: 0px;
 		color: @color-white;
-		font-weight: 300;
+		font-weight: 400;
 	}
 	.btn {
-		padding: 9px 12px;
+		padding: 10px 12px;
 		border-radius: 0px;
 	}
 	.btn.btn-info.btn-block {
@@ -308,7 +317,7 @@ footer {
 
 footer.footer-menu {
 	.footer-border {
-		border-bottom: 1px solid #C5C5C5;
+		border-bottom: 1px solid white;
 		padding: 25px 0px;
 	}
 	.icons {
@@ -353,16 +362,12 @@ footer.footer-menu {
 }
 
 .bar-head {
-	//	margin: 30px 0 0px 0;
 	padding: 20px 15px 20px 0px;
 	border: 1px solid @color-border;
-	.box-shadow(0px 3px 5px #ddd);
+	border-bottom-width: 2px;
 	label {
 		margin-top: 6px;
 	}
-	//        .col-md-3 +.col-md-3 {
-	//            border-left: 1px solid #ddd;
-	//        }
 	.form-group {
 		margin-bottom: 0px;
 		position: relative;
@@ -388,7 +393,7 @@ footer.footer-menu {
 		}
 		select {
 			border-radius: 0px;
-			background-color: @btn-primary-color;
+			background-color: @primary;
 			color: @color-white;
 			.appearance( none);
 			&:focus {
@@ -432,12 +437,14 @@ footer.footer-menu {
 	cursor: pointer;
 	margin-bottom: 5px;
 	border: 1px solid #F7F6F4;
+	border: 1px solid white;
+	border-bottom-width: 2px;
 	.transition(all 1s ease);
 	&:hover {
-		box-shadow: 0px 4px 8px 8px #ddd;
+		border-color: @primary;
 	}
 	a {
-		color: @color-ancor;
+		color: @color-anchor;
 		&:hover {
 			text-decoration: none;
 		}
@@ -469,8 +476,8 @@ footer.footer-menu {
 }
 
 .active a {
-	border-color: @btn-primary-color;
-	background-color: @btn-primary-color;
+	border-color: @primary;
+	background-color: @primary;
 }
 
 .submit-btn {
@@ -478,8 +485,8 @@ footer.footer-menu {
 	text-align: right;
 	.btn {
 		border-radius: 0px;
-		border-color: @btn-primary-color;
-		background-color: @btn-primary-color;
+		border-color: @primary;
+		background-color: @primary;
 		color: @color-white;
 		font-size: 16px;
 		text-transform: capitalize;
@@ -489,12 +496,12 @@ footer.footer-menu {
 			outline: 0px;
 		}
 		&:hover {
-			background-color: darken(@btn-primary-color, 20%) !important;
-			border-color: darken(@btn-primary-color, 20%) !important;
+			background-color: darken(@primary, 20%) !important;
+			border-color: darken(@primary, 20%) !important;
 		}
 		&:active:focus {
-			background-color: darken(@btn-primary-color, 20%) !important;
-			border-color: darken(@btn-primary-color, 20%) !important;
+			background-color: darken(@primary, 20%) !important;
+			border-color: darken(@primary, 20%) !important;
 			color: #fff;
 		}
 	}
@@ -652,8 +659,8 @@ section.content-min {
 				margin-right: 5px;
 				text-align: center;
 				padding: 8px 20px;
-				border: 1px solid @btn-primary-color;
-				color: @btn-primary-color;
+				border: 1px solid @primary;
+				color: @primary;
 				border-bottom: 0px;
 				cursor: pointer;
 				background: @color-white;
@@ -661,13 +668,13 @@ section.content-min {
 			}
 		}
 		li.active {
-			background-color: @btn-primary-color;
+			background-color: @primary;
 			color: @color-white;
 		}
 	}
 	.tab-cont-main {
 		padding: 0 20px;
-		border: 1px solid @btn-primary-color;
+		border: 1px solid @primary;
 		box-shadow: 0 3px 5px #ddd;
 		background: @color-white;
 		.tab-cont + .tab-cont {
@@ -735,18 +742,18 @@ section.content-min {
 .btn-grp {
 	text-align: center;
 	.btn {
-		background-color: @btn-primary-color;
-		border-color: @btn-primary-color;
+		background-color: @primary;
+		border-color: @primary;
 		border-radius: 0px;
 		padding: 10px 50px;
 		text-transform: uppercase;
 		&:hover {
-			background-color: darken(@btn-primary-color, 20%) !important;
-			border-color: darken(@btn-primary-color, 20%) !important;
+			background-color: darken(@primary, 20%) !important;
+			border-color: darken(@primary, 20%) !important;
 		}
 		&.active:focus {
-			background-color: draken(@btn-primary-color, 20%) !important;
-			border-color: darken(@btn-primary-color, 20%) !important;
+			background-color: draken(@primary, 20%) !important;
+			border-color: darken(@primary, 20%) !important;
 		}
 	}
 }
@@ -969,8 +976,8 @@ textarea {
 	}
 	button.btn.btn-sucess {
 		color: #fff;
-		background-color: @btn-primary-color;
-		border-color: @btn-primary-color;
+		background-color: @primary;
+		border-color: @primary;
 		border-radius: 0px;
 		text-transform: uppercase;
 		margin-right: 15px;
@@ -1007,7 +1014,7 @@ textarea {
 		}
 	}
 	.border1 a {
-		color: #93B1C6;
+		color: @color-anchor;
 		&:hover {
 			color: draken(#93B1C6, 10%);
 			text-decoration: none;
@@ -1136,6 +1143,46 @@ tags-input {
 
 .calendar {
 	margin: 30px 0;
+}
+.ngdialog-overlay {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.flex-direction-nav a {
+	&:before, &:after {
+	    color: white;
+	    text-shadow: none;
+	    font-size: 30px;
+    }
+}
+.text-upper {
+	text-transform: uppercase;
+}
+.more-padding {
+	padding: 10px 25px;
+	margin-top: 20px;
+}
+
+.ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  .ribbon {
+    .rotate(-45deg);
+    font: normal 10px sans-serif;
+    color: #333;
+    text-align: center;
+    position: relative;
+    padding: 2px 0;
+    top: 14px;
+    left: -39px;
+    width: 120px;
+    background-color: #E03E3E;
+    color: #fff;
+  }
 }
 
 @import "mobile.less";
