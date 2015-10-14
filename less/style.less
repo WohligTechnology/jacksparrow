@@ -52,6 +52,10 @@ img.doneLoading {
 	opacity: 1;
 }
 
+.content {
+	min-height: 400px;
+}
+
 .bg-light {
 	background: @color-white;
 }
@@ -438,7 +442,6 @@ footer.footer-menu {
 	margin-bottom: 5px;
 	border: 1px solid #F7F6F4;
 	border: 1px solid white;
-	border-bottom-width: 2px;
 	.transition(all 1s ease);
 	&:hover {
 		border-color: @primary;
@@ -645,9 +648,12 @@ section.content-min {
 	box-shadow: 1px 3px 6px #ddd;
 }
 
+.head {
+		margin: 10px 0 20px;
+	}
+
 .full-tab {
-	padding: 20px;
-	//	margin-top: 25px;
+	padding: 20px 0;
 	.grp-tabs {
 		ul {
 			padding: 0px;
@@ -659,23 +665,24 @@ section.content-min {
 				margin-right: 5px;
 				text-align: center;
 				padding: 8px 20px;
-				border: 1px solid @primary;
-				color: @primary;
+				border: 1px solid @color-border;
+				color: white;
 				border-bottom: 0px;
 				cursor: pointer;
-				background: @color-white;
 				text-transform: uppercase;
+				margin-bottom: -1px;
+				background-color: @color-border;
+				.transition(all 300ms ease);
 			}
 		}
 		li.active {
-			background-color: @primary;
-			color: @color-white;
+			color: @color-black;
+			background-color: white;
 		}
 	}
 	.tab-cont-main {
 		padding: 0 20px;
-		border: 1px solid @primary;
-		box-shadow: 0 3px 5px #ddd;
+		border: 1px solid @color-border;
 		background: @color-white;
 		.tab-cont + .tab-cont {
 			border-top: 1px solid #ddd;
@@ -855,7 +862,7 @@ h4.head {
 		margin-bottom: 20px;
 	}
 	.photo-holder {
-		border: 1px solid #999;
+		border: 1px solid @color-border;
 		width: 170px;
 		height: 170px;
 		text-align: center;
