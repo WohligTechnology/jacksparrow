@@ -348,6 +348,11 @@ footer.footer-menu {
             text-align: center;
             padding-top: 5px;
             margin-right: 5px;
+            &:hover {
+                background-color: #314a5c;
+                color: @color-white;
+                .transition(all 500ms ease-in-out);
+            }
         }
     }
     h5 {
@@ -496,7 +501,7 @@ footer.footer-menu {
 .action-button {
     .btn {
         display: block;
-        margin: 0 ;
+        margin: 0;
         border-radius: 0px;
         border-color: #54809f;
         background-color: #54809f;
@@ -506,14 +511,14 @@ footer.footer-menu {
         font-weight: 300;
         padding: 5px 12px;
         &:hover {
-            background-color: #314a5c; 
+            background-color: #314a5c;
         }
     }
     .mgbot {
         padding: 5px 15px;
         margin-bottom: 10px;
     }
-} 
+}
 
 .active a {
     border-color: @primary;
@@ -690,7 +695,7 @@ section.content-min {
 }
 
 .full-tab {
-    padding: 20px 0;
+    padding: 20px;
     .grp-tabs {
         ul {
             padding: 0px;
@@ -817,6 +822,10 @@ section.content-min {
             font-weight: 600;
         }
     }
+}
+
+.nomrg {
+    margin-bottom: 0;
 }
 
 .sorby {

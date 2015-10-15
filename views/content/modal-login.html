@@ -1,150 +1,145 @@
 <section class="popup-all" ng-controller="headerctrl">
-	<div class="popup-dialogbox">
-		<!--       login   -->
-		<div class="holder1" ng-if="logintab.tab=='1'">
-			<h3 class="createtitle">Login</h3>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="signin">
-						<div class="signinor">
-							<form class="form-horizontal" ng-submit="userlogin();">
-								<div class="form-group">
-									<div class="col-sm-12">
-										<input type="email" class="form-control" placeholder="Enter your email *" required="" ng-model="login.email">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-12">
-										<input type="password" class="form-control" placeholder="Password *" required="" ng-model="login.password">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-12">
-										<div class="grpbtn">
-											<button type="submit" class="btn btn-sucess">Login</button> <span>-Or-</span>
-											<a class="btn btnsoc gplus"> <i class="fa fa-google-plus"></i> Google+
-											</a>
-											<a class="btn btnsoc fbook"> <i class="fa fa-facebook"></i> Facebook </a>
-											<a class="btn btnsoc twit"> <i class="fa fa-linkedin"></i> Linkedin </a>
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-5">
-
-				</div>
-			</div>
-			<div class="border1">
-				<p class="abc"> <a href="#" class="forgetlink" ng-click="changeTab(3)"> Forgot your password? </a><span class="already">Don't have an account ? Click <a class="forgetlink" ng-class="loginholder" ng-click="changeTab(2)">here</a> to  create one </span>
-				</p>
-			</div>
-		</div>
-		<!--       Registration   -->
-
-		<div class="holder1" ng-if="logintab.tab=='2'">
-			<div class="ngdialog-close close"></div>
-			<h3 class="createtitle">Registration</h3>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="signin">
-						<div class="signinor">
-							<form class="form-horizontal" ng-submit="registeruser();">
-								<div class="form-group">
-									<div class="col-sm-12">
-										<input type="email" class="form-control" placeholder="Enter your email *" required="" ng-model="register.email">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-12">
-										<input type="text" class="form-control" placeholder="Enter your Name *" required="" ng-model="register.name">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-12">
-										<input type="password" class="form-control" placeholder="Password *" required="" ng-model="register.password">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-12">
-										<input type="password" class="form-control" placeholder="Confirm Password *" required="" ng-model="register.confirmpassword">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-12">
-										<div class="grpbtn">
-											<button type="submit" class="btn btn-sucess">SignUp</button> <span>-Or-</span>
-											<a class="btn btnsoc gplus"> <i class="fa fa-google-plus"></i> Google+
-											</a>
-											<a class="btn btnsoc fbook"> <i class="fa fa-facebook"></i> Facebook </a>
-											<a class="btn btnsoc twit"> <i class="fa fa-linkedin"></i> Linkedin </a>
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="border1">
-				<p class="abc"> <a href="#" class="forgetlink" ng-click="changeTab(3);"> Forgot your password? </a><span class="already">Already Registered? Click <a href="#" class="forgetlink" ng-click="changeTab(1)">here</a> to Login </span>
-				</p>
-			</div>
-		</div>
-
-		<!--       Forgot Password   -->
-		<div class="holder2" ng-if="logintab.tab=='3'">
-			<div class="ngdialog-close close"></div>
-			<h3 class="createtitle">Forgot Password</h3>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="signin">
-						<form class="form-horizontal" ng-submit="forgotpassword();">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="email" class="form-control" placeholder="Enter your email *" required="" ng-model="forgot.email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<button type="submit" class="btn btn-sucess" ng-click="changeTab(4)">Submit</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--       Forgot Password   -->
-
-		<div class="holder4" ng-if="logintab.tab=='4'">
-			<div class="ngdialog-close close"></div>
-			<h3 class="createtitle">Forgot Password</h3>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="signin">
-						<form class="form-horizontal">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="password" class="form-control" placeholder="New Password *" required="">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input type="password" class="form-control" placeholder="Confirm Password  *" required="">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<button type="submit" class="btn btn-sucess" ng-click="changeTab(1)">Submit</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="popup-dialogbox">
+        <!--       login   -->
+        <div class="holder1" ng-if="logintab.tab=='1'">
+            <h3 class="createtitle">Login</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="signin">
+                        <div class="signinor">
+                            <form class="form-horizontal" ng-submit="userlogin();">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="email" class="form-control" placeholder="Enter your email *" required="" ng-model="login.email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="password" class="form-control" placeholder="Password *" required="" ng-model="login.password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="grpbtn">
+                                            <button type="submit" class="btn btn-sucess">Login</button> <span>-Or-</span>
+                                            <a class="btn btnsoc gplus"> <i class="fa fa-google-plus"></i> Google+
+                                            </a>
+                                            <a class="btn btnsoc fbook"> <i class="fa fa-facebook"></i> Facebook </a>
+                                            <a class="btn btnsoc twit"> <i class="fa fa-linkedin"></i> Linkedin </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                </div>
+            </div>
+            <div class="border1">
+                <p class="abc"> <a href="#" class="forgetlink" ng-click="changeTab(3)"> Forgot your password? </a><span class="already">Don't have an account ? Click <a class="forgetlink" ng-class="loginholder" ng-click="changeTab(2)">here</a> to  create one </span>
+                </p>
+            </div>
+        </div>
+        <!--       Registration   -->
+        <div class="holder1" ng-if="logintab.tab=='2'">
+            <h3 class="createtitle">Registration</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="signin">
+                        <div class="signinor">
+                            <form class="form-horizontal" ng-submit="registeruser();">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="email" class="form-control" placeholder="Enter your email *" required="" ng-model="register.email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" placeholder="Enter your Name *" required="" ng-model="register.name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="password" class="form-control" placeholder="Password *" required="" ng-model="register.password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="password" class="form-control" placeholder="Confirm Password *" required="" ng-model="register.confirmpassword">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="grpbtn">
+                                            <button type="submit" class="btn btn-sucess">SignUp</button> <span>-Or-</span>
+                                            <a class="btn btnsoc gplus"> <i class="fa fa-google-plus"></i> Google+
+                                            </a>
+                                            <a class="btn btnsoc fbook"> <i class="fa fa-facebook"></i> Facebook </a>
+                                            <a class="btn btnsoc twit"> <i class="fa fa-linkedin"></i> Linkedin </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border1">
+                <p class="abc"> <a href="#" class="forgetlink" ng-click="changeTab(3);"> Forgot your password? </a><span class="already">Already Registered? Click <a href="#" class="forgetlink" ng-click="changeTab(1)">here</a> to Login </span>
+                </p>
+            </div>
+        </div>
+        <!--       Forgot Password   -->
+        <div class="holder2" ng-if="logintab.tab=='3'">
+            <div class="ngdialog-close close"></div>
+            <h3 class="createtitle">Forgot Password</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="signin">
+                        <form class="form-horizontal" ng-submit="forgotpassword();">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" placeholder="Enter your email *" required="" ng-model="forgot.email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-sucess" ng-click="changeTab(4)">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--       Forgot Password   -->
+        <div class="holder4" ng-if="logintab.tab=='4'">
+            <div class="ngdialog-close close"></div>
+            <h3 class="createtitle">Forgot Password</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="signin">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="password" class="form-control" placeholder="New Password *" required="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="password" class="form-control" placeholder="Confirm Password  *" required="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-sucess" ng-click="changeTab(1)">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

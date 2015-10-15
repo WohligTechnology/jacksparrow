@@ -1,46 +1,46 @@
 <section class="container content-min">
-	<div class="row margin-top">
-		<div class="col-md-12">
-			<h4 class="head">professional</h4>
-		</div>
-	</div>
-	<div class="bar-head bg-white">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="form-group">
-					<div class="col-md-4">
-						<label for="sel1" class="sort-main">Sort by:</label>
-					</div>
-					<div class="col-md-8">
-						<div class="select-drops">
-							<select class="form-control" id="sel1">
-								<option>Consult</option>
-								<option>Consult</option>
-								<option>Consult</option>
-								<option>Consult</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group">
-					<div class="col-md-4">
-						<label for="sel1" class="sort-main">Sort by:</label>
-					</div>
-					<div class="col-md-8">
-						<div class="select-drops">
-							<select class="form-control select-drops" id="sel1">
-								<option>Professional</option>
-								<option>Professional</option>
-								<option>Professional</option>
-								<option>Professional</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--
+    <div class="row margin-top">
+        <div class="col-md-12">
+            <h4 class="head">professional</h4>
+        </div>
+    </div>
+    <div class="bar-head bg-white">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <label for="sel1" class="sort-main">Sort by:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="select-drops">
+                            <select class="form-control" id="sel1">
+                                <option>Consult</option>
+                                <option>Consult</option>
+                                <option>Consult</option>
+                                <option>Consult</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <label for="sel1" class="sort-main">Sort by:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="select-drops">
+                            <select class="form-control select-drops" id="sel1">
+                                <option>Professional</option>
+                                <option>Professional</option>
+                                <option>Professional</option>
+                                <option>Professional</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
             <div class="col-md-3">
                 <div class="form-group">
                     <div class="col-md-4">
@@ -59,131 +59,131 @@
                 </div>
             </div>
 -->
-			<div class="col-md-offset-3 col-md-3">
-				<div class="form-group">
-					<div class="form-group input-group ingroup">
-						<input type="text" class="form-control text-large" placeholder="Ask Question...">
-						<span class="input-group-btn"><button class="btn btn-default" type="submit">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-group input-group ingroup">
+                        <input type="text" class="form-control text-large" placeholder="Ask Question...">
+                        <span class="input-group-btn"><button class="btn btn-default" type="submit">
                         <i class="fa fa-question"></i></button></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="full-pro">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="pro-full">
-					<div class="pro-make box-pro">
-						<div class="row">
-							<div class="col-md-5">
-								<div class="img-holder">
-									<img ng-src="img/info/info1.jpg" class="img-responsive img-height">
-									<img src="img/info/pro.png" class="pro-tab">
-								</div>
-							</div>
-							<div class="col-md-7">
-								<div class="mobile">
-									<h1 class="head-name">{{profile.name}}i</h1>
-									<p class="title">{{profile.current}} </p>
-									<p class="company">
-										{{profile.company}}</p>
-									<p class="locality">
-										{{profile.location}}</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="skills box-pro">
-						<h4 class="sub-head">Skills</h4>
-						<p>{{profile.skills}}</p>
-					</div>
-					<div class="web box-pro">
-						<h4 class="sub-head">Websites</h4>
-						<ul class="website-link">
-							<li ng-repeat="website in profile.websites"><a href="">{{website.link}}</a> </li>
-						</ul>
-					</div>
-					<div class="honors box-pro">
-						<h4 class="sub-head">Honors &amp; Awards</h4>
-						<p>{{profile.honors.name}}</p>
-						<p>{{profile.honors.desc}}.</p>
-					</div>
-					<div class="details box-pro">
-						<h4 class="sub-head">Personal Details</h4>
-						<p>
-							<label>Experince :</label> {{profile.experience}} yrs</p>
-						<p>
-							<label>Country :</label> {{profile.country}}</p>
-						<p>
-							<label>City :</label> {{profile.city}}</p>
-						<p>
-							<label>Age :</label> {{profile.age}} yrs</p>
-					</div>
-				</div>
-				<div class="pull-right submit-btn">
-					<button type="button" class="btn btn-default" ng-click="toggle();">Other Profiles</button>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="box-book">
-					<p class="price"><i class="fa fa-inr"></i> {{profile.cost}}</p>
-					<div class="star">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-					<p class="consult">
-						<label>No of Consult</label>{{profile.consultcount}}</p>
-					<div class="pull-right submit-btn">
-						<a href="#/checkout" type="button" class="btn btn-default">Book</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="full-pro" ng-show="showAmature">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="pro-full">
-					<div class="amture box-pro">
-						<h4 class="sub-head">Amature</h4>
-						<p>Singer,Musician</p>
-					</div>
-					<div class="amture" ng-repeat="job in amature.jobs">
-						<h4 class="sub-head">{{job.name}}</h4>
-						<ul class="website-link">
-							<li ng-repeat="weblink in job.weblinks">
-								<a href="https://www.youtube.com/watch?v=fA29WPCJVMY" target="_blank">{{weblink.link}}</a>
-							</li>
-						</ul>
-						<p>
-							<label for="">Follower:</label> {{amature.followercount}}
-						</p>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="box-book">
-					<p class="price"><i class="fa fa-inr"></i> {{amature.cost}}/-</p>
-					<div class="star">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-					<p class="consult">
-						<label>No of Consult:</label>{{amature.consultcount}}</p>
-					<div class="pull-right submit-btn">
-						<a href="#/checkout" type="button" class="btn btn-default">Book</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-pro">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="pro-full">
+                    <div class="pro-make box-pro">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="img-holder">
+                                    <img ng-src="img/info/info1.jpg" class="img-responsive img-height">
+                                    <div class="ribbon-wrapper">
+                                        <div class="ribbon">PRO</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mobile">
+                                    <h1 class="head-name">{{profile.name}}i</h1>
+                                    <p class="title">{{profile.current}} </p>
+                                    <p class="company">
+                                        {{profile.company}}</p>
+                                    <p class="locality">
+                                        {{profile.location}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills box-pro">
+                        <h4 class="sub-head">Skills</h4>
+                        <p>{{profile.skills}}</p>
+                    </div>
+                    <div class="web box-pro">
+                        <h4 class="sub-head">Websites</h4>
+                        <ul class="website-link">
+                            <li ng-repeat="website in profile.websites"><a href="">{{website.link}}</a> </li>
+                        </ul>
+                    </div>
+                    <div class="honors box-pro">
+                        <h4 class="sub-head">Honors &amp; Awards</h4>
+                        <p>{{profile.honors.name}}</p>
+                        <p>{{profile.honors.desc}}.</p>
+                    </div>
+                    <div class="details box-pro">
+                        <h4 class="sub-head">Personal Details</h4>
+                        <p>
+                            <label>Experince :</label> {{profile.experience}} yrs</p>
+                        <p>
+                            <label>Country :</label> {{profile.country}}</p>
+                        <p>
+                            <label>City :</label> {{profile.city}}</p>
+                        <p>
+                            <label>Age :</label> {{profile.age}} yrs</p>
+                    </div>
+                </div>
+                <div class="pull-right submit-btn">
+                    <button type="button" class="btn btn-default" ng-click="toggle();">Other Profiles</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box-book">
+                    <p class="price"><i class="fa fa-inr"></i> {{profile.cost}}</p>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p class="consult">
+                        <label>No of Consult</label>{{profile.consultcount}}</p>
+                    <div class="pull-right submit-btn">
+                        <a href="#/checkout" type="button" class="btn btn-default">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-pro" ng-show="showAmature">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="pro-full">
+                    <div class="amture box-pro">
+                        <h4 class="sub-head">Amature</h4>
+                        <p>Singer,Musician</p>
+                    </div>
+                    <div class="amture" ng-repeat="job in amature.jobs">
+                        <h4 class="sub-head">{{job.name}}</h4>
+                        <ul class="website-link">
+                            <li ng-repeat="weblink in job.weblinks">
+                                <a href="https://www.youtube.com/watch?v=fA29WPCJVMY" target="_blank">{{weblink.link}}</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <label for="">Follower:</label> {{amature.followercount}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box-book">
+                    <p class="price"><i class="fa fa-inr"></i> {{amature.cost}}/-</p>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p class="consult">
+                        <label>No of Consult:</label>{{amature.consultcount}}</p>
+                    <div class="pull-right submit-btn">
+                        <a href="#/checkout" type="button" class="btn btn-default">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
