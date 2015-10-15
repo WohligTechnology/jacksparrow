@@ -1,82 +1,83 @@
 <section class="container content-min">
-	<div class="full-tab">
-		<div class="row">
-			<div class="col-md-offset-1 col-md-10">
-			<h4 class="head">Booking</h4>
-				<div class="grp-tabs">
-					<ul>
-						<li class="tab" ng-click="changeTab(1)" ng-class="{active:activate}">You Made</li>
-						<li class="tab" ng-click="changeTab(2)" ng-class="{active:!activate}">For you</li>
-					</ul>
-				</div>
-				<div class="tab-cont-main">
-					<div class="made" ng-if="historytab=='1'">
-						<div class="tab-cont" ng-repeat="user in history">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="img-holder">
-										<img ng-src="{{user.img}}" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
-
-										<img src="img/info/pro.png" class="pro-tab doneLoading">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="made-cont">
-										<h1>{{user.name}}</h1>
-										<p> {{user.designation}}</p>
-										<p>With User: {{user.username}}</p>
-										<p> {{user.date}}</p>
-										<p class="price"> <i class="fa fa-inr"></i>{{user.cost}}</p>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<!--
+    <div class="full-tab">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h4 class="head">Booking</h4>
+                <div class="grp-tabs">
+                    <ul>
+                        <li class="tab" ng-click="changeTab(1)" ng-class="{active:activate}">You Made</li>
+                        <li class="tab" ng-click="changeTab(2)" ng-class="{active:!activate}">For you</li>
+                    </ul>
+                </div>
+                <div class="tab-cont-main">
+                    <div class="made" ng-if="historytab=='1'">
+                        <div class="tab-cont" ng-repeat="user in history">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="{{user.img}}" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <div class="ribbon-wrapper">
+                                            <div class="ribbon">PRO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>{{user.name}}</h1>
+                                        <p> {{user.designation}}</p>
+                                        <p>With User: {{user.username}}</p>
+                                        <p> {{user.date}}</p>
+                                        <p class="price"> <i class="fa fa-inr"></i>{{user.cost}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!--
                                     <div class="history-btn">
                                         <button type="button" class="btn btn-success">Book</button>
                                     </div>
 -->
-									<div class="history-btn">
-										<button type="button" class="btn btn-danger">Cancel</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="you" ng-if="historytab=='2'">
-						<div class="tab-cont" ng-repeat="user1 in history1">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="img-holder">
-										<img ng-src="{{user1.img}}" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
-										<img src="img/info/pro.png" class="pro-tab doneLoading">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="made-cont">
-										<h1>{{user1.name}}</h1>
-										<p>{{user1.designation}}</p>
-										<p>With User: {{user1.username}}</p>
-										<p>{{user1.date}}</p>
-										<p class="price"> <i class="fa fa-inr"></i> {{user1.cost}}</p>
-
-									</div>
-								</div>
-								<div class="col-md-4">
-									<!--
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="you" ng-if="historytab=='2'">
+                        <div class="tab-cont" ng-repeat="user1 in history1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="img-holder">
+                                        <img ng-src="{{user1.img}}" class="img-responsive img-height doneLoading" src="img/info/info1.jpg">
+                                        <div class="ribbon-wrapper">
+                                            <div class="ribbon">PRO</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="made-cont">
+                                        <h1>{{user1.name}}</h1>
+                                        <p>{{user1.designation}}</p>
+                                        <p>With User: {{user1.username}}</p>
+                                        <p>{{user1.date}}</p>
+                                        <p class="price"> <i class="fa fa-inr"></i> {{user1.cost}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <!--
                                     <div class="history-btn">
                                         <button type="button" class="btn btn-success">Book</button>
                                     </div>
 -->
-									<div class="history-btn">
-										<button type="button" class="btn btn-danger">Cancel</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                    <div class="history-btn">
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
