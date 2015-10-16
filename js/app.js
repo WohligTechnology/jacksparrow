@@ -94,6 +94,11 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 		templateUrl: "views/template.html",
 		controller: 'PersonalCtrl'
 	})
+	.state('professional', {
+		url: "/professional",
+		templateUrl: "views/template.html",
+		controller: 'ProfessionalCtrl'
+	})
 
 	$urlRouterProvider.otherwise("/home");
 });
