@@ -88,22 +88,28 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 		templateUrl: "views/template.html",
 		controller: 'SettingCtrl'
 	})
+	
+		.state('how-works', {
+		url: "/how-works",
+		templateUrl: "views/template.html",
+		controller: 'HowWorksCtrl'
+	})
 
 	.state('personal', {
-		url: "/personal",
-		templateUrl: "views/template.html",
-		controller: 'PersonalCtrl'
-	})
-	.state('professional', {
-		url: "/professional",
-		templateUrl: "views/template.html",
-		controller: 'ProfessionalCtrl'
-	})
-        .state('amature', {
-		url: "/amature",
-		templateUrl: "views/template.html",
-		controller: 'AmatureCtrl'
-	})
+			url: "/setting/personal",
+			templateUrl: "views/template.html",
+			controller: 'PersonalCtrl'
+		})
+		.state('professional', {
+			url: "/professional",
+			templateUrl: "views/template.html",
+			controller: 'ProfessionalCtrl'
+		})
+		.state('amature', {
+			url: "/amature",
+			templateUrl: "views/template.html",
+			controller: 'AmatureCtrl'
+		})
 
 	$urlRouterProvider.otherwise("/home");
 });
