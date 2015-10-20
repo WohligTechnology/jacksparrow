@@ -121,8 +121,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.navigation = NavigationService.getnav();
 	$scope.showAmature = false;
 })
-	
-	.controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+
+.controller('ExpertCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+	$scope.template = TemplateService.changecontent("expert");
+	$scope.menutitle = NavigationService.makeactive("Expert");
+	TemplateService.title = $scope.menutitle;
+	$scope.navigation = NavigationService.getnav();
+	$scope.showAmature = false;
+})
+
+.controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
 	//Used to name the .html file
 	$scope.template = TemplateService.changecontent("pro");
 	$scope.menutitle = NavigationService.makeactive("Pro");

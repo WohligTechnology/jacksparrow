@@ -88,11 +88,17 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 		templateUrl: "views/template.html",
 		controller: 'SettingCtrl'
 	})
-	
-		.state('how-works', {
+
+	.state('how-works', {
 		url: "/how-works",
 		templateUrl: "views/template.html",
 		controller: 'HowWorksCtrl'
+	})
+
+	.state('expert', {
+		url: "/expert",
+		templateUrl: "views/template.html",
+		controller: 'ExpertCtrl'
 	})
 
 	.state('personal', {
