@@ -15,7 +15,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		tagline: "Earn money sitting at home"
     }, {
 		src: 'img/slider/slider2.jpg',
-		tagline: "Show your expertise"
+		tagline: "Find an expert to assist you"
     }];
 })
 
