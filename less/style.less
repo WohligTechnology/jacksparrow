@@ -136,7 +136,7 @@ a.btn.btn-default {
 					background-color: transparent;
 					border-color: transparent;
 					color: @color-white;
-					margin-right: 15px;
+					margin-right: 0px;
 					padding: 6px 20px;
 					text-transform: uppercase;
 					&:hover {
@@ -282,7 +282,7 @@ input[type=checkbox]:checked + label:before {
 	background-size: cover;
 	background-attachment: fixed;
 	.box-middle {
-		padding: 25px 0 15px;
+		padding: 25px 0 5px;
 	}
 	.head-home {
 		padding-bottom: 10px;
@@ -508,6 +508,9 @@ footer.footer-menu {
 	//	}
 	.submit-btn {
 		padding: 0px 15px 5px 0px;
+		.btn {
+			padding: 5px 40px;
+		}
 	}
 }
 
@@ -532,10 +535,11 @@ footer.footer-menu {
 	}
 	.box-name {
 		h3 {
-			font-weight: 400;
+			font-weight: 700;
 			margin-bottom: -2px;
 			margin-top: 5px;
-			color: @color-black;
+			color: #222222;
+			font-size: 18px;
 		}
 	}
 	.cont-decript {
@@ -545,14 +549,16 @@ footer.footer-menu {
 		}
 	}
 	.cont-price {
-		margin-top: 10px;
+		margin-top: 5px;
 		p {
 			margin: 0px;
 			color: @color-black;
 		}
 		p.price {
-			font-size: 18px;
-			color: @color-black;
+			font-size: 16px;
+			color: #E03E3E;
+			font-weight: 700;
+			margin-bottom: 0px;
 		}
 		span.mgleft {
 			margin-left: 10px;
@@ -731,6 +737,7 @@ footer.footer-menu {
 }
 
 .star {
+	padding-top: 5px;
 	i {
 		color: @color-star;
 		font-size: 19px;

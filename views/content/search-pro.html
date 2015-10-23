@@ -43,7 +43,7 @@
 					<div class="form-group input-group ingroup">
 						<input class="form-control text-large" placeholder="Ask a question" type="text">
 						<span class="input-group-btn">
-              <button class="btn btn-default" type="submit">
+              <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Ask a Question">
                 <i class="fa fa-question"></i>
               </button>
             </span>
@@ -78,6 +78,12 @@
 								<p class="price">
 									<i class="fa fa-inr"></i> {{pro.price}}
 								</p>
+								<p>
+									No of Consult:
+									<span class="mgleft">
+                                        {{pro.consultcount}}
+                                    </span>
+								</p>
 								<div class="star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -85,12 +91,6 @@
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star-o"></i>
 								</div>
-								<p>
-									No of Consult:
-									<span class="mgleft">
-                                        {{pro.consultcount}}
-                                    </span>
-								</p>
 							</div>
 						</a>
 					</div>
@@ -109,8 +109,8 @@
 				</div>
 				<div class="col-md-3">
 					<div class="action-button ask-pad">
-						<button href="#/pro" type="button" class="btn btn-default mgbot"><i class="fa fa-phone"></i> Book Now</button>
-						<button ng-click="showQuickview();" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</button>
+						<a href="#/pro" type="button" class="btn btn-default mgbot"><i class="fa fa-phone"></i> Book Now</a>
+						<a ng-click="showQuickview();" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</a>
 					</div>
 				</div>
 				<div class="col-md-1">
