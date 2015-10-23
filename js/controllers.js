@@ -330,7 +330,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 	})
 
-.controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
 	//Used to name the .html file
 	$scope.template = TemplateService.changecontent("search-pro");
 	$scope.menutitle = NavigationService.makeactive("search-pro");
@@ -364,6 +364,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		price: '250',
 		consultcount: '210',
   }];
+
+	$scope.profile = {
+		name: "Amar Chhetri",
+		current: "Sr. Web Developer at WNS",
+		company: "Global Services",
+		location: "Mumbai City, India",
+		skills: "HTML , CSS , Javascript , Jquery , Drupal , Magento , PL/SQL , C++ , C",
+		websites: [{
+			link: "www.india.com"
+    }, {
+			link: "www.wohlig.com"
+    }, {
+			link: "www.magicmirror.com"
+    }, {
+			link: "www.auraart.com"
+    }],
+		honors: {
+			name: "ICICI Lombard - Project Manager",
+			desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
+		},
+		experience: "12",
+		country: "India",
+		city: "Mumbai",
+		age: "35",
+		cost: "500/-",
+		consultcount: "171"
+
+	};
+
+	$scope.showQuickview = function () {
+		ngDialog.open({
+			scope: $scope,
+			template: 'views/content/modal-quickview.html'
+		});
+	};
 })
 
 .controller('FeatureCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, toaster, ngDialog, valdr) {
@@ -554,13 +589,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			template: 'views/content/modal-login.html'
 		});
 	};
-
-	//    $scope.showsignup = function () {
-	//        ngDialog.open({
-	//            template: 'views/content/signup.html'
-	//        });
-	//    };
-
 	$scope.changeTab = function (tab) {
 		$scope.logintab.tab = tab;
 	}
