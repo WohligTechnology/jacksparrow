@@ -281,17 +281,12 @@ input[type=checkbox]:checked + label:before {
 	background: url('../img/bg.jpg') no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	//    margin: 5px 0;
 	.box-middle {
-		margin: -72px 0 0 0;
-		z-index: 9999;
-		background: rgba(0, 0, 0, 0.40);
 		padding: 25px 0;
 	}
 	.head-home {
 		h1 {
-			margin-top: 0px;
-			margin-bottom: 10px;
+			margin-top: 10px;
 			font-size: 35px;
 			color: white;
 		}
@@ -323,7 +318,7 @@ input[type=checkbox]:checked + label:before {
 
 .cat-type {
 	color: #fff;
-	padding: 20px 0 10px 0;
+	padding: 10px 0 10px 0;
 	.cat-type-1 {
 		margin-bottom: 30px;
 	}
@@ -574,7 +569,7 @@ footer.footer-menu {
 		color: #ffffff;
 		font-size: 16px;
 		text-transform: capitalize;
-		font-weight: 300;
+		font-weight: 500;
 		padding: 5px 12px;
 		&:hover {
 			background-color: #314a5c;
@@ -971,19 +966,19 @@ section.content-min {
 	//    }
 	.danger {
 		width: 50%;
-		color: #ac2925;
+		color: @color-red;
 		font-weight: 600;
 		padding: 5px;
 	}
 	.success {
 		width: 50%;
-		color: #398439;
+		color: @color-green;
 		font-weight: 600;
 		padding: 5px;
 	}
 	.primary {
 		width: 50%;
-		color: #23A5FF;
+		color: @primary;
 		font-weight: 600;
 		padding: 5px;
 	}
@@ -1108,17 +1103,19 @@ textarea.min {
 	}
 }
 
-//.ngdialog-content {
-//	width: 100%;
-//	position: absolute;
-//	top: 50%;
-//	left: 50%;
-//	transform: translate(-50%, -50%);
-//	padding: 20px;
-//}
-.checkout {
-    padding: 0 0px 0 20px;
+.ngdialog-content {
+	width: 550px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
 }
+
+.checkout {
+	padding: 0 0px 0 20px;
+}
+
 .ngdialog-close {
 	position: absolute;
 	top: 0px;
