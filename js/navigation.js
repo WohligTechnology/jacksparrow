@@ -21,7 +21,7 @@ var navigationservice = angular.module('navigationservice', [])
 //        }
         ]
     }, {
-			name: "QTS Asked",
+			name: "Questions",
 			active: "",
 			link: "#/qtsasked",
 			classis: "active",

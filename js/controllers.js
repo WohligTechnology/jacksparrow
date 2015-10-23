@@ -338,26 +338,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		img: 'img/info/info1.jpg',
 		ispro: true,
 		name: 'Nishant Rathod',
-		tech: 'Javascript/miscellaneous',
-		desc: 'High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery',
+		tech: 'Travel',
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 		price: '500',
-		consultcount: '256',
+		consultcount: '36',
   }, {
 		img: 'img/info/info2.jpg',
 		ispro: true,
 		name: 'Rani Chhetri',
-		tech: 'Javascript/miscellaneous',
-		desc: 'High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery',
+		tech: 'Travel',
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 		price: '500',
-		consultcount: '300',
+		consultcount: '30',
   }, {
 		img: 'img/info/info3.jpg',
 		ispro: false,
 		name: 'Aman Verma',
-		tech: 'Javascript/miscellaneous',
-		desc: 'High Resolution: Yes, Compatible Browsers: IE9, IE10, IE11, Firefox, Safari, Opera, Chrome, jQuery',
+		tech: 'Travel',
+		desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 		price: '250',
-		consultcount: '210',
+		consultcount: '8',
   }];
 
 	$scope.profile = {
@@ -531,40 +531,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			name: "Aman Chhetri",
 			expertice: "Professional",
 			img: "img/info/info1.jpg",
-			buttons: {
-				yes: true,
-				no: false,
-				waiting: false
-			}
+			answer: 'yes'
     }, {
 			name: "Mahesh Maurya",
 			expertice: "Amatuer",
 			img: "img/info/info3.jpg",
-			buttons: {
-				yes: false,
-				no: true,
-				waiting: false
-			}
+			answer: 'no'
     }, {
 			name: "Rani Verma",
 			expertice: "Professional",
 			img: "img/info/info2.jpg",
-			buttons: {
-				yes: false,
-				no: false,
-				waiting: true
-			}
+			answer: 'wait'
     }];
+
 		$scope.askedyou = [{
 			name: "Mahesh Maurya",
 			img: "img/info/info1.jpg",
-			questiontag: "Music(Amateur)",
-			question: "Do you know about cords in a guitar?"
+			questiontag: "Travel (Amateur)",
+			question: "Do you know about new places to travel?"
     }, {
 			name: "Aman Chhetri",
 			img: "img/info/info3.jpg",
-			questiontag: "Web Developer(Pro)",
-			question: "Do you know how to translate css?"
+			questiontag: "Life Style (Pro)",
+			question: "Can you help me with life style?"
     }];
 		$scope.changeTab = function (tab) {
 			$scope.historytab = tab;

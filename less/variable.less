@@ -8,11 +8,22 @@
 @color-anchor: #54809f;
 @color-star: #fff300;
 @bgcolor-footer: #b7c9d6;
-@color-red: #E03E3E;
-@color-green: #3EE061;
+@color-red: #e03e3e;
+@color-green: #3ee061;
 .grid-layout {
   border: 1px solid @color-border;
-    padding: 10px;
+  padding: 10px;
+  &.yes {
+    border-color: @color-green;
+  }
+  &.no {
+    border-color: @color-red;
+  }
+  .qts-box {
+    height: 80px;
+    overflow-y: scroll;
+    margin-top: 10px;
+  }
   .img-holder {
     max-height: none;
     max-width: none;
@@ -40,17 +51,24 @@
   .amount {
     font-size: 16px;
     font-weight: 700;
-    color: #E03E3E;
+    color: #e03e3e;
     position: absolute;
     top: 0;
-    right: 0px;
+    right: 0;
   }
   .btn {
     width: 100%;
     margin-top: 10px;
   }
 }
-
 .padding {
   padding: 30px 10px;
+}
+.btn-stable {
+  color: white;
+}
+.btn-stable {
+  color: #fff;
+  background-color: #ccc;
+  border-color: #ccc;
 }
