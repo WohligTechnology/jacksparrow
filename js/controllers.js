@@ -190,35 +190,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.menutitle = NavigationService.makeactive("Booking");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
+
 	$scope.history = [{
-		name: "Rohan Chedha",
-		username: "Rakesh Joshi",
+		name: "Rohan Cheddha",
 		img: "img/info/info4.jpg",
-		designation: "Web developer",
-		date: "13/06/1970",
+		designation: "Travel",
+		date: "12 November 2015",
 		cost: "500/-"
   }, {
-		name: "Mahesh Maurya",
+		name: "Dr. Sourabh Joshi",
 		img: "img/info/info3.jpg",
-		username: "Mahesh Joshi",
-		designation: "Electrician",
-		date: "13/06/1970",
+		designation: "Health",
+		date: "15 November 2015",
 		cost: "500/-"
   }];
 
 	$scope.history1 = [{
 		name: "Aman Chhetri",
 		img: "img/info/info1.jpg",
-		username: "Rakesh Joshi",
-		designation: "Architect",
-		date: "13/06/1970",
+		date: "13 November 2015",
 		cost: "500/-"
   }, {
 		name: "Jagruti Patil",
 		img: "img/info/info2.jpg",
-		designation: "Web developer",
-		username: "Mahesh Joshi",
-		date: "13/06/1970",
+		date: "14 November 2015",
 		cost: "500/-"
   }];
 	$scope.historytab = 1;
