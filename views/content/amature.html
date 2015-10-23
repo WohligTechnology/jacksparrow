@@ -1,103 +1,101 @@
 <section class="container-fluid content-min-set">
-    <div class="setting min-height">
-        <div class="row">
-            <div class="col-md-12 bg-white">
-                <div class="cont-setting">
-                    <div class="tab3">
-                        <h4 class="head pad-top">Amature</h4>
-                        <div class="row padding-btm-zero">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control text-large" placeholder="Profession">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <textarea type="text" class="form-control text-large" placeholder="Skills"></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control text-large margin-zero" placeholder="Social Media Links">
-                                <div class="pull-right submit-btn padding-btm-zero">
-                                    <button type="button" class="btn btn-default">Add More Links</button>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control text-large margin-zero" placeholder="Website Links">
-                                <div class="pull-right submit-btn padding-btm-zero">
-                                    <button type="button" class="btn btn-default">Add More Links</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control text-large margin-zero" placeholder="Youtube Links">
-                                <div class="pull-right submit-btn padding-btm-zero">
-                                    <button type="button" class="btn btn-default">Add More Links</button>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <textarea type="text" class="form-control text-large min" placeholder="Honors & Awards"></textarea>
-                            </div>
-                        </div>
-                        <div class="row padding-btm-zero">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Company Logo</label>
-                                    <div class="photo-holder">
-                                        <span ng-hide="user.image" class="">Photo</span>
-                                        <div class="image-contain" style="background-image:url('');"></div>
-                                    </div>
-                                    <!-- ngIf: user.image -->
-                                </div>
-                                <div class="upload-div">
-                                    <div class="upload-buttons">
-                                        <input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
-                                    </div>
-                                    <div class="response ng-hide" ng-show="uploadResult.length > 0">
-                                        <!-- ngRepeat: result in uploadResult -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Photos</label>
-                                    <div class="photo-holder">
-                                        <span ng-hide="user.image" class="">Photo</span>
-                                        <div class="image-contain" style="background-image:url('');"></div>
-                                    </div>
-                                    <!-- ngIf: user.image -->
-                                </div>
-                                <div class="upload-div">
-                                    <div class="upload-buttons">
-                                        <input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
-                                    </div>
-                                    <div class="response ng-hide" ng-show="uploadResult.length > 0">
-                                        <!-- ngRepeat: result in uploadResult -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-6"> 
-                                            <label for="usr" class="consulting-fee">consulting fees
-                                                <br><span>(per half and hour)</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" Value="Rs 250 /-" readonly>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center submit-btn padding-btm-zero margin-btm btn-made ">
-                            <button type="button" class="btn btn-default">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="setting min-height">
+		<div class="row">
+			<div class="col-md-12 bg-white">
+				<div class="cont-setting">
+					<div class="tab3">
+						<h4 class="head pad-top">Amature</h4>
+						<div class="row padding-btm-zero">
+							<div class="col-md-6">
+								<input type="text" class="form-control text-large" placeholder="Profession">
+							</div>
+							<div class="col-md-6">
+								<textarea type="text" class="form-control text-large" placeholder="Skills"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" class="form-control text-large margin-zero" placeholder="Social Media Links">
+								<div class="pull-right submit-btn padding-btm-zero">
+									<button type="button" class="btn btn-default">Add More Links</button>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<input type="text" class="form-control text-large margin-zero" placeholder="Website Links">
+								<div class="pull-right submit-btn padding-btm-zero">
+									<button type="button" class="btn btn-default">Add More Links</button>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" class="form-control text-large margin-zero" placeholder="Youtube Links">
+								<div class="pull-right submit-btn padding-btm-zero">
+									<button type="button" class="btn btn-default">Add More Links</button>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<textarea type="text" class="form-control text-large min" placeholder="Honors & Awards"></textarea>
+							</div>
+						</div>
+						<div class="row padding-btm-zero">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Company Logo</label>
+									<div class="photo-holder">
+										<span ng-hide="user.image" class="">Photo</span>
+										<div class="image-contain" style="background-image:url('');"></div>
+									</div>
+									<!-- ngIf: user.image -->
+								</div>
+								<div class="upload-div">
+									<div class="upload-buttons">
+										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+									</div>
+									<div class="response ng-hide" ng-show="uploadResult.length > 0">
+										<!-- ngRepeat: result in uploadResult -->
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Photos</label>
+									<div class="photo-holder">
+										<span ng-hide="user.image" class="">Photo</span>
+										<div class="image-contain" style="background-image:url('');"></div>
+									</div>
+									<!-- ngIf: user.image -->
+								</div>
+								<div class="upload-div">
+									<div class="upload-buttons">
+										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+									</div>
+									<div class="response ng-hide" ng-show="uploadResult.length > 0">
+										<!-- ngRepeat: result in uploadResult -->
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-6">
+											<label for="usr" class="consulting-fee">consulting fees
+												<br><span>(per half and hour)</span>
+											</label>
+										</div>
+										<div class="col-md-4">
+											<input type="text" class="form-control" Value="Rs 250 /-" readonly>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="text-center submit-btn padding-btm-zero margin-btm btn-made ">
+							<button type="button" class="btn btn-default">Save</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
