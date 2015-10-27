@@ -40,19 +40,19 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 col-sm-4">
+			<div class="col-md-4 col-sm-8">
 				<div class="form-group">
 					<div class="form-group input-group ingroup">
 						<input class="form-control text-large" placeholder="Ask a question (eg. Can you help me?)" type="text">
 						<span class="input-group-btn">
-              <button class="btn btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="All the replies for the questions will be answered in yes or no.">
+                 <button class="btn btn-default" data-toggle="popover" data-placement="top" data-content="All the replies for the questions will be answered in yes or no." data-trigger="hover">
                 <i class="fa fa-question"></i>
               </button>
             </span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 col-sm-2">
+			<div class="col-md-2 col-sm-4">
 				<div class="submit-btn">
 					<button class="btn btn-default" type="button">Send</button>
 				</div>
@@ -81,7 +81,8 @@
 									<i class="fa fa-inr"></i> {{pro.price}}
 								</p>
 								<p>
-									<span class="bold">Category:</span> {{pro.tech}} <br>
+									<span class="bold">Category:</span> {{pro.tech}}
+									<br>
 									<span class="bold">No of Consult:</span>{{pro.consultcount}}
 								</p>
 								<div class="star">
@@ -101,7 +102,7 @@
 						<div class="cont-decript">
 							<p class="bold">Description: </p>
 							<p>
- {{pro.desc}}
+								{{pro.desc}}
 							</p>
 						</div>
 					</a>
@@ -113,13 +114,7 @@
 					</div>
 				</div>
 				<div class="col-md-1">
-					<input id="box1" type="checkbox" />
-					<label for="box1"></label>
-					<!--
-					<label class="input-check">
-						<input type="checkbox">
-					</label>
--->
+					<input type="checkbox" class="checkbox" />
 				</div>
 			</div>
 		</div>

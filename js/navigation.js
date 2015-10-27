@@ -21,6 +21,12 @@ var navigationservice = angular.module('navigationservice', [])
 //        }
         ]
     }, {
+			name: "Calendar",
+			active: "",
+			link: "#/calendar",
+			classis: "active",
+			subnav: []
+    } ,{
 			name: "Questions",
 			active: "",
 			link: "#/qtsasked",

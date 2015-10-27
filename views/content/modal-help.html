@@ -1,0 +1,26 @@
+<section class="popup-all" ng-controller="headerctrl">
+	<div class="ngdialog-close close"></div>
+	<div class="popup-dialogbox">
+		<div class="upload">
+			<div class="upload-mac">
+				<h4>Upload the CV:</h4>
+			</div>
+			<div class="upload-div">
+				<div class="upload-buttons">
+					<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+				</div>
+				<div class="response ng-hide" ng-show="uploadResult.length > 0">
+				</div>
+			</div>
+			<div class="comment">
+				<div class="form-group">
+					<h4 for="comment">Comment::</h4>
+					<textarea class="form-control" rows="5" id="comment"></textarea>
+				</div>
+			</div>
+			<div class="pull-right submit-btn padding-btm-zero">
+				<button type="button" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>
+</section>

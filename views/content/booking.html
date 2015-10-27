@@ -1,73 +1,78 @@
 <section class="container content-min">
-  <div class="full-tab">
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="head">Bookings</h4>
-        <div class="grp-tabs">
-          <ul>
-            <li class="tab" ng-class="{active:activate}" ng-click="changeTab(1)">My Bookings</li>
-            <li class="tab" ng-class="{active:!activate}" ng-click="changeTab(2)">Bookings for me</li>
-          </ul>
-        </div>
-        <div class="tab-cont-main">
-          <div class="made padding" ng-if="historytab=='1'">
+	<div class="full-tab">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 class="head">Bookings</h4>
+				<div class="grp-tabs">
+					<ul>
+						<li class="tab" ng-class="{active:tab.left}" ng-click="changeTab(1)">My Bookings</li>
+						<li class="tab" ng-class="{active:tab.center}" ng-click="changeTab(2)">Bookings for me</li>
+						<li class="tab" ng-class="{active:tab.right}" ng-click="changeTab(3)">Calendar</li>
+					</ul>
+				</div>
+				<div class="tab-cont-main">
+					<div class="made padding" ng-if="historytab=='1'">
 
-            <div class="row">
-              <div class="col-md-3" ng-repeat="user in history">
-                <div class="grid-layout">
+						<div class="row">
+							<div class="col-md-3" ng-repeat="user in history">
+								<div class="grid-layout">
 
-                  <div class="img-holder">
-                    <img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
-                    <div class="ribbon-wrapper">
-                      <div class="ribbon">PRO</div>
-                    </div>
-                  </div>
+									<div class="img-holder">
+										<img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
+										<div class="ribbon-wrapper">
+											<div class="ribbon">PRO</div>
+										</div>
+									</div>
 
-                  <div class="user-data">
-                    <h1>{{user.name}}</h1>
-                    <p>
-                      Regarding {{user.designation}}</p>
-                    <p>
-                      {{user.date}}</p>
-                    <p class="amount">
-                      <i class="fa fa-inr"></i>{{user.cost}}</p>
-                    <button class="btn btn-danger" type="button">Cancel</button>
-                  </div>
+									<div class="user-data">
+										<h1>{{user.name}}</h1>
+										<p>
+											Regarding {{user.designation}}</p>
+										<p>
+											{{user.date}}</p>
+										<p class="amount">
+											<i class="fa fa-inr"></i>{{user.cost}}</p>
+										<button class="btn btn-danger" type="button">Cancel</button>
+									</div>
 
-                </div>
-              </div>
-            </div>
+								</div>
+							</div>
+						</div>
 
-          </div>
+					</div>
 
-          <div class="you padding" ng-if="historytab=='2'">
+					<div class="you padding" ng-if="historytab=='2'">
+						<div class="row">
+							<div class="col-md-3" ng-repeat="user in history1">
+								<div class="grid-layout">
+									<div class="img-holder">
+										<img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
+										<div class="ribbon-wrapper">
+											<div class="ribbon">PRO</div>
+										</div>
+									</div>
+									<div class="user-data">
+										<h1>{{user.name}}</h1>
+										<p>
+											Regarding Travel (Pro)
+											<br> {{user.date}}
+										</p>
+										<button class="btn btn-danger" type="button">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-            <div class="row">
-              <div class="col-md-3" ng-repeat="user in history1">
-                <div class="grid-layout">
-
-                  <div class="img-holder">
-                    <img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
-                    <div class="ribbon-wrapper">
-                      <div class="ribbon">PRO</div>
-                    </div>
-                  </div>
-
-                  <div class="user-data">
-                    <h1>{{user.name}}</h1>
-                    <p>
-                      Regarding Travel (Pro)<br>
-                      {{user.date}}</p>
-                    <button class="btn btn-danger" type="button">Cancel</button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+					<div class="you padding" ng-if="historytab=='3'">
+						<div class="calendar">
+							<h4 class="head">March 2013</h4>
+							<mwl-calendar view="vm.calendarView" current-day="vm.calendarDay" events="vm.events" view-title="calendarTitle" on-event-click="eventClicked(calendarEvent)" on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd" edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'" delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'" on-edit-event-click="eventEdited(calendarEvent)" on-delete-event-click="eventDeleted(calendarEvent)" auto-open="true">
+							</mwl-calendar>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

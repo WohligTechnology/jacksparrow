@@ -130,7 +130,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.showAmature = false;
 })
 
-.controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
 	//Used to name the .html file
 	$scope.template = TemplateService.changecontent("pro");
 	$scope.menutitle = NavigationService.makeactive("Pro");
@@ -190,7 +190,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.menutitle = NavigationService.makeactive("Booking");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
-
+	$scope.tab = {
+			left: true,
+			center: false,
+			right: false
+		};
 	$scope.history = [{
 		name: "Rohan Cheddha",
 		img: "img/info/info4.jpg",
@@ -219,9 +223,110 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.historytab = 1;
 	$scope.activate = true;
 	$scope.changeTab = function (tab) {
-		$scope.historytab = tab;
-		$scope.activate = $scope.activate === true ? false : true;
+			$scope.historytab = tab;
+			$scope.activate = $scope.activate === true ? false : true;
+			$scope.tab = {
+				left: false,
+				center: false,
+				right: false
+			};
+			if (tab === 1)
+				$scope.tab.left = true;
+			else if (tab === 2)
+				$scope.tab.center = true;
+			else
+				$scope.tab.right = true;
+		};
+
+
+	//calendar
+
+	$scope.vm = this;
+	//These variables MUST be set as a minimum for the calendar to work
+	$scope.vm.calendarView = 'month';
+	$scope.vm.calendarDay = new Date();
+	$scope.vm.events = [{
+		title: 'An event',
+		type: 'warning',
+		startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
+		endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
+		draggable: true,
+		resizable: true
+  }, {
+		title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
+		type: 'info',
+		startsAt: moment().subtract(1, 'day').toDate(),
+		endsAt: moment().add(5, 'days').toDate(),
+		draggable: true,
+		resizable: true
+  }, {
+		title: 'This is a really long event title that occurs on every year',
+		type: 'important',
+		startsAt: moment().startOf('day').add(7, 'hours').toDate(),
+		endsAt: moment().startOf('day').add(19, 'hours').toDate(),
+		recursOn: 'year',
+		draggable: true,
+		resizable: true
+  }];
+
+	/*
+	 var currentYear = moment().year();
+	 var currentMonth = moment().month();
+
+	function random(min, max) {
+	  return Math.floor((Math.random() * max) + min);
 	}
+
+	for (var i = 0; i < 1000; i++) {
+	  var start = new Date(currentYear,random(0, 11),random(1, 28),random(0, 24),random(0, 59));
+	 vm.events.push({
+	    title: 'Event ' + i,
+	    type: 'warning',
+	    startsAt: start,
+	    endsAt: moment(start).add(2, 'hours').toDate()
+	  })
+	}*/
+
+	function showModal(action, event) {
+		//				$modal.open({
+		//					templateUrl: 'views/content/modal-login.html',
+		//					controller: function () {
+		//						$scope.vm = this;
+		//						$scope.vm.action = action;
+		//						$scope.vm.event = event;
+		//					},
+		//					controllerAs: 'CalendarCtrl'
+		//				});
+		ngDialog.open({
+			scope: $scope,
+			template: 'views/content/modal-login.html'
+		});
+	}
+
+	$scope.eventClicked = function (event) {
+		console.log("sjnkjndv0");
+		showModal('Clicked', event);
+	};
+
+	$scope.eventEdited = function (event) {
+		showModal('Edited', event);
+	};
+
+	$scope.eventDeleted = function (event) {
+		showModal('Deleted', event);
+	};
+
+	$scope.eventTimesChanged = function (event) {
+		showModal('Dropped or resized', event);
+	};
+
+	$scope.toggle = function ($event, field, event) {
+		$event.preventDefault();
+		$event.stopPropagation();
+		event[field] = !event[field];
+	};
+
+
 })
 
 .controller('CheckoutCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
@@ -245,7 +350,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		TemplateService.title = $scope.menutitle;
 		$scope.navigation = NavigationService.getnav();
 	})
-	.controller('SettingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+	.controller('SettingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, ngDialog, $timeout) {
 		//Used to name the .html file
 		$scope.template = TemplateService.changecontent("setting");
 		$scope.menutitle = NavigationService.makeactive("Setting");
@@ -275,7 +380,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		$scope.isActiveTab = function (tabUrl) {
 			return tabUrl == $scope.currentTab;
 		}
-
+		$scope.showHelp = function () {
+			ngDialog.open({
+				scope: $scope,
+				template: 'views/content/modal-help.html'
+			});
+		};
 
 		//
 		//    $scope.uljson = [{
