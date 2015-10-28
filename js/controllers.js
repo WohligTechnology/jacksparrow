@@ -10,10 +10,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.menutitle = NavigationService.makeactive("Home");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
-	$scope.mySlides = [{
-		src: 'img/slider/slider1.jpg',
-		tagline: "Earn money sitting at home"
-    }, {
+	$scope.mySlides = [
+//		{
+//		src: 'img/slider/slider1.jpg',
+//		tagline: "Earn money sitting at home"
+//    },
+		{
 		src: 'img/slider/slider2.jpg',
 		tagline: "Find an expert to assist you"
     }];
