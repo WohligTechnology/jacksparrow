@@ -236,6 +236,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 				$scope.tab.center = true;
 			else
 				$scope.tab.right = true;
+        console.log($scope.tab);
 		};
 
 
