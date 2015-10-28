@@ -371,7 +371,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			url: 'views/content/professional.html',
 			class: "active"
         }, {
-			title: 'Amature',
+			title: 'Amateur',
 			url: 'views/content/amature.html',
 			class: "active"
     }];
