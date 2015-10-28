@@ -90,15 +90,15 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 	})
 
 	.state('expert', {
-		url: "/expert",
-		templateUrl: "views/template.html",
-		controller: 'ExpertCtrl'
-	})
-    .state('normal-user', {
-		url: "/normal-user",
-		templateUrl: "views/template.html",
-		controller: 'NormalUserCtrl'
-	})
+			url: "/expert",
+			templateUrl: "views/template.html",
+			controller: 'ExpertCtrl'
+		})
+		.state('normal-user', {
+			url: "/normal-user",
+			templateUrl: "views/template.html",
+			controller: 'NormalUserCtrl'
+		})
 
 	.state('personal', {
 			url: "/setting/personal",
@@ -139,16 +139,28 @@ firstapp.directive('img', function ($compile, $parse) {
 	};
 });
 
-firstapp.directive('toggle', function(){
-  return {
-    restrict: 'A',
-    link: function(scope, element, attrs){
-      if (attrs.toggle=="tooltip"){
-        $(element).tooltip();
-      }
-      if (attrs.toggle=="popover"){
-        $(element).popover();
-      }
-    }
-  };
+firstapp.directive('toggle', function () {
+	return {
+		restrict: 'A',
+		link: function (scope, element, attrs) {
+			if (attrs.toggle == "tooltip") {
+				$(element).tooltip();
+			}
+			if (attrs.toggle == "popover") {
+				$(element).popover();
+			}
+		}
+	};
 })
+
+firstapp.directive("scroll", function ($window) {
+	return function (scope, element, attrs) {
+		angular.element($window).bind("scroll", function () {
+			if (this.pageYOffset >= 300) {
+				element.addClass('min');
+			} else {
+				element.removeClass('min');
+			}
+		});
+	};
+});

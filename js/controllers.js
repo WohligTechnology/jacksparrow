@@ -16,8 +16,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 //		tagline: "Earn money sitting at home"
 //    },
 		{
-		src: 'img/slider/slider2.jpg',
-		tagline: "Find an expert to assist you"
+			src: 'img/slider/slider2.jpg',
+			tagline: "Find an expert to assist you"
     }];
 })
 
@@ -161,6 +161,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		experience: "12",
 		country: "India",
 		city: "Mumbai",
+		phone: "878784654",
+		email: "amit@gmail.com",
 		age: "35",
 		cost: "500/-",
 		consultcount: "171"
@@ -193,10 +195,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
 	$scope.tab = {
-			left: true,
-			center: false,
-			right: false
-		};
+		left: true,
+		center: false,
+		right: false
+	};
 	$scope.history = [{
 		name: "Rohan Cheddha",
 		img: "img/info/info4.jpg",
@@ -225,21 +227,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.historytab = 1;
 	$scope.activate = true;
 	$scope.changeTab = function (tab) {
-			$scope.historytab = tab;
-			$scope.activate = $scope.activate === true ? false : true;
-			$scope.tab = {
-				left: false,
-				center: false,
-				right: false
-			};
-			if (tab === 1)
-				$scope.tab.left = true;
-			else if (tab === 2)
-				$scope.tab.center = true;
-			else
-				$scope.tab.right = true;
-        console.log($scope.tab);
+		$scope.historytab = tab;
+		$scope.activate = $scope.activate === true ? false : true;
+		$scope.tab = {
+			left: false,
+			center: false,
+			right: false
 		};
+		if (tab === 1)
+			$scope.tab.left = true;
+		else if (tab === 2)
+			$scope.tab.center = true;
+		else
+			$scope.tab.right = true;
+		console.log($scope.tab);
+	};
 
 
 	//calendar
