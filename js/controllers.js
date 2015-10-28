@@ -477,10 +477,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 	$scope.profile = {
 		name: "Amar Chhetri",
-		current: "Sr. Web Developer at WNS",
+		current: "Travel",
 		company: "Global Services",
 		location: "Mumbai City, India",
-		skills: "HTML , CSS , Javascript , Jquery , Drupal , Magento , PL/SQL , C++ , C",
+		skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
 		websites: [{
 			link: "www.india.com"
     }, {
