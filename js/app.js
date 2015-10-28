@@ -89,12 +89,6 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 		controller: 'SettingCtrl'
 	})
 
-//	.state('how-works', {
-//		url: "/how-works",
-//		templateUrl: "views/template.html",
-//		controller: 'HowWorksCtrl'
-//	})
-
 	.state('expert', {
 		url: "/expert",
 		templateUrl: "views/template.html",
