@@ -114,8 +114,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('HowWorksCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
-	$scope.template = TemplateService.changecontent("how-works");
+.controller('NormalUserCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+	$scope.template = TemplateService.changecontent("normal-user");
 	$scope.menutitle = NavigationService.makeactive("How-works");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
