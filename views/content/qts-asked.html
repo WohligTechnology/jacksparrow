@@ -80,9 +80,11 @@
 -->
                         <div class="row" ng-repeat="question in askedyou">
                             <div class="col-md-10">
-                                <h5>{{question.questiontag}}</h5>
-                                <h3>{{question.question}}</h3>
-                                <p>From : <span>{{question.name}}</span></p>
+                                <div class="question-details">
+                                    <h5>{{question.questiontag}}</h5>
+                                    <h3>{{question.question}}</h3>
+                                </div>
+                                <p>From : <a href="#/pro"><span>{{question.name}}</span></a></p>
                             </div>
                             <div class="col-md-2">
                                 <div class="button-dual">
