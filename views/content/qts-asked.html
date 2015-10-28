@@ -1,53 +1,53 @@
 <section class="container content-min">
-  <div class="full-tab">
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="head">Questions</h4>
-        <div class="grp-tabs">
-          <ul>
-            <li class="tab" ng-class="{active:activate}" ng-click="changeTab(1)">Replies for my questions</li>
-            <li class="tab" ng-class="{active:!activate}" ng-click="changeTab(2)">Questions for me</li>
-          </ul>
-        </div>
-        <div class="tab-cont-main">
-          <div class="made padding" ng-if="historytab=='1'">
-            <h3>Following are the replies for the questions you've asked</h3>
-
-            <div class="row">
-              <div class="col-md-3" ng-repeat="user in youasked">
-                <div class="grid-layout {{user.answer}}">
-
-                  <div class="img-holder">
-                    <img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
-                    <div class="ribbon-wrapper">
-                      <div class="ribbon">PRO</div>
-                    </div>
-                  </div>
-
-                  <div class="user-data">
-                    <h1>{{user.name}}</h1>
-                    <p>
-                      Regarding Travel
-                    </p>
-                    <div class="qts-box">
-                      <span class="bold">Question:</span>
-                      <br>
-                      Can you help me to select a good location for travel ?
-                    </div>
-                    <div class="history-btn qts-pdn">
-                      <div class="btn btn-success answer" ng-show="{{user.answer == 'yes'}}">Yes</div>
-                      <div class="btn btn-danger answer" ng-show="{{user.answer == 'no'}}">No</div>
-                      <div class="btn btn-stable answer" ng-show="{{user.answer == 'wait'}}">Waiting for reply</div>
-                    </div>
-                  </div>
-
+    <div class="full-tab">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="head">Questions</h4>
+                <div class="grp-tabs">
+                    <ul>
+                        <li class="tab" ng-class="{active:activate}" ng-click="changeTab(1)">Replies for my questions</li>
+                        <li class="tab" ng-class="{active:!activate}" ng-click="changeTab(2)">Questions for me</li>
+                    </ul>
                 </div>
-              </div>
-            </div>
+                <div class="tab-cont-main">
+                    <div class="made padding" ng-if="historytab=='1'">
+                        <h3>Following are the replies for the questions you've asked</h3>
 
-          </div>
-          <div class="you padding" ng-if="historytab=='2'">
-            <h3>Following are the question you have to answer</h3>
+                        <div class="row">
+                            <div class="col-md-3" ng-repeat="user in youasked">
+                                <div class="grid-layout {{user.answer}}">
+
+                                    <div class="img-holder">
+                                        <img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
+                                        <div class="ribbon-wrapper">
+                                            <div class="ribbon">PRO</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="user-data">
+                                        <h1>{{user.name}}</h1>
+                                        <p>
+                                            Regarding Travel
+                                        </p>
+                                        <div class="qts-box">
+                                            <span class="bold">Question:</span>
+                                            <br> Can you help me to select a good location for travel ?
+                                        </div>
+                                        <div class="history-btn qts-pdn">
+                                            <div class="btn btn-success answer" ng-show="{{user.answer == 'yes'}}">Yes</div>
+                                            <div class="btn btn-danger answer" ng-show="{{user.answer == 'no'}}">No</div>
+                                            <div class="btn btn-stable answer" ng-show="{{user.answer == 'wait'}}">Waiting for reply</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="you padding" ng-if="historytab=='2'">
+                        <h3>Following are the question you have to answer</h3>
+                        <!--
 
             <div class="row">
               <div class="col-md-3" ng-repeat="user in askedyou">
@@ -77,10 +77,24 @@
                 </div>
               </div>
             </div>
+-->
+                        <div class="row" ng-repeat="question in askedyou">
+                            <div class="col-md-10">
+                                <h5>{{question.questiontag}}</h5>
+                                <h3>{{question.question}}</h3>
+                                <p>From : <span>{{question.name}}</span></p>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="button-dual">
+                                    <button class="btn btn-success">Yes</button>
+                                    <button class="btn btn-danger">No</button>
+                                </div>
+                            </div>
+                        </div>
 
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
