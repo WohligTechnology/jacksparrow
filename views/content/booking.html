@@ -1,24 +1,4 @@
 <section class="container content-min">
-	<!--
-
-	<div class="full-tab">
-		<div class="row">
-			<div class="col-md-12">
-				<h4 class="head">Bookings</h4>
-				<div class="grp-tabs">
-					<ul>
-						<li class="tab" ng-class="{active:tab.left}" ng-click="changeTab(1)">My Bookings</li>
-						<li class="tab" ng-class="{active:tab.center}" ng-click="changeTab(2)">Bookings for me</li>
-						<li class="tab" ng-class="{active:tab.right}" ng-click="changeTab(3)">Calendar</li>
-					</ul>
-				</div>
-				<div class="tab-cont-main">
-					<div class="made padding" ng-if="historytab=='1'">
-
-						<div class="row">
-							<div class="col-md-3" ng-repeat="user in history">
-								<div class="grid-layout">
--->
 	<div class="full-tab">
 		<div class="row">
 			<div class="col-md-12">
@@ -36,22 +16,24 @@
 						<div class="row">
 							<div class="col-md-3" ng-repeat="user in history">
 								<div class="grid-layout">
-									<div class="img-holder">
-										<img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
-										<div class="ribbon-wrapper">
-											<div class="ribbon">PRO</div>
+									<a href="#/pro">
+										<div class="img-holder">
+											<img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
+											<div class="ribbon-wrapper">
+												<div class="ribbon">PRO</div>
+											</div>
 										</div>
-									</div>
 
-									<div class="user-data">
-										<h1>{{user.name}}</h1>
-										<p>
-											Regarding {{user.designation}}</p>
-										<p>
-											{{user.date}}</p>
-										<p class="amount">
-											<i class="fa fa-inr"></i>{{user.cost}}</p>
-										<button class="btn btn-danger" type="button">Cancel</button>
+										<div class="user-data">
+											<h1>{{user.name}}</h1>
+											<p>
+												Regarding {{user.designation}}</p>
+											<p>
+												{{user.date}}</p>
+											<p class="amount">
+												<i class="fa fa-inr"></i>{{user.cost}}</p>
+									</a>
+									<button class="btn btn-danger" type="button">Cancel</button>
 									</div>
 
 								</div>
@@ -60,21 +42,25 @@
 					</div>
 
 					<div class="you padding" ng-if="historytab=='2'">
+						<h3>Following bookings For me</h3>
 						<div class="row">
 							<div class="col-md-3" ng-repeat="user in history1">
 								<div class="grid-layout">
-									<div class="img-holder">
-										<img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
-										<div class="ribbon-wrapper">
-											<div class="ribbon">PRO</div>
+									<a href="#/pro">
+<!--
+										<div class="img-holder">
+											<img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
 										</div>
-									</div>
+-->
+									</a>
 									<div class="user-data">
-										<h1>{{user.name}}</h1>
-										<p>
-											Regarding Travel (Pro)
-											<br> {{user.date}}
-										</p>
+										<a href="#/pro">
+											<h1>{{user.name}}</h1>
+											<p>
+												Regarding Travel (Pro)
+												<br> {{user.date}}
+											</p>
+										</a>
 										<button class="btn btn-danger" type="button">Cancel</button>
 									</div>
 								</div>
@@ -93,32 +79,6 @@
 			</div>
 		</div>
 	</div>
-	<!--
-          <div class="you padding" ng-if="historytab=='2'">
-            <h3>Following people have booked a called with me</h3>
-
-            <div class="row">
-              <div class="col-md-3" ng-repeat="user in history1">
-                <div class="grid-layout">
-
-                  <div class="img-holder">
-                    <img class="img-responsive img-height doneLoading" ng-src="{{user.img}}" src="img/info/info1.jpg">
-                  </div>
-
-                  <div class="user-data">
-                    <h1>{{user.name}}</h1>
-                    <p>
-                      Regarding Travel (Pro)<br>
-                      {{user.date}}</p>
-                    <button class="btn btn-danger" type="button">Cancel</button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
--->
 	</div>
 	</div>
 	</div>

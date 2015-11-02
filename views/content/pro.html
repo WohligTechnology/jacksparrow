@@ -4,57 +4,6 @@
 			<h4 class="head">professional</h4>
 		</div>
 	</div>
-	<div class="bar-head bg-white">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="form-group">
-					<div class="col-md-4">
-						<label for="sel1" class="sort-main">Sort by:</label>
-					</div>
-					<div class="col-md-8">
-						<div class="select-drops">
-							<select class="form-control" id="sel1">
-								<option>Consult</option>
-								<option>Consult</option>
-								<option>Consult</option>
-								<option>Consult</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group">
-					<div class="col-md-4">
-						<label for="sel1" class="sort-main">Sort by:</label>
-					</div>
-					<div class="col-md-8">
-						<div class="select-drops">
-							<select class="form-control select-drops" id="sel1">
-								<option>Professional</option>
-								<option>Professional</option>
-								<option>Professional</option>
-								<option>Professional</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<div class="form-group input-group ingroup">
-						<input type="text" class="form-control text-large" placeholder="Ask Question...">
-						<span class="input-group-btn"><button class="btn btn-default" type="submit" data-toggle="popover" data-placement="top" data-content="All the replies for the questions will be answered in yes or no." data-trigger="hover">
-                        <i class="fa fa-question"></i></button></span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
 	<div class="pro-make box-pro full-pro bg-white col-md-3" scroll>
 		<div class="row">
 			<div class="col-md-12">
@@ -87,44 +36,36 @@
 					</div>
 					<p class="consult">
 						<label class="bold">No of Consult : </label>{{profile.consultcount}}</p>
-					<div class="submit-pad">
-						<a href="#/checkout" type="button" class="btn btn-default">Book</a>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="full-pro bg-white col-md-9" scroll>
 		<div class="box-pro">
+					<div class="submit-pad pull-right">
+				<a href="#/checkout" type="button" class="btn btn-default">Book</a>
+			</div>
+			<h3>Travel <span class="badge badge-danger">Professional</span></h3>
+			<hr>
 			<div class="details">
-				<h4 class="sub-head">Personal Details</h4>
+				<h4 class="sub-head">Personal Info</h4>
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<p>
 							<label>Experince :</label> {{profile.experience}} yrs
 						</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<p>
 							<label>Country :</label> {{profile.country}}
 						</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<p>
 							<label>City :</label> {{profile.city}}
 						</p>
 					</div>
-					<div class="col-md-4">
-						<p>
-							<label>Email Id :</label> {{profile.email}}
-						</p>
-					</div>
-					<div class="col-md-4">
-						<p>
-							<label>Phone no :</label> {{profile.phone}}
-						</p>
-					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<p>
 							<label>Age :</label> {{profile.age}} yrs
 						</p>

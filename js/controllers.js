@@ -633,15 +633,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			}
 		};
 	})
-	.controller('QuestionsCtrl', function ($scope, TemplateService, NavigationService) {
+	.controller('QuestionsCtrl', function ($scope, TemplateService, NavigationService, ngDialog) {
 		$scope.template = TemplateService.changecontent("qts-asked");
-		$scope.menutitle = NavigationService.makeactive("Home");
-
-		$scope.menutitle = NavigationService.makeactive("Home");
+		$scope.menutitle = NavigationService.makeactive("Questions");
 		TemplateService.title = $scope.menutitle;
 		$scope.navigation = NavigationService.getnav();
 		$scope.historytab = 1;
 		$scope.activate = true;
+		$scope.profile = {
+			name: "Amar Chhetri",
+			current: "Travel",
+			company: "Global Services",
+			location: "Mumbai City, India",
+			skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
+			websites: [{
+				link: "www.india.com"
+    }, {
+				link: "www.wohlig.com"
+    }, {
+				link: "www.magicmirror.com"
+    }, {
+				link: "www.auraart.com"
+    }],
+			honors: {
+				name: "ICICI Lombard - Project Manager",
+				desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
+			},
+			experience: "12",
+			country: "India",
+			city: "Mumbai",
+			age: "35",
+			cost: "500/-",
+			consultcount: "171"
+
+		};
+
+		$scope.showQuickview = function () {
+			ngDialog.open({
+				scope: $scope,
+				template: 'views/content/modal-quickview.html'
+			});
+		};
 		$scope.youasked = [{
 			name: "Aman Chhetri",
 			expertice: "Professional",

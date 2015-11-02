@@ -72,7 +72,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 	})
 
 	.state('qtsasked', {
-		url: "/qtsasked",
+		url: "/questions",
 		templateUrl: "views/template.html",
 		controller: 'QuestionsCtrl'
 	})

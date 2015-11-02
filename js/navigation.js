@@ -29,7 +29,7 @@ var navigationservice = angular.module('navigationservice', [])
     } ,{
 			name: "Questions",
 			active: "",
-			link: "#/qtsasked",
+			link: "#/questions",
 			classis: "active",
 			subnav: []
     }, {
