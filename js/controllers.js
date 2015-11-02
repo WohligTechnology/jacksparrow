@@ -144,7 +144,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		current: "Sr. Web Developer at WNS",
 		company: "Global Services",
 		location: "Mumbai City, India",
-		skills: "HTML , CSS , Javascript , Jquery , Drupal , Magento , PL/SQL , C++ , C",
+		skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
 		websites: [{
 			link: "www.india.com"
     }, {
@@ -154,6 +154,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }, {
 			link: "www.auraart.com"
     }],
+		videos: [{
+			src: "img/video.jpg"
+    }, {
+			src: "img/video.jpg"
+    }, {
+			src: "img/video.jpg"
+    }, {
+			src: "img/video.jpg"
+    }],
 		honors: {
 			name: "ICICI Lombard - Project Manager",
 			desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
@@ -161,11 +170,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		experience: "12",
 		country: "India",
 		city: "Mumbai",
+		gender: "Male",
 		phone: "878784654",
 		email: "amit@gmail.com",
 		age: "35",
 		cost: "500/-",
-		consultcount: "171"
+		consultcount: "5"
 
 	};
 	$scope.amature = {
@@ -309,7 +319,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	}
 
 	$scope.eventClicked = function (event) {
-		console.log("sjnkjndv0");
 		showModal('Clicked', event);
 	};
 
@@ -734,22 +743,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('ProfessionalCtrl', function ($scope, TemplateService, NavigationService) {
-	$scope.template = TemplateService.changecontent("professional");
-	$scope.menutitle = NavigationService.makeactive("Professional");
-	TemplateService.title = $scope.menutitle;
-	$scope.navigation = NavigationService.getnav();
-})
-
-.controller('PersonalCtrl', function ($scope, TemplateService, NavigationService) {
-		$scope.template = TemplateService.changecontent("personal");
-		$scope.menutitle = NavigationService.makeactive("Personal");
-		TemplateService.title = $scope.menutitle;
-		$scope.navigation = NavigationService.getnav();
-	})
-	.controller('AmatureCtrl', function ($scope, TemplateService, NavigationService) {
-		$scope.template = TemplateService.changecontent("amature");
-		$scope.menutitle = NavigationService.makeactive("Amature");
-		TemplateService.title = $scope.menutitle;
-		$scope.navigation = NavigationService.getnav();
-	});
+//.controller('ProfessionalCtrl', function ($scope, TemplateService, NavigationService) {
+//	$scope.template = TemplateService.changecontent("professional");
+//	$scope.menutitle = NavigationService.makeactive("Professional");
+//	TemplateService.title = $scope.menutitle;
+//	$scope.navigation = NavigationService.getnav();
+//})
+//
+//.controller('PersonalCtrl', function ($scope, TemplateService, NavigationService) {
+//		$scope.template = TemplateService.changecontent("personal");
+//		$scope.menutitle = NavigationService.makeactive("Personal");
+//		TemplateService.title = $scope.menutitle;
+//		$scope.navigation = NavigationService.getnav();
+//	})
+//	.controller('AmatureCtrl', function ($scope, TemplateService, NavigationService) {
+//		$scope.template = TemplateService.changecontent("amature");
+//		$scope.menutitle = NavigationService.makeactive("Amature");
+//		TemplateService.title = $scope.menutitle;
+//		$scope.navigation = NavigationService.getnav();
+//	});
