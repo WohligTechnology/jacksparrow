@@ -3,13 +3,13 @@
 		<div class="row">
 			<div class="col-md-6 col-sm-6">
 				<div class="slider-holder">
-					<flex-slider flex-slide="s in mySlides track by $index">
+					<flex-slider flex-slide="s in mySlides1 track by $index">
 						<li>
 							<img ng-src="{{s.src}}">
 							<div class="tag-line">
 								<span>
 				  		        {{s.tagline}}<br>
-				  		        <span class="normal-font">The only platform which has best experts on any field.</span>
+				  		        <span class="normal-font">{{s.subline}}</span>
 								<br>
 								<a class="btn btn-primary text-upper more-padding" href="#/normal-user" ng-controller="headerctrl">How It works</a>
 								</span>
@@ -21,13 +21,13 @@
 			</div>
 			<div class="col-md-6 col-sm-6 ">
 				<div class="slider-holder">
-					<flex-slider flex-slide="s in mySlides track by $index">
+					<flex-slider flex-slide="s in mySlides2 track by $index">
 						<li>
 							<img ng-src="{{s.src}}">
 							<div class="tag-line">
 								<span>
 				  		        {{s.tagline}}<br>
-				  		        <span class="normal-font">The only platform which has best experts on any field.</span>
+				  		        <span class="normal-font">{{s.subline}}</span>
 								<br>
 								<a class="btn btn-primary text-upper more-padding" href="#/expert" ng-controller="headerctrl">How It works</a>
 								</span>

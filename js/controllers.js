@@ -10,14 +10,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.menutitle = NavigationService.makeactive("Home");
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
-	$scope.mySlides = [
+	$scope.mySlides1 = [
+		{
+		src: 'img/slider/user-normal.jpg',
+		tagline: "Find an expert to assist you",
+		subline: "The only platform which has best experts on any field."
+   },
+		{
+			src: 'img/slider/user-normal1.jpg',
+			tagline: "Start looking for an expert now",
+			subline: "The only platform which has best experts on any field."
+    }];
+	$scope.mySlides2 = [
 //		{
 //		src: 'img/slider/slider1.jpg',
 //		tagline: "Earn money sitting at home"
 //    },
 		{
-			src: 'img/slider/slider2.jpg',
-			tagline: "Find an expert to assist you"
+			src: 'img/slider/user-expert.jpg',
+			tagline: "Earn money sitting at home",
+			subline: "Become an expert on the website now."
     }];
 })
 
