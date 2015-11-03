@@ -134,6 +134,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
 	$scope.showAmature = false;
+
+	$scope.worksImg = "works1.jpg";
 })
 
 .controller('ExpertCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
@@ -143,6 +145,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.navigation = NavigationService.getnav();
 	$scope.showAmature = false;
 	//	$scope.myClass = "test";
+
+	$scope.worksImg = "works5.jpg";
 })
 
 .controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
