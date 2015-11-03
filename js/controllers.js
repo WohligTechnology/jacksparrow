@@ -130,6 +130,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	TemplateService.title = $scope.menutitle;
 	$scope.navigation = NavigationService.getnav();
 	$scope.showAmature = false;
+	//	$scope.myClass = "test";
 })
 
 .controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
@@ -374,15 +375,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		$scope.tabs = [{
 			title: 'Personal',
 			url: 'views/content/personal.html',
-			class: "active"
+			myclass: "active"
         }, {
 			title: 'Professional',
 			url: 'views/content/professional.html',
-			class: "active"
+			myclass: "active"
         }, {
 			title: 'Amateur',
 			url: 'views/content/amature.html',
-			class: "active"
+			myclass: "active"
     }];
 
 		$scope.currentTab = 'views/content/personal.html';

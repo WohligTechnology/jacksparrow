@@ -7,24 +7,6 @@
 						<h4 class="head pad-top">Personal Details</h4>
 						<div class="row">
 							<div class="col-md-6">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Image</label>
-									<div class="photo-holder">
-										<span ng-hide="user.image" class="">Photo</span>
-										<div class="image-contain" style="background-image:url('');"></div>
-									</div>
-									<!-- ngIf: user.image -->
-								</div>
-								<div class="upload-div">
-									<div class="upload-buttons">
-										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
-									</div>
-									<div class="response ng-hide" ng-show="uploadResult.length > 0">
-										<!-- ngRepeat: result in uploadResult -->
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
 								<input type="text" class="form-control text-large" placeholder="First Name">
 								<input type="text" class="form-control text-large" placeholder="Last Name">
 								<div class="row">
@@ -42,7 +24,26 @@
 									</div>
 								</div>
 							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Image</label>
+									<div class="photo-holder">
+										<span ng-hide="user.image" class="">Photo</span>
+										<div class="image-contain" style="background-image:url('');"></div>
+									</div>
+									<!-- ngIf: user.image -->
+								</div>
+								<div class="upload-div">
+									<div class="upload-buttons">
+										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+									</div>
+									<div class="response ng-hide" ng-show="uploadResult.length > 0">
+										<!-- ngRepeat: result in uploadResult -->
+									</div>
+								</div>
+							</div>
 						</div>
+
 						<!--
                                 <div class="col-md-6">
                                     <input type="text" class="form-control text-large" placeholder="Last Name">
