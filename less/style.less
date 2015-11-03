@@ -133,12 +133,6 @@
 		}
 	}
 	
-	.pro-magic {
-		.col-md-9.min {
-			margin-left: 280px;
-		}
-	}
-	
 	.upper {
 		text-transform: uppercase;
 	}
@@ -677,15 +671,25 @@
 		margin: 0;
 	}
 	
-	.pro-make.min {
+	.pro-make.box-pro.made-pro.bg-white {
 		position: fixed;
-		left: 105px;
-		top: 60px;
-		width: 285px;
+		width: 20%;
+		padding: 15px;
+		margin-top: 6px;
+		&.min {
+			top: 65px;
+		}
 	}
 	
-	.full-pro.bg-white.col-md-9.min {
-		margin-left: 285px;
+	.hover1 {
+		position: fixed;
+		width: 60%;
+		img {
+			margin: 0 auto;
+		}
+		&.min {
+			top: 70px;
+		}
 	}
 	
 	.full-pro {
@@ -783,28 +787,6 @@
 			}
 			label {
 				font-weight: 500;
-			}
-		}
-		.social {
-			i {
-				font-size: 20px;
-				margin: 0 5px 0px 0;
-				border-radius: 0;
-			}
-			i.fa.fa-facebook {
-				color: #fff;
-				background: #204385;
-				padding: 5px 10px;
-			}
-			i.fa.fa-youtube {
-				color: #fff;
-				background: #eb2429;
-				padding: 5px 7px;
-			}
-			i.fa.fa-twitter {
-				color: #fff;
-				background: #29a9e0;
-				padding: 5px 7px;
 			}
 		}
 		h4.sub-head {
@@ -1105,8 +1087,26 @@
 		margin-top: 0px;
 	}
 	
+	.ptn-relative {
+		position: relative;
+		span.fa.fa-plus.form-control-feedback {
+			top: 10px;
+		}
+	}
+	
+	.margin-buttom-zero {
+		margin-bottom: 0px;
+	}
+	
+	.margin-btm {
+		margin-bottom: 20px;
+	}
+	
 	.content-min-set {
 		min-height: 540px;
+		textarea.form-control.text-large {
+			margin-bottom: 20px;
+		}
 		.upload-div {
 			margin-bottom: 20px;
 		}
@@ -1171,9 +1171,9 @@
 			.submit-btn {
 				padding: 5px 0 15px 0;
 			}
-			.row {
-				padding-bottom: 20px;
-			}
+			//			.row {
+			//				padding-bottom: 20px;
+			//			}
 			label.radio-inline.pad-zero {
 				padding: 0px;
 				font-weight: 500;
@@ -1688,6 +1688,29 @@
 	
 	.pad-right-less {
 		padding-right: 0;
+	}
+	
+	.social {
+		i {
+			font-size: 20px;
+			margin: 0 5px 0px 0;
+			border-radius: 0;
+		}
+		i.fa.fa-facebook {
+			color: #fff;
+			background: #204385;
+			padding: 5px 10px;
+		}
+		i.fa.fa-youtube {
+			color: #fff;
+			background: #eb2429;
+			padding: 5px 7px;
+		}
+		i.fa.fa-twitter {
+			color: #fff;
+			background: #29a9e0;
+			padding: 5px 7px;
+		}
 	}
 	
 	@import "mobile.less";

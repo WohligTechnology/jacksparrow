@@ -6,39 +6,26 @@
 					<div class="tab2">
 						<div class="row">
 							<div class="col-md-4">
-								<h4 class="head pad-top">professional Details  </h4>
+								<h4 class="head pad-top margin-buttom-zero">professional Details  </h4>
 							</div>
 							<div class="col-md-2">
 								<div class="pad-tops">
 									<button class="btn btnsoc twit"><i class="fa fa-linkedin"></i> Get from Linkedin</button>
 								</div>
 							</div>
-
 							<div class="col-md-6">
 								<div class="pad-tops pull-right">
 									<button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<!--
-								<div class="form-group">
-									<div class="row">
-										<div class="col-md-6">
-											<label for="usr" class="consulting-fee">consulting fees
-												<br><span>(per half and hour)</span>
-											</label>
-										</div>
-										<div class="col-md-4">
-											<input type="text" class="form-control" Value="Rs 500 /-" readonly>
-										</div>
-									</div>
-								</div>
--->
+							<div class="col-md-12">
+								<hr>
 							</div>
 						</div>
 						<div class="row padding-btm-zero">
+							<div class="col-md-12">
+								<h4>Category Info</h4>
+							</div>
 							<div class="col-md-6">
 								<input type="text" class="form-control text-large" placeholder="Category">
 							</div>
@@ -52,63 +39,39 @@
 							</div>
 
 							<div class="col-md-6">
-								<!--
-								<div class="form-group">
-									<div class="row">
-										<div class="col-md-6">
-											<label for="usr" class="consulting-fee">consulting fees
-												<br><span>(per half and hour)</span>
-											</label>
-										</div>
-										<div class="col-md-4">
-											<input type="text" class="form-control" Value="Rs 500 /-" readonly>
-										</div>
-									</div>
-								</div>
--->
+								<input type="text" class="form-control text-large" placeholder="Experience in Years">
 							</div>
-
 						</div>
 						<div class="row padding-btm-zero">
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large" placeholder="Yrs of Exp">
-							</div>
-
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<tags-input ng-model="tags"></tags-input>
+								<hr class="margin-top-zero">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
-								<textarea type="text" class="form-control text-large" placeholder="Description"></textarea>
+								<h4>Description</h4>
+								<textarea type="text" class="form-control text-large" placeholder="Description" rows="14" cols="50"></textarea>
 							</div>
 							<div class="col-md-6">
-								<textarea type="text" class="form-control text-large" placeholder="Skills"></textarea>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large margin-zero" placeholder="Social Media Links">
-								<div class="pull-right submit-btn padding-btm-zero">
-									<button type="button" class="btn btn-default">Add More Links</button>
+								<textarea type="text" class="form-control text-large" rows="3" placeholder="Skills"></textarea>
+								<div class="margin-btm ptn-relative">
+									<input type="text" class="form-control text-large margin-zero" placeholder="Website Links"><span class="fa fa-plus form-control-feedback"></span>
 								</div>
-							</div>
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large margin-zero" placeholder="Website Links">
-								<div class="pull-right submit-btn padding-btm-zero">
-									<button type="button" class="btn btn-default">Add More Links</button>
+								<!--
+							<div class="pull-right submit-btn padding-btm-zero">
+	<button type="button" class="btn btn-default">Add More Links</button>
+</div>
+-->
+								<div class="margin-btm ptn-relative">
+									<input type="text" class="form-control text-large margin-zero" placeholder="Youtube Links"><span class="fa fa-plus form-control-feedback"></span>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large margin-zero" placeholder="Youtube Links">
-								<div class="pull-right submit-btn padding-btm-zero">
-									<button type="button" class="btn btn-default">Add More Links</button>
-								</div>
-							</div>
-							<div class="col-md-6">
 								<textarea type="text" class="form-control text-large min" placeholder="Honors & Awards"></textarea>
+								<!--
+								<div class="pull-right submit-btn padding-btm-zero">
+									<button type="button" class="btn btn-default">Add More Links</button>
+								</div>
+-->
 							</div>
 						</div>
 						<div class="row padding-btm-zero">
@@ -130,25 +93,37 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-9">
+								<!--
 								<div class="form-group">
 									<label for="exampleInputEmail1">Photos</label>
 									<div class="photo-holder">
 										<span ng-hide="user.image" class="">Photo</span>
 										<div class="image-contain" style="background-image:url('');"></div>
 									</div>
-									<!-- ngIf: user.image -->
+								</div>
+-->
+								<!--
+								<div class="upload-div">
+									<div class="upload-buttons">
+										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+									</div>
+									<div class="response ng-hide" ng-show="uploadResult.length > 0">
+									</div>
+								</div>
+-->
+								<div class="add-photo-holder">
+									<h4 class="text-center"> Add Photos </h4>
 								</div>
 								<div class="upload-div">
 									<div class="upload-buttons">
 										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
 									</div>
 									<div class="response ng-hide" ng-show="uploadResult.length > 0">
-										<!-- ngRepeat: result in uploadResult -->
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-6">
@@ -162,7 +137,6 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<div class="text-center submit-btn btn-made margin-btm ">
 							<button type="button" class="btn btn-default">Save</button>
@@ -171,5 +145,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
 </section>
