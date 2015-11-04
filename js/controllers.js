@@ -12,9 +12,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 	$scope.navigation = NavigationService.getnav();
 	$scope.mySlides1 = [
 		{
-		src: 'img/slider/user-normal.jpg',
-		tagline: "Find an expert to assist you",
-		subline: "The only platform which has best experts on any field."
+			src: 'img/slider/user-normal.jpg',
+			tagline: "Find an expert to assist you",
+			subline: "The only platform which has best experts on any field."
    },
 		{
 			src: 'img/slider/user-normal1.jpg',
@@ -165,11 +165,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		websites: [{
 			link: "www.india.com"
     }, {
-			link: "www.wohlig.com"
-    }, {
-			link: "www.magicmirror.com"
-    }, {
-			link: "www.auraart.com"
+			link: "www.mytrip.com"
     }],
 		videos: [{
 			src: "img/video.jpg"
