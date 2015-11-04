@@ -6,7 +6,7 @@
 				<div class="clipboard">
 					<div class="hover">
 						<div class="hover1 text-center" scroll>
-							<img src="img/clip/1.png" class="img-responsive">
+							<img ng-src="img/works/{{worksImg}}" class="img-responsive">
 						</div>
 <!--
 						<div class="button-block text-center">
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="box-main">
+				<div class="box-main" ng-mouseenter="worksImg = 'works1.png'">
 					<div class="box text-center">
 						<div class="icon-box ">
 							<i class="fa fa-search-plus fa-4x"></i>
@@ -29,7 +29,7 @@
 						1
 					</div>
 				</div>
-				<div class="box-main">
+				<div class="box-main" ng-mouseenter="worksImg = 'works2.png'">
 					<div class="box text-center">
 						<div class="icon-box ">
 							<i class="fa fa-check-square-o fa-4x"></i>
@@ -42,7 +42,7 @@
 					</div>
 				</div>
 
-				<div class="box-main">
+				<div class="box-main" ng-mouseenter="worksImg = 'works3.png'">
 					<div class="box text-center">
 						<div class="icon-box ">
 							<i class="fa fa-question fa-4x"></i>
@@ -55,7 +55,7 @@
 					</div>
 				</div>
 
-				<div class="box-main">
+				<div class="box-main" ng-mouseenter="worksImg = 'works4.png'">
 					<div class="box text-center">
 						<div class="icon-box ">
 							<i class="fa fa fa-phone fa-4x"></i>
@@ -121,7 +121,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 -->
 <!--
 		<div class="button-block text-center">
