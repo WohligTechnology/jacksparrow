@@ -156,7 +156,7 @@ firstapp.directive('toggle', function () {
 firstapp.directive("scroll", function ($window) {
 	return function (scope, element, attrs) {
 		angular.element($window).bind("scroll", function () {
-			if (this.pageYOffset >= 180) {
+			if (this.pageYOffset >= 70) {
 				element.addClass('min');
 			} else {
 				element.removeClass('min');

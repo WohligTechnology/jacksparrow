@@ -692,20 +692,28 @@
 		}
 	}
 	
+	.pro-content {
+		margin: 10px 0 10px 0;
+		p.consult {
+			label {
+				text-transform: none;
+			}
+		}
+		.title {
+			font-size: 14px;
+			line-height: 20px;
+			color: #333;
+			font-weight: normal;
+			margin: 0px;
+		}
+	}
+	
 	.full-pro {
 		margin: 5px 0 10px 0;
 		background-color: @color-white;
 		padding: 20px;
 		border: 1px solid @color-border;
 		box-shadow: 0px 2px 2px #ddd;
-		.pro-content {
-			margin: 10px 0 10px 0;
-			p.consult {
-				label {
-					text-transform: none;
-				}
-			}
-		}
 		.details {
 			p {
 				margin-bottom: 0px;
@@ -741,13 +749,6 @@
 		}
 		.details.box-pro {
 			border: 0px;
-		}
-		.title {
-			font-size: 14px;
-			line-height: 20px;
-			color: #333;
-			font-weight: normal;
-			margin: 0px;
 		}
 		.head-name {
 			font-size: 16px;
@@ -1484,6 +1485,7 @@
 			padding: 10px 0 0px 0;
 			width: 95%;
 			position: relative;
+			cursor: pointer;
 			//			.col-md-3 {
 			//				padding-right: 0px;
 			//			}
@@ -1585,6 +1587,9 @@
 		&:hover .img-hover {
 			opacity: 1;
 		}
+		.hover-opacity {
+			.transition(all ease 500ms);
+		}
 		.img-hover {
 			padding: 0 20px 0px 0px;
 			position: absolute;
@@ -1680,9 +1685,13 @@
 		text-transform: uppercase;
 		&.badge-danger {
 			background-color: @color-red;
+			border-radius: 0px;
+			padding: 3px 10px;
 		}
 		&.badge-sucess {
 			background-color: @color-green;
+			border-radius: 0px;
+			padding: 3px 10px;
 		}
 	}
 	
