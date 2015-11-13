@@ -393,12 +393,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 			url: 'views/content/professional.html',
 			myclass: "active"
         }, {
-			title: 'Amateur',
+			title: 'Hobbies',
 			url: 'views/content/amature.html',
 			myclass: "active"
     }];
-
-		$scope.currentTab = 'views/content/personal.html';
+		$scope.currentTab = 'views/content/professional.html';
 
 		$scope.onClickTab = function (tab) {
 			$scope.currentTab = tab.url;

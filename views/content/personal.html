@@ -1,80 +1,85 @@
 <section class="container-fluid content-min-set">
 	<div class="setting min-height">
-		<div class="row">
-			<div class="col-md-12 bg-white">
-				<div class="cont-setting">
-					<div class="tab1">
-						<h4 class="head pad-top">Personal Details</h4>
-						<hr>
-						<div class="row">
-							<div class="col-md-12">
-								<h4>Personal Info</h4>
-							</div>
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large" placeholder="First Name">
-								<input type="text" class="form-control text-large" placeholder="Last Name">
-								<div class="row">
-									<div class="col-md-6">
-										<div>
-											<label class="radio-inline pad-zero">Gender :</label>
-										</div>
-										<label class="radio-inline">
-											<input type="radio" name="optradio">Male</label>
-										<label class="radio-inline">
-											<input type="radio" name="optradio">Female</label>
-									</div>
-									<div class="col-md-6">
-										<input type="text" class="form-control text-large" placeholder="Age">
-									</div>
+		<div class="bg-white">
+			<div class="cont-setting">
+				<div class="tab1">
+					<div class="row">
+						<div class="col-md-12">
+							<hr>
+							<h4>Personal Info</h4>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Image</label>
+								<div class="photo-holder">
+									<span ng-hide="user.image" class="">Photo</span>
+									<div class="image-contain" style="background-image:url('');"></div>
 								</div>
+								<!--									 ngIf: user.image -->
 							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Image</label>
-									<div class="photo-holder">
-										<span ng-hide="user.image" class="">Photo</span>
-										<div class="image-contain" style="background-image:url('');"></div>
-									</div>
-									<!-- ngIf: user.image -->
+							<div class="upload-div">
+								<div class="upload-buttons">
+									<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
 								</div>
-								<div class="upload-div">
-									<div class="upload-buttons">
-										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
-									</div>
-									<div class="response ng-hide" ng-show="uploadResult.length > 0">
-										<!-- ngRepeat: result in uploadResult -->
-									</div>
+								<div class="response ng-hide" ng-show="uploadResult.length > 0">
+									<!--										 ngRepeat: result in uploadResult -->
 								</div>
 							</div>
 						</div>
+						<div class="col-md-6">
+							<label for="">First Name:</label>
+							<input type="text" class="form-control text-large" placeholder="">
+						</div>
+						<div class="col-md-6">
+							<label for="">Last Name:</label>
+							<input type="text" class="form-control text-large" placeholder="">
+						</div>
+						<div class="col-md-6">
+							<label class="">Gender :</label>
+							<div class="pad-btm">
+								<label class="radio-inline">
+									<input type="radio" name="optradio">Male</label>
+								<label class="radio-inline">
+									<input type="radio" name="optradio">Female</label>
+							</div>
+						</div>
+					</div>
 
-						<!--
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control text-large" placeholder="Last Name">
-                                </div>
--->
-					</div>
-					<hr>
-					<h4> Address</h4>
-					<div class="row padding-btm-zero">
-						<div class="col-md-6">
-							<input type="text" class="form-control text-large" placeholder="Country">
-						</div>
-						<div class="col-md-6">
-							<input type="text" class="form-control text-large" placeholder="State">
-						</div>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<input type="text" class="form-control text-large" placeholder="City">
+							<label for="">Email Id:</label>
+							<input type="text" class="form-control text-large" placeholder="(not shared to any one)">
 						</div>
 						<div class="col-md-6">
-							<input type="number" class="form-control text-large" placeholder="Pincode">
+							<label for="">Mobile:</label>
+							<input type="text" class="form-control text-large" placeholder="">
 						</div>
 					</div>
-					<div class="text-center submit-btn padding-btm-zero margin-btm btn-made">
-						<button type="button" class="btn btn-default">Save</button>
+				</div>
+				<hr>
+				<h4> Address</h4>
+				<div class="row padding-btm-zero">
+					<div class="col-md-6">
+						<label for="">Country:</label>
+						<input type="text" class="form-control text-large" placeholder="">
 					</div>
+					<div class="col-md-6">
+						<label for="">State:</label>
+						<input type="text" class="form-control text-large" placeholder="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for="">City:</label>
+						<input type="text" class="form-control text-large" placeholder="">
+					</div>
+					<div class="col-md-6">
+						<label for="">Pincode:</label>
+						<input type="text" class="form-control text-large" placeholder="">
+					</div>
+				</div>
+				<div class="submit-btn padding-btm-zero margin-btm btn-made">
+					<button type="button" class="btn btn-default">Save</button>
 				</div>
 			</div>
 		</div>

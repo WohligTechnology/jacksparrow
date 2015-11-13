@@ -353,6 +353,27 @@
 		}
 	}
 	
+	.select-cat {
+		padding: 20px;
+		border: 4px solid @color-border;
+		color: lighten(@color-black, 40%);
+		min-height: 145px;
+		cursor: pointer;
+		.transition(all ease 500ms);
+		&.active {
+			border-color: @color-base;
+			color: @color-black;
+		}
+		&:hover {
+			border-color: @color-base;
+			color: @color-black;
+		}
+	}
+	
+	.color-black {
+		color:@color-black;
+	}
+	
 	.form-group.select-drop {
 		position: relative;
 		&:after {
@@ -1136,23 +1157,26 @@
 			min-height: 35px;
 		}
 		.sidemenu {
+			margin-top: 25px;
 			ul {
-				position: fixed;
-				width: 20%;
-				height: 100%;
-				z-index: 0;
-				padding-left: 0px;
+				display: block;
+				padding-left: 15px;
 				background-color: #fff;
+				li + li {
+					margin-left: 4px;
+				}
 				li {
+					display: inline-block;
 					list-style: none;
 					text-transform: capitalize;
 					color: #016EAB;
 					background-color: #fff;
-					border-bottom: 1px solid #ddd;
+					border: 1px solid #ddd;
 					a {
 						font-size: 13px;
 						line-height: 20px;
-						padding: 10px 20px;
+						padding: 5px 15px;
+						font-weight: 600;
 						display: block;
 						cursor: pointer;
 						&:hover,
@@ -1332,8 +1356,7 @@
 		font-size: 40px;
 	}
 	
-	.text-center.submit-btn.btn-made {
-		text-align: center;
+	.submit-btn.btn-made {
 		.btn {
 			padding: 10px 115px;
 			text-transform: uppercase;

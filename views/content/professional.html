@@ -5,119 +5,195 @@
 				<div class="cont-setting">
 					<div class="tab2">
 						<div class="row">
-							<div class="col-md-4">
-								<h4 class="head pad-top margin-buttom-zero">professional Details  </h4>
-							</div>
-							<div class="col-md-2">
-								<div class="pad-tops">
-									<button class="btn btnsoc twit"><i class="fa fa-linkedin"></i> Get from Linkedin</button>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="pad-tops pull-right">
+							<div class="col-md-12">
+								<hr>
+								<div class="pull-right">
 									<button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
 								</div>
-							</div>
-							<div class="col-md-12">
+								<div class="">
+									<button class="btn btnsoc twit"><i class="fa fa-linkedin"></i> Get from Linkedin</button>
+								</div>
 								<hr>
 							</div>
 						</div>
-						<div class="row padding-btm-zero">
-							<div class="col-md-12">
-								<h4>Category Info</h4>
-							</div>
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large" placeholder="Category">
-							</div>
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large" placeholder="Company Name">
-							</div>
-						</div>
-						<div class="row padding-btm-zero">
-							<div class="col-md-6">
-								<input type="tel" class="form-control text-large" placeholder="Mobile Number">
-							</div>
 
-							<div class="col-md-6">
-								<input type="text" class="form-control text-large" placeholder="Experience in Years">
-							</div>
-						</div>
-						<div class="row padding-btm-zero">
-							<div class="col-md-12">
-								<tags-input ng-model="tags"></tags-input>
-								<hr class="margin-top-zero">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<h5>Description</h5>
-								<textarea type="text" class="form-control text-large" placeholder="Description" rows="17" cols="50"></textarea>
-							</div>
-							<div class="col-md-6">
-								<h5>Skills</h5>
-								<textarea type="text" class="form-control text-large" rows="3" placeholder="Skills"></textarea>
-								<h5>Website Url</h5>
-								<div class="margin-btm ptn-relative">
-									<input type="text" class="form-control text-large margin-zero" placeholder="Website Url"><span class="fa fa-plus form-control-feedback"></span>
-								</div>
-								<!--
-							<div class="pull-right submit-btn padding-btm-zero">
-	<button type="button" class="btn btn-default">Add More Links</button>
-</div>
--->
-								<h5>Youtube Url</h5>
-								<div class="margin-btm ptn-relative">
-									<input type="text" class="form-control text-large margin-zero" placeholder="Youtube Url"><span class="fa fa-plus form-control-feedback"></span>
-								</div>
-								<h5>Honors &amp; Awards</h5>
-								<textarea type="text" class="form-control text-large min" placeholder="Honors & Awards"></textarea>
-							</div>
-						</div>
-						<div class="row padding-btm-zero">
-							<div class="col-md-3">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Company Logo</label>
-									<div class="photo-holder">
-										<span ng-hide="user.image" class="">Photo</span>
-										<div class="image-contain" style="background-image:url('');"></div>
+						<div class="cat-type color-black">
+							<h4>Category Info</h4>
+							<h5 class="or">Select Categories:</h5>
+							<div class="select-cat-1">
+								<div class="row text-center">
+									<div class="col-md-3 col-md-6">
+										<div class="select-cat">
+											<p>
+												<i class="fa fa-graduation-cap fa-2x"></i>
+											</p>
+											<p class="cat-head">Career Counselling</p>
+										</div>
 									</div>
-									<!-- ngIf: user.image -->
-								</div>
-								<div class="upload-div">
-									<div class="upload-buttons">
-										<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+									<div class="col-md-3 col-md-6">
+										<div class="select-cat active">
+											<p>
+												<i class="fa fa-suitcase fa-2x"></i>
+											</p>
+											<p class="cat-head">Travel</p>
+										</div>
 									</div>
-									<div class="response ng-hide" ng-show="uploadResult.length > 0">
-										<!-- ngRepeat: result in uploadResult -->
+									<div class="col-md-3 col-md-6">
+										<div class="select-cat">
+											<p>
+												<i class="fa fa-heartbeat fa-2x"></i>
+											</p>
+											<p class="cat-head">Health</p>
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-9">
-								<label for="exampleInputEmail1">Add Photos</label>
-								<div class="add-photo-holder">
-									<h4 class="text-center"> Add Photos </h4>
-								</div>
-								<div class="pic-add pull-right">
-									<div class="circle-add">
-										Add Photos <i class="fa fa-plus"></i>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<div class="row">
-										<div class="col-md-offset-3 col-md-6">
-											<div class="text-center">
-												<label for="usr" class="consulting-fee">consulting fees<span> (per half and hour) </span>: Rs 500 /-
-												</label>
-											</div>
+									<div class="col-md-3 col-md-6">
+										<div class="select-cat">
+											<p>
+												<i class="fa fa-child fa-2x"></i>
+											</p>
+											<p class="cat-head">Life style</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="text-center submit-btn btn-made margin-btm ">
-							<button type="button" class="btn btn-default">Submit For Review</button>
+						<hr class="margin-top-zero">
+						<div class="row padding-btm-zero">
+							<div class="col-md-12">
+								<label for="">Description:</label>
+								<textarea type="text" class="form-control text-large" placeholder="" rows="5" cols="50"></textarea>
+								<hr class="margin-top-zero">
+
+							</div>
+						</div>
+						<div class="row padding-btm-zero">
+							<div class="col-md-12">
+								<label for="">Skills:</label>
+								<tags-input ng-model="tags" placeholder=""></tags-input>
+								<hr class="margin-top-zero">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="">
+									<p><i class="fa fa-plus"></i> Add Your Awards and Honors </p>
+								</div>
+								<div class="" ng-class="show">
+									<label for="">Awards and Honors:</label>
+									<input type="text" class="form-control text-large" placeholder="">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="">
+									<p><i class="fa fa-plus"></i> Add Your Websites </p>
+								</div>
+								<div class="" ng-class="show">
+									<label for="">Websites:</label>
+									<input type="text" class="form-control text-large" placeholder="">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="">
+									<p><i class="fa fa-plus"></i> Add Your Video Links </p>
+								</div>
+								<div class="" ng-class="show">
+									<label for="">Video Links:</label>
+									<input type="text" class="form-control text-large" placeholder="">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!--
+								<div class="compantlogo">
+									<p><i class="fa fa-plus"></i> Add Your Photos </p>
+									<div class="company-box">
+										<label for="exampleInputEmail1">Add Photos</label>
+										<div class="pic-add pull-right">
+											<div class="circle-add">
+												Click here to Add Photos <i class="fa fa-plus"></i>
+											</div>
+										</div>
+										<div class="add-photo-holder">
+											<h4 class="text-center"> Add Photos </h4>
+										</div>
+									</div>
+								</div>
+-->
+							</div>
+						</div>
+						<div class="">
+							<h4>Educational Qualification</h4>
+							<div class="">
+								<p><i class="fa fa-plus"></i> Add Your Educational Qualification</p>
+							</div>
+							<div ng-class="show">
+								<div class="row">
+									<div class="col-md-6">
+										<label for="">Degree Title:</label>
+										<input type="text" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-6">
+										<label for="">Institute Name:</label>
+										<input type="text" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-6">
+										<label for="">Year of passing:</label>
+										<input type="text" class="form-control text-large" placeholder="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--						Experience-->
+						<hr>
+						<div class="">
+							<h4>Experience</h4>
+							<div class="">
+								<p><i class="fa fa-plus"></i> Add Your Experience</p>
+							</div>
+							<div ng-class="show">
+								<div class="row">
+									<div class="col-md-6">
+										<label for="">Company Name:</label>
+										<input type="text" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-6">
+										<label for="">Job Title:</label>
+										<input type="text" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-12">
+										<label for="">Job Description:</label>
+										<input type="text" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-6">
+										<label for="">Start Date:</label>
+										<input type="date" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-6">
+										<label for="">End Date:</label>
+										<input type="date" class="form-control text-large" placeholder="">
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="">Company Logo:</label>
+											<div class="photo-holder">
+												<span ng-hide="user.image" class="">Photo</span>
+												<div class="image-contain" style="background-image:url('');"></div>
+											</div>
+											<!-- ngIf: user.image -->
+										</div>
+										<div class="upload-div">
+											<div class="upload-buttons">
+												<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+											</div>
+											<div class="response ng-hide" ng-show="uploadResult.length > 0">
+												<!-- ngRepeat: result in uploadResult -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>

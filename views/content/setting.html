@@ -1,8 +1,7 @@
 <section class="container content-min-set">
-	<div class="setting min-height">
+	<div class="setting min-height calendar">
 		<div class="row">
-			<!--            <h4 class="head">My Profile</h4>-->
-			<div class="col-md-2 sides">
+			<div class="col-md-9 bg-white box-shwd ">
 				<div class="sidemenu">
 					<ul>
 						<li ng-repeat="tab in tabs">
@@ -13,9 +12,8 @@
 						</li>
 					</ul>
 				</div>
-			</div>
-			<div class="col-md-10 bg-white box-shwd ">
-				<div ng-include="currentTab"> </div>
+				<div ng-include="currentTab" class=""> </div>
 			</div>
 		</div>
+	</div>
 </section>
