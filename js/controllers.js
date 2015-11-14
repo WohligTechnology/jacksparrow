@@ -385,19 +385,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		$scope.navigation = NavigationService.getnav();
 
 		$scope.tabs = [{
-			title: 'Personal',
+			title: 'PERSONAL DETAILS',
 			url: 'views/content/personal.html',
 			myclass: "active"
         }, {
-			title: 'Professional',
+			title: 'PROFESSIONAL DETAILS',
 			url: 'views/content/professional.html',
 			myclass: "active"
         }, {
-			title: 'Hobbies',
+			title: 'HOBBY DETAILS',
 			url: 'views/content/amature.html',
 			myclass: "active"
     }];
-		$scope.currentTab = 'views/content/professional.html';
+		$scope.currentTab = 'views/content/personal.html';
 
 		$scope.onClickTab = function (tab) {
 			$scope.currentTab = tab.url;

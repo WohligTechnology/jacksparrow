@@ -5,36 +5,31 @@
 				<div class="tab1">
 					<div class="row">
 						<div class="col-md-12">
-							<hr>
-							<h4>Personal Info</h4>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Image</label>
-								<div class="photo-holder">
-									<span ng-hide="user.image" class="">Photo</span>
-									<div class="image-contain" style="background-image:url('');"></div>
-								</div>
-								<!--									 ngIf: user.image -->
-							</div>
-							<div class="upload-div">
-								<div class="upload-buttons">
-									<input type="file" name="file" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
-								</div>
-								<div class="response ng-hide" ng-show="uploadResult.length > 0">
-									<!--										 ngRepeat: result in uploadResult -->
-								</div>
+							<div class="head border-btm">
+								<h4>Personal Info</h4>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<label for="">First Name:</label>
-							<input type="text" class="form-control text-large" placeholder="">
+							<input type="text" class="form-control text-large" placeholder="Please enter your first name">
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<label for="">Last Name:</label>
-							<input type="text" class="form-control text-large" placeholder="">
+							<input type="text" class="form-control text-large" placeholder="Please enter your last name / surname">
 						</div>
-						<div class="col-md-6">
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label for="">EMAIL ADDRESS <span>(Wont be shared publicaly)</span>:</label>
+							<input type="text" class="form-control text-large" placeholder="Please enter your current email id">
+						</div>
+						<div class="col-md-4">
+							<label for="">MOBILE NUMBER <span class="">(OTP Verified)</span>:</label>
+							<input type="text" class="form-control text-large" placeholder="Please enter your mobile no.">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
 							<label class="">Gender :</label>
 							<div class="pad-btm">
 								<label class="radio-inline">
@@ -43,43 +38,61 @@
 									<input type="radio" name="optradio">Female</label>
 							</div>
 						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<label for="">Email Id:</label>
-							<input type="text" class="form-control text-large" placeholder="(not shared to any one)">
-						</div>
-						<div class="col-md-6">
-							<label for="">Mobile:</label>
-							<input type="text" class="form-control text-large" placeholder="">
+						<div class="col-md-4">
+							<div class="choose-pic">
+								<label for="">PROFILE IMAGE:</label>
+								<div class="choose-image">
+									<i class="fa fa-user"></i>
+									<button class="btn choose-btn">Choose File</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<hr>
-				<h4> Address</h4>
+				<div class="head border-btm">
+					<h4> Address</h4>
+				</div>
 				<div class="row padding-btm-zero">
-					<div class="col-md-6">
-						<label for="">Country:</label>
-						<input type="text" class="form-control text-large" placeholder="">
+					<div class="col-md-8">
+						<label for="">FULL ADDRESS:</label>
+						<textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="5" cols="50"></textarea>
 					</div>
-					<div class="col-md-6">
+				</div>
+				<div class="row padding-btm-zero">
+					<div class="col-md-4">
+						<label for="">Country:</label>
+						<input type="text" class="form-control text-large" placeholder="Please select your country">
+					</div>
+					<div class="col-md-4">
 						<label for="">State:</label>
-						<input type="text" class="form-control text-large" placeholder="">
+						<input type="text" class="form-control text-large" placeholder="Please enter your last name / surname">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<label for="">City:</label>
-						<input type="text" class="form-control text-large" placeholder="">
+						<input type="text" class="form-control text-large" placeholder="Please enter your current city">
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<label for="">Pincode:</label>
-						<input type="text" class="form-control text-large" placeholder="">
+						<input type="text" class="form-control text-large" placeholder="Please enter your pincode">
 					</div>
 				</div>
-				<div class="submit-btn padding-btm-zero margin-btm btn-made">
-					<button type="button" class="btn btn-default">Save</button>
+				<div class="margin-btm btn-group">
+					<button type="button" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-primary">Fill Professional Profile</button>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="head border-btm">
+							<h4>Link With</h4>
+						</div>
+						<div class="social margin-btm">
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-youtube"></i></a>
+							<a href="#"><i class="fa fa-facebook"></i></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

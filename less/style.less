@@ -230,10 +230,6 @@
 		cursor: pointer;
 	}
 	
-	.margin-btm {
-		margin-bottom: 20px;
-	}
-	
 	.icons-social {
 		text-align: center;
 		h4 {
@@ -343,7 +339,7 @@
 	
 	.cat-type {
 		color: #fff;
-		padding: 20px 0 15px 0;
+		padding: 0px 0 15px 0;
 		.cat-type-1 {
 			max-width: 700px;
 			margin: 25px auto 30px;
@@ -355,23 +351,25 @@
 	
 	.select-cat {
 		padding: 20px;
-		border: 4px solid @color-border;
-		color: lighten(@color-black, 40%);
-		min-height: 145px;
+		color: lighten(@color-black, 70%);
 		cursor: pointer;
+		min-height: 130px;
 		.transition(all ease 500ms);
+		.cat-head {
+			font-size: 14px;
+		}
 		&.active {
-			border-color: @color-base;
-			color: @color-black;
+			background: lighten( @background-color, 1%);
+			color: @color-base;
 		}
 		&:hover {
-			border-color: @color-base;
-			color: @color-black;
+			background: lighten( @background-color, 1%);
+			color: @color-base;
 		}
 	}
 	
 	.color-black {
-		color:@color-black;
+		color: @color-black;
 	}
 	
 	.form-group.select-drop {
@@ -1128,6 +1126,11 @@
 		margin-bottom: 20px;
 	}
 	
+	.margin-btm.btn-group .btn {
+		margin-right: 20px;
+		padding: 10px 20px;
+	}
+	
 	.content-min-set {
 		min-height: 540px;
 		textarea.form-control.text-large {
@@ -1168,24 +1171,27 @@
 				li {
 					display: inline-block;
 					list-style: none;
-					text-transform: capitalize;
-					color: #016EAB;
+					text-transform: uppercase;
 					background-color: #fff;
-					border: 1px solid #ddd;
+					margin-right: 10px;
 					a {
-						font-size: 13px;
+						font-size: 18px;
 						line-height: 20px;
-						padding: 5px 15px;
-						font-weight: 600;
+						color: #191919;
+						padding: 5px 0px;
+						border-bottom: 3px solid @color-white;
+						font-weight: 400;
 						display: block;
 						cursor: pointer;
+						.transition(all ease 500ms);
 						&:hover,
 						&:focus {
 							text-decoration: none;
-							background-color: rgba(0, 0, 0, 0.05);
+							color: lighten(#191919, 40%);
+							border-bottom: 3px solid @color-base;
 						}
 						&.active {
-							background-color: rgba(0, 0, 0, 0.10);
+							border-bottom: 3px solid @color-base;
 						}
 					}
 				}
@@ -1200,12 +1206,39 @@
 			.submit-btn {
 				padding: 5px 0 15px 0;
 			}
-			//			.row {
-			//				padding-bottom: 20px;
-			//			}
 			label.radio-inline.pad-zero {
 				padding: 0px;
 				font-weight: 500;
+			}
+			.border-btm {
+				margin-bottom: 20px;
+				border: 0;
+				border-bottom: 1px solid #eee;
+			}
+			label {
+				text-transform: uppercase;
+			}
+			.head {
+				h4 {
+					text-transform: uppercase;
+					font-size: 16px;
+					font-weight: 600;
+				}
+			}
+			.choose-pic {
+				i {
+					font-size: 25px;
+					vertical-align: middle;
+					color: #d7d7d7;
+					border: 2px solid #d7d7d7;
+					padding: 6px 8px 5px 8px;
+				}
+				button.btn.choose-btn {
+					background: #fff;
+					color: #d7d7d7;
+					border: 2px solid #d7d7d7;
+					padding: 8px 20px;
+				}
 			}
 		}
 		.box-shwd {
@@ -1234,6 +1267,7 @@
 			outline: 0px;
 			.box-shadow(inset 0 0px 0px);
 		}
+		border: 2px solid #d7d7d7;
 	}
 	
 	.ngdialog-content {
@@ -1358,7 +1392,7 @@
 	
 	.submit-btn.btn-made {
 		.btn {
-			padding: 10px 115px;
+			padding: 10px 40px;
 			text-transform: uppercase;
 		}
 	}

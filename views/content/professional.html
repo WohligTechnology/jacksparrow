@@ -4,25 +4,29 @@
 			<div class="col-md-12 bg-white">
 				<div class="cont-setting">
 					<div class="tab2">
-						<div class="row">
-							<div class="col-md-12">
-								<hr>
-								<div class="pull-right">
-									<button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
-								</div>
-								<div class="">
-									<button class="btn btnsoc twit"><i class="fa fa-linkedin"></i> Get from Linkedin</button>
-								</div>
-								<hr>
-							</div>
-						</div>
+						<!--
+				<div class="row">
+	<div class="col-md-12">
+		<hr>
+		<div class="pull-right">
+			<button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
+		</div>
+		<div class="">
+			<button class="btn btnsoc twit"><i class="fa fa-linkedin"></i> Get from Linkedin</button>
+		</div>
+		<hr>
+	</div>
+</div>
+-->
 
 						<div class="cat-type color-black">
-							<h4>Category Info</h4>
-							<h5 class="or">Select Categories:</h5>
+							<div class="head border-btm">
+								<h4>Select Categories</h4>
+							</div>
+							<label class="or">You have Expertise in:</label>
 							<div class="select-cat-1">
 								<div class="row text-center">
-									<div class="col-md-3 col-md-6">
+									<div class="col-md-2 col-md-6">
 										<div class="select-cat">
 											<p>
 												<i class="fa fa-graduation-cap fa-2x"></i>
@@ -30,7 +34,7 @@
 											<p class="cat-head">Career Counselling</p>
 										</div>
 									</div>
-									<div class="col-md-3 col-md-6">
+									<div class="col-md-2 col-md-6">
 										<div class="select-cat active">
 											<p>
 												<i class="fa fa-suitcase fa-2x"></i>
@@ -38,7 +42,7 @@
 											<p class="cat-head">Travel</p>
 										</div>
 									</div>
-									<div class="col-md-3 col-md-6">
+									<div class="col-md-2 col-md-6">
 										<div class="select-cat">
 											<p>
 												<i class="fa fa-heartbeat fa-2x"></i>
@@ -46,7 +50,7 @@
 											<p class="cat-head">Health</p>
 										</div>
 									</div>
-									<div class="col-md-3 col-md-6">
+									<div class="col-md-2 col-md-6">
 										<div class="select-cat">
 											<p>
 												<i class="fa fa-child fa-2x"></i>
@@ -54,16 +58,43 @@
 											<p class="cat-head">Life style</p>
 										</div>
 									</div>
+									<div class="col-md-2 col-md-6">
+										<div class="select-cat">
+											<p>
+												<i class="fa fa-plus fa-2x"></i>
+											</p>
+											<p class="cat-head">Others</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="">
+							<div class="head border-btm">
+								<h4>Educational Qualification <span class="btn"><i class="fa fa-plus"></i> Add More</span></h4>
+							</div>
+							<div ng-class="show">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="">Degree Title:</label>
+										<input type="text" class="form-control text-large" placeholder="Please enter the degree title">
+									</div>
+									<div class="col-md-4">
+										<label for="">Institute Name:</label>
+										<input type="text" class="form-control text-large" placeholder="Please enter the name of the college/school">
+									</div>
+									<div class="col-md-2">
+										<label for="">Year of passing:</label>
+										<input type="text" class="form-control text-large" placeholder="Year of passing">
+									</div>
 								</div>
 							</div>
 						</div>
 						<hr class="margin-top-zero">
 						<div class="row padding-btm-zero">
-							<div class="col-md-12">
+							<div class="col-md-10">
 								<label for="">Description:</label>
-								<textarea type="text" class="form-control text-large" placeholder="" rows="5" cols="50"></textarea>
-								<hr class="margin-top-zero">
-
+								<textarea type="text" class="form-control text-large" placeholder="Please enter the description" rows="5" cols="50"></textarea>
 							</div>
 						</div>
 						<div class="row padding-btm-zero">
@@ -75,7 +106,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-6">
-								<div class="">
+								<div class="" ng-click="">
 									<p><i class="fa fa-plus"></i> Add Your Awards and Honors </p>
 								</div>
 								<div class="" ng-class="show">
@@ -84,7 +115,7 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="">
+								<div class="" ng-click="">
 									<p><i class="fa fa-plus"></i> Add Your Websites </p>
 								</div>
 								<div class="" ng-class="show">
@@ -93,9 +124,10 @@
 								</div>
 							</div>
 						</div>
+						<hr>
 						<div class="row">
 							<div class="col-md-6">
-								<div class="">
+								<div class="" ng-click="">
 									<p><i class="fa fa-plus"></i> Add Your Video Links </p>
 								</div>
 								<div class="" ng-class="show">
@@ -120,28 +152,6 @@
 									</div>
 								</div>
 -->
-							</div>
-						</div>
-						<div class="">
-							<h4>Educational Qualification</h4>
-							<div class="">
-								<p><i class="fa fa-plus"></i> Add Your Educational Qualification</p>
-							</div>
-							<div ng-class="show">
-								<div class="row">
-									<div class="col-md-6">
-										<label for="">Degree Title:</label>
-										<input type="text" class="form-control text-large" placeholder="">
-									</div>
-									<div class="col-md-6">
-										<label for="">Institute Name:</label>
-										<input type="text" class="form-control text-large" placeholder="">
-									</div>
-									<div class="col-md-6">
-										<label for="">Year of passing:</label>
-										<input type="text" class="form-control text-large" placeholder="">
-									</div>
-								</div>
 							</div>
 						</div>
 						<!--						Experience-->
@@ -193,10 +203,13 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
+					</div>
+					<div class="submit-btn padding-btm-zero margin-btm btn-made">
+						<button type="button" class="btn btn-default">Wait for the Review</button>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </section>

@@ -205,9 +205,6 @@ label.input-check {
   user-select: none;
   cursor: pointer;
 }
-.margin-btm {
-  margin-bottom: 20px;
-}
 .icons-social {
   text-align: center;
 }
@@ -330,7 +327,7 @@ input.checkbox:checked:after {
 }
 .cat-type {
   color: #fff;
-  padding: 20px 0 15px 0;
+  padding: 0px 0 15px 0;
 }
 .cat-type .cat-type-1 {
   max-width: 700px;
@@ -341,22 +338,24 @@ input.checkbox:checked:after {
 }
 .select-cat {
   padding: 20px;
-  border: 4px solid #e4e4e4;
-  color: #888888;
-  min-height: 145px;
+  color: #d4d4d4;
   cursor: pointer;
+  min-height: 130px;
   -webkit-transition: all ease 500ms;
   -moz-transition: all ease 500ms;
   -o-transition: all ease 500ms;
   transition: all ease 500ms;
 }
+.select-cat .cat-head {
+  font-size: 14px;
+}
 .select-cat.active {
-  border-color: #93b1c6;
-  color: #222222;
+  background: #fafafa;
+  color: #93b1c6;
 }
 .select-cat:hover {
-  border-color: #93b1c6;
-  color: #222222;
+  background: #fafafa;
+  color: #93b1c6;
 }
 .color-black {
   color: #222222;
@@ -1070,6 +1069,10 @@ h4.head {
 .margin-btm {
   margin-bottom: 20px;
 }
+.margin-btm.btn-group .btn {
+  margin-right: 20px;
+  padding: 10px 20px;
+}
 .content-min-set {
   min-height: 540px;
 }
@@ -1117,26 +1120,32 @@ h4.head {
 .content-min-set .sidemenu ul li {
   display: inline-block;
   list-style: none;
-  text-transform: capitalize;
-  color: #016EAB;
+  text-transform: uppercase;
   background-color: #fff;
-  border: 1px solid #ddd;
+  margin-right: 10px;
 }
 .content-min-set .sidemenu ul li a {
-  font-size: 13px;
+  font-size: 18px;
   line-height: 20px;
-  padding: 5px 15px;
-  font-weight: 600;
+  color: #191919;
+  padding: 5px 0px;
+  border-bottom: 3px solid #ffffff;
+  font-weight: 400;
   display: block;
   cursor: pointer;
+  -webkit-transition: all ease 500ms;
+  -moz-transition: all ease 500ms;
+  -o-transition: all ease 500ms;
+  transition: all ease 500ms;
 }
 .content-min-set .sidemenu ul li a:hover,
 .content-min-set .sidemenu ul li a:focus {
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.05);
+  color: #7f7f7f;
+  border-bottom: 3px solid #93b1c6;
 }
 .content-min-set .sidemenu ul li a.active {
-  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #93b1c6;
 }
 .content-min-set .sidemenu ul li.active a {
   background-color: rgba(0, 0, 0, 0.05);
@@ -1147,6 +1156,32 @@ h4.head {
 .content-min-set .cont-setting label.radio-inline.pad-zero {
   padding: 0px;
   font-weight: 500;
+}
+.content-min-set .cont-setting .border-btm {
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+.content-min-set .cont-setting label {
+  text-transform: uppercase;
+}
+.content-min-set .cont-setting .head h4 {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+}
+.content-min-set .cont-setting .choose-pic i {
+  font-size: 25px;
+  vertical-align: middle;
+  color: #d7d7d7;
+  border: 2px solid #d7d7d7;
+  padding: 6px 8px 5px 8px;
+}
+.content-min-set .cont-setting .choose-pic button.btn.choose-btn {
+  background: #fff;
+  color: #d7d7d7;
+  border: 2px solid #d7d7d7;
+  padding: 8px 20px;
 }
 .content-min-set .box-shwd {
   min-height: 550px;
@@ -1167,6 +1202,7 @@ textarea.min {
   -webkit-box-shadow: inset 0 0px 0px;
   -moz-box-shadow: inset 0 0px 0px;
   box-shadow: inset 0 0px 0px;
+  border: 2px solid #d7d7d7;
 }
 .form-control:focus {
   outline: 0px;
@@ -1280,7 +1316,7 @@ fieldset[disabled] .form-control:focus {
   font-size: 40px;
 }
 .submit-btn.btn-made .btn {
-  padding: 10px 115px;
+  padding: 10px 40px;
   text-transform: uppercase;
 }
 label.consulting-fee {
