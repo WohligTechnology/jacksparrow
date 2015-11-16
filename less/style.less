@@ -356,6 +356,7 @@
 		.transition(all ease 500ms);
 		.cat-head {
 			font-size: 14px;
+			font-weight: 600;
 		}
 		&.active {
 			background: lighten( @background-color, 1%);
@@ -1159,7 +1160,7 @@
 			min-height: 35px;
 		}
 		.sidemenu {
-			margin-top: 25px;
+			margin: 25px 0 10px 0;
 			ul {
 				display: block;
 				margin-left: 15px;
@@ -1173,7 +1174,7 @@
 					list-style: none;
 					text-transform: uppercase;
 					background-color: #fff;
-					margin-right: 10px;
+					margin-right: 20px;
 					a {
 						font-size: 16px;
 						line-height: 20px;
@@ -1223,6 +1224,8 @@
 			}
 			label {
 				text-transform: uppercase;
+				font-weight: 600;
+				font-size: 12px;
 				span {
 					font-size: 10px;
 				}
@@ -1243,22 +1246,35 @@
 			.choose-pic {
 				i {
 					font-size: 25px;
+					margin-right: 15px;
 					vertical-align: middle;
 					color: #d7d7d7;
 					border: 2px solid #d7d7d7;
-					padding: 6px 8px 5px 8px;
+					padding: 5px 8px 0px 8px;
+					min-height: 38px;
+					float: left;
 				}
-				button.btn.choose-btn {
+				.choose-btn {
 					background: #fff;
 					color: #d7d7d7;
 					border: 2px solid #d7d7d7;
-					padding: 8px 20px;
+					width: 150px;
+					float: left;
+					cursor: pointer;
+					span {
+						position: absolute;
+						padding: 6px 8px;
+						cursor: pointer;
+					}
+					input {
+						opacity: 0;
+						cursor: pointer;
+					}
 				}
 			}
 		}
 		.box-shwd {
 			min-height: 550px;
-			//        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 		}
 		.sides {
 			padding: 0px;
@@ -1334,30 +1350,6 @@
 		a {
 			cursor: pointer;
 		}
-		.grpbtn {
-			span {
-				padding-right: 15px;
-			}
-			a.btnsoc {
-				border-radius: 0px;
-				padding: 6px 0px;
-				color: #fff;
-				width: 110px;
-				text-transform: uppercase;
-				&.gplus {
-					background: #dd4d3b;
-				}
-				&.fbook {
-					background: #2F4675;
-				}
-				i {
-					margin-right: 5px;
-				}
-			}
-			a.btnsoc + a.btnsoc {
-				margin-left: 15px;
-			}
-		}
 		.border1 a {
 			color: @color-anchor;
 			&:hover {
@@ -1421,6 +1413,31 @@
 		}
 	}
 	
+	.grpbtn {
+		span {
+			padding-right: 15px;
+		}
+		a.btnsoc {
+			border-radius: 0px;
+			padding: 6px 0px;
+			color: #fff;
+			width: 110px;
+			text-transform: uppercase;
+			&.gplus {
+				background: #dd4d3b;
+			}
+			&.fbook {
+				background: #2F4675;
+			}
+			i {
+				margin-right: 5px;
+			}
+		}
+		a.btnsoc + a.btnsoc {
+			margin-left: 15px;
+		}
+	}
+	
 	tags-input {
 		margin: 0px;
 		.host {
@@ -1428,7 +1445,7 @@
 		}
 		.tags {
 			box-shadow: 0px 0px 0px;
-			border: 1px solid #ccc;
+			border: 2px solid #ccc;
 			margin-bottom: 20px;
 			min-height: 40px;
 			&.focused {
@@ -1601,6 +1618,9 @@
 		.btn {
 			padding: 8px 40px;
 			font-size: 16px;
+		}
+		i {
+			margin-right: 5px;
 		}
 	}
 	
@@ -1797,11 +1817,12 @@
 	}
 	
 	.add-photo-holder {
-		height: 170px;
+		height: 80px;
+		width: 80px;
 		position: relative;
 		border: 1px solid #ddd;
-		margin-bottom: 15px;
-		h4 {
+		margin-bottom: 10px;
+		p {
 			position: absolute;
 			left: 50%;
 			width: 100%;
@@ -1810,6 +1831,7 @@
 			overflow: hidden;
 			color: #D8D8D8;
 			margin: 0;
+			font-size: 12px;
 		}
 	}
 	
