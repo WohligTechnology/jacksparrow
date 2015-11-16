@@ -640,94 +640,111 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('InfiniteCtrl', function ($scope, TemplateService, NavigationService) {
-		$scope.template = TemplateService.changecontent("infinite");
-		$scope.menutitle = NavigationService.makeactive("Infinite Scroll");
-		TemplateService.title = $scope.menutitle;
-		$scope.navigation = NavigationService.getnav();
+	$scope.template = TemplateService.changecontent("infinite");
+	$scope.menutitle = NavigationService.makeactive("Infinite Scroll");
+	TemplateService.title = $scope.menutitle;
+	$scope.navigation = NavigationService.getnav();
 
-		//Infinite scroll
-		$scope.images = [1, 2, 3, 4, 5, 6, 7, 8];
-		$scope.loadMore = function () {
-			var last = $scope.images[$scope.images.length - 1];
-			for (var i = 1; i <= 8; i++) {
-				$scope.images.push(last + i);
-			}
-		};
-	})
-	.controller('QuestionsCtrl', function ($scope, TemplateService, NavigationService, ngDialog) {
-		$scope.template = TemplateService.changecontent("qts-asked");
-		$scope.menutitle = NavigationService.makeactive("Questions");
-		TemplateService.title = $scope.menutitle;
-		$scope.navigation = NavigationService.getnav();
-		$scope.historytab = 1;
-		$scope.activate = true;
-		$scope.profile = {
-			name: "Amar Chhetri",
-			current: "Travel",
-			company: "Global Services",
-			location: "Mumbai City, India",
-			skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
-			websites: [{
-				link: "www.india.com"
-    }, {
-				link: "www.wohlig.com"
-    }, {
-				link: "www.magicmirror.com"
-    }, {
-				link: "www.auraart.com"
-    }],
-			honors: {
-				name: "ICICI Lombard - Project Manager",
-				desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
-			},
-			experience: "12",
-			country: "India",
-			city: "Mumbai",
-			age: "35",
-			cost: "500/-",
-			consultcount: "171"
-
-		};
-
-		$scope.showQuickview = function () {
-			ngDialog.open({
-				scope: $scope,
-				template: 'views/content/modal-quickview.html'
-			});
-		};
-		$scope.youasked = [{
-			name: "Aman Chhetri",
-			expertice: "Professional",
-			img: "img/info/info1.jpg",
-			answer: 'yes'
-    }, {
-			name: "Mahesh Maurya",
-			expertice: "Amatuer",
-			img: "img/info/info3.jpg",
-			answer: 'no'
-    }, {
-			name: "Rani Verma",
-			expertice: "Professional",
-			img: "img/info/info2.jpg",
-			answer: 'wait'
-    }];
-
-		$scope.askedyou = [{
-			name: "Mahesh Maurya",
-			img: "img/info/info1.jpg",
-			questiontag: "Travel (Amateur)",
-			question: "Do you know about new places to travel?"
-    }, {
-			name: "Aman Chhetri",
-			img: "img/info/info3.jpg",
-			questiontag: "Life Style (Pro)",
-			question: "Can you help me with life style?"
-    }];
-		$scope.changeTab = function (tab) {
-			$scope.historytab = tab;
-			$scope.activate = $scope.activate === true ? false : true;
+	//Infinite scroll
+	$scope.images = [1, 2, 3, 4, 5, 6, 7, 8];
+	$scope.loadMore = function () {
+		var last = $scope.images[$scope.images.length - 1];
+		for (var i = 1; i <= 8; i++) {
+			$scope.images.push(last + i);
 		}
-	})
+	};
+})
+
+.controller('QuestionsCtrl', function ($scope, TemplateService, NavigationService, ngDialog) {
+	$scope.template = TemplateService.changecontent("qts-asked");
+	$scope.menutitle = NavigationService.makeactive("Questions");
+	TemplateService.title = $scope.menutitle;
+	$scope.navigation = NavigationService.getnav();
+	$scope.historytab = 1;
+	$scope.activate = true;
+	$scope.profile = {
+		name: "Amar Chhetri",
+		current: "Travel",
+		company: "Global Services",
+		location: "Mumbai City, India",
+		skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
+		websites: [{
+			link: "www.india.com"
+    }, {
+			link: "www.wohlig.com"
+    }, {
+			link: "www.magicmirror.com"
+    }, {
+			link: "www.auraart.com"
+    }],
+		honors: {
+			name: "ICICI Lombard - Project Manager",
+			desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
+		},
+		experience: "12",
+		country: "India",
+		city: "Mumbai",
+		age: "35",
+		cost: "500/-",
+		consultcount: "171"
+
+	};
+
+	$scope.showQuickview = function () {
+		ngDialog.open({
+			scope: $scope,
+			template: 'views/content/modal-quickview.html'
+		});
+	};
+	$scope.youasked = [{
+		name: "Aman Chhetri",
+		expertice: "Professional",
+		img: "img/info/info1.jpg",
+		answer: 'yes'
+    }, {
+		name: "Mahesh Maurya",
+		expertice: "Amatuer",
+		img: "img/info/info3.jpg",
+		answer: 'no'
+    }, {
+		name: "Rani Verma",
+		expertice: "Professional",
+		img: "img/info/info2.jpg",
+		answer: 'wait'
+    }];
+
+	$scope.askedyou = [{
+		name: "Mahesh Maurya",
+		img: "img/info/info1.jpg",
+		questiontag: "Travel (Amateur)",
+		question: "Do you know about new places to travel?"
+    }, {
+		name: "Aman Chhetri",
+		img: "img/info/info3.jpg",
+		questiontag: "Life Style (Pro)",
+		question: "Can you help me with life style?"
+    }];
+	$scope.tab = {
+		left: true,
+		right: false
+	};
+	$scope.historytab = 1;
+	$scope.activate = true;
+	$scope.changeTab = function (tab) {
+		$scope.historytab = tab;
+		$scope.activate = $scope.activate === true ? false : true;
+		$scope.tab = {
+			left: false,
+			center: false,
+			right: false
+		};
+		if (tab === 1)
+			$scope.tab.left = true;
+		else
+			$scope.tab.right = true;
+		console.log($scope.tab);
+	};
+})
 
 .controller('headerctrl', function ($scope, TemplateService, ngDialog) {
 	$scope.template = TemplateService;

@@ -151,7 +151,7 @@ firstapp.directive('toggle', function () {
 			}
 		}
 	};
-})
+});
 
 firstapp.directive("scroll", function ($window) {
 	return function (scope, element, attrs) {

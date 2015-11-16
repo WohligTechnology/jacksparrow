@@ -3,14 +3,18 @@
 		<div class="row bg-white box-shwd">
 			<div class="col-md-12">
 				<div class="sidemenu">
-					<ul>
-						<li ng-repeat="tab in tabs">
-							<a ng-click="onClickTab(tab)">{{tab.title}}</a>
-						</li>
-						<li>
-							<a href="#">+ Add More</a>
-						</li>
-					</ul>
+					<div class="row">
+						<div class="col-md-10">
+							<ul class="border-btm">
+								<li ng-repeat="tab in tabs">
+									<a ng-click="onClickTab(tab)" ng-class="{active:isActiveTab(tab.url)}">{{tab.title}}</a>
+								</li>
+								<li>
+									<a href="#">+ Add More</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 				<div ng-include="currentTab" class=""> </div>
 			</div>

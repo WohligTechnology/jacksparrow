@@ -353,7 +353,6 @@
 		padding: 20px;
 		color: lighten(@color-black, 70%);
 		cursor: pointer;
-		min-height: 130px;
 		.transition(all ease 500ms);
 		.cat-head {
 			font-size: 14px;
@@ -1163,8 +1162,9 @@
 			margin-top: 25px;
 			ul {
 				display: block;
-				padding-left: 15px;
-				background-color: #fff;
+				margin-left: 15px;
+				padding: 0px;
+				border-bottom: 1px solid #eee;
 				li + li {
 					margin-left: 4px;
 				}
@@ -1175,11 +1175,12 @@
 					background-color: #fff;
 					margin-right: 10px;
 					a {
-						font-size: 18px;
+						font-size: 16px;
 						line-height: 20px;
 						color: #191919;
+						font-weight: 600;
 						padding: 5px 0px;
-						border-bottom: 3px solid @color-white;
+						border-bottom: 4px solid @color-white;
 						font-weight: 400;
 						display: block;
 						cursor: pointer;
@@ -1187,11 +1188,12 @@
 						&:hover,
 						&:focus {
 							text-decoration: none;
-							color: lighten(#191919, 40%);
-							border-bottom: 3px solid @color-base;
+							color: darken(#191919, 40%);
+							border-bottom: 4px solid @color-base;
 						}
 						&.active {
-							border-bottom: 3px solid @color-base;
+							color: darken(#191919, 40%);
+							border-bottom: 4px solid @color-base;
 						}
 					}
 				}
@@ -1210,6 +1212,10 @@
 				padding: 0px;
 				font-weight: 500;
 			}
+			.button-grp {
+				margin-bottom: 20px;
+				margin-top: 10px
+			}
 			.border-btm {
 				margin-bottom: 20px;
 				border: 0;
@@ -1217,12 +1223,21 @@
 			}
 			label {
 				text-transform: uppercase;
+				span {
+					font-size: 10px;
+				}
 			}
 			.head {
 				h4 {
 					text-transform: uppercase;
 					font-size: 16px;
 					font-weight: 600;
+				}
+				.btn {
+					background: #eee;
+					margin-left: 20px;
+					font-weight: 600;
+					font-size: 12px;
 				}
 			}
 			.choose-pic {

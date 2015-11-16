@@ -1,72 +1,97 @@
 <section class="container-fluid content-min-set">
 	<div class="setting min-height">
-		<div class="row">
-			<div class="col-md-12 bg-white">
-				<div class="cont-setting">
-					<div class="tab2">
-						<hr>
-						<div class="cat-type color-black">
-							<h4>Category Info</h4>
-							<div class="row">
-								<div class="col-md-12">
-									<label for="">Category:</label>
-									<input type="text" class="form-control text-large" placeholder="">
-									<hr class="margin-top-zero">
-								</div>
-								<div class="col-md-12">
-									<label for="">Years of Experience:</label>
-									<input type="text" class="form-control text-large" placeholder="">
-									<hr class="margin-top-zero">
-								</div>
+		<div class="cont-setting">
+			<div class="tab2">
+				<div class="cat-type color-black">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="head border-btm">
+								<h4>Category Info</h4>
 							</div>
-							<div class="row padding-btm-zero">
-								<div class="col-md-12">
-									<label for="">Description:</label>
-									<textarea type="text" class="form-control text-large" placeholder="Tell us about your hobby" rows="5" cols="50"></textarea>
-									<hr class="margin-top-zero">
+						</div>
+						<div class="col-md-5">
+							<label for="">Category:</label>
+							<input type="text" class="form-control text-large" placeholder="Please enter category">
+						</div>
+						<div class="col-md-5">
+							<label for="">Years of Experience:<span>(in years)</span></label>
+							<input type="text" class="form-control text-large" placeholder="Please enter years of experience">
+						</div>
+					</div>
+				</div>
+				<div class="row padding-btm-zero">
+					<div class="col-md-10">
+						<div class="head border-btm">
+							<h4>Description and Skill</h4>
+						</div>
+						<label for="">Description<span>(Tell us about your hobby)</span>:</label>
+						<textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50"></textarea>
+					</div>
+				</div>
+				<div class="row padding-btm-zero">
+					<div class="col-md-10">
+						<label for="">Skills:</label>
+						<tags-input ng-model="tags" placeholder="Plaese enter your skills"></tags-input>
+					</div>
+				</div>
 
-								</div>
+				<div class="">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="head border-btm">
+								<h4>Educational Qualification <span class="btn"><i class="fa fa-plus"></i> Add More</span></h4>
 							</div>
-							<div class="row padding-btm-zero">
-								<div class="col-md-12">
-									<label for="">Skills:</label>
-									<tags-input ng-model="tags" placeholder=""></tags-input>
-									<hr class="margin-top-zero">
-								</div>
+						</div>
+					</div>
+					<div ng-class="show">
+						<div class="row">
+							<div class="col-md-4">
+								<label for="">Degree Title:</label>
+								<input type="text" class="form-control text-large" placeholder="Please enter the degree title">
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="">
-										<p><i class="fa fa-plus"></i> Add Your Awards and Honors </p>
-									</div>
-									<div class="" ng-class="show">
-										<label for="">Awards and Honors:</label>
-										<input type="text" class="form-control text-large" placeholder="">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="">
-										<p><i class="fa fa-plus"></i> Add Your Websites </p>
-									</div>
-									<div class="" ng-class="show">
-										<label for="">Websites:</label>
-										<input type="text" class="form-control text-large" placeholder="">
-									</div>
-								</div>
+							<div class="col-md-4">
+								<label for="">Institute Name:</label>
+								<input type="text" class="form-control text-large" placeholder="Please enter the name of the college/school">
 							</div>
-							<hr>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="">
-										<p><i class="fa fa-plus"></i> Add Your Video Links </p>
-									</div>
-									<div class="" ng-class="show">
-										<label for="">Video Links:</label>
-										<input type="text" class="form-control text-large" placeholder="">
-									</div>
-								</div>
-								<div class="col-md-6">
-<!--
+							<div class="col-md-2">
+								<label for="">Year of passing:</label>
+								<input type="date" class="form-control text-large" placeholder="Year of passing">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="head border-btm">
+							<h4>Awards and Honors <span class="btn"><i class="fa fa-plus"></i> Add More</span></h4>
+						</div>
+						<div class="" ng-class="show">
+							<label>Awards and Honors:</label>
+							<input type="text" class="form-control text-large" placeholder="Please enter awards and honors">
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="head border-btm">
+							<h4>Websites<span class="btn"><i class="fa fa-plus"></i> Add More</span></h4>
+						</div>
+						<div class="" ng-class="show">
+							<label>Website:</label>
+							<input type="text" class="form-control text-large" placeholder="Please enter website">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="head border-btm">
+							<h4>Video Links<span class="btn"><i class="fa fa-plus"></i> Add More</span></h4>
+						</div>
+						<div class="" ng-class="show">
+							<label>Video Links:</label>
+							<input type="text" class="form-control text-large" placeholder="Please enter video links">
+						</div>
+					</div>
+					<div class="col-md-5">
+						<!--
 									<div class="compantlogo">
 										<p><i class="fa fa-plus"></i> Add Your Photos </p>
 										<div class="company-box">
@@ -83,36 +108,10 @@
 									</div>
 -->
 
-								</div>
-							</div>
-							<div class="">
-								<hr>
-								<h4>Educational Qualification</h4>
-								<div class="">
-									<p><i class="fa fa-plus"></i> Add Your Educational Qualification</p>
-								</div>
-								<div ng-class="show">
-									<div class="row">
-										<div class="col-md-6">
-											<label for="">Degree Title:</label>
-											<input type="text" class="form-control text-large" placeholder="">
-										</div>
-										<div class="col-md-6">
-											<label for="">Institute Name:</label>
-											<input type="text" class="form-control text-large" placeholder="">
-										</div>
-										<div class="col-md-6">
-											<label for="">Year of passing:</label>
-											<input type="text" class="form-control text-large" placeholder="">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-					<div class="submit-btn padding-btm-zero margin-btm btn-made">
-						<button type="button" class="btn btn-default">Wait for the Review</button>
-					</div>
+				</div>
+				<div class="margin-btm btn-group">
+					<button type="button" class="btn btn-primary">Wait for the Review</button>
 				</div>
 			</div>
 		</div>
