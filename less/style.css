@@ -1736,6 +1736,21 @@ span.badge.badge-sucess {
   margin: 0;
   font-size: 12px;
 }
+span.choose-btn {
+  width: 73%;
+  float: right;
+}
+span.choose-btn span {
+  position: absolute;
+  background: #eee;
+  padding: 8px 12px;
+  font-size: 12px;
+  margin-top: -7px;
+}
+span.choose-btn input {
+  opacity: 0;
+  margin-top: -7px;
+}
 @media only screen and (max-width: 1129px) {
   .slider-holder {
     height: auto;
