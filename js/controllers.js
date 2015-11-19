@@ -161,7 +161,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		current: "Sr. Web Developer at WNS",
 		company: "Global Services",
 		location: "Mumbai City, India",
-		skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
+		// skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
 		websites: [{
 			link: "www.india.com"
     }, {
@@ -210,6 +210,70 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 		$scope.showAmature = !$scope.showAmature;
 	}
 })
+
+
+.controller('EditProfessionalCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
+	//Used to name the .html file
+	$scope.template = TemplateService.changecontent("edit-professional");
+	$scope.menutitle = NavigationService.makeactive("Edit Professional");
+	TemplateService.title = $scope.menutitle;
+	$scope.navigation = NavigationService.getnav();
+	$scope.showAmature = false;
+	$scope.profile = {
+		name: "Amar Chhetri",
+		current: "Sr. Web Developer at WNS",
+		company: "Global Services",
+		location: "Mumbai City, India",
+		// skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
+		websites: [{
+			link: "www.india.com"
+    }, {
+			link: "www.mytrip.com"
+    }],
+		videos: [{
+			src: "img/video.jpg"
+    }, {
+			src: "img/video.jpg"
+    }, {
+			src: "img/video.jpg"
+    }, {
+			src: "img/video.jpg"
+    }],
+		honors: {
+			name: "ICICI Lombard - Project Manager",
+			desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
+		},
+		experience: "12",
+		country: "India",
+		city: "Mumbai",
+		gender: "Male",
+		phone: "878784654",
+		email: "amit@gmail.com",
+		age: "35",
+		cost: "500/-",
+		consultcount: "5"
+
+	};
+	$scope.amature = {
+		jobs: [{
+			title: "Singer",
+			weblinks: [{
+				link: "https://www.youtube.com/watch?v=fA29WPCJVMY"
+      }, {
+				link: "https://www.youtube.com/watch?v=fA29WPCJVMY"
+      }]
+
+    }],
+		followercount: "500",
+		cost: "250",
+		consultcount: "50"
+
+	};
+	$scope.toggle = function () {
+		$scope.showAmature = !$scope.showAmature;
+	}
+})
+
 
 .controller('BookingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
 	//Used to name the .html file

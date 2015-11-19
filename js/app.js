@@ -110,11 +110,16 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvi
 			templateUrl: "views/template.html",
 			controller: 'ProfessionalCtrl'
 		})
-		.state('amature', {
+    .state('amature', {
 			url: "/amature",
 			templateUrl: "views/template.html",
 			controller: 'AmatureCtrl'
 		})
+    .state('edit-professional', {
+    			url: "/edit-professional",
+    			templateUrl: "views/template.html",
+    			controller: 'EditProfessionalCtrl'
+    		})
 
 	$urlRouterProvider.otherwise("/home");
 });
