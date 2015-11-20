@@ -11,23 +11,23 @@
 						</div>
 						<div class="col-md-4">
 							<label for="">First Name:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your first name">
+							<input type="text" class="form-control text-large" placeholder="Please enter your first name" ng-model="user.personal.firstname">
 						</div>
 						<div class="col-md-4">
 							<label for="">Last Name:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your last name / surname">
+							<input type="text" class="form-control text-large" placeholder="Please enter your last name / surname" ng-model="user.personal.lastname">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">
 							<label for="">EMAIL ADDRESS
 								<span>(Wont be shared publicaly)</span>:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your current email id">
+							<input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email">
 						</div>
 						<div class="col-md-4">
 							<label for="">MOBILE NUMBER
 								<span class="">(OTP Verified)</span>:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your mobile no.">
+							<input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact">
 						</div>
 					</div>
 					<div class="row">
@@ -35,9 +35,9 @@
 							<label class="">Gender:</label>
 							<div class="pad-btm">
 								<label class="radio-inline">
-									<input type="radio" name="optradio">Male</label>
+									<input type="radio" name="optradio" value="male" ng-model="user.personal.gender">Male</label>
 								<label class="radio-inline">
-									<input type="radio" name="optradio">Female</label>
+									<input type="radio" name="optradio" value="female" ng-model="user.personal.gender">Female</label>
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -64,27 +64,27 @@
 				<div class="row padding-btm-zero">
 					<div class="col-md-8">
 						<label for="">FULL ADDRESS:</label>
-						<textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="4" cols="50"></textarea>
+						<textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="4" cols="50" ng-model="user.personal.address"></textarea>
 					</div>
 				</div>
 				<div class="row padding-btm-zero">
 					<div class="col-md-4">
 						<label for="">Country:</label>
-						<input type="text" class="form-control text-large" placeholder="Please select your country">
+						<input type="text" class="form-control text-large" placeholder="Please select your country" ng-model="user.personal.country">
 					</div>
 					<div class="col-md-4">
 						<label for="">State:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your state">
+						<input type="text" class="form-control text-large" placeholder="Please enter your state" ng-model="user.personal.state">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
 						<label for="">City:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your current city">
+						<input type="text" class="form-control text-large" placeholder="Please enter your current city" ng-model="user.personal.city">
 					</div>
 					<div class="col-md-4">
 						<label for="">Pincode:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your pincode">
+						<input type="text" class="form-control text-large" placeholder="Please enter your pincode"ng-model="user.personal.pincode">
 					</div>
 				</div>
 				<div class="row">
@@ -97,15 +97,15 @@
 				<div class="row">
 					<div class="col-md-3">
 						<label for="">Facebook Link:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your Facebook Link">
+						<input type="text" class="form-control text-large" placeholder="Please enter your Facebook Link" ng-model="user.personal.fblink">
 					</div>
 					<div class="col-md-3">
 						<label for="">Twitter Link:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your Twitter Link">
+						<input type="text" class="form-control text-large" placeholder="Please enter your Twitter Link" ng-model="user.personal.twitterlink">
 					</div>
 					<div class="col-md-3">
 						<label for="">Youtube Link:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your Youtube Link">
+						<input type="text" class="form-control text-large" placeholder="Please enter your Youtube Link" ng-model="user.personal.youtubelink">
 					</div>
 				</div>
 				<div class="margin-top-btm btn-group">

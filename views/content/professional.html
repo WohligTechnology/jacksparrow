@@ -1,258 +1,267 @@
 <section class="container-fluid content-min-set">
-	<div class="setting min-height">
-		<div class="cont-setting">
-			<div class="tab2">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="button-grp">
-							<div class="pull-right">
-								<button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
-							</div>
-							<div class="">
-								<button class="btn btnsoc twit"> Get from Linkedin</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="cat-type color-black">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="head border-btm">
-								<h4>Select Categories</h4>
-							</div>
-						</div>
-					</div>
-					<label class="or">You have Expertise in:</label>
-					<div class="select-cat-1">
-						<div class="row text-center">
-							<div class="col-md-2 col-md-6">
-								<div class="select-cat">
-									<p>
-										<i class="fa fa-graduation-cap fa-2x"></i>
-									</p>
-									<p class="cat-head">Career Counselling</p>
-								</div>
-							</div>
-							<div class="col-md-2 col-md-6">
-								<div class="select-cat active">
-									<p>
-										<i class="fa fa-suitcase fa-2x"></i>
-									</p>
-									<p class="cat-head">Travel</p>
-								</div>
-							</div>
-							<div class="col-md-2 col-md-6">
-								<div class="select-cat">
-									<p>
-										<i class="fa fa-heartbeat fa-2x"></i>
-									</p>
-									<p class="cat-head">Health</p>
-								</div>
-							</div>
-							<div class="col-md-2 col-md-6">
-								<div class="select-cat">
-									<p>
-										<i class="fa fa-child fa-2x"></i>
-									</p>
-									<p class="cat-head">Life style</p>
-								</div>
-							</div>
-							<div class="col-md-2 col-md-6">
-								<div class="select-cat">
-									<p>
-										<i class="fa fa-plus fa-2x"></i>
-									</p>
-									<p class="cat-head">Others</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="">Category Name:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter the Category Name">
-						</div>
-					</div>
-				</div>
-				<div class="">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="head border-btm">
-								<h4>Educational Qualification
-									<span class="btn"><i class="fa fa-plus"></i> Add More</span>
+    <div class="setting min-height">
+        <div class="cont-setting">
+            <div class="tab2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="button-grp">
+                            <div class="pull-right">
+                                <button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
+                            </div>
+                            <div class="">
+                                <button class="btn btnsoc twit"> Get from Linkedin</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cat-type color-black">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Select Categories</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="or">You have Expertise in:</label>
+                    <div class="select-cat-1">
+                        <div class="row text-center">
+                            <div class="col-md-2 col-md-6">
+                                <div class="select-cat">
+                                    <p>
+                                        <i class="fa fa-graduation-cap fa-2x"></i>
+                                    </p>
+                                    <p class="cat-head">Career Counselling</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-6">
+                                <div class="select-cat active">
+                                    <p>
+                                        <i class="fa fa-suitcase fa-2x"></i>
+                                    </p>
+                                    <p class="cat-head">Travel</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-6">
+                                <div class="select-cat">
+                                    <p>
+                                        <i class="fa fa-heartbeat fa-2x"></i>
+                                    </p>
+                                    <p class="cat-head">Health</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-6">
+                                <div class="select-cat">
+                                    <p>
+                                        <i class="fa fa-child fa-2x"></i>
+                                    </p>
+                                    <p class="cat-head">Life style</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-6">
+                                <div class="select-cat">
+                                    <p>
+                                        <i class="fa fa-plus fa-2x"></i>
+                                    </p>
+                                    <p class="cat-head">Others</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">Category Name:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter the Category Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Educational Qualification
+									<span class="btn" ng-click="addQualification();"><i class="fa fa-plus"></i> Add More</span>
 								</h4>
-							</div>
-						</div>
-					</div>
-					<div ng-class="show">
-						<div class="row">
-							<div class="col-md-4">
-								<label for="">Degree Title:</label>
-								<input type="text" class="form-control text-large" placeholder="Please enter the degree title">
-							</div>
-							<div class="col-md-4">
-								<label for="">Institute Name:</label>
-								<input type="text" class="form-control text-large" placeholder="Please enter the name of the college/school">
-							</div>
-							<div class="col-md-2">
-								<label for="">Year of passing:</label>
-								<input type="date" class="form-control text-large" placeholder="Year of passing">
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--						Experience-->
-				<div class="">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="head border-btm">
-								<h4>Experience
-									<span class="btn"><i class="fa fa-plus"></i> Add More</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-class="show">
+                        <div class="row" ng-repeat="qualification in user.professional.qualification track by $index">
+                            <div class="col-md-4">
+                                <label for="">Degree Title:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter the degree title" ng-model="qualification.degree">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">Institute Name:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter the name of the college/school" ng-model="qualification.institute">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="">Year of passing:</label>
+                                <input type="date" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--						Experience-->
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Experience
+									<span class="btn" ng-click="addExperience();"><i class="fa fa-plus"></i> Add More</span>
 								</h4>
-							</div>
-						</div>
-					</div>
-					<div ng-class="show">
-						<div class="row">
-							<div class="col-md-5">
-								<label for="">Company Name:</label>
-								<input type="text" class="form-control text-large" placeholder="Please enter your company name">
-							</div>
-							<div class="col-md-5">
-								<label for="">Job Title:</label>
-								<input type="text" class="form-control text-large" placeholder="Please enter your job title">
-							</div>
-							<div class="col-md-10">
-								<label for="">Job Description:</label>
-								<input type="text" class="form-control text-large" placeholder="Please enter your job description">
-							</div>
-							<div class="col-md-3">
-								<label for="">Start Date:</label>
-								<input type="date" class="form-control text-large" placeholder="Please enter your start date">
-							</div>
-							<div class="col-md-3">
-								<label for="">End Date:</label>
-								<input type="date" class="form-control text-large" placeholder="Please enter your end date">
-							</div>
-							<div class="col-md-3">
-								<div class="choose-pic">
-									<label for="">Company Logo:</label>
-									<div class="choose-image">
-										<i class="fa fa-user"></i>
-										<div class="choose-btn">
-											<span>Choose File</span>
-											<input class="form-control" type="file">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row padding-btm-zero">
-					<div class="col-md-12">
-						<div class="head border-btm">
-							<h4>Description and Skill</h4>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-10">
-						<label for="">Description
-							<span>(Tell us about your hobby)</span>:</label>
-						<textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50"></textarea>
-					</div>
-				</div>
-				<div class="row padding-btm-zero">
-					<div class="col-md-10">
-						<label for="">Skills:</label>
-						<tags-input ng-model="tags" placeholder="Plaese enter your skills"></tags-input>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<div class="head border-btm">
-							<h4>Awards and Honors
-								<span class="btn"><i class="fa fa-plus"></i> Add More</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-class="show">
+                        <div class="row" ng-repeat="experience in user.professional.experience">
+                            <div class="col-md-12" ng-if="$index!=0">
+                                <hr>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="">Company Name:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your company name" ng-model="experience.companyname">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="">Job Title:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your job title" ng-model="experience.jobtitle">
+                            </div>
+                            <div class="col-md-10">
+                                <label for="">Job Description:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your job description" ng-model="experience.jobdesc">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">Start Date:</label>
+                                <input type="date" class="form-control text-large" placeholder="Please enter your start date" ng-model="experience.startdate">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="">End Date:</label>
+                                <input type="date" class="form-control text-large" placeholder="Please enter your end date" ng-model="experience.enddate">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="choose-pic">
+                                    <label for="">Company Logo:</label>
+                                    <div class="choose-image">
+                                        <i class="fa fa-user"></i>
+                                        <div class="choose-btn">
+                                            <span>Choose File</span>
+                                            <input class="form-control" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row padding-btm-zero">
+                    <div class="col-md-12">
+                        <div class="head border-btm">
+                            <h4>Description and Skill</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label for="">Description
+                            <span>(Tell us about your hobby)</span>:</label>
+                        <textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50"></textarea>
+                    </div>
+                </div>
+                <div class="row padding-btm-zero">
+                    <div class="col-md-10">
+                        <label for="">Skills:</label>
+                        <tags-input ng-model="tags" placeholder="Plaese enter your skills"></tags-input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="head border-btm">
+                            <h4>Awards and Honors
+								<span class="btn" ng-click="addAwards();"><i class="fa fa-plus"></i> Add More</span>
 							</h4>
-						</div>
-						<div class="" ng-class="show">
-							<label>Awards and Honors:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter awards and honors">
-						</div>
-					</div>
-					<div class="col-md-5">
-						<div class="head border-btm">
-							<h4>Websites
-								<span class="btn"><i class="fa fa-plus"></i> Add More</span>
+                        </div>
+                        <div class="" ng-class="show">
+                            <div ng-repeat="award in user.professional.awards">
+                                <label>Awards and Honors:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter awards and honors" ng-model="award.awards">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="head border-btm">
+                            <h4>Websites
+								<span class="btn" ng-click="addWebsites();"><i class="fa fa-plus"></i> Add More</span>
 							</h4>
-						</div>
-						<div class="" ng-class="show">
-							<label>Website:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter website">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<div class="head border-btm">
-							<h4>Video Links
-								<span class="btn"><i class="fa fa-plus"></i> Add More</span>
+                        </div>
+                        <div class="" ng-class="show">
+                            <div ng-repeat="website in user.professional.websites">
+                                <label>Website:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter website" ng-model="website.websites">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="head border-btm">
+                            <h4>Video Links
+								<span class="btn" ng-click="addVideos();"><i class="fa fa-plus"></i> Add More</span>
 							</h4>
-						</div>
-						<div class="" ng-class="show">
-							<label>Video Links:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter video links">
-						</div>
-					</div>
-					<div class="col-md-5">
-						<div class="compantlogo">
-							<div class="head border-btm">
-								<h4 style="margin: 17px 0 15px 0;">Add Photos
+                        </div>
+                        <div class="" ng-class="show">
+                            <div ng-repeat="video in user.professional.videos">
+                                <label>Video Links:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter video links" ng-model="video.videos">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="compantlogo">
+                            <div class="head border-btm">
+                                <h4 style="margin: 17px 0 15px 0;">Add Photos
 									<span class="choose-btn">
 										<span><i class="fa fa-plus"></i> Add More</span>
 										<input class="form-control" type="file">
 									</span>
 								</h4>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="company-box">
-										<div class="add-photo-holder">
-											<p class="text-center"> Add Photos </p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="company-box">
-										<div class="add-photo-holder">
-											<p class="text-center"> Add Photos </p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="company-box">
-										<div class="add-photo-holder">
-											<p class="text-center"> Add Photos </p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="company-box">
-										<div class="add-photo-holder">
-											<p class="text-center"> Add Photos </p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="margin-top-btm btn-group">
-				<button type="button" class="btn btn-primary">Submit for the Review</button>
-				<button type="button" class="btn btn-primary">Fill Hobby Profile</button>
-			</div>
-		</div>
-	</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="company-box">
+                                        <div class="add-photo-holder">
+                                            <p class="text-center"> Add Photos </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="company-box">
+                                        <div class="add-photo-holder">
+                                            <p class="text-center"> Add Photos </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="company-box">
+                                        <div class="add-photo-holder">
+                                            <p class="text-center"> Add Photos </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="company-box">
+                                        <div class="add-photo-holder">
+                                            <p class="text-center"> Add Photos </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top-btm btn-group">
+                <button type="button" class="btn btn-primary">Submit for the Review</button>
+                <button type="button" class="btn btn-primary">Fill Hobby Profile</button>
+            </div>
+        </div>
+    </div>
 </section>

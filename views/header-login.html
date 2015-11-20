@@ -15,12 +15,20 @@
             </div>
 
             <div class="collapse navbar-collapse" id="nav-collapse">
-                <ul class="nav navbar-nav navbar-right nav-outer">
+                <ul class="nav navbar-nav navbar-right nav-outer" ng-show="showLoginBtn">
                     <li ng-click="showLogin();">
                         <a href="#" class="btn btn-primary">Login</a>
                     </li>
                     <li ng-click="showSignup();">
                         <a href="#" class="btn btn-primary">SignUp</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right nav-outer" ng-hide="showLoginBtn">
+                    <li>
+                        <a href="#/setting" class="btn btn-primary">{{user.name}}</a>
+                    </li>
+                    <li ng-click="logout();">
+                        <a href="#" class="btn btn-primary">Logout</a>
                     </li>
                 </ul>
             </div>

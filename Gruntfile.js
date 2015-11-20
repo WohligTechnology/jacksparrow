@@ -69,6 +69,7 @@ module.exports = function (grunt) {
                     './bower_components/lodash/lodash.min.js',
 					'./bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js',
                     './bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
+                    './bower_components/jStorage/jstorage.min.js',
                     './js/app.js',
                     './js/controllers.js',
                     './js/templateservice.js',
