@@ -185,8 +185,8 @@
 								<span class="btn" ng-click="addAwards();"><i class="fa fa-plus"></i> Add More</span>
 							</h4>
                         </div>
-                        <div class="" ng-class="show">
-                            <div ng-repeat="award in user.professional.awards">
+                        <div ng-class="show">
+                            <div ng-repeat="award in user.professional.awards" class="delete-position">
                                 <label>Awards and Honors:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter awards and honors" ng-model="award.awards">
                                 <div class="delete" ng-click="deleteAwards($index);" ng-if="user.professional.awards.length>1">
@@ -202,7 +202,7 @@
 							</h4>
                         </div>
                         <div class="" ng-class="show">
-                            <div ng-repeat="website in user.professional.websites">
+                            <div ng-repeat="website in user.professional.websites" class="delete-position">
                                 <label>Website:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter website" ng-model="website.websites">
                                 <div class="delete" ng-click="deleteWebsites($index);" ng-if="user.professional.websites.length>1">
@@ -220,7 +220,7 @@
 							</h4>
                         </div>
                         <div class="" ng-class="show">
-                            <div ng-repeat="video in user.professional.videos">
+                            <div ng-repeat="video in user.professional.videos" class="delete-position">
                                 <label>Video Links:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter video links" ng-model="video.videos">
                                 <div class="delete" ng-click="deleteVideos($index);" ng-if="user.professional.videos.length>1">
