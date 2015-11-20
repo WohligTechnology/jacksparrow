@@ -98,9 +98,9 @@
                                 <label for="">Year of passing:</label>
                                 <input type="date" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year">
                             </div>
-														<div class="delete">
-														<i class="fa fa-minus-circle danger margn-top-i"></i>
-														</div>
+                            <div class="delete" ng-click="deleteQualification($index);" ng-if="user.professional.qualification.length>1">
+                                <i class="fa fa-minus-circle danger margn-top-i"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                                     </div>
                                 </div>
                             </div>
-														<div class="delete margn-top">
-														<i class="fa fa-minus-circle danger"></i>
-														</div>
+                            <div class="delete margn-top" ng-click="deleteExperience();" ng-if="user.professional.experience.length>1">
+                                <i class="fa fa-minus-circle danger"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,6 +189,9 @@
                             <div ng-repeat="award in user.professional.awards">
                                 <label>Awards and Honors:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter awards and honors" ng-model="award.awards">
+                                <div class="delete" ng-click="deleteAwards($index);" ng-if="user.professional.awards.length>1">
+                                    <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -202,6 +205,9 @@
                             <div ng-repeat="website in user.professional.websites">
                                 <label>Website:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter website" ng-model="website.websites">
+                                <div class="delete" ng-click="deleteWebsites($index);" ng-if="user.professional.websites.length>1">
+                                    <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -217,6 +223,9 @@
                             <div ng-repeat="video in user.professional.videos">
                                 <label>Video Links:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter video links" ng-model="video.videos">
+                                <div class="delete" ng-click="deleteVideos($index);" ng-if="user.professional.videos.length>1">
+                                    <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -529,6 +529,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
+    $scope.deleteQualification = function(index) {
+        $scope.user.professional.qualification.splice(index, 1);
+    }
+
     $scope.addExperience = function() {
         $scope.user.professional.experience.push({
             "companyname": "",
@@ -540,11 +544,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
+    $scope.deleteExperience = function(index) {
+        $scope.user.professional.experience.splice(index, 1);
+    }
+
     $scope.addAwards = function() {
         $scope.user.professional.awards.push({
             "awards": ""
         });
     };
+
+    $scope.deleteAwards = function(index) {
+        $scope.user.professional.awards.splice(index, 1);
+    }
 
     $scope.addWebsites = function() {
         $scope.user.professional.websites.push({
@@ -552,11 +564,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
+    $scope.deleteWebsites = function(index) {
+        $scope.user.professional.websites.splice(index, 1);
+    }
+
     $scope.addVideos = function() {
         $scope.user.professional.videos.push({
             "videos": ""
         });
     };
+
+    $scope.deleteVideos = function(index) {
+        $scope.user.professional.videos.splice(index, 1);
+    }
 
 })
 
