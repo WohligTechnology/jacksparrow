@@ -16,8 +16,10 @@
       padding: 0;
     }
   }
-  .pro-make.box-pro.made-pro.bg-white.min {
-    width: 23.2%;
+  .pro-magic {
+    .pro-make.box-pro.made-pro.bg-white.min {
+      width: 23.2%;
+    }
   }
 }
 @media @desktop {
@@ -84,16 +86,19 @@
     }
   }
   .cont-setting .row {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   .pro-make.box-pro.made-pro.bg-white.min {
     width: 19%;
   }
+  span.choose-btn {
+    width: 44%;
+  }
 }
 @media @mobile {
-	body {
-		padding-top: 54px;
-	}
+  body {
+    padding-top: 54px;
+  }
   .navbar-default {
     .navbar-toggle .icon-bar {
       background-color: #FFF;
@@ -157,10 +162,11 @@
     .sidemenu {
       ul {
         li {
+          margin-right: 5px;
           a {
-            font-size: 12px;
-            line-height: 21px;
-            padding: 10px 5px;
+            font-size: 8px;
+            line-height: 10px;
+            padding: 5px;
             display: block;
             cursor: pointer;
           }
@@ -187,9 +193,54 @@
   .footer-cont {
     margin-bottom: 20px;
   }
-	.pro-make.box-pro.made-pro.bg-white.min {
-	    width: auto;
-	}
+  .pro-magic {
+    .pad-zero {
+      padding: 0 15px;
+    }
+    .pro-make.box-pro.made-pro.bg-white.min {
+      width: auto!important;
+      position: static;
+      border: 1px solid #e4e4e4;
+      box-shadow: 0 2px 2px #ddd;
+    }
+  }
+  .video-holder {
+    margin-bottom: 10px;
+  }
+  h4.head {
+    font-size: 20px;
+    padding: 0 20px;
+  }
+  .pro-content h3 {
+    margin: 5px 0;
+  }
+  .professional.full-pro {
+    padding: 0;
+  }
+  .pro-make.box-pro.made-pro.bg-white {
+    text-align: center;
+  }
+  .table-cont {
+    font-size: 12px;
+    .success {
+      width: 100%;
+    }
+    .danger {
+      width: 100%;
+    }
+    .primary {
+      width: 100%;
+    }
+  }
+  .balance h4 {
+    font-size: 16px;
+  }
+  .margin-top-btm.btn-group .btn {
+    padding: 10px;
+  }
+  span.choose-btn input {
+    width: 50%;
+  }
 }
 @media @mobile-login {
   .ngdialog-content {
@@ -233,7 +284,9 @@
     }
   }
   .full-tab .grp-tabs ul li {
-    padding: 8px 14px;
+    padding: 10px 5px;
+    margin: 0;
+    font-size: 10px;
   }
 }
 @media @mobileperfect {
