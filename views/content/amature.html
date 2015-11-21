@@ -128,7 +128,25 @@
                                 <h4 style="margin: 17px 0 15px 0;">Add Photos
 									<span class="choose-btn">
 										<span><i class="fa fa-plus"></i> Add More</span>
-										<input class="form-control" type="file">
+										<!-- <input class="form-control" type="file"> -->
+
+										<!-- <div class="col-md-12">
+                            			<div ng-repeat="bill in user.professional.photos">
+                                			<img style="width:200px;height:190px;" src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
+                                			<input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
+                            			</div>
+                        			</div> -->
+                        			<div class="form-group">
+                            			<div class="upload-div">
+                                		<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                            				<div class="upload-buttons">
+                                				<input type="file" name="file" ng-file-select="onFileSelectHobbies($files)" onclick="this.value=null" multiple>
+                            				</div>
+                                			<div class="response" ng-show="uploadResult.length > 0">
+                                    			<span ng-repeat="result in uploadResult"></span>
+                                			</div>
+                            			</div>
+                        			</div>
 									</span>
 								</h4>
                             </div>
@@ -166,7 +184,7 @@
                     </div>
                 </div>
                 <div class="margin-top-btm btn-group">
-                    <button type="button" class="btn btn-primary">Submit for the Review</button>
+                    <button type="button" class="btn btn-primary" ng-click="saveHobbies();">Submit for the Review</button>
                 </div>
             </div>
         </div>

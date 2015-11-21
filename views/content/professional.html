@@ -240,17 +240,17 @@
 										<span><i class="fa fa-plus"></i> Add More</span>
 										<!-- <input class="form-control" type="file"> -->
 
-										<div class="col-md-12">
+										<!-- <div class="col-md-12">
                             			<div ng-repeat="bill in user.professional.photos">
                                 			<img style="width:200px;height:190px;" src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
                                 			<input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
                             			</div>
-                        			</div>
+                        			</div> -->
                         			<div class="form-group">
                             			<div class="upload-div">
                                 		<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                             				<div class="upload-buttons">
-                                				<input type="file" name="file" ng-file-select="onFileSelect($files)" onclick="this.value=null" multiple>
+                                				<input type="file" name="file" ng-file-select="onFileSelectProfessional($files)" onclick="this.value=null" multiple>
                             				</div>
                                 			<div class="response" ng-show="uploadResult.length > 0">
                                     			<span ng-repeat="result in uploadResult"></span>
@@ -260,15 +260,17 @@
 									</span>
 								</h4>
                             </div>
-                            <!-- <div class="row">
-                                <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3" ng-repeat="bill in user.professional.photos">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
-                                            <p class="text-center"> Add Photos </p>
+                                            <!-- <p class="text-center"> Add Photos </p> -->
+                                            <img src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
+                                            <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <!-- <div class="col-md-3">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
                                             <p class="text-center"> Add Photos </p>
