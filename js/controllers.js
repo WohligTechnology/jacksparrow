@@ -455,6 +455,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
 
+    NavigationService.getAllUserDetails(function(data) {
+        if (data) {
+            console.log(data);
+        }
+    }, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+
     if ($.jStorage.get("isExpert")) {
         if ($.jStorage.get("isExpert") == true) {
             $scope.showExpertMsg = false;
@@ -685,6 +695,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
                                 if (successdata) {
                                     console.log(successdata);
+                                    if (successdata == "1") {
+                                        ngDialog.open({
+                                            scope: $scope,
+                                            template: 'views/content/modal-dialogue.html'
+                                        });
+                                    }
                                 }
                             }, function(error) {
                                 if (error) {
@@ -724,6 +740,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
         $scope.user.professional.id = NavigationService.getUser().id;
         console.log($scope.user.professional);
+        NavigationService.editProfessionalDetails($scope.user.professional, function(data) {
+            if (data) {
+                console.log(data);
+            }
+        }, function(error) {
+            if (error) {
+                console.log(error);
+            }
+        });
     }
 
     $scope.saveHobbies = function() {
@@ -735,6 +760,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         // })
         $scope.user.hobbies.id = NavigationService.getUser().id;
         console.log($scope.user.hobbies);
+        NavigationService.editHobbiesDetails($scope.user.hobbies, function(data) {
+            if (data) {
+                console.log(data);
+            }
+        }, function(error) {
+            if (error) {
+                console.log(error);
+            }
+        });
     }
 
     //imageupload
@@ -934,7 +968,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         return hasFile ? "dragover" : "dragover-err";
     };
     //imageupload
-    
+
     $scope.showQuickview = function() {
         ngDialog.open({
             scope: $scope,

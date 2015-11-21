@@ -117,6 +117,25 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback).error(err);
         },
+        editProfessionalDetails: function(userData, callback, err) {
+            $http({
+                url: adminurl + 'editProfessionDetails',
+                method: 'POST',
+                withCredentials: true,
+                data: userData
+            }).success(callback).error(err);
+        },
+        editHobbiesDetails: function(userData, callback, err) {
+            $http({
+                url: adminurl + 'editHobbyDetails',
+                method: 'POST',
+                withCredentials: true,
+                data: userData
+            }).success(callback).error(err);
+        },
+        getAllUserDetails: function(callback, err) {
+            $http.get(adminurl + "getUserDetails?id=" + $.jStorage.get("user").id).success(callback).error(err)
+        },
         setUser: function(data) {
             $.jStorage.set("user", data);
         },
