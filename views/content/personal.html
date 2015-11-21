@@ -1,118 +1,130 @@
 <section class="container-fluid content-min-set">
-	<div class="setting min-height">
-		<div class="bg-white">
-			<div class="cont-setting">
-				<div class="tab1">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="head border-btm">
-								<h4>Personal Info</h4>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<label for="">First Name:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your first name" ng-model="user.personal.firstname">
-						</div>
-						<div class="col-md-4">
-							<label for="">Last Name:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your last name / surname" ng-model="user.personal.lastname">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label for="">EMAIL ADDRESS
-								<span>(Wont be shared publicaly)</span>:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email">
-						</div>
-						<div class="col-md-4">
-							<label for="">MOBILE NUMBER
-								<span class="">(OTP Verified)</span>:</label>
-							<input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label class="">Gender:</label>
-							<div class="pad-btm">
-								<label class="radio-inline">
-									<input type="radio" name="optradio" value="male" ng-model="user.personal.gender">Male</label>
-								<label class="radio-inline">
-									<input type="radio" name="optradio" value="female" ng-model="user.personal.gender">Female</label>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="choose-pic">
-								<label for="">PROFILE IMAGE:</label>
-								<div class="choose-image">
-									<i class="fa fa-user"></i>
-									<div class="choose-btn">
-										<span>Choose File</span>
-										<input class="form-control" type="file">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="head border-btm">
-							<h4>Address Details</h4>
-						</div>
-					</div>
-				</div>
-				<div class="row padding-btm-zero">
-					<div class="col-md-8">
-						<label for="">FULL ADDRESS:</label>
-						<textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="4" cols="50" ng-model="user.personal.address"></textarea>
-					</div>
-				</div>
-				<div class="row padding-btm-zero">
-					<div class="col-md-4">
-						<label for="">Country:</label>
-						<input type="text" class="form-control text-large" placeholder="Please select your country" ng-model="user.personal.country">
-					</div>
-					<div class="col-md-4">
-						<label for="">State:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your state" ng-model="user.personal.state">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<label for="">City:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your current city" ng-model="user.personal.city">
-					</div>
-					<div class="col-md-4">
-						<label for="">Pincode:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your pincode"ng-model="user.personal.pincode">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="head border-btm">
-							<h4>Social Profile</h4>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<label for="">Facebook Link:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your Facebook Link" ng-model="user.personal.fblink">
-					</div>
-					<div class="col-md-3">
-						<label for="">Twitter Link:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your Twitter Link" ng-model="user.personal.twitterlink">
-					</div>
-					<div class="col-md-3">
-						<label for="">Youtube Link:</label>
-						<input type="text" class="form-control text-large" placeholder="Please enter your Youtube Link" ng-model="user.personal.youtubelink">
-					</div>
-				</div>
-				<div class="margin-top-btm btn-group">
-					<button type="button" class="btn btn-primary">Save</button>
-					<button type="button" class="btn btn-primary">Fill Professional Profile</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="setting min-height">
+        <div class="bg-white">
+            <form ng-submit="savePersonal();">
+                <div class="cont-setting">
+                    <div class="tab1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="head border-btm">
+                                    <h4>Personal Info</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">First Name:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your first name" ng-model="user.personal.firstname">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">Last Name:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your last name / surname" ng-model="user.personal.lastname">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="">EMAIL ADDRESS
+                                    <span>(Wont be shared publicaly)</span>:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">MOBILE NUMBER
+                                    <span class="">(OTP Verified)</span>:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact" maxlengtth="10" only-digits>
+                            </div>
+                        </div>
+                        <div class="row" ng-hide="showExpertMsg">
+                            <div class="col-md-4">
+                                <label for="">PASSWORD:</label>
+                                <input type="password" class="form-control text-large" placeholder="Please enter your password" ng-model="user.personal.password">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">CONFIRM PASSWORD:</label>
+                                <input type="password" class="form-control text-large" placeholder="Please re-enter your password" ng-model="user.personal.confirmpassword">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="">Gender:</label>
+                                <div class="pad-btm">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value="1" ng-model="user.personal.gender">Male</label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value="2" ng-model="user.personal.gender">Female</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="choose-pic">
+                                    <label for="">PROFILE IMAGE:</label>
+                                    <div class="choose-image">
+                                        <i class="fa fa-user"></i>
+                                        <div class="choose-btn">
+                                            <span>Choose File</span>
+                                            <input class="form-control" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Address Details</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-btm-zero">
+                        <div class="col-md-8">
+                            <label for="">FULL ADDRESS:</label>
+                            <textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="4" cols="50" ng-model="user.personal.address"></textarea>
+                        </div>
+                    </div>
+                    <div class="row padding-btm-zero">
+                        <div class="col-md-4">
+                            <label for="">Country:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please select your country" ng-model="user.personal.country">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">State:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter your state" ng-model="user.personal.state">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">City:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter your current city" ng-model="user.personal.city">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Pincode:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter your pincode" ng-model="user.personal.pincode">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Social Profile</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="">Facebook Link:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter your Facebook Link" ng-model="user.personal.facebooksocial">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Twitter Link:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter your Twitter Link" ng-model="user.personal.twittersocial">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Youtube Link:</label>
+                            <input type="text" class="form-control text-large" placeholder="Please enter your Youtube Link" ng-model="user.personal.youtubesocial">
+                        </div>
+                    </div>
+                    <div class="margin-top-btm btn-group">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-primary">Fill Professional Profile</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
