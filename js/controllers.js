@@ -455,15 +455,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
 
-    NavigationService.getAllUserDetails(function(data) {
-        if (data) {
-            console.log(data);
-        }
-    }, function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
+    if (NavigationService.getUser()) {
+        NavigationService.getAllUserDetails(function(data) {
+            if (data) {
+                console.log(data);
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    }
 
     if ($.jStorage.get("isExpert")) {
         if ($.jStorage.get("isExpert") == true) {
