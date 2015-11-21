@@ -12,23 +12,23 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="">First Name:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your first name" ng-model="user.personal.firstname">
+                                <input type="text" class="form-control text-large" placeholder="Please enter your first name" ng-model="user.personal.firstname" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="">Last Name:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your last name / surname" ng-model="user.personal.lastname">
+                                <input type="text" class="form-control text-large" placeholder="Please enter your last name / surname" ng-model="user.personal.lastname" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">EMAIL ADDRESS
                                     <span>(Wont be shared publicaly)</span>:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email">
+                                <input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="">MOBILE NUMBER
                                     <span class="">(OTP Verified)</span>:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact" maxlengtth="10" only-digits>
+                                <input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact" maxlength="10" only-digits>
                             </div>
                         </div>
                         <div class="row" ng-hide="showExpertMsg">
@@ -75,27 +75,27 @@
                     <div class="row padding-btm-zero">
                         <div class="col-md-8">
                             <label for="">FULL ADDRESS:</label>
-                            <textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="4" cols="50" ng-model="user.personal.address"></textarea>
+                            <textarea type="text" class="form-control text-large" placeholder="Please enter your full address" rows="4" cols="50" ng-model="user.personal.address" required></textarea>
                         </div>
                     </div>
                     <div class="row padding-btm-zero">
                         <div class="col-md-4">
                             <label for="">Country:</label>
-                            <input type="text" class="form-control text-large" placeholder="Please select your country" ng-model="user.personal.country">
+                            <input type="text" class="form-control text-large" placeholder="Please select your country" ng-model="user.personal.country" required>
                         </div>
                         <div class="col-md-4">
                             <label for="">State:</label>
-                            <input type="text" class="form-control text-large" placeholder="Please enter your state" ng-model="user.personal.state">
+                            <input type="text" class="form-control text-large" placeholder="Please enter your state" ng-model="user.personal.state" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="">City:</label>
-                            <input type="text" class="form-control text-large" placeholder="Please enter your current city" ng-model="user.personal.city">
+                            <input type="text" class="form-control text-large" placeholder="Please enter your current city" ng-model="user.personal.city" required>
                         </div>
                         <div class="col-md-4">
                             <label for="">Pincode:</label>
-                            <input type="text" class="form-control text-large" placeholder="Please enter your pincode" ng-model="user.personal.pincode">
+                            <input type="text" class="form-control text-large" placeholder="Please enter your pincode" ng-model="user.personal.pincode" maxlength="6" only-digits required>
                         </div>
                     </div>
                     <div class="row">

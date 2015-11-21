@@ -94,6 +94,29 @@ var navigationservice = angular.module('navigationservice', [])
                 data: userData
             }).success(callback).error(err);
         },
+        editPersonalDetails: function(userData, callback, err) {
+            delete userData.confirmpassword;
+            $http({
+                url: adminurl + 'editPersonalDetails',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "id": $.jStorage.get("user").id,
+                    "firstname": userData.firstname,
+                    "lastname": userData.lastname,
+                    "email": userData.email,
+                    "gender": userData.gender,
+                    "address": userData.address,
+                    "city": userData.city,
+                    "state": userData.state,
+                    "country": userData.country,
+                    "pincode": userData.pincode,
+                    "facebooksocial": userData.facebooksocial,
+                    "youtubesocial": userData.youtubesocial,
+                    "twittersocial": userData.twittersocial
+                }
+            }).success(callback).error(err);
+        },
         setUser: function(data) {
             $.jStorage.set("user", data);
         },

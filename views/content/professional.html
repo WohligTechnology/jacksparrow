@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Year of passing:</label>
-                                <input type="month" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year">
+                                <input type="text" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year" maxlength="4" only-digits>
                             </div>
                             <div class="delete" ng-click="deleteQualification(user.professional.qualification,$index);" ng-if="user.professional.qualification.length>1">
                                 <i class="fa fa-minus-circle danger margn-top-i"></i>
@@ -137,11 +137,11 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="">Start Date:</label>
-                                <input type="date" class="form-control text-large" placeholder="Please enter your start date" ng-model="experience.startdate">
+                                <input type="date" class="form-control text-large" placeholder="Please enter your start date" ng-model="experience.sdate">
                             </div>
                             <div class="col-md-3">
                                 <label for="">End Date:</label>
-                                <input type="date" class="form-control text-large" placeholder="Please enter your end date" ng-model="experience.enddate">
+                                <input type="date" class="form-control text-large" placeholder="Please enter your end date" ng-model="experience.edate">
                             </div>
                             <div class="col-md-3">
                                 <div class="choose-pic">
@@ -238,11 +238,29 @@
                                 <h4 style="margin: 17px 0 15px 0;">Add Photos
 									<span class="choose-btn">
 										<span><i class="fa fa-plus"></i> Add More</span>
-										<input class="form-control" type="file">
+										<!-- <input class="form-control" type="file"> -->
+
+										<div class="col-md-12">
+                            			<div ng-repeat="bill in user.professional.photos">
+                                			<img style="width:200px;height:190px;" src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
+                                			<input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
+                            			</div>
+                        			</div>
+                        			<div class="form-group">
+                            			<div class="upload-div">
+                                		<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                            				<div class="upload-buttons">
+                                				<input type="file" name="file" ng-file-select="onFileSelect($files)" onclick="this.value=null" multiple>
+                            				</div>
+                                			<div class="response" ng-show="uploadResult.length > 0">
+                                    			<span ng-repeat="result in uploadResult"></span>
+                                			</div>
+                            			</div>
+                        			</div>
 									</span>
 								</h4>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-3">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
@@ -270,16 +288,16 @@
                                             <p class="text-center"> Add Photos </p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="margin-top-btm btn-group">
-                <button type="button" class="btn btn-primary" ng-click="saveProfessional();">Submit for the Review</button>
-                <button type="button" class="btn btn-primary">Fill Hobby Profile</button>
-            </div>
         </div>
+        <div class="margin-top-btm btn-group">
+            <button type="button" class="btn btn-primary" ng-click="saveProfessional();">Submit for the Review</button>
+            <button type="button" class="btn btn-primary">Fill Hobby Profile</button>
+        </div>
+    </div>
     </div>
 </section>

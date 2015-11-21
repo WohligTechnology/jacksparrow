@@ -191,3 +191,11 @@ firstapp.directive('onlyDigits', function() {
         }
     };
 });
+
+firstapp.filter('uploadpath', function() {
+    return function(input) {
+        if (input) {
+            return adminimage + input;
+        }
+    };
+});

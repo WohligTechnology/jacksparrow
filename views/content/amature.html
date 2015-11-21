@@ -14,11 +14,11 @@
                         </div>
                         <div class="col-md-5">
                             <label for="">Category:</label>
-                            <input type="text" class="form-control text-large" placeholder="Please enter category">
+                            <input type="text" class="form-control text-large" placeholder="Please enter category" ng-model="user.hobbies.category">
                         </div>
                         <div class="col-md-5">
                             <label for="">Years of Experience:<span>(in years)</span></label>
-                            <input type="text" class="form-control text-large" placeholder="Please enter years of experience">
+                            <input type="text" class="form-control text-large" placeholder="Please enter years of experience" ng-model="user.hobbies.yoexp" only-digits>
                         </div>
                     </div>
                 </div>
@@ -32,13 +32,13 @@
                 <div class="row">
                     <div class="col-md-10">
                         <label for="">Description<span>(Tell us about your hobby)</span>:</label>
-                        <textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50"></textarea>
+                        <textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50" ng-model="user.hobbies.description"></textarea>
                     </div>
                 </div>
                 <div class="row padding-btm-zero">
                     <div class="col-md-10">
                         <label for="">Skills:</label>
-                        <tags-input ng-model="tags" placeholder="Plaese enter your skills"></tags-input>
+                        <tags-input ng-model="user.hobbies.skills" placeholder="Plaese enter your skills"></tags-input>
                     </div>
                 </div>
                 <div class="">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label for="">Year of passing:</label>
-                                <input type="date" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year">
+                                <input type="text" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year" maxlength="4" only-digits>
                             </div>
                             <div class="delete" ng-click="deleteQualification(user.hobbies.qualification,$index);" ng-if="user.hobbies.qualification.length>1">
                                 <i class="fa fa-minus-circle danger margn-top-i"></i>
