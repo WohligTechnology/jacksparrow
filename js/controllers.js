@@ -2,7 +2,7 @@ var tabvalue = '1';
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider', 'mwl.calendar'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -19,17 +19,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         tagline: "Start looking for an expert now",
         subline: "The only platform which has best experts on any field."
     }];
-    $scope.mySlides2 = [
-        //      {
-        //      src: 'img/slider/slider1.jpg',
-        //      tagline: "Earn money sitting at home"
-        //    },
-        {
-            src: 'img/slider/user-expert.jpg',
-            tagline: "Earn money sitting at home",
-            subline: "Become an expert on the website now."
-        }
-    ];
+    $scope.mySlides2 = [{
+        src: 'img/slider/user-expert.jpg',
+        tagline: "Earn money sitting at home",
+        subline: "Become an expert on the website now."
+    }];
+
+    $scope.registerAsExpert = function() {
+        $.jStorage.set("isExpert", true);
+        $state.go("setting");
+    }
+
 })
 
 .controller('CalendarCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $modal, ngDialog) {
@@ -450,8 +450,65 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user = {};
     $scope.user.personal = {};
     $scope.user.professional = {};
-    $scope.user.amateur = {};
+    $scope.user.hobbies = {};
+    $scope.showCategoryInput = false;
+    $scope.showExpertMsg = true;
 
+    if ($.jStorage.get("isExpert")) {
+        if ($.jStorage.get("isExpert") == true) {
+            $scope.showExpertMsg = false;
+        } else {
+            $scope.showExpertMsg = true;
+        }
+    }
+
+    $scope.becomeExpert = function() {
+        $.jStorage.set("isExpert", true);
+        $scope.showExpertMsg = false;
+    }
+
+    $scope.categoryJson = [{
+        name: "Career Counselling",
+        icon: "fa fa-graduation-cap fa-2x",
+        activeclass: ""
+    }, {
+        name: "Travel",
+        icon: "fa fa-suitcase fa-2x",
+        activeclass: ""
+    }, {
+        name: "Health",
+        icon: "fa fa-heartbeat fa-2x",
+        activeclass: ""
+    }, {
+        name: "Life style",
+        icon: "fa fa-child fa-2x",
+        activeclass: ""
+    }, {
+        name: "Others",
+        icon: "fa fa-plus fa-2x",
+        activeclass: ""
+    }];
+
+    $scope.makeActiveIcon = function(index) {
+        $scope.user.professional.category = $scope.categoryJson[index].name;
+        var i = 0;
+        _.each($scope.categoryJson, function(n) {
+            if (i == index) {
+                n.activeclass = "active";
+            } else {
+                n.activeclass = "";
+            }
+            i++;
+        })
+        if ($scope.categoryJson[index].name == "Others") {
+            $scope.showCategoryInput = true;
+            $scope.user.professional.category = "";
+        } else {
+            $scope.showCategoryInput = false;
+        }
+    }
+
+    //professional
     $scope.user.professional.qualification = [{
         "degree": "",
         "institute": "",
@@ -478,6 +535,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.professional.videos = [{
         "videos": ""
     }];
+    //professional
+
+    //hobbies
+    $scope.user.hobbies.qualification = [{
+        "degree": "",
+        "institute": "",
+        "year": ""
+    }];
+
+    $scope.user.hobbies.experience = [{
+        "companyname": "",
+        "jobtitle": "",
+        "jobdesc": "",
+        "startdate": "",
+        "enddate": "",
+        "logo": ""
+    }];
+
+    $scope.user.hobbies.awards = [{
+        "awards": ""
+    }];
+
+    $scope.user.hobbies.websites = [{
+        "websites": ""
+    }];
+
+    $scope.user.hobbies.videos = [{
+        "videos": ""
+    }];
+    //hobbies
 
     if (NavigationService.getUser()) {
         $scope.user.personal = NavigationService.getUser();
@@ -521,62 +608,104 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
 
-    $scope.addQualification = function() {
-        $scope.user.professional.qualification.push({
-            "degree": "",
-            "institute": "",
-            "year": ""
-        });
+    $scope.addQualification = function(obj) {
+        if (obj[obj.length - 1].degree != "") {
+            obj.push({
+                "degree": "",
+                "institute": "",
+                "year": ""
+            });
+        }
     };
 
-    $scope.deleteQualification = function(index) {
-        $scope.user.professional.qualification.splice(index, 1);
+    $scope.deleteQualification = function(obj, index) {
+        obj.splice(index, 1);
     }
 
-    $scope.addExperience = function() {
-        $scope.user.professional.experience.push({
-            "companyname": "",
-            "jobtitle": "",
-            "jobdesc": "",
-            "startdate": "",
-            "enddate": "",
-            "logo": ""
-        });
+    $scope.addExperience = function(obj) {
+        if (obj[obj.length - 1].companyname != "") {
+            obj.push({
+                "companyname": "",
+                "jobtitle": "",
+                "jobdesc": "",
+                "startdate": "",
+                "enddate": "",
+                "logo": ""
+            });
+        }
     };
 
-    $scope.deleteExperience = function(index) {
-        $scope.user.professional.experience.splice(index, 1);
+    $scope.deleteExperience = function(obj, index) {
+        obj.splice(index, 1);
     }
 
-    $scope.addAwards = function() {
-        $scope.user.professional.awards.push({
-            "awards": ""
-        });
+    $scope.addAwards = function(obj) {
+        if (obj[obj.length - 1].awards != "") {
+            obj.push({
+                "awards": ""
+            });
+        }
     };
 
-    $scope.deleteAwards = function(index) {
-        $scope.user.professional.awards.splice(index, 1);
+    $scope.deleteAwards = function(obj, index) {
+        obj.splice(index, 1);
     }
 
-    $scope.addWebsites = function() {
-        $scope.user.professional.websites.push({
-            "websites": ""
-        });
+    $scope.addWebsites = function(obj) {
+        if (obj[obj.length - 1].websites != "") {
+            obj.push({
+                "websites": ""
+            });
+        }
     };
 
-    $scope.deleteWebsites = function(index) {
-        $scope.user.professional.websites.splice(index, 1);
+    $scope.deleteWebsites = function(obj, index) {
+        obj.splice(index, 1);
     }
 
-    $scope.addVideos = function() {
-        $scope.user.professional.videos.push({
-            "videos": ""
-        });
+    $scope.addVideos = function(obj) {
+        if (obj[obj.length - 1].videos != "") {
+            obj.push({
+                "videos": ""
+            });
+        }
     };
 
-    $scope.deleteVideos = function(index) {
-        $scope.user.professional.videos.splice(index, 1);
+    $scope.deleteVideos = function(obj, index) {
+        obj.splice(index, 1);
     }
+
+    $scope.saveProfessional = function() {
+        console.log($scope.user.professional);
+    }
+
+    $scope.savePersonal = function() {
+        if ($scope.showExpertMsg == false) {
+            if ($scope.user.personal.password === $scope.user.personal.confirmpassword) {
+                var userData = {};
+                userData.name = $scope.user.personal.firstname + " " + $scope.user.personal.lastname;
+                userData.email = $scope.user.personal.email;
+                userData.password = $scope.user.personal.password;
+                NavigationService.register(userData, function(data) {
+                    if (data) {
+                        console.log(data);
+                        if (data != false) {
+                            NavigationService.setUser(data);
+                            console.log($scope.user.personal);
+                            //call edit profile
+                        }
+                    }
+                }, function(err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                })
+            }
+            console.log("check both password");
+        } else {
+            //call edit profile
+        }
+    };
 
 })
 
@@ -895,6 +1024,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.showSignup = function() {
+        $.jStorage.set("isExpert", false);
         tabvalue = '2';
         ngDialog.open({
             scope: $scope,
