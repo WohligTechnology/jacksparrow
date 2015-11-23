@@ -12,9 +12,10 @@
 @import "../bower_components/ui-select/dist/select.min.css";
 @import "../bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css";
 body {
-  padding-top: 65px;
+  padding-top: @menu-height;
   font-family: 'Lato', sans-serif!important;
   background-color: @background-color;
+  color: @body-color;
 }
 h1,
 h2,
@@ -125,27 +126,31 @@ nav li:hover .dropdown-menu {
 }
 .navbar {
   margin-bottom: 0;
-  padding: 7px 0;
+  height: @menu-height;
+  overflow: hidden;
+  padding: 0;
+  .box-shadow( 0px 2px 8px rgba(0, 0, 0, 0.35));
+  background-color: white;
 
-  //.box-shadow( 0px 2px 8px rgba(0, 0, 0, 0.35));
-  background: @color-base;
-  border-color: @color-base;
-  .container {
     .navbar-brand {
-      padding: 15px;
-      font-size: 24px;
-      font-weight: bold;
-      color: @color-logo;
+      height: 35px;
+      margin-top: 15px;
+      padding: 0;
+
+      .logo {
+        height: 100%;
+      }
     }
     ul.nav.navbar-nav.navbar-right {
-      margin-top: 7px;
+      margin-top: 0;
+
       li {
         a {
           background-color: transparent;
           border-color: transparent;
-          color: @color-white;
+          color: @body-color;
           margin-right: 0;
-          padding: 6px 20px;
+          padding: 22px 20px;
           text-transform: uppercase;
           &:hover {
             background-color: rgba(0, 0, 0, 0.1);
@@ -166,7 +171,6 @@ nav li:hover .dropdown-menu {
     .navbar-right {
       margin-top: 3px;
     }
-  }
 }
 input[type=file]:focus,
 input[type=checkbox]:focus,
@@ -221,11 +225,11 @@ label.input-check {
     color: #fff;
   }
   a.icons-inner.android-icon i {
-    font-size: 60px;
-    margin-right: 10px;
+    font-size: 30px;
+    margin-right: 30px;
   }
   a.icons-inner.apple-icon i {
-    font-size: 60px;
+    font-size: 30px;
   }
 }
 input.checkbox {
@@ -274,9 +278,8 @@ input.checkbox:checked:after {
   width: 300px!important;
 }
 .box-contain {
-  background: url(../img/bg.jpg) no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+background-color: #f7f7f7;
+
   .box-middle {
     padding: 25px 0 5px;
   }
@@ -285,7 +288,6 @@ input.checkbox:checked:after {
     h1 {
       margin-top: 10px;
       font-size: 35px;
-      color: white;
     }
   }
   .form-control {
@@ -297,7 +299,6 @@ input.checkbox:checked:after {
     margin-top: 0;
     font-size: 24px;
     padding-bottom: 10px;
-    color: @color-white;
     font-weight: 400;
   }
   .btn {
@@ -315,7 +316,6 @@ input.checkbox:checked:after {
   }
 }
 .cat-type {
-  color: #fff;
   padding: 0 0 15px;
   .cat-type-1 {
     max-width: 700px;
@@ -369,10 +369,15 @@ input.checkbox:checked:after {
 .form-horizontal .form-group:focus {
   outline: -webkit-focus-ring-color auto 0;
 }
+
 footer {
-  padding: 10px 0;
-  background: @color-base;
+  background: @body-color;
   color: @color-white;
+  padding: 10px 0;
+
+  &.darker-footer {
+    background: @body-color-dark;
+  }
   p {
     a {
       color: @color-white;
@@ -385,14 +390,16 @@ footer {
   .footer-main ul {
     display: block;
     padding-left: 0;
+    margin: 0;
     li {
       list-style: none;
       display: inline-block;
-      padding: 0 15px;
+      padding-right: 10px;
       color: @color-white;
     }
     li+li {
       border-left: 1px solid @color-white;
+      padding-left: 10px;
     }
     a {
       color: @color-white;
@@ -406,8 +413,7 @@ footer {
 }
 footer.footer-menu {
   .footer-border {
-    border-bottom: 1px solid white;
-    padding: 25px 20px;
+    padding: 25px 0px;
   }
   .icons {
     padding: 0 0 0 15px;
@@ -416,28 +422,29 @@ footer.footer-menu {
       width: 30px;
       height: 30px;
       border-radius: 50%;
+      margin-top: 10px;
       display: inline-block;
-      color: @color-base;
+      color: @body-color;
       text-align: center;
       padding-top: 5px;
       margin-right: 5px;
       .transition(all ease 300ms);
+
       &:hover {
-        background-color: darken(@color-white, 15%);
-        color: darken(@color-base, 10%);
       }
     }
   }
   h5 {
     font-size: 16px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
+    margin-bottom: 15px;
   }
   ul.footer-link {
     padding-left: 0;
     li {
       list-style: none;
-      line-height: 150%;
+      line-height: 180%;
       a {
         color: @color-white;
         text-transform: capitalize;
