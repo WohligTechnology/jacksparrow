@@ -70,7 +70,7 @@ module.exports = function (grunt) {
 										'./bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js',
                     './bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
                     './bower_components/jStorage/jstorage.min.js',
-                    './lib/fileupload/angular-file-upload.min.js',
+                    './lib/fileupload/angular-file-upload.js',
                     './lib/fileupload/FileAPI.js',
                     './lib/fileupload/upload.js',
                     './js/app.js',
