@@ -1,6 +1,7 @@
 var tabvalue = '1';
 var uploadres = [];
-window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
+// window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
+window.uploadUrl = 'http://wohlig.co.in/jacknowsbackend/index.php/json/uploadImage';
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider', 'mwl.calendar', 'angularFileUpload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state, $state) {
@@ -470,6 +471,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.showExpertMsg = true;
     $scope.showProfessionalWait = true;
     $scope.showHobbyWait = true;
+    $scope.invalidContact = false;
+    $scope.alreadyRegistered = false;
     defineAllArrays();
 
     $scope.getUserData = function() {
@@ -722,83 +725,98 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.savePersonal = function() {
-        if ($scope.showExpertMsg == false) {
-            if ($scope.user.personal.password === $scope.user.personal.confirmpassword) {
-                var userData = {};
-                userData.name = $scope.user.personal.firstname + " " + $scope.user.personal.lastname;
-                userData.email = $scope.user.personal.email;
-                userData.password = $scope.user.personal.password;
-                userData.isexpert = "1";
-                //call register
-                cfpLoadingBar.start();
-                NavigationService.register(userData, function(data) {
-                    if (data) {
-                        console.log(data);
-                        if (data != "false") {
-                            NavigationService.setUser(data);
-                            console.log($scope.user.personal);
-                            //call edit profile
-                            $scope.user.personal.isexpert = "1";
-                            NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
-                                if (successdata) {
-                                    console.log(successdata);
-                                    cfpLoadingBar.complete();
-                                    manipulateData(successdata);
-                                    ngDialog.open({
-                                        scope: $scope,
-                                        template: 'views/content/modal-dialogue.html'
+        console.log($scope.user.personal.contact);
+        console.log($scope.user.personal.contact.toString().length);
+        if ($scope.user.personal.contact.toString().length == 10) {
+            $scope.invalidContact = false;
+            if ($scope.showExpertMsg == false) {
+                if ($scope.user.personal.password === $scope.user.personal.confirmpassword) {
+                    $scope.passwordMismatch = false;
+                    var userData = {};
+                    userData.name = $scope.user.personal.firstname + " " + $scope.user.personal.lastname;
+                    userData.email = $scope.user.personal.email;
+                    userData.password = $scope.user.personal.password;
+                    userData.isexpert = "1";
+                    //call register
+                    cfpLoadingBar.start();
+                    NavigationService.register(userData, function(data) {
+                        if (data) {
+                            console.log(data);
+                            if (data != "false") {
+                                NavigationService.setUser(data);
+                                console.log($scope.user.personal);
+                                //call edit profile
+                                $scope.user.personal.isexpert = "1";
+                                NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                                    if (successdata) {
+                                        console.log(successdata);
+                                        cfpLoadingBar.complete();
+                                        manipulateData(successdata);
+                                        ngDialog.open({
+                                            scope: $scope,
+                                            template: 'views/content/modal-dialogue.html'
+                                        });
+                                    }
+                                }, function(error) {
+                                    if (error) {
+                                        console.log(error);
+                                    }
+                                });
+                            } else {
+                                if (NavigationService.getUser()) {
+                                    $scope.alreadyRegistered = false;
+                                    console.log($scope.user.personal);
+                                    $scope.user.personal.isexpert = "1";
+                                    NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                                        if (successdata) {
+                                            console.log(successdata);
+                                            cfpLoadingBar.complete();
+                                            manipulateData(successdata);
+                                        }
+                                    }, function(error) {
+                                        if (error) {
+                                            console.log(error);
+                                        }
                                     });
+                                } else {
+                                    $scope.alreadyRegistered = true;
                                 }
-                            }, function(error) {
-                                if (error) {
-                                    console.log(error);
-                                }
-                            });
-                        } else {
-                            console.log($scope.user.personal);
-                            $scope.user.personal.isexpert = "1";
-                            NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
-                                if (successdata) {
-                                    console.log(successdata);
-                                    cfpLoadingBar.complete();
-                                    manipulateData(successdata);
-                                }
-                            }, function(error) {
-                                if (error) {
-                                    console.log(error);
-                                }
-                            });
+                            }
                         }
+                    }, function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    })
+                } else {
+                    $scope.passwordMismatch = true;
+                }
+                console.log("check both password");
+            } else {
+                console.log($scope.user.personal);
+                //call edit profile
+                cfpLoadingBar.start();
+                $scope.user.personal.isexpert = "2";
+                NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                    if (successdata) {
+                        console.log(successdata);
+                        cfpLoadingBar.complete();
+                        manipulateData(successdata);
+                        ngDialog.open({
+                            scope: $scope,
+                            template: 'views/content/modal-dialogue.html'
+                        });
                     }
-                }, function(err) {
-                    if (err) {
-                        console.log(err);
+                }, function(error) {
+                    if (error) {
+                        console.log(error);
                     }
-                })
+                });
             }
-            console.log("check both password");
         } else {
-            console.log($scope.user.personal);
-            //call edit profile
-            cfpLoadingBar.start();
-            $scope.user.personal.isexpert = "2";
-            NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
-                if (successdata) {
-                    console.log(successdata);
-                    cfpLoadingBar.complete();
-                    manipulateData(successdata);
-                    ngDialog.open({
-                        scope: $scope,
-                        template: 'views/content/modal-dialogue.html'
-                    });
-                }
-            }, function(error) {
-                if (error) {
-                    console.log(error);
-                }
-            });
+            $scope.invalidContact = true;
         }
-    };
+    }
 
     $scope.saveProfessional = function() {
         cfpLoadingBar.start();
@@ -1222,25 +1240,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Search");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.noData = false;
+
     //  $scope.reload = function() {
     //      cfpLoadingBar.start();
     $scope.professional = [];
     NavigationService.searchExpert($stateParams.search, function(data) {
         if (data) {
             console.log(data);
-            _.each(data, function(n) {
-                NavigationService.getUserDetails(n.id, function(data2) {
-                    if (data2) {
-                        // console.log(data2);
-                        $scope.professional.push(data2);
-                        console.log($scope.professional);
-                    }
-                }, function(error) {
-                    if (error) {
-                        console.log(error);
-                    }
+            if (data != "false") {
+                $scope.noData = false;
+                _.each(data, function(n) {
+                    NavigationService.getUserDetails(n.id, function(data2) {
+                        if (data2) {
+                            // console.log(data2);
+                            $scope.professional.push(data2);
+                            console.log($scope.professional);
+                        }
+                    }, function(error) {
+                        if (error) {
+                            console.log(error);
+                        }
+                    });
                 });
-            });
+            } else {
+                $scope.noData = true;
+            }
             console.log($scope.professional);
         }
     }, function(err) {

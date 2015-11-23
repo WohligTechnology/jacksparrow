@@ -24,11 +24,13 @@
                                 <label for="">EMAIL ADDRESS
                                     <span>(Wont be shared publicaly)</span>:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email" required>
+                                <p ng-show="alreadyRegistered" style="color:red">Email id already registered</p>
                             </div>
                             <div class="col-md-4">
                                 <label for="">MOBILE NUMBER
                                     <span class="">(OTP Verified)</span>:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact" maxlength="10" only-digits>
+                                <p ng-show="invalidContact" style="color:red">Invalid Mobile Number</p>
                             </div>
                         </div>
                         <div class="row" ng-hide="showExpertMsg">
@@ -39,6 +41,7 @@
                             <div class="col-md-4">
                                 <label for="">CONFIRM PASSWORD:</label>
                                 <input type="password" class="form-control text-large" placeholder="Please re-enter your password" ng-model="user.personal.confirmpassword">
+                                <p ng-show="passwordMismatch" style="color:red">Password Mismatch</p>
                             </div>
                         </div>
                         <div class="row">

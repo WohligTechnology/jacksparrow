@@ -45,3 +45,4 @@ bower_components/
 node_modules/
 w/
 *.log
+*.zip

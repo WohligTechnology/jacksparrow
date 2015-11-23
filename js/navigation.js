@@ -1,6 +1,6 @@
 // var adminbase = "http://192.168.0.102/youtube/";
 var adminbase = "http://localhost/jacknowsbackend/";
-// var adminbase = "http://wohlig.co.in/jacknowsbackend/";
+var adminbase = "http://wohlig.co.in/jacknowsbackend/";
 
 var adminurl = adminbase + "index.php/json/";
 var adminimage = adminbase + "uploads/";
