@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     './bower_components/jquery/dist/jquery.min.js',
                     './bower_components/less/dist/less.min.js',
                     './bower_components/moment/min/moment.min.js',
-					'./bower_components/interact/dist/interact.min.js',
+										'./bower_components/interact/dist/interact.min.js',
                     './bower_components/bootstrap/dist/js/bootstrap.min.js',
                     './bower_components/flexslider/jquery.flexslider-min.js',
                     './bower_components/angular/angular.min.js',
@@ -67,18 +67,18 @@ module.exports = function (grunt) {
                     './bower_components/valdr/valdr.min.js',
                     './bower_components/valdr/valdr-message.min.js',
                     './bower_components/lodash/lodash.min.js',
-					'./bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js',
+										'./bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js',
                     './bower_components/angular-recaptcha/release/angular-recaptcha.min.js',
                     './bower_components/jStorage/jstorage.min.js',
-                    './bower_components/fileupload/angular-file-upload.js',
-                    './bower_components/fileupload/FileAPI.js',
-                    './bower_components/fileupload/upload.js',
+                    './lib/fileupload/angular-file-upload.min.js',
+                    './lib/fileupload/FileAPI.js',
+                    './lib/fileupload/upload.js',
                     './js/app.js',
                     './js/controllers.js',
                     './js/templateservice.js',
                     './js/navigation.js',
                 ],
-				
+
 				dest: './w/w.js',
 
 			}
@@ -176,7 +176,7 @@ module.exports = function (grunt) {
 						collapseBooleanAttributes: true,
 						collapseWhitespace: true,
 						removeAttributeQuotes: true,
-						removeComments: true, // Only if you don't use comment directives! 
+						removeComments: true, // Only if you don't use comment directives!
 						removeEmptyAttributes: true,
 						removeRedundantAttributes: true,
 						removeScriptTypeAttributes: true,
@@ -195,7 +195,7 @@ module.exports = function (grunt) {
 						collapseBooleanAttributes: true,
 						collapseWhitespace: true,
 						removeAttributeQuotes: true,
-						removeComments: true, // Only if you don't use comment directives! 
+						removeComments: true, // Only if you don't use comment directives!
 						removeEmptyAttributes: true,
 						removeRedundantAttributes: true,
 						removeScriptTypeAttributes: true,
@@ -214,7 +214,7 @@ module.exports = function (grunt) {
 						collapseBooleanAttributes: true,
 						collapseWhitespace: true,
 						removeAttributeQuotes: true,
-						removeComments: true, // Only if you don't use comment directives! 
+						removeComments: true, // Only if you don't use comment directives!
 						removeEmptyAttributes: true,
 						removeRedundantAttributes: true,
 						removeScriptTypeAttributes: true,
