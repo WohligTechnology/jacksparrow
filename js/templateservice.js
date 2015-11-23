@@ -9,7 +9,7 @@ templateservicemod.service('TemplateService', function() {
 
     this.init = function() {
         this.headermenu = "views/headermenu.html";
-        this.header = "views/header.html";
+        this.header = "views/header-login.html";
         this.menu = "views/menu.html";
         this.slider = "views/slider.html";
         this.content = "views/content/content.html";
@@ -23,26 +23,8 @@ templateservicemod.service('TemplateService', function() {
         data.content = "views/content/" + page + ".html";
         return data;
     };
-    
-    this.init();  
-	
-	this.init = function() {
-        this.headermenu = "views/headermenu.html";
-        this.header = "views/header.html";
-        this.menu = "views/menu.html";
-        this.slider = "views/slider.html";
-        this.content = "views/content/content.html";
-        this.footermenu = "views/footermenu.html";
-        this.footer = "views/footer.html";
-    };
 
-    this.changecontent = function(page) {
-        this.init();
-        var data = this;
-        data.content = "views/content/" + page + ".html";
-        return data;
-    };
-    
     this.init();
+
 
 });
