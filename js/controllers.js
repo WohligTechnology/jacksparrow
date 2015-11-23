@@ -468,8 +468,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
-    $scope.showProfessionalWait = false;
-    $scope.showHobbyWait = false;
+    $scope.showProfessionalWait = true;
+    $scope.showHobbyWait = true;
     defineAllArrays();
 
     $scope.getUserData = function() {
@@ -1101,10 +1101,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.user.professional = data.profession;
         $scope.user.hobbies = data.hobby;
         if (!$scope.user.professional.awards) {
+            $scope.showProfessionalWait = false;
             $scope.user.professional = {};
             defineAllArrays();
         }
         if (!$scope.user.hobbies.awards) {
+            $scope.showHobbyWait = false;
             $scope.user.hobbies = {};
             defineAllArrays();
         }
