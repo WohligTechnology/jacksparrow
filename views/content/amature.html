@@ -3,6 +3,9 @@
         <div class="text-center" ng-show="showExpertMsg">
             <button type="button" class="btn btn-primary" ng-click="becomeExpert();">Become an expert</button>
         </div>
+        <div class="text-center" ng-show="showHobbyWait">
+            <p>Your profile is under verification. It will be verified in 2-4 days.</p>
+        </div>
         <div class="cont-setting" ng-hide="showExpertMsg">
             <div class="tab2">
                 <div class="cat-type color-black">
@@ -182,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="margin-top-btm btn-group">
+                <div class="margin-top-btm btn-group" ng-hide="showHobbyWait">
                     <button type="button" class="btn btn-primary" ng-click="saveHobbies();">Submit for the Review</button>
                 </div>
             </div>

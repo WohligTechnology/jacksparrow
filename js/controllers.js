@@ -468,6 +468,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
+    $scope.showProfessionalWait = false;
+    $scope.showHobbyWait = false;
     defineAllArrays();
 
     $scope.getUserData = function() {
@@ -813,7 +815,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(data);
                 cfpLoadingBar.complete();
                 manipulateData(data);
-                $scope.currentTab = 'views/content/amature.html';
+                $scope.showProfessionalWait = true;
+                ngDialog.open({
+                    scope: $scope,
+                    template: 'views/content/modal-success.html'
+                });
+                $timeout(function() {
+                    ngDialog.closeAll();
+                    $scope.currentTab = 'views/content/amature.html';
+                }, 2500);
             }
         }, function(error) {
             if (error) {
@@ -831,6 +841,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(data);
                 cfpLoadingBar.complete();
                 manipulateData(data);
+                $scope.showHobbyWait = true;
+                ngDialog.open({
+                    scope: $scope,
+                    template: 'views/content/modal-success.html'
+                });
+                $timeout(function() {
+                    ngDialog.closeAll();
+                }, 2500);
             }
         }, function(error) {
             if (error) {
