@@ -1,124 +1,124 @@
 <section class="container content-min">
-	<div class="row margin-top">
-		<div class="col-md-12">
-			<h4 class="head">Search professional</h4>
-		</div>
-	</div>
-	<div class="bar-head bg-white">
-		<div class="row">
-			<div class="col-md-3 col-sm-6">
-				<div class="form-group">
-					<div class="col-md-4 pad-right-less">
-						<label class="sort-main control-label pull-right" for="sel1">Filter by:</label>
-					</div>
-					<div class="col-md-8">
-						<div class="select-drops">
-							<select class="form-control select-drops" id="sel1">
-								<option>Please Select</option>
-								<option>Professional</option>
-								<option>Amatuer</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="form-group">
-					<div class="col-md-4 pad-right-less">
-						<label class="sort-main control-label pull-right" for="sel1">Category:</label>
-					</div>
-					<div class="col-md-8">
-						<div class="select-drops">
-							<select class="form-control select-drops" id="sel1">
-								<option>Select a category</option>
-								<option>Career Counselling</option>
-								<option>Travel</option>
-								<option>Health</option>
-								<option>Life Style</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-8">
-				<div class="form-group">
-					<div class="form-group input-group ingroup">
-						<input class="form-control text-small" placeholder="Ask question (eg.Can you help me with xyz?)" type="text">
-						<span class="input-group-btn">
+    <div class="row margin-top">
+        <div class="col-md-12">
+            <h4 class="head">Search professional</h4>
+        </div>
+    </div>
+    <div class="bar-head bg-white">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="form-group">
+                    <div class="col-md-4 pad-right-less">
+                        <label class="sort-main control-label pull-right" for="sel1">Filter by:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="select-drops">
+                            <select class="form-control select-drops" id="sel1">
+                                <option>Please Select</option>
+                                <option>Professional</option>
+                                <option>Amatuer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="form-group">
+                    <div class="col-md-4 pad-right-less">
+                        <label class="sort-main control-label pull-right" for="sel1">Category:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="select-drops">
+                            <select class="form-control select-drops" id="sel1">
+                                <option>Select a category</option>
+                                <option>Career Counselling</option>
+                                <option>Travel</option>
+                                <option>Health</option>
+                                <option>Life Style</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-8">
+                <div class="form-group">
+                    <div class="form-group input-group ingroup">
+                        <input class="form-control text-small" placeholder="Ask question (eg.Can you help me with xyz?)" type="text">
+                        <span class="input-group-btn">
                  <button class="btn btn-default" data-toggle="popover" data-placement="top" data-content="All the replies for the questions will be answered in yes or no." data-trigger="hover">
                 <i class="fa fa-question"></i>
               </button>
             </span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-4">
-				<div class="submit-btn">
-					<button class="btn btn-default" type="button">Send</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="pad-btm">
-		<div class="holder-pro bg-white" ng-repeat="pro in professional">
-			<div class="row">
-				<div class="col-md-2">
-					<a href="#/pro">
-						<div class="img-holder">
-							<img class="img-responsive img-height" ng-src="{{pro.img}}">
-							<div class="ribbon-wrapper" ng-if="pro.ispro">
-								<div class="ribbon">PRO</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-2">
-					<div class="box-name">
-						<a href="#/pro">
-							<h3>{{pro.name}}</h3>
-							<div class="cont-price">
-								<p class="price">
-									<i class="fa fa-inr"></i> {{pro.price}}
-								</p>
-								<p>
-									<span class="bold">Category:</span> {{pro.tech}}
-									<br>
-									<span class="bold">No of Consult:</span>{{pro.consultcount}}
-								</p>
-								<div class="star">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<a href="#/pro">
-						<div class="cont-decript">
-							<p class="bold">Description: </p>
-							<p>
-								{{pro.desc}}
-							</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-2">
-					<div class="action-button ask-pad">
-						<a href="#/pro" type="button" class="btn btn-default mgbot"><i class="fa fa-phone"></i> Book Now</a>
-						<a ng-click="showQuickview();" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</a>
-					</div>
-				</div>
-				<div class="col-md-1">
-				<div class="check">
-							<input type="checkbox" class="checkbox" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4">
+                <div class="submit-btn">
+                    <button class="btn btn-default" type="button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pad-btm">
+        <div class="holder-pro bg-white" ng-repeat="pro in professional">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="#/pro">
+                        <div class="img-holder">
+                            <img class="img-responsive img-height" ng-src="{{pro.user.image | uploadpath}}" ng-if="pro.user.image">
+                            <img class="img-responsive img-height" src="img/info/images.jpg" ng-if="!pro.user.image">
+                            <div class="ribbon-wrapper" ng-if="pro.ispro">
+                                <div class="ribbon">PRO</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <div class="box-name">
+                        <a href="#/pro">
+                            <h3>{{pro.user.firstname}} {{pro.user.lastname}}</h3>
+                            <div class="cont-price">
+                                <p class="price">
+                                    <i class="fa fa-inr"></i>500 {{pro.price}}
+                                </p>
+                                <p>
+                                    <span class="bold">Category:</span> {{pro.profession.category}}
+                                    <br>
+                                    <span class="bold">No of Consult:</span>13 {{pro.consultcount}}
+                                </p>
+                                <div class="star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <a href="#/pro">
+                        <div class="cont-decript">
+                            <p class="bold">Description: </p>
+                            <p>
+                                {{pro.profession.description}}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <div class="action-button ask-pad">
+                        <a href="#/pro" type="button" class="btn btn-default mgbot"><i class="fa fa-phone"></i> Book Now</a>
+                        <a ng-click="showQuickview();" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="check">
+                        <input type="checkbox" class="checkbox" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

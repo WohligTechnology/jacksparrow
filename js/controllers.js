@@ -1,9 +1,9 @@
 var tabvalue = '1';
 var uploadres = [];
-window.uploadUrl = 'http://146.148.34.49/user/uploadfile';
+window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider', 'mwl.calendar', 'angularFileUpload'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -11,6 +11,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Home");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.search = {};
+
     $scope.mySlides1 = [{
         src: 'img/slider/user-normal.jpg',
         tagline: "Find an expert to assist you",
@@ -29,6 +31,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.registerAsExpert = function() {
         $.jStorage.set("isExpert", true);
         $state.go("setting");
+    }
+
+    $scope.getSearchResults = function() {
+        console.log($scope.search);
+        if ($scope.search.searchquery) {
+            $state.go("searchpro", {
+                "search": $scope.search.searchquery
+            })
+        }
     }
 
 })
@@ -442,7 +453,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('SettingCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, ngDialog, $timeout, $filter, $http, $upload, $state) {
+.controller('SettingCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, ngDialog, $timeout, $filter, $http, $upload, $state, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("setting");
     $scope.menutitle = NavigationService.makeactive("Setting");
@@ -450,9 +461,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.user = {};
     $scope.user.personal = {};
+    $scope.user.personal.image = "";
     $scope.user.professional = {};
     $scope.user.hobbies = {};
-    $scope.user.personal.photos = [];
     $scope.user.professional.photos = [];
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
@@ -461,85 +472,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.getUserData = function() {
         if (NavigationService.getUser()) {
+            cfpLoadingBar.start();
             NavigationService.getAllUserDetails(function(data) {
                 if (data) {
                     console.log(data);
-                    $scope.user.personal = data.user;
-                    $scope.user.professional = data.profession;
-                    $scope.user.hobbies = data.hobby;
-                    if (!$scope.user.professional.awards) {
-                        $scope.user.professional = {};
-                        defineAllArrays();
-                    }
-                    if (!$scope.user.hobbies.awards) {
-                        $scope.user.hobbies = {};
-                        defineAllArrays();
-                    }
-
-                    //professional
-
-                    if ($scope.user.professional.awards.length == 0) {
-                        $scope.user.professional.awards = [{
-                            "awards": ""
-                        }];
-                    }
-                    if ($scope.user.professional.experience.length == 0) {
-                        $scope.user.professional.experience = [{
-                            "companyname": "",
-                            "jobtitle": "",
-                            "jobdesc": "",
-                            "startdate": "",
-                            "enddate": "",
-                            "logo": ""
-                        }];
-                    }
-                    if ($scope.user.professional.qualification.length == 0) {
-                        $scope.user.professional.qualification = [{
-                            "degree": "",
-                            "institute": "",
-                            "year": ""
-                        }];
-                    }
-                    if ($scope.user.professional.videos.length == 0) {
-                        $scope.user.professional.videos = [{
-                            "videos": ""
-                        }];
-                    }
-                    if ($scope.user.professional.websites.length == 0) {
-                        $scope.user.professional.websites = [{
-                            "websites": ""
-                        }];
-                    }
-
-                    //professional
-
-                    //hobbies
-
-                    if ($scope.user.hobbies.awards.length == 0) {
-                        $scope.user.hobbies.awards = [{
-                            "awards": ""
-                        }];
-                    }
-                    if ($scope.user.hobbies.qualification.length == 0) {
-                        $scope.user.hobbies.qualification = [{
-                            "degree": "",
-                            "institute": "",
-                            "year": ""
-                        }];
-                    }
-                    if ($scope.user.hobbies.videos.length == 0) {
-                        $scope.user.hobbies.videos = [{
-                            "videos": ""
-                        }];
-                    }
-                    if ($scope.user.hobbies.websites.length == 0) {
-                        $scope.user.hobbies.websites = [{
-                            "websites": ""
-                        }];
-                    }
-
-                    //hobbies
-                    console.log($scope.user);
+                    cfpLoadingBar.complete();
+                    manipulateData(data);
                 }
             }, function(err) {
                 if (err) {
@@ -554,13 +492,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     if ($.jStorage.get("isExpert")) {
         if ($.jStorage.get("isExpert") == true) {
             $scope.showExpertMsg = false;
+            $scope.user.personal.isexpert = "1";
         } else {
             $scope.showExpertMsg = true;
+            $scope.user.personal.isexpert = "2";
         }
     }
 
     $scope.becomeExpert = function() {
         $.jStorage.set("isExpert", true);
+        $scope.user.personal.isexpert = "1";
         $scope.showExpertMsg = false;
     }
 
@@ -701,6 +642,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.gotoProfessional = function() {
         $.jStorage.set("isExpert", true);
         $scope.showExpertMsg = false;
+        $scope.user.personal.isexpert = "1";
         ngDialog.closeAll();
         $scope.currentTab = 'views/content/professional.html';
     }
@@ -784,24 +726,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 userData.name = $scope.user.personal.firstname + " " + $scope.user.personal.lastname;
                 userData.email = $scope.user.personal.email;
                 userData.password = $scope.user.personal.password;
+                userData.isexpert = "1";
                 //call register
+                cfpLoadingBar.start();
                 NavigationService.register(userData, function(data) {
                     if (data) {
                         console.log(data);
-                        if (data != false) {
+                        if (data != "false") {
                             NavigationService.setUser(data);
                             console.log($scope.user.personal);
                             //call edit profile
+                            $scope.user.personal.isexpert = "1";
                             NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
                                 if (successdata) {
                                     console.log(successdata);
-                                    if (successdata == "1") {
-                                        $scope.getUserData();
-                                        ngDialog.open({
-                                            scope: $scope,
-                                            template: 'views/content/modal-dialogue.html'
-                                        });
-                                    }
+                                    cfpLoadingBar.complete();
+                                    manipulateData(successdata);
+                                    ngDialog.open({
+                                        scope: $scope,
+                                        template: 'views/content/modal-dialogue.html'
+                                    });
+                                }
+                            }, function(error) {
+                                if (error) {
+                                    console.log(error);
+                                }
+                            });
+                        } else {
+                            console.log($scope.user.personal);
+                            $scope.user.personal.isexpert = "1";
+                            NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                                if (successdata) {
+                                    console.log(successdata);
+                                    cfpLoadingBar.complete();
+                                    manipulateData(successdata);
                                 }
                             }, function(error) {
                                 if (error) {
@@ -820,10 +778,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             console.log($scope.user.personal);
             //call edit profile
+            cfpLoadingBar.start();
+            $scope.user.personal.isexpert = "2";
             NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
                 if (successdata) {
                     console.log(successdata);
-                    $scope.getUserData();
+                    cfpLoadingBar.complete();
+                    manipulateData(successdata);
                     ngDialog.open({
                         scope: $scope,
                         template: 'views/content/modal-dialogue.html'
@@ -838,6 +799,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.saveProfessional = function() {
+        cfpLoadingBar.start();
         _.each($scope.user.professional.experience, function(n) {
             n.startdate = new Date(n.sdate);
             n.startdate = $filter('date')(n.startdate, "dd-MM-yyyy");
@@ -849,8 +811,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.editProfessionalDetails($scope.user.professional, function(data) {
             if (data) {
                 console.log(data);
-                if (data == "1")
-                    $scope.getUserData();
+                cfpLoadingBar.complete();
+                manipulateData(data);
+                $scope.currentTab = 'views/content/amature.html';
             }
         }, function(error) {
             if (error) {
@@ -860,13 +823,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.saveHobbies = function() {
+        cfpLoadingBar.start();
         $scope.user.hobbies.id = NavigationService.getUser().id;
         console.log($scope.user.hobbies);
         NavigationService.editHobbiesDetails($scope.user.hobbies, function(data) {
             if (data) {
                 console.log(data);
-                if (data == "1")
-                    $scope.getUserData();
+                cfpLoadingBar.complete();
+                manipulateData(data);
             }
         }, function(error) {
             if (error) {
@@ -894,7 +858,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
         window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
-    $scope.onFileSelectProfessional = function($files) {
+    $scope.onFileSelect = function($files, whichone) {
         $scope.selectedFiles = [];
         $scope.progress = [];
         console.log($files);
@@ -924,12 +888,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             $scope.progress[i] = -1;
             if ($scope.uploadRightAway) {
-                $scope.start(i, $scope.user.professional.photos);
+                $scope.start(i, whichone);
             }
         }
     };
 
-    $scope.onFileSelectPersonal = function($files) {
+    $scope.onFileSelectCompany = function($files, obj) {
         $scope.selectedFiles = [];
         $scope.progress = [];
         console.log($files);
@@ -959,54 +923,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             $scope.progress[i] = -1;
             if ($scope.uploadRightAway) {
-                $scope.start(i, $scope.user.personal.photos);
+                $scope.startCompany(i, obj);
             }
         }
     };
 
-    $scope.onFileSelectHobbies = function($files) {
-        $scope.selectedFiles = [];
-        $scope.progress = [];
-        console.log($files);
-        if ($scope.upload && $scope.upload.length > 0) {
-            for (var i = 0; i < $scope.upload.length; i++) {
-                if ($scope.upload[i] != null) {
-                    $scope.upload[i].abort();
-                }
-            }
-        }
-        $scope.upload = [];
-        $scope.uploadResult = uploadres;
-        $scope.selectedFiles = $files;
-        $scope.dataUrls = [];
-        for (var i = 0; i < $files.length; i++) {
-            var $file = $files[i];
-            if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
-                var fileReader = new FileReader();
-                fileReader.readAsDataURL($files[i]);
-                var loadFile = function(fileReader, index) {
-                    fileReader.onload = function(e) {
-                        $timeout(function() {
-                            $scope.dataUrls[index] = e.target.result;
-                        });
-                    }
-                }(fileReader, i);
-            }
-            $scope.progress[i] = -1;
-            if ($scope.uploadRightAway) {
-                $scope.start(i, $scope.user.hobbies.photos);
-            }
-        }
-    };
-
-    $scope.start = function(index, obj) {
+    $scope.startCompany = function(index, obj) {
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
-        console.log($scope.howToSend = 1);
+        $scope.howToSend = 1;
         if ($scope.howToSend == 1) {
             $scope.upload[index] = $upload.upload({
                 url: uploadUrl,
-                method: $scope.httpMethod,
+                method: "POST",
                 headers: {
                     'Content-Type': 'Content-Type'
                 },
@@ -1014,15 +943,79 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     myModel: $scope.myModel
                 },
                 file: $scope.selectedFiles[index],
-                fileFormDataName: 'file'
+                fileFormDataName: 'image'
             });
             $scope.upload[index].then(function(response) {
+                console.log(response.data)
                 $timeout(function() {
                     $scope.uploadResult.push(response.data);
                     imagejstupld = response.data;
                     if (imagejstupld != "") {
-                        obj.push(imagejstupld.files[0].fd);
-                        imagejstupld = "";
+                        imagejstupld = imagejstupld.split('"').join("");
+                        obj.companylogo = imagejstupld;
+                    }
+                });
+            }, function(response) {
+                if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+            }, function(evt) {
+                $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+            $scope.upload[index].xhr(function(xhr) {});
+        } else {
+            var fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                $scope.upload[index] = $upload.http({
+                    url: uploadUrl,
+                    headers: {
+                        'Content-Type': $scope.selectedFiles[index].type
+                    },
+                    data: e.target.result
+                }).then(function(response) {
+                    $scope.uploadResult.push(response.data);
+                }, function(response) {
+                    if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
+                }, function(evt) {
+                    $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                });
+            }
+            fileReader.readAsArrayBuffer($scope.selectedFiles[index]);
+        }
+    };
+
+    $scope.start = function(index, whichone) {
+        $scope.progress[index] = 0;
+        $scope.errorMsg = null;
+        $scope.howToSend = 1;
+        if ($scope.howToSend == 1) {
+            $scope.upload[index] = $upload.upload({
+                url: uploadUrl,
+                method: "POST",
+                headers: {
+                    'Content-Type': 'Content-Type'
+                },
+                data: {
+                    myModel: $scope.myModel
+                },
+                file: $scope.selectedFiles[index],
+                fileFormDataName: 'image'
+            });
+            $scope.upload[index].then(function(response) {
+                console.log(response.data)
+                $timeout(function() {
+                    $scope.uploadResult.push(response.data);
+                    imagejstupld = response.data;
+                    if (imagejstupld != "") {
+                        imagejstupld = imagejstupld.split('"').join("");
+                        if (whichone == 1) {
+                            $scope.user.personal.image = imagejstupld;
+                            imagejstupld = "";
+                        } else if (whichone == 2) {
+                            $scope.user.professional.photos.push(imagejstupld);
+                            imagejstupld = "";
+                        } else if (whichone == 3) {
+                            $scope.user.hobbies.photos.push(imagejstupld);
+                            imagejstupld = "";
+                        }
                     }
                 });
             }, function(response) {
@@ -1075,9 +1068,134 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             template: 'views/content/modal-dialogue.html'
         });
     };
+
+    function manipulateData(data) {
+        $scope.user.personal = data.user;
+
+        if ($scope.user.personal.isexpert == "1") {
+            $.jStorage.set("isExpert", true);
+            $scope.showExpertMsg = false;
+        } else if ($scope.user.personal.isexpert == "2") {
+            $.jStorage.set("isExpert", false);
+            $scope.showExpertMsg = true;
+        }
+
+        $scope.user.professional = data.profession;
+        $scope.user.hobbies = data.hobby;
+        if (!$scope.user.professional.awards) {
+            $scope.user.professional = {};
+            defineAllArrays();
+        }
+        if (!$scope.user.hobbies.awards) {
+            $scope.user.hobbies = {};
+            defineAllArrays();
+        }
+
+        //professional
+        if ($scope.user.professional.category) {
+            var i = 0;
+            _.each($scope.categoryJson, function(n) {
+                if (n.name == $scope.user.professional.category) {
+                    n.activeclass = "active";
+                    i++;
+                } else {
+                    n.activeclass = "";
+                }
+            })
+            if (i == 0) {
+                $scope.categoryJson[4].activeclass = "active";
+                $scope.showCategoryInput = true;
+            }
+        }
+
+        _.each($scope.user.professional.experience, function(n) {
+            if (n.startdate) {
+                n.sdate = new Date(n.startdate);
+            }
+            if (n.enddate) {
+                n.edate = new Date(n.enddate);
+            }
+        })
+
+        var arr = [];
+        _.each($scope.user.professional.photos, function(n) {
+            arr.push(n.image);
+        })
+        $scope.user.professional.photos = arr;
+
+        var hobarr = [];
+        _.each($scope.user.hobbies.photos, function(n) {
+            hobarr.push(n.image);
+        })
+        $scope.user.hobbies.photos = hobarr;
+
+        if ($scope.user.professional.awards.length == 0) {
+            $scope.user.professional.awards = [{
+                "awards": ""
+            }];
+        }
+        if ($scope.user.professional.experience.length == 0) {
+            $scope.user.professional.experience = [{
+                "companyname": "",
+                "jobtitle": "",
+                "jobdesc": "",
+                "startdate": "",
+                "enddate": "",
+                "companylogo": ""
+            }];
+        }
+        if ($scope.user.professional.qualification.length == 0) {
+            $scope.user.professional.qualification = [{
+                "degree": "",
+                "institute": "",
+                "year": ""
+            }];
+        }
+        if ($scope.user.professional.videos.length == 0) {
+            $scope.user.professional.videos = [{
+                "videos": ""
+            }];
+        }
+        if ($scope.user.professional.websites.length == 0) {
+            $scope.user.professional.websites = [{
+                "websites": ""
+            }];
+        }
+
+        //professional
+
+        //hobbies
+
+        if ($scope.user.hobbies.awards.length == 0) {
+            $scope.user.hobbies.awards = [{
+                "awards": ""
+            }];
+        }
+        if ($scope.user.hobbies.qualification.length == 0) {
+            $scope.user.hobbies.qualification = [{
+                "degree": "",
+                "institute": "",
+                "year": ""
+            }];
+        }
+        if ($scope.user.hobbies.videos.length == 0) {
+            $scope.user.hobbies.videos = [{
+                "videos": ""
+            }];
+        }
+        if ($scope.user.hobbies.websites.length == 0) {
+            $scope.user.hobbies.websites = [{
+                "websites": ""
+            }];
+        }
+
+        //hobbies
+        console.log($scope.user);
+    }
+
 })
 
-.controller('SearchProCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
+.controller('SearchProCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("search-pro");
     $scope.menutitle = NavigationService.makeactive("search-pro");
@@ -1086,31 +1204,56 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     //  $scope.reload = function() {
     //      cfpLoadingBar.start();
-    $scope.professional = [{
-        img: 'img/info/info1.jpg',
-        ispro: true,
-        name: 'Nishant Rathod',
-        tech: 'Travel',
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        price: '500',
-        consultcount: '36',
-    }, {
-        img: 'img/info/info2.jpg',
-        ispro: true,
-        name: 'Rani Chhetri',
-        tech: 'Travel',
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        price: '500',
-        consultcount: '30',
-    }, {
-        img: 'img/info/info3.jpg',
-        ispro: false,
-        name: 'Aman Verma',
-        tech: 'Travel',
-        desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        price: '250',
-        consultcount: '8',
-    }];
+    $scope.professional = [];
+    NavigationService.searchExpert($stateParams.search, function(data) {
+        if (data) {
+            console.log(data);
+            _.each(data, function(n) {
+                NavigationService.getUserDetails(n.id, function(data2) {
+                    if (data2) {
+                        // console.log(data2);
+                        $scope.professional.push(data2);
+                        console.log($scope.professional);
+                    }
+                }, function(error) {
+                    if (error) {
+                        console.log(error);
+                    }
+                });
+            });
+            console.log($scope.professional);
+        }
+    }, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    })
+
+    // $scope.professional = [{
+    //     img: 'img/info/info1.jpg',
+    //     ispro: true,
+    //     name: 'Nishant Rathod',
+    //     tech: 'Travel',
+    //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    //     price: '500',
+    //     consultcount: '36',
+    // }, {
+    //     img: 'img/info/info2.jpg',
+    //     ispro: true,
+    //     name: 'Rani Chhetri',
+    //     tech: 'Travel',
+    //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    //     price: '500',
+    //     consultcount: '30',
+    // }, {
+    //     img: 'img/info/info3.jpg',
+    //     ispro: false,
+    //     name: 'Aman Verma',
+    //     tech: 'Travel',
+    //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    //     price: '250',
+    //     consultcount: '8',
+    // }];
 
     $scope.profile = {
         name: "Amar Chhetri",
@@ -1408,6 +1551,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.registerUser = function() {
         if ($scope.register.password === $scope.register.confirmpassword) {
+            $scope.register.isexpert = "2";
             console.log($scope.register);
             NavigationService.register($scope.register, function(data) {
                 if (data) {

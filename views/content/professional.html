@@ -147,10 +147,13 @@
                                 <div class="choose-pic">
                                     <label for="">Company Logo:</label>
                                     <div class="choose-image">
-                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-user" ng-if="!experience.companylogo"></i>
+                                        <img class="img-responsive" ng-src="{{experience.companylogo | uploadpath}}" ng-if="experience.companylogo">
                                         <div class="choose-btn">
                                             <span>Choose File</span>
-                                            <input class="form-control" type="file">
+                                            <!-- <input class="form-control" type="file"> -->
+                                            <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                                            <input type="file" class="form-control" name="image" ng-file-select="onFileSelectCompany($files,experience)" onclick="this.value=null">
                                         </div>
                                     </div>
                                 </div>
@@ -248,25 +251,22 @@
                         			</div> -->
                         			<div class="form-group">
                             			<div class="upload-div">
-                                		<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                                			<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                             				<div class="upload-buttons">
-                                				<input type="file" name="file" ng-file-select="onFileSelectProfessional($files)" onclick="this.value=null" multiple>
+                                				<input type="file" name="image" ng-file-select="onFileSelect($files,2)" onclick="this.value=null">
                             				</div>
-                                			<div class="response" ng-show="uploadResult.length > 0">
-                                    			<span ng-repeat="result in uploadResult"></span>
-                                			</div>
                             			</div>
                         			</div>
 									</span>
 								</h4>
                             </div>
                             <div class="row">
-                                <div class="col-md-3" ng-repeat="bill in user.professional.photos">
+                                <div class="col-md-3" ng-repeat="bill in user.professional.photos" ng-if="user.professional.photos.length!=0">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
                                             <!-- <p class="text-center"> Add Photos </p> -->
-                                            <img src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
-                                            <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
+                                            <img src="{{bill | uploadpath}}" class="img-responsive">
+                                            <!-- <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0"> -->
                                         </div>
                                     </div>
                                 </div>
@@ -291,15 +291,15 @@
                                         </div>
                                     </div>
                                 </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="margin-top-btm btn-group">
+                <button type="button" class="btn btn-primary" ng-click="saveProfessional();">Submit for the Review</button>
+                <button type="button" class="btn btn-primary">Fill Hobby Profile</button>
+            </div>
         </div>
-        <div class="margin-top-btm btn-group">
-            <button type="button" class="btn btn-primary" ng-click="saveProfessional();">Submit for the Review</button>
-            <button type="button" class="btn btn-primary">Fill Hobby Profile</button>
-        </div>
-    </div>
     </div>
 </section>

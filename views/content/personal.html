@@ -55,10 +55,15 @@
                                 <div class="choose-pic">
                                     <label for="">PROFILE IMAGE:</label>
                                     <div class="choose-image">
-                                        <i class="fa fa-user"></i>
+                                        <i class="fa fa-user" ng-if="!user.personal.image"></i>
+                                        <img class="img-responsive" ng-src="{{user.personal.image | uploadpath}}" ng-if="user.personal.image">
                                         <div class="choose-btn">
                                             <span>Choose File</span>
-                                            <input class="form-control" type="file">
+                                            <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                                            <input type="file" class="form-control" name="image" ng-file-select="onFileSelect($files,1)" onclick="this.value=null">
+                                            <!-- <div class="response" ng-show="uploadResult.length > 0">
+                                                <span ng-repeat="result in uploadResult"></span>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

@@ -1,118 +1,116 @@
 <section class="content-min">
-	<div class="slider-main">
-		<div class="row">
-			<div class="col-md-6 col-sm-6">
-				<div class="slider-holder">
-					<flex-slider flex-slide="s in mySlides1 track by $index">
-						<li>
-							<img ng-src="{{s.src}}">
-							<div class="tag-line">
-								<span>
+    <div class="slider-main">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="slider-holder">
+                    <flex-slider flex-slide="s in mySlides1 track by $index">
+                        <li>
+                            <img ng-src="{{s.src}}">
+                            <div class="tag-line">
+                                <span>
 									{{s.tagline}}
 									<br>
 									<span class="normal-font">{{s.subline}}</span>
-									<br>
-									<a class="btn btn-primary text-upper more-padding" href="#/normal-user" ng-controller="headerctrl">How It works</a>
-								</span>
-							</div>
-						</li>
-					</flex-slider>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-6 ">
-				<div class="slider-holder">
-					<flex-slider flex-slide="s in mySlides2 track by $index">
-						<li>
-							<img ng-src="{{s.src}}">
-							<div class="tag-line">
-								<span>
+                                <br>
+                                <a class="btn btn-primary text-upper more-padding" href="#/normal-user" ng-controller="headerctrl">How It works</a>
+                                </span>
+                            </div>
+                        </li>
+                    </flex-slider>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+                <div class="slider-holder">
+                    <flex-slider flex-slide="s in mySlides2 track by $index">
+                        <li>
+                            <img ng-src="{{s.src}}">
+                            <div class="tag-line">
+                                <span>
 									{{s.tagline}}
 									<br>
 									<span class="normal-font">{{s.subline}}</span>
-									<br>
-									<a class="btn btn-primary text-upper more-padding" href="#/expert" ng-controller="headerctrl">How It works</a>
-								</span>
-							</div>
-
-						</li>
-					</flex-slider>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="expert-bg">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-6">
-				<div class="expert">
-					<h4>Are you a Expert?</h4>
-				</div>
-					</div>
-				<div class="col-xs-6">
-					<div class="expert">
-						<button class="btn btn-default" ng-click="registerAsExpert();">Become an Expert</button>
-					</div>
-			</div>
-		</div>
-	</div>
-</div>
-	<div class="box-contain">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-3  col-md-6">
-					<div class="box-middle">
-						<div class="head-home text-center">
-							<h1>Get an expert for your work</h1>
-						</div>
-						<div class="row">
-							<div class="col-md-offset-2  col-md-8">
-								<form class="form-horizontal" role="form">
-									<div class="form-group input-group ingroup">
-										<input class="form-control" placeholder="What are you looking for ?" type="text">
-										<span class="input-group-btn">
-											<a class="btn btn-primary btn-color" href="#/search-pro" type="submit">
+                                <br>
+                                <a class="btn btn-primary text-upper more-padding" href="#/expert" ng-controller="headerctrl">How It works</a>
+                                </span>
+                            </div>
+                        </li>
+                    </flex-slider>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="expert-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="expert">
+                        <h4>Are you a Expert?</h4>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="expert">
+                        <button class="btn btn-default" ng-click="registerAsExpert();">Become an Expert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-contain">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-3  col-md-6">
+                    <div class="box-middle">
+                        <div class="head-home text-center">
+                            <h1>Get an expert for your work</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-offset-2  col-md-8">
+                                <form class="form-horizontal" role="form" ng-submit="getSearchResults();">
+                                    <div class="form-group input-group ingroup">
+                                        <input class="form-control" placeholder="What are you looking for ?" type="text" ng-model="search.searchquery" required>
+                                        <span class="input-group-btn">
+											<a class="btn btn-primary btn-color" type="submit" ng-click="getSearchResults();">
 												<i class="fa fa-search"></i>
 											</a>
 										</span>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="cat-type text-center">
-				<h3 class="or text-center">Categories</h3>
-				<div class="cat-type-1">
-					<div class="row">
-						<div class="col-sm-3 col-xs-6">
-							<p>
-								<i class="fa fa-graduation-cap fa-2x"></i>
-							</p>
-							<p class="cat-head">Career counselling</p>
-						</div>
-						<div class="col-sm-3 col-xs-6">
-							<p>
-								<i class="fa fa-suitcase fa-2x"></i>
-							</p>
-							<p class="cat-head">Travel</p>
-						</div>
-						<div class="col-sm-3 col-xs-6">
-							<p>
-								<i class="fa fa-heartbeat fa-2x"></i>
-							</p>
-							<p class="cat-head">Health</p>
-						</div>
-						<div class="col-sm-3 col-xs-6">
-							<p>
-								<i class="fa fa-child fa-2x"></i>
-							</p>
-							<p class="cat-head">Life style</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cat-type text-center">
+                <h3 class="or text-center">Categories</h3>
+                <div class="cat-type-1">
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-6">
+                            <p>
+                                <i class="fa fa-graduation-cap fa-2x"></i>
+                            </p>
+                            <p class="cat-head">Career counselling</p>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <p>
+                                <i class="fa fa-suitcase fa-2x"></i>
+                            </p>
+                            <p class="cat-head">Travel</p>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <p>
+                                <i class="fa fa-heartbeat fa-2x"></i>
+                            </p>
+                            <p class="cat-head">Health</p>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <p>
+                                <i class="fa fa-child fa-2x"></i>
+                            </p>
+                            <p class="cat-head">Life style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

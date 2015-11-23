@@ -111,6 +111,9 @@ var navigationservice = angular.module('navigationservice', [])
                     "state": userData.state,
                     "country": userData.country,
                     "pincode": userData.pincode,
+                    "contact": userData.contact,
+                    "image": userData.image,
+                    "isexpert": userData.isexpert,
                     "facebooksocial": userData.facebooksocial,
                     "youtubesocial": userData.youtubesocial,
                     "twittersocial": userData.twittersocial
@@ -135,6 +138,12 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getAllUserDetails: function(callback, err) {
             $http.get(adminurl + "getUserDetails?id=" + $.jStorage.get("user").id).success(callback).error(err)
+        },
+        getUserDetails: function(id, callback, err) {
+            $http.get(adminurl + "getUserDetails?id=" + id).success(callback).error(err)
+        },
+        searchExpert: function(search, callback, err) {
+            $http.get(adminurl + "searchExpert?expertname=" + search).success(callback).error(err)
         },
         setUser: function(data) {
             $.jStorage.set("user", data);

@@ -17,7 +17,7 @@
                             <input type="text" class="form-control text-large" placeholder="Please enter category" ng-model="user.hobbies.category">
                         </div>
                         <div class="col-md-5">
-                            <label for="">Years of Experience:<span>(in years)</span></label>
+                            <label for="">Years of Experience<span> (in years</span>:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter years of experience" ng-model="user.hobbies.yoexp" only-digits>
                         </div>
                     </div>
@@ -140,18 +140,24 @@
                             			<div class="upload-div">
                                 		<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
                             				<div class="upload-buttons">
-                                				<input type="file" name="file" ng-file-select="onFileSelectHobbies($files)" onclick="this.value=null" multiple>
+                                				<input type="file" name="image" ng-file-select="onFileSelect($files,3)" onclick="this.value=null" multiple>
                             				</div>
-                                			<div class="response" ng-show="uploadResult.length > 0">
-                                    			<span ng-repeat="result in uploadResult"></span>
-                                			</div>
                             			</div>
                         			</div>
 									</span>
 								</h4>
                             </div>
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3" ng-repeat="bill in user.hobbies.photos" ng-if="user.hobbies.photos.length>0">
+                                    <div class="company-box">
+                                        <div class="add-photo-holder">
+                                            <!-- <p class="text-center"> Add Photos </p> -->
+                                            <img src="{{bill | uploadpath}}" class="img-responsive">
+                                            <!-- <input type="button" ng-click="removeimage(user.hobbies.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.hobbies.photos.length!=0"> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
                                             <p class="text-center"> Add Photos </p>
@@ -171,14 +177,7 @@
                                             <p class="text-center"> Add Photos </p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="company-box">
-                                        <div class="add-photo-holder">
-                                            <p class="text-center"> Add Photos </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvid
 
 
     .state('searchpro', {
-        url: "/search-pro",
+        url: "/search-pro/:search",
         templateUrl: "views/template.html",
         controller: 'SearchProCtrl'
     })
