@@ -738,7 +738,7 @@ footer.footer-menu {
     width: 150px;
     position: relative;
     text-align: center;
-    overflow:hidden;
+    overflow: hidden;
     .pro-tab {
         top: -4px;
         position: absolute;
@@ -767,6 +767,7 @@ footer.footer-menu {
 .min-height {
     min-height: 300px;
 }
+
 .pad-zero {
     padding: 0;
 }
@@ -1299,7 +1300,7 @@ h4.head {
         .scroll-y-min {
             height: 170px;
             overflow-x: hidden;
-//            overflow-y: scroll;
+            //            overflow-y: scroll;
             margin-bottom: 10px;
         }
         .submit-btn {
@@ -1828,7 +1829,7 @@ tags-input {
         position: relative;
         text-align: center;
         margin: -10px -10px 0;
-        overflow:hidden;
+        overflow: hidden;
         .img-height {
             max-height: 100%;
             max-width: 100%;
@@ -1986,6 +1987,9 @@ span.choose-all {
 span.choose-btn {
     width: 110px;
     float: left;
+    input {
+        width: 110px;
+    }
     span {
         position: absolute;
         background: #eee;
@@ -2052,6 +2056,20 @@ span.choose-btn {
 
 .submit-pad {
     text-align: right;
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: #e55c00;
+    border-color: #e55c00;
 }
 
 @import "mobile.less";
