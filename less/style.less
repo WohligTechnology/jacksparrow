@@ -723,8 +723,8 @@ footer.footer-menu {
 }
 
 .img-holder-big {
-    height: 250px;
-    width: 250px;
+    height: 230px;
+    width: 230px;
     margin: 0 auto;
     overflow: hidden;
     .img-height {
@@ -738,14 +738,14 @@ footer.footer-menu {
     width: 150px;
     position: relative;
     text-align: center;
+    overflow:hidden;
     .pro-tab {
         top: -4px;
         position: absolute;
         left: -3px;
     }
     .img-height {
-        max-height: 100%;
-        max-width: 100%;
+        width: 100%;
         border: 1px solid #ddd;
     }
 }
@@ -756,7 +756,7 @@ footer.footer-menu {
 
 .pro-make.box-pro.made-pro.bg-white {
     padding: 15px;
-    margin-top: 6px;
+    margin-top: -1px;
     &.min {
         top: 65px;
         position: fixed;
@@ -764,6 +764,9 @@ footer.footer-menu {
     }
 }
 
+.min-height {
+    min-height: 300px;
+}
 .pad-zero {
     padding: 0;
 }
@@ -1825,6 +1828,7 @@ tags-input {
         position: relative;
         text-align: center;
         margin: -10px -10px 0;
+        overflow:hidden;
         .img-height {
             max-height: 100%;
             max-width: 100%;
