@@ -43,7 +43,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvid
     })
 
     .state('pro', {
-        url: "/pro",
+        url: "/pro/:id",
         templateUrl: "views/template.html",
         controller: 'ProCtrl'
     })

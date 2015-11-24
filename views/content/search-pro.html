@@ -63,10 +63,10 @@
         <div class="holder-pro bg-white" ng-repeat="pro in professional">
             <div class="row">
                 <div class="col-md-2">
-                    <a href="#/pro">
+                    <a href="#/pro/{{pro.user.id}}">
                         <div class="img-holder">
                             <img class="img-responsive img-height" ng-src="{{pro.user.image | uploadpath}}" ng-if="pro.user.image">
-                            <img class="img-responsive img-height" src="img/info/images.jpg" ng-if="!pro.user.image">
+                            <img class="img-responsive img-height" src="img/profile.png" ng-if="!pro.user.image">
                             <div class="ribbon-wrapper" ng-if="pro.ispro">
                                 <div class="ribbon">PRO</div>
                             </div>
@@ -110,7 +110,7 @@
                 <div class="col-md-2">
                     <div class="action-button ask-pad">
                         <a href="#/pro" type="button" class="btn btn-default mgbot"><i class="fa fa-phone"></i> Book Now</a>
-                        <a ng-click="showQuickview();" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</a>
+                        <a ng-click="showQuickview(pro);" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</a>
                     </div>
                 </div>
                 <div class="col-md-1">

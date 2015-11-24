@@ -161,66 +161,84 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.worksImg = "works5.png";
 })
 
-.controller('ProCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
+.controller('ProCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("pro");
     $scope.menutitle = NavigationService.makeactive("Pro");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    NavigationService.getUserDetails($stateParams.id, function(data) {
+        if (data) {
+            console.log(data);
+            $scope.profile = data;
+        }
+    }, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    })
+
     $scope.showAmature = false;
-    $scope.profile = {
-        name: "Amar Chhetri",
-        current: "Sr. Web Developer at WNS",
-        company: "Global Services",
-        location: "Mumbai City, India",
-        // skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
-        websites: [{
-            link: "www.india.com"
-        }, {
-            link: "www.mytrip.com"
-        }],
-        videos: [{
-            src: "img/video.jpg"
-        }, {
-            src: "img/video.jpg"
-        }, {
-            src: "img/video.jpg"
-        }, {
-            src: "img/video.jpg"
-        }],
-        honors: {
-            name: "ICICI Lombard - Project Manager",
-            desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
-        },
-        experience: "12",
-        country: "India",
-        city: "Mumbai",
-        gender: "Male",
-        phone: "878784654",
-        email: "amit@gmail.com",
-        age: "35",
-        cost: "500/-",
-        consultcount: "5"
+    // $scope.profile = {
+    //     name: "Amar Chhetri",
+    //     current: "Sr. Web Developer at WNS",
+    //     company: "Global Services",
+    //     location: "Mumbai City, India",
+    //     // skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
+    //     websites: [{
+    //         link: "www.india.com"
+    //     }, {
+    //         link: "www.mytrip.com"
+    //     }],
+    //     videos: [{
+    //         src: "img/video.jpg"
+    //     }, {
+    //         src: "img/video.jpg"
+    //     }, {
+    //         src: "img/video.jpg"
+    //     }, {
+    //         src: "img/video.jpg"
+    //     }],
+    //     honors: {
+    //         name: "ICICI Lombard - Project Manager",
+    //         desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
+    //     },
+    //     experience: "12",
+    //     country: "India",
+    //     city: "Mumbai",
+    //     gender: "Male",
+    //     phone: "878784654",
+    //     email: "amit@gmail.com",
+    //     age: "35",
+    //     cost: "500/-",
+    //     consultcount: "5"
 
-    };
-    $scope.amature = {
-        jobs: [{
-            title: "Singer",
-            weblinks: [{
-                link: "https://www.youtube.com/watch?v=fA29WPCJVMY"
-            }, {
-                link: "https://www.youtube.com/watch?v=fA29WPCJVMY"
-            }]
+    // };
+    // $scope.amature = {
+    //     jobs: [{
+    //         title: "Singer",
+    //         weblinks: [{
+    //             link: "https://www.youtube.com/watch?v=fA29WPCJVMY"
+    //         }, {
+    //             link: "https://www.youtube.com/watch?v=fA29WPCJVMY"
+    //         }]
 
-        }],
-        followercount: "500",
-        cost: "250",
-        consultcount: "50"
+    //     }],
+    //     followercount: "500",
+    //     cost: "250",
+    //     consultcount: "50"
 
-    };
+    // };
     $scope.toggle = function() {
         $scope.showAmature = !$scope.showAmature;
     }
+        $scope.showvideo = function() {
+        ngDialog.open({
+            scope: $scope,
+            template: 'views/content/modal-videos.html'
+        });
+    };
 })
 
 
@@ -469,12 +487,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
-    $scope.showProfessionalWait = true;
-    $scope.showHobbyWait = true;
+    $scope.showProfessionalWait = false;
+    $scope.showHobbyWait = false;
     $scope.invalidContact = false;
     $scope.alreadyRegistered = false;
     defineAllArrays();
-
     $scope.getUserData = function() {
         if (NavigationService.getUser()) {
             cfpLoadingBar.start();
@@ -771,6 +788,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                         if (successdata) {
                                             console.log(successdata);
                                             cfpLoadingBar.complete();
+                                            ngDialog.open({
+                                                scope: $scope,
+                                                template: 'views/content/modal-dialogue.html'
+                                            });
                                             manipulateData(successdata);
                                         }
                                     }, function(error) {
@@ -833,7 +854,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(data);
                 cfpLoadingBar.complete();
                 manipulateData(data);
-                $scope.showProfessionalWait = true;
+                // $scope.showProfessionalWait = true;
                 ngDialog.open({
                     scope: $scope,
                     template: 'views/content/modal-success.html'
@@ -859,7 +880,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log(data);
                 cfpLoadingBar.complete();
                 manipulateData(data);
-                $scope.showHobbyWait = true;
+                // $scope.showHobbyWait = true;
                 ngDialog.open({
                     scope: $scope,
                     template: 'views/content/modal-success.html'
@@ -965,6 +986,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.startCompany = function(index, obj) {
+        cfpLoadingBar.start();
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
         $scope.howToSend = 1;
@@ -984,6 +1006,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.upload[index].then(function(response) {
                 console.log(response.data)
                 $timeout(function() {
+                    cfpLoadingBar.complete();
                     $scope.uploadResult.push(response.data);
                     imagejstupld = response.data;
                     if (imagejstupld != "") {
@@ -1019,6 +1042,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.start = function(index, whichone) {
+        cfpLoadingBar.start();
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
         $scope.howToSend = 1;
@@ -1038,6 +1062,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.upload[index].then(function(response) {
                 console.log(response.data)
                 $timeout(function() {
+                    cfpLoadingBar.complete();
                     $scope.uploadResult.push(response.data);
                     imagejstupld = response.data;
                     if (imagejstupld != "") {
@@ -1243,7 +1268,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.noData = false;
 
     //  $scope.reload = function() {
-    //      cfpLoadingBar.start();
+    cfpLoadingBar.start();
     $scope.professional = [];
     NavigationService.searchExpert($stateParams.search, function(data) {
         if (data) {
@@ -1251,11 +1276,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (data != "false") {
                 $scope.noData = false;
                 _.each(data, function(n) {
+                    cfpLoadingBar.start();
                     NavigationService.getUserDetails(n.id, function(data2) {
+                        cfpLoadingBar.complete();
                         if (data2) {
                             // console.log(data2);
                             $scope.professional.push(data2);
-                            console.log($scope.professional);
+                            // console.log($scope.professional);
                         }
                     }, function(error) {
                         if (error) {
@@ -1266,7 +1293,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 $scope.noData = true;
             }
-            console.log($scope.professional);
+            cfpLoadingBar.complete();
+            // console.log($scope.professional);
         }
     }, function(err) {
         if (err) {
@@ -1300,35 +1328,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     consultcount: '8',
     // }];
 
-    $scope.profile = {
-        name: "Amar Chhetri",
-        current: "Travel",
-        company: "Global Services",
-        location: "Mumbai City, India",
-        skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
-        websites: [{
-            link: "www.india.com"
-        }, {
-            link: "www.wohlig.com"
-        }, {
-            link: "www.magicmirror.com"
-        }, {
-            link: "www.auraart.com"
-        }],
-        honors: {
-            name: "ICICI Lombard - Project Manager",
-            desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
-        },
-        experience: "12",
-        country: "India",
-        city: "Mumbai",
-        age: "35",
-        cost: "500/-",
-        consultcount: "171"
+    // $scope.profile = {
+    //     name: "Amar Chhetri",
+    //     current: "Travel",
+    //     company: "Global Services",
+    //     location: "Mumbai City, India",
+    //     skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
+    //     websites: [{
+    //         link: "www.india.com"
+    //     }, {
+    //         link: "www.wohlig.com"
+    //     }, {
+    //         link: "www.magicmirror.com"
+    //     }, {
+    //         link: "www.auraart.com"
+    //     }],
+    //     honors: {
+    //         name: "ICICI Lombard - Project Manager",
+    //         desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
+    //     },
+    //     experience: "12",
+    //     country: "India",
+    //     city: "Mumbai",
+    //     age: "35",
+    //     cost: "500/-",
+    //     consultcount: "171"
 
-    };
+    // };
 
-    $scope.showQuickview = function() {
+    $scope.showQuickview = function(expert) {
+        console.log(expert);
+        $scope.profile = expert;
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-quickview.html'
