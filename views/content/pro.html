@@ -85,7 +85,7 @@
             </div>
             <div class="submit-pro text-center">
                 <button class="btn btn-default shwd" ng-click="toggle();">
-                    show hobbies
+                    <span ng-if="showAmature==false">show</span> <span ng-if="showAmature==true">hide</span> hobbies
                 </button>
             </div>
             <div class="professional full-pro" ng-if="showAmature">
