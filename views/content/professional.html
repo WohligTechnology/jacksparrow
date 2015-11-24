@@ -6,40 +6,41 @@
         <div class="text-center sub-head" ng-show="showProfessionalWait">
             <h4>Your profile is under verification. It will be verified in 2-4 days.</h4>
         </div>
-        <div class="cont-setting" ng-hide="showExpertMsg">
-            <div class="tab2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="button-grp">
-                            <div class="pull-right">
-                                <button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
-                            </div>
-                            <div class="">
-                                <button class="btn btnsoc twit"> Get from Linkedin</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cat-type color-black">
+        <form ng-submit="saveProfessional();">
+            <div class="cont-setting" ng-hide="showExpertMsg">
+                <div class="tab2">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="head border-btm">
-                                <h4>Select Categories</h4>
+                            <div class="button-grp">
+                                <div class="pull-right">
+                                    <button class="btn btn-primary" ng-click="showHelp();">Let us help you fill your data</button>
+                                </div>
+                                <div class="">
+                                    <button class="btn btnsoc twit"> Get from Linkedin</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <label class="or">You have Expertise in:</label>
-                    <div class="select-cat-1">
-                        <div class="row text-center">
-                            <div class="col-md-2 col-sm-4" ng-repeat="category in categoryJson track by $index" ng-click="makeActiveIcon($index);">
-                                <div class="select-cat {{category.activeclass}}">
-                                    <p>
-                                        <i class="{{category.icon}}"></i>
-                                    </p>
-                                    <p class="cat-head">{{category.name}}</p>
+                    <div class="cat-type color-black">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="head border-btm">
+                                    <h4>Select Categories</h4>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-2 col-md-6">
+                        </div>
+                        <label class="or">You have Expertise in:</label>
+                        <div class="select-cat-1">
+                            <div class="row text-center">
+                                <div class="col-md-2 col-sm-4" ng-repeat="category in categoryJson track by $index" ng-click="makeActiveIcon($index);">
+                                    <div class="select-cat {{category.activeclass}}">
+                                        <p>
+                                            <i class="{{category.icon}}"></i>
+                                        </p>
+                                        <p class="cat-head">{{category.name}}</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-2 col-md-6">
                                 <div class="select-cat active">
                                     <p>
                                         <i class="fa fa-suitcase fa-2x"></i>
@@ -71,212 +72,214 @@
                                     <p class="cat-head">Others</p>
                                 </div>
                             </div> -->
-                        </div>
-                    </div>
-                    <div class="row" ng-show="showCategoryInput">
-                        <div class="col-md-4">
-                            <label for="">Category Name:</label>
-                            <input type="text" class="form-control text-large" placeholder="Please enter the Category Name" ng-model="user.professional.category">
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="head border-btm">
-                                <h4>Educational Qualification
-									<span class="btn" ng-click="addQualification(user.professional.qualification);"><i class="fa fa-plus"></i> Add More</span>
-								</h4>
                             </div>
                         </div>
-                    </div>
-                    <div ng-class="show">
-                        <div class="row" ng-repeat="qualification in user.professional.qualification track by $index">
+                        <div class="row" ng-show="showCategoryInput">
                             <div class="col-md-4">
-                                <label for="">Degree Title:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter the degree title" ng-model="qualification.degree">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="">Institute Name:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter the name of the college/school" ng-model="qualification.institute">
-                            </div>
-                            <div class="col-md-2">
-                                <label for="">Year of passing:</label>
-                                <input type="text" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year" maxlength="4" only-digits>
-                            </div>
-                            <div class="delete" ng-click="deleteQualification(user.professional.qualification,$index);" ng-if="user.professional.qualification.length>1">
-                                <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                <label for="">Category Name:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter the Category Name" ng-model="user.professional.category">
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--						Experience-->
-                <div class="">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="head border-btm">
-                                <h4>Experience
-									<span class="btn" ng-click="addExperience(user.professional.experience);"><i class="fa fa-plus"></i> Add More</span>
-								</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-class="show">
-                        <div class="row" ng-repeat="experience in user.professional.experience">
-                            <div class="col-md-12" ng-if="$index!=0">
-                                <hr>
-                            </div>
-                            <div class="col-md-5 col-sm-6">
-                                <label for="">Company Name:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your company name" ng-model="experience.companyname">
-                            </div>
-                            <div class="col-md-5 col-sm-6">
-                                <label for="">Job Title:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your job title" ng-model="experience.jobtitle">
-                            </div>
-                            <div class="col-md-10">
-                                <label for="">Job Description:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter your job description" ng-model="experience.jobdesc">
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <label for="">Start Date:</label>
-                                <input type="date" class="form-control text-large" placeholder="Please enter your start date" ng-model="experience.sdate">
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <label for="">End Date:</label>
-                                <input type="date" class="form-control text-large" placeholder="Please enter your end date" ng-model="experience.edate">
-                            </div>
-                            <div class="col-md-3">
-                                <div class="choose-pic">
-                                    <label for="">Company Logo:</label>
-                                    <div class="choose-image">
-                                        <i class="fa fa-user" ng-if="!experience.companylogo"></i>
-                                        <div class="image-uploaded" ng-if="experience.companylogo">
-                                            <img class="img-responsive" ng-src="{{experience.companylogo | uploadpath}}">
-                                        </div>
-                                        <div class="choose-btn">
-                                            <span>Choose File</span>
-                                            <!-- <input class="form-control" type="file"> -->
-                                            <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
-                                            <input type="file" class="form-control" name="image" ng-file-select="onFileSelectCompany($files,experience)" onclick="this.value=null">
-                                        </div>
-                                    </div>
+                    <p class="text-center" style="color:red" ng-show="selectCategoryErr">Please select a category</p>
+                    <div class="">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="head border-btm">
+                                    <h4>Educational Qualification
+                                    <span class="btn" ng-click="addQualification(user.professional.qualification);"><i class="fa fa-plus"></i> Add More</span>
+                                </h4>
                                 </div>
                             </div>
-                            <div class="delete margn-top" ng-click="deleteExperience(user.professional.experience,$index);" ng-if="user.professional.experience.length>1">
-                                <i class="fa fa-minus-circle danger"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row padding-btm-zero">
-                    <div class="col-md-12">
-                        <div class="head border-btm">
-                            <h4>Description and Skill</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-10">
-                        <label for="">Description
-                            <span>(Tell us about your hobby)</span>:</label>
-                        <textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50" ng-model="user.professional.description"></textarea>
-                    </div>
-                </div>
-                <div class="row padding-btm-zero">
-                    <div class="col-md-10">
-                        <label for="">Skills:</label>
-                        <tags-input ng-model="user.professional.skills" placeholder="Plaese enter your skills"></tags-input>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5 col-sm-6">
-                        <div class="head border-btm">
-                            <h4>Awards and Honors
-								<span class="btn" ng-click="addAwards(user.professional.awards);"><i class="fa fa-plus"></i> Add More</span>
-							</h4>
                         </div>
                         <div ng-class="show">
-                            <div ng-repeat="award in user.professional.awards" class="delete-position">
-                                <label>Awards and Honors:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter awards and honors" ng-model="award.awards">
-                                <div class="delete" ng-click="deleteAwards(user.professional.awards,$index);" ng-if="user.professional.awards.length>1">
+                            <div class="row" ng-repeat="qualification in user.professional.qualification track by $index">
+                                <div class="col-md-4">
+                                    <label for="">Degree Title:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter the degree title" ng-model="qualification.degree" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Institute Name:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter the name of the college/school" ng-model="qualification.institute" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="">Year of passing:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Year of passing" ng-model="qualification.year" maxlength="4" only-digits required>
+                                </div>
+                                <div class="delete" ng-click="deleteQualification(user.professional.qualification,$index);" ng-if="user.professional.qualification.length>1">
                                     <i class="fa fa-minus-circle danger margn-top-i"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-6">
-                        <div class="head border-btm">
-                            <h4>Websites
-								<span class="btn" ng-click="addWebsites(user.professional.websites);"><i class="fa fa-plus"></i> Add More</span>
-							</h4>
-                        </div>
-                        <div class="" ng-class="show">
-                            <div ng-repeat="website in user.professional.websites" class="delete-position">
-                                <label>Website:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter website" ng-model="website.websites">
-                                <div class="delete" ng-click="deleteWebsites(user.professional.websites,$index);" ng-if="user.professional.websites.length>1">
-                                    <i class="fa fa-minus-circle danger margn-top-i"></i>
+                    <!--                        Experience-->
+                    <div class="">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="head border-btm">
+                                    <h4>Experience
+                                    <span class="btn" ng-click="addExperience(user.professional.experience);"><i class="fa fa-plus"></i> Add More</span>
+                                </h4>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5 col-sm-6">
-                        <div class="head border-btm">
-                            <h4>Video Links
-								<span class="btn" ng-click="addVideos(user.professional.videos);"><i class="fa fa-plus"></i> Add More</span>
-							</h4>
-                        </div>
-                        <div class="" ng-class="show">
-                            <div ng-repeat="video in user.professional.videos" class="delete-position">
-                                <label>Video Links:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter video links" ng-model="video.videos">
-                                <div class="delete" ng-click="deleteVideos(user.professional.videos,$index);" ng-if="user.professional.videos.length>1">
-                                    <i class="fa fa-minus-circle danger margn-top-i"></i>
+                        <div ng-class="show">
+                            <div class="row" ng-repeat="experience in user.professional.experience">
+                                <div class="col-md-12" ng-if="$index!=0">
+                                    <hr>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-sm-6">
-                        <div class="compantlogo">
-                            <div class="head border-btm">
-                                <h4 style="margin: 17px 0 15px 0;height: 17px;">
-                                <span class="choose-all">Add Photos</span>
-									<span class="choose-btn">
-										<span><i class="fa fa-plus"></i> Add More</span>
-										<!-- <input class="form-control" type="file"> -->
-
-										<!-- <div class="col-md-12">
-                            			<div ng-repeat="bill in user.professional.photos">
-                                			<img style="width:200px;height:190px;" src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
-                                			<input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
-                            			</div>
-                        			</div> -->
-                        			<div class="form-group">
-                            			<div class="upload-div">
-                                			<div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
-                            				<div class="upload-buttons">
-                                				<input type="file" name="image" ng-file-select="onFileSelect($files,2)" onclick="this.value=null">
-                            				</div>
-                            			</div>
-                        			</div>
-									</span>
-								</h4>
-                            </div>
-                            <div class="row scroll-y-min">
-                                <div class="col-md-3" ng-repeat="bill in user.professional.photos" ng-if="user.professional.photos.length!=0">
-                                    <div class="company-box">
-                                        <div class="add-photo-holder">
-                                            <!--                                             <p class="text-center"> Add Photos </p> -->
-                                            <!--                                            <img src="{{bill | uploadpath}}" class="img-responsive">-->
-                                            <!-- <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0"> -->
+                                <div class="col-md-5 col-sm-6">
+                                    <label for="">Company Name:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter your company name" ng-model="experience.companyname" required>
+                                </div>
+                                <div class="col-md-5 col-sm-6">
+                                    <label for="">Job Title:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter your job title" ng-model="experience.jobtitle" required>
+                                </div>
+                                <div class="col-md-10">
+                                    <label for="">Job Description:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter your job description" ng-model="experience.jobdesc" required>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <label for="">Start Date:</label>
+                                    <input type="date" class="form-control text-large" placeholder="Please enter your start date" ng-model="experience.sdate" required>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <label for="">End Date:</label>
+                                    <input type="date" class="form-control text-large" placeholder="Please enter your end date" ng-model="experience.edate" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="choose-pic">
+                                        <label for="">Company Logo:</label>
+                                        <div class="choose-image">
+                                            <i class="fa fa-user" ng-if="!experience.companylogo"></i>
+                                            <div class="image-uploaded" ng-if="experience.companylogo">
+                                                <img class="img-responsive" ng-src="{{experience.companylogo | uploadpath}}">
+                                            </div>
+                                            <div class="choose-btn">
+                                                <span>Choose File</span>
+                                                <!-- <input class="form-control" type="file"> -->
+                                                <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                                                <input type="file" class="form-control" name="image" ng-file-select="onFileSelectCompany($files,experience)" onclick="this.value=null">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-3">
+                                <div class="delete margn-top" ng-click="deleteExperience(user.professional.experience,$index);" ng-if="user.professional.experience.length>1">
+                                    <i class="fa fa-minus-circle danger"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-btm-zero">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Description and Skill</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <label for="">Description
+                                <span>(Tell us about your hobby)</span>:</label>
+                            <textarea type="text" class="form-control text-large" placeholder="Please enter your description about your hobby" rows="5" cols="50" ng-model="user.professional.description" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row padding-btm-zero">
+                        <div class="col-md-10">
+                            <label for="">Skills:</label>
+                            <tags-input ng-model="user.professional.skills" placeholder="Plaese enter your skills"></tags-input>
+                        </div>
+                    </div>
+                    <p style="color:red" ng-show="enterSkillErr">Please enter skills</p>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-6">
+                            <div class="head border-btm">
+                                <h4>Awards and Honors
+                                <span class="btn" ng-click="addAwards(user.professional.awards);"><i class="fa fa-plus"></i> Add More</span>
+                            </h4>
+                            </div>
+                            <div ng-class="show">
+                                <div ng-repeat="award in user.professional.awards" class="delete-position">
+                                    <label>Awards and Honors:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter awards and honors" ng-model="award.awards">
+                                    <div class="delete" ng-click="deleteAwards(user.professional.awards,$index);" ng-if="user.professional.awards.length>1">
+                                        <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <div class="head border-btm">
+                                <h4>Websites
+                                <span class="btn" ng-click="addWebsites(user.professional.websites);"><i class="fa fa-plus"></i> Add More</span>
+                            </h4>
+                            </div>
+                            <div class="" ng-class="show">
+                                <div ng-repeat="website in user.professional.websites" class="delete-position">
+                                    <label>Website:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter website" ng-model="website.websites">
+                                    <div class="delete" ng-click="deleteWebsites(user.professional.websites,$index);" ng-if="user.professional.websites.length>1">
+                                        <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-6">
+                            <div class="head border-btm">
+                                <h4>Video Links
+                                <span class="btn" ng-click="addVideos(user.professional.videos);"><i class="fa fa-plus"></i> Add More</span>
+                            </h4>
+                            </div>
+                            <div class="" ng-class="show">
+                                <div ng-repeat="video in user.professional.videos" class="delete-position">
+                                    <label>Video Links:</label>
+                                    <input type="text" class="form-control text-large" placeholder="Please enter video links" ng-model="video.videos">
+                                    <div class="delete" ng-click="deleteVideos(user.professional.videos,$index);" ng-if="user.professional.videos.length>1">
+                                        <i class="fa fa-minus-circle danger margn-top-i"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <div class="compantlogo">
+                                <div class="head border-btm">
+                                    <h4 style="margin: 17px 0 15px 0;height: 17px;">
+                                <span class="choose-all">Add Photos</span>
+                                    <span class="choose-btn">
+                                        <span><i class="fa fa-plus"></i> Add More</span>
+                                        <!-- <input class="form-control" type="file"> -->
+
+                                        <!-- <div class="col-md-12">
+                                        <div ng-repeat="bill in user.professional.photos">
+                                            <img style="width:200px;height:190px;" src="{{bill | uploadpath}}" ng-if="user.professional.photos.length!=0">
+                                            <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0">
+                                        </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <div class="upload-div">
+                                            <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>
+                                            <div class="upload-buttons">
+                                                <input type="file" name="image" ng-file-select="onFileSelect($files,2)" onclick="this.value=null">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </span>
+                                </h4>
+                                </div>
+                                <div class="row scroll-y-min">
+                                    <div class="col-md-3" ng-repeat="bill in user.professional.photos" ng-if="user.professional.photos.length!=0">
+                                        <div class="company-box">
+                                            <div class="add-photo-holder">
+                                                <!--                                             <p class="text-center"> Add Photos </p> -->
+                                                <!--                                            <img src="{{bill | uploadpath}}" class="img-responsive">-->
+                                                <!-- <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0"> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-3">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
                                             <p class="text-center"> Add Photos </p>
@@ -297,15 +300,16 @@
                                         </div>
                                     </div>
                                 </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="margin-top-btm btn-group" ng-hide="showProfessionalWait">
+                    <button type="submit" class="btn btn-primary">Submit for the Review</button>
+                    <button type="submit" class="btn btn-primary">Fill Hobby Profile</button>
+                </div>
             </div>
-            <div class="margin-top-btm btn-group" ng-hide="showProfessionalWait">
-                <button type="button" class="btn btn-primary" ng-click="saveProfessional();">Submit for the Review</button>
-                <button type="button" class="btn btn-primary" ng-click="saveProfessional();">Fill Hobby Profile</button>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
