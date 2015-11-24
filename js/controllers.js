@@ -489,8 +489,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
-    $scope.showProfessionalWait = false;
-    $scope.showHobbyWait = false;
+    $scope.showProfessionalWait = true;
+    $scope.showHobbyWait = true;
     $scope.invalidContact = false;
     $scope.alreadyRegistered = false;
     $scope.passwordMismatch = false;
