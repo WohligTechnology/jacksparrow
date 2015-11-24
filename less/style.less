@@ -189,6 +189,7 @@ nav li:hover .dropdown-menu {
     .navbar-brand {
         height: 35px;
         margin-top: 15px;
+        margin-left: 20px;
         padding: 0;
         .logo {
             height: 100%;
@@ -336,10 +337,20 @@ input.checkbox:checked:after {
 }
 /* allow space for check mark */
 
-.popover {
-    top: -61px!important;
-    left: -125px!important;
-    width: 300px!important;
+.popup-search {
+    .popover {
+        top: -61px!important;
+        left: -125px!important;
+        width: 300px!important;
+    }
+}
+
+.popup {
+    i {
+        font-size: 14px;
+        margin: 0 3px;
+        cursor: pointer;
+    }
 }
 
 .box-contain {
@@ -716,10 +727,10 @@ footer.footer-menu {
     width: 250px;
     margin: 0 auto;
     overflow: hidden;
-  .img-height {
-    width: 100%;
-    border: 1px solid #ddd;
-  }
+    .img-height {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
 }
 
 .img-holder {
@@ -1282,6 +1293,12 @@ h4.head {
         }
     }
     .cont-setting {
+        .scroll-y-min {
+            height: 170px;
+            overflow-x: hidden;
+//            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
         .submit-btn {
             padding: 5px 0 15px;
         }

@@ -3,7 +3,7 @@
         <div class="text-center" ng-show="showExpertMsg">
             <button type="button" class="btn btn-primary" ng-click="becomeExpert();">Become an expert</button>
         </div>
-        <div class="text-center" ng-show="showProfessionalWait">
+        <div class="text-center sub-head" ng-show="showProfessionalWait">
             <h4>Your profile is under verification. It will be verified in 2-4 days.</h4>
         </div>
         <div class="cont-setting" ng-hide="showExpertMsg">
@@ -126,11 +126,11 @@
                             <div class="col-md-12" ng-if="$index!=0">
                                 <hr>
                             </div>
-                            <div class="col-md-5 col-sm-5">
+                            <div class="col-md-5 col-sm-6">
                                 <label for="">Company Name:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your company name" ng-model="experience.companyname">
                             </div>
-                            <div class="col-md-5 col-sm-5">
+                            <div class="col-md-5 col-sm-6">
                                 <label for="">Job Title:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your job title" ng-model="experience.jobtitle">
                             </div>
@@ -138,11 +138,11 @@
                                 <label for="">Job Description:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your job description" ng-model="experience.jobdesc">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="">Start Date:</label>
                                 <input type="date" class="form-control text-large" placeholder="Please enter your start date" ng-model="experience.sdate">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <label for="">End Date:</label>
                                 <input type="date" class="form-control text-large" placeholder="Please enter your end date" ng-model="experience.edate">
                             </div>
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="head border-btm">
                             <h4>Awards and Honors
 								<span class="btn" ng-click="addAwards(user.professional.awards);"><i class="fa fa-plus"></i> Add More</span>
@@ -206,7 +206,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="head border-btm">
                             <h4>Websites
 								<span class="btn" ng-click="addWebsites(user.professional.websites);"><i class="fa fa-plus"></i> Add More</span>
@@ -224,7 +224,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="head border-btm">
                             <h4>Video Links
 								<span class="btn" ng-click="addVideos(user.professional.videos);"><i class="fa fa-plus"></i> Add More</span>
@@ -240,7 +240,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="compantlogo">
                             <div class="head border-btm">
                                 <h4 style="margin: 17px 0 15px 0;height: 17px;">
@@ -266,7 +266,7 @@
 									</span>
 								</h4>
                             </div>
-                            <div class="row">
+                            <div class="row scroll-y-min">
                                 <div class="col-md-3" ng-repeat="bill in user.professional.photos" ng-if="user.professional.photos.length!=0">
                                     <div class="company-box">
                                         <div class="add-photo-holder">

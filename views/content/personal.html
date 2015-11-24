@@ -10,42 +10,44 @@
                                     <h4>Personal Info</h4>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="">First Name:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your first name" ng-model="user.personal.firstname" required>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="">Last Name:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your last name / surname" ng-model="user.personal.lastname" required>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="">EMAIL ADDRESS
                                     <span>(Wont be shared publicaly)</span>:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email" required>
                                 <p ng-show="alreadyRegistered" style="color:red">Email id already registered</p>
                             </div>
-                            <div class="col-md-4">
-                                <label for="">MOBILE NUMBER
-                                    <span class="">(OTP Verified)</span>:</label>
+                            <div class="col-md-4 col-sm-6">
+                                <label for="" class="popup">
+                                   MOBILE NUMBER
+                                    <span class="">(OTP Verified)</span> <i class="fa fa-eye-slash"  data-toggle="popover" data-placement="top" data-content="will not been shown publicly" data-trigger="hover"></i>:
+                                    </label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact" maxlength="10" only-digits>
                                 <p ng-show="invalidContact" style="color:red">Invalid Mobile Number</p>
                             </div>
                         </div>
                         <div class="row" ng-hide="showExpertMsg">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="">PASSWORD:</label>
                                 <input type="password" class="form-control text-large" placeholder="Please enter your password" ng-model="user.personal.password">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <label for="">CONFIRM PASSWORD:</label>
                                 <input type="password" class="form-control text-large" placeholder="Please re-enter your password" ng-model="user.personal.confirmpassword">
                                 <p ng-show="passwordMismatch" style="color:red">Password Mismatch</p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <label class="">Gender:</label>
                                 <div class="pad-btm">
                                     <label class="radio-inline">
@@ -54,7 +56,7 @@
                                         <input type="radio" name="optradio" value="2" ng-model="user.personal.gender">Female</label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="choose-pic">
                                     <label for="">PROFILE IMAGE:</label>
                                     <div class="choose-image">
@@ -77,8 +79,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="head border-btm">
-                                <h4>Address Details</h4>
+                            <div class="head border-btm popup">
+                                <h4>Address Details <i class="fa fa-eye-slash"  data-toggle="popover" data-placement="top" data-content="will not been shown publicly" data-trigger="hover"></i> </h4>
                             </div>
                         </div>
                     </div>
@@ -89,21 +91,21 @@
                         </div>
                     </div>
                     <div class="row padding-btm-zero">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <label for="">Country:</label>
                             <input type="text" class="form-control text-large" placeholder="Please select your country" ng-model="user.personal.country" required>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <label for="">State:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter your state" ng-model="user.personal.state" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <label for="">City:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter your current city" ng-model="user.personal.city" required>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-6">
                             <label for="">Pincode:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter your pincode" ng-model="user.personal.pincode" maxlength="6" only-digits required>
                         </div>

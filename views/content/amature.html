@@ -3,7 +3,7 @@
         <div class="text-center" ng-show="showExpertMsg">
             <button type="button" class="btn btn-primary" ng-click="becomeExpert();">Become an expert</button>
         </div>
-        <div class="text-center" ng-show="showHobbyWait">
+        <div class="text-center sub-head" ng-show="showHobbyWait">
             <h4>Your profile is under verification. It will be verified in 2-4 days.</h4>
         </div>
         <div class="cont-setting" ng-hide="showExpertMsg">
@@ -15,11 +15,11 @@
                                 <h4>Category Info</h4>
                             </div>
                         </div>
-                        <div class="col-md-5 col-sm-5">
+                        <div class="col-md-5 col-sm-6">
                             <label for="">Category:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter category" ng-model="user.hobbies.category">
                         </div>
-                        <div class="col-md-5 col-sm-5">
+                        <div class="col-md-5 col-sm-6">
                             <label for="">Years of Experience<span> (in years</span>:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter years of experience" ng-model="user.hobbies.yoexp" only-digits>
                         </div>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="head border-btm">
                             <h4>Awards and Honors
 								<span class="btn" ng-click="addAwards(user.hobbies.awards);"><i class="fa fa-plus"></i> Add More</span>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="head border-btm">
                             <h4>Websites
 								<span class="btn" ng-click="addWebsites(user.hobbies.websites);"><i class="fa fa-plus"></i> Add More</span>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="head border-btm">
                             <h4>Video Links
 								<span class="btn" ng-click="addVideos(user.hobbies.videos);"><i class="fa fa-plus"></i> Add More</span>
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-md-5 col-sm-6">
                         <div class="compantlogo">
                             <div class="head border-btm">
                                 <h4 style="margin: 17px 0 15px 0;height: 17px;">
@@ -151,7 +151,7 @@
 									</span>
 								</h4>
                             </div>
-                            <div class="row">
+                            <div class="row scroll-y-min">
                                 <div class="col-md-3" ng-repeat="bill in user.hobbies.photos" ng-if="user.hobbies.photos.length>0">
                                     <div class="company-box">
                                         <div class="add-photo-holder">
