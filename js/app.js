@@ -7,7 +7,7 @@ var firstapp = angular.module('firstapp', [
 ]);
 
 //.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
-//	cfpLoadingBarProvider.includeSpinner = false;
+//  cfpLoadingBarProvider.includeSpinner = false;
 //  }])
 
 firstapp.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $httpProvider) {
@@ -196,6 +196,37 @@ firstapp.filter('uploadpath', function() {
     return function(input) {
         if (input) {
             return adminimage + input;
+        }
+    };
+});
+
+firstapp.filter('youtubeimg', function() {
+    return function(input) {
+        if (input) {
+            input = input.substr(input.indexOf("?v=") + 3);
+            return "http://img.youtube.com/vi/" + input + "/default.jpg";
+        }
+    };
+});
+
+firstapp.directive('youtube', function($sce) {
+    return {
+        restrict: 'A',
+        scope: {
+            code: '='
+        },
+        replace: true,
+        template: '<iframe id="popup-youtube-player" style="overflow:hidden;width:100%" width="100%" height="400px" src="{{url}}" frameborder="0" allowscriptaccess="always" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>',
+        link: function(scope) {
+            scope.$watch('code', function(newVal) {
+                if (newVal) {
+                    // console.log(newVal);
+                    // console.log(newVal.indexOf("?v=") + 3);
+                    newVal = newVal.substr(newVal.indexOf("?v=") + 3);
+                    // console.log(newVal);
+                    scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal);
+                }
+            });
         }
     };
 });

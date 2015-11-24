@@ -74,9 +74,9 @@
                     <div class="videos">
                         <h4 class="sub-head">Videos</h4>
                         <div class="row">
-                            <div class="col-md-2 col-sm-3" ng-repeat="video in profile.profession.videos" ng-click=showvideo();>
+                            <div class="col-md-2 col-sm-3" ng-repeat="video in profile.profession.videos" ng-click="showVideo(video);">
                                 <div class="video-holder">
-                                    <img ng-src="img/profile.png" class="img-responsive">
+                                    <img ng-src="{{video.videos | youtubeimg}}" class="img-responsive">
                                 </div>
                             </div>
                         </div>
@@ -131,10 +131,10 @@
                     <div class="videos">
                         <h4 class="sub-head">Videos</h4>
                         <div class="row">
-                            <div class="col-md-2 col-sm-3" ng-repeat="video in profile.hobby.videos">
+                            <div class="col-md-2 col-sm-3" ng-repeat="video in profile.hobby.videos" ng-click="showVideo(video);">
                                 <div class="video-holder">
                                     <!-- <img ng-src="{{video.src}}" class="img-responsive"> -->
-                                    <img src="img/profile.png" class="img-responsive">
+                                    <img ng-src="{{video.videos | youtubeimg}}" class="img-responsive">
                                 </div>
                             </div>
                         </div>

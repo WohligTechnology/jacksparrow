@@ -167,7 +167,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Pro");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.video = {};
+    $scope.video.id = "A_SESWG5c1g";
     NavigationService.getUserDetails($stateParams.id, function(data) {
         if (data) {
             console.log(data);
@@ -233,7 +234,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.toggle = function() {
         $scope.showAmature = !$scope.showAmature;
     }
-        $scope.showvideo = function() {
+    $scope.showVideo = function(url) {
+        $scope.videourl = url.videos;
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-videos.html'
@@ -487,11 +489,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
-    $scope.showProfessionalWait = false;
-    $scope.showHobbyWait = false;
+    $scope.showProfessionalWait = true;
+    $scope.showHobbyWait = true;
     $scope.invalidContact = false;
     $scope.alreadyRegistered = false;
+    $scope.passwordMismatch = false;
+
     defineAllArrays();
+
     $scope.getUserData = function() {
         if (NavigationService.getUser()) {
             cfpLoadingBar.start();
@@ -669,9 +674,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.currentTab = 'views/content/professional.html';
     }
 
+    $scope.gotoHobbies = function() {
+        ngDialog.closeAll();
+        $scope.currentTab = 'views/content/amature.html';
+    }
+
     $scope.gotoHome = function() {
         ngDialog.closeAll();
         $state.go("home");
+    }
+
+    $scope.gotoFinish = function() {
+        ngDialog.closeAll();
+        ngDialog.open({
+            scope: $scope,
+            template: 'views/content/modal-success.html'
+        });
+        $scope.showProfessionalWait = true;
+        $scope.showHobbyWait = true;
     }
 
     $scope.addQualification = function(obj) {
@@ -742,8 +762,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.savePersonal = function() {
-        console.log($scope.user.personal.contact);
-        console.log($scope.user.personal.contact.toString().length);
         if ($scope.user.personal.contact.toString().length == 10) {
             $scope.invalidContact = false;
             if ($scope.showExpertMsg == false) {
@@ -801,6 +819,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     });
                                 } else {
                                     $scope.alreadyRegistered = true;
+                                    $scope.passwordMismatch = false;
+                                    $scope.invalidContact = false;
                                 }
                             }
                         }
@@ -811,6 +831,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     })
                 } else {
                     $scope.passwordMismatch = true;
+                    $scope.invalidContact = false;
+                    $scope.alreadyRegistered = false;
                 }
                 console.log("check both password");
             } else {
@@ -836,6 +858,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         } else {
             $scope.invalidContact = true;
+            $scope.alreadyRegistered = false;
+            $scope.passwordMismatch = false;
         }
     }
 
@@ -857,12 +881,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 // $scope.showProfessionalWait = true;
                 ngDialog.open({
                     scope: $scope,
-                    template: 'views/content/modal-success.html'
+                    template: 'views/content/modal-dialogue2.html'
                 });
-                $timeout(function() {
-                    ngDialog.closeAll();
-                    $scope.currentTab = 'views/content/amature.html';
-                }, 2500);
+                // $timeout(function() {
+                //     ngDialog.closeAll();
+                //     $scope.currentTab = 'views/content/amature.html';
+                // }, 2500);
             }
         }, function(error) {
             if (error) {
@@ -885,9 +909,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     scope: $scope,
                     template: 'views/content/modal-success.html'
                 });
-                $timeout(function() {
-                    ngDialog.closeAll();
-                }, 2500);
+                // $timeout(function() {
+                //     ngDialog.closeAll();
+                // }, 2500);
             }
         }, function(error) {
             if (error) {
@@ -1622,6 +1646,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.logout = function() {
         $.jStorage.flush();
         $scope.showLoginBtn = true;
+        $state.go("home");
     }
 
     $scope.registerUser = function() {
