@@ -59,7 +59,9 @@
                                     <label for="">PROFILE IMAGE:</label>
                                     <div class="choose-image">
                                         <i class="fa fa-user" ng-if="!user.personal.image"></i>
-                                        <img class="img-responsive" ng-src="{{user.personal.image | uploadpath}}" ng-if="user.personal.image">
+                                        <div class="image-uploaded" ng-if="user.personal.image">
+                                            <img class="img-responsive" ng-src="{{user.personal.image | uploadpath}}">
+                                        </div>
                                         <div class="choose-btn">
                                             <span>Choose File</span>
                                             <div ng-init="httpMethod = 'POST';howToSend = 1;"></div>

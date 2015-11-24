@@ -4,7 +4,7 @@
             <button type="button" class="btn btn-primary" ng-click="becomeExpert();">Become an expert</button>
         </div>
         <div class="text-center" ng-show="showHobbyWait">
-            <p>Your profile is under verification. It will be verified in 2-4 days.</p>
+            <h4>Your profile is under verification. It will be verified in 2-4 days.</h4>
         </div>
         <div class="cont-setting" ng-hide="showExpertMsg">
             <div class="tab2">
@@ -15,11 +15,11 @@
                                 <h4>Category Info</h4>
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-sm-5">
                             <label for="">Category:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter category" ng-model="user.hobbies.category">
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-sm-5">
                             <label for="">Years of Experience<span> (in years</span>:</label>
                             <input type="text" class="form-control text-large" placeholder="Please enter years of experience" ng-model="user.hobbies.yoexp" only-digits>
                         </div>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-sm-5">
                         <div class="head border-btm">
                             <h4>Awards and Honors
 								<span class="btn" ng-click="addAwards(user.hobbies.awards);"><i class="fa fa-plus"></i> Add More</span>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-sm-5">
                         <div class="head border-btm">
                             <h4>Websites
 								<span class="btn" ng-click="addWebsites(user.hobbies.websites);"><i class="fa fa-plus"></i> Add More</span>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-sm-5">
                         <div class="head border-btm">
                             <h4>Video Links
 								<span class="btn" ng-click="addVideos(user.hobbies.videos);"><i class="fa fa-plus"></i> Add More</span>
@@ -125,10 +125,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 col-sm-5">
                         <div class="compantlogo">
                             <div class="head border-btm">
-                                <h4 style="margin: 17px 0 15px 0;">Add Photos
+                                <h4 style="margin: 17px 0 15px 0;height: 17px;">
+                                <span class="choose-all">Add Photos</span>
 									<span class="choose-btn">
 										<span><i class="fa fa-plus"></i> Add More</span>
 										<!-- <input class="form-control" type="file"> -->
