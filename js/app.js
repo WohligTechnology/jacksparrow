@@ -23,23 +23,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvid
         controller: 'HomeCtrl'
     })
 
-    .state('feature', {
-        url: "/feature",
-        templateUrl: "views/template.html",
-        controller: 'FeatureCtrl'
-    })
-
-
     .state('searchpro', {
         url: "/search-pro/:search",
         templateUrl: "views/template.html",
         controller: 'SearchProCtrl'
-    })
-
-    .state('infinite', {
-        url: "/infinite",
-        templateUrl: "views/template.html",
-        controller: 'InfiniteCtrl'
     })
 
     .state('pro', {
