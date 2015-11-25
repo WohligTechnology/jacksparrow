@@ -575,15 +575,16 @@ footer.footer-menu {
                 border-top: 5px solid;
                 border-right: 5px solid rgba(0, 0, 0, 0);
                 border-left: 5px solid rgba(0, 0, 0, 0);
-                color: @color-white;
+                color: @body-color;
                 content: "";
                 pointer-events: none;
             }
         }
         select {
             border-radius: 0;
-            background-color: @primary;
-            color: @color-white;
+            background-color: white;
+            color: @body-color;
+            border: @body-color 1px solid;
             .appearance( none);
             &:focus {
                 outline: 0;
@@ -613,8 +614,7 @@ footer.footer-menu {
     padding: 25px 20px;
     cursor: pointer;
     margin-bottom: 5px;
-    border: 1px solid #F7F6F4;
-    border: 1px solid white;
+    border: 1px solid #e4e4e4;
     .transition(all 1s ease);
     &:hover {
         border-color: @primary;
@@ -681,7 +681,7 @@ footer.footer-menu {
         padding: 5px 12px;
         &:hover {
             background-color: darken( @primary, 10%);
-            color: #ddd;
+            color: white;
         }
     }
     .mgbot {
@@ -756,7 +756,8 @@ footer.footer-menu {
 
 .pro-make.box-pro.made-pro.bg-white {
     padding: 15px;
-    margin-top: -1px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 2px 2px #ddd;
     &.min {
         top: 65px;
         position: fixed;
@@ -800,7 +801,7 @@ footer.footer-menu {
 }
 
 .full-pro {
-    margin: 5px 0 10px;
+    margin: 0px 0 10px;
     background-color: @color-white;
     padding: 20px;
     border: 1px solid @color-border;
@@ -1410,23 +1411,20 @@ textarea.min {
     border: 2px solid #d7d7d7;
 }
 
-.ngdialog-content {
-    background: rgba(0, 0, 0, 0.4);
-    min-height: 667px;
-}
-
 .ngdialog-close {
     position: absolute;
     top: 0;
     right: 0;
     font-size: 25px;
     display: none;
-    background: #000;
-    color: #fff;
-    padding: 0 5px;
+    color: @body-color;
+    opacity: 1;
+    padding: 0 7px 5px;
     font-weight: 100;
+    z-index: 9;
+    .transition(all 300ms ease);
     &:hover {
-        background: darken(#CCC, 10%);
+        background: lighten(@body-color, 10%);
         color: #fff;
     }
 }
@@ -1434,7 +1432,16 @@ textarea.min {
 .ngdialog-close.close {
     display: block;
 }
-
+.ngdialog-overlay {
+background: rgba(0, 0, 0, 0.35);
+}
+.ngdialog-content {
+  background: transparent;
+  .pro-make.box-pro.made-pro.bg-white {
+    border: none;
+    box-shadow: none;
+  }
+}
 .popup-all {
     width: 550px;
     position: absolute;
@@ -1645,10 +1652,6 @@ tags-input {
     padding: 20px;
 }
 
-.ngdialog-overlay {
-    background: rgba(255, 255, 255, 0.6);
-}
-
 .flex-direction-nav a {
     &:before, &:after {
         color: white;
@@ -1775,7 +1778,12 @@ tags-input {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px 0;
+    padding: 5px 10px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+    .details {
+      padding-top: 10px;
+    }
 }
 
 .bio-pro {
