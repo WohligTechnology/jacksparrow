@@ -44,7 +44,8 @@
     "angular-ui-calendar": "latest",
     "angular-recaptcha": "~2.2.4",
     "angular-bootstrap-calendar": "~0.15.4",
-    "jStorage": "~0.4.12"
+    "jStorage": "~0.4.12",
+    "font-awesome": "~4.5.0"
   },
   "resolutions": {
     "angular": "1.4.5"

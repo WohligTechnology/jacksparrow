@@ -206,25 +206,6 @@ module.exports = function(grunt) {
         },
         src: './views/content/**.html',
         dest: './w/template/content.js',
-      },
-      templatedirective: {
-        options: {
-          htmlmin: {
-            collapseBooleanAttributes: true,
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeComments: true, // Only if you don't use comment directives!
-            removeEmptyAttributes: true,
-            removeRedundantAttributes: true,
-            removeScriptTypeAttributes: true,
-            removeStyleLinkTypeAttributes: true
-          },
-          bootstrap: function(module, script) {
-            return "firstapp.run(['$templateCache', function($templateCache) {" + script + "}]);";
-          }
-        },
-        src: './views/directive/**.html',
-        dest: './w/template/directive.js',
       }
     },
     copy: {
