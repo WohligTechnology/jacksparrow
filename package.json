@@ -1,7 +1,7 @@
 {
-  "name": "JackSparrow",
+  "name": "jacknows",
   "version": "1.0.0",
-  "description": "JackSparrow",
+  "description": "jacknows",
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "^0.4.5",
@@ -29,12 +29,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WohligTechnology/EthanHunt.git"
+    "url": "git+https://github.com/WohligTechnology/jacksparrow.git"
   },
-  "author": "Sohan Honakeri",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WohligTechnology/EthanHunt/issues"
+    "url": "https://github.com/WohligTechnology/jacksparrow/issues"
   },
-  "homepage": "https://github.com/WohligTechnology/EthanHunt#readme"
+  "homepage": "https://github.com/WohligTechnology/jacksparrow#readme"
 }
