@@ -185,7 +185,7 @@ module.exports = function(grunt) {
             return "firstapp.run(['$templateCache', function($templateCache) {" + script + "}]);";
           }
         },
-        src: './views/**.html',
+        src: 'views/**.html',
         dest: './w/template/views.js',
       },
       templatecontent: {
@@ -204,7 +204,7 @@ module.exports = function(grunt) {
             return "firstapp.run(['$templateCache', function($templateCache) {" + script + "}]);";
           }
         },
-        src: './views/content/**.html',
+        src: 'views/content/**.html',
         dest: './w/template/content.js',
       }
     },
@@ -221,8 +221,7 @@ module.exports = function(grunt) {
             expand: true,
             src: ['fonts/**'],
             dest: 'production/'
-          },
-
+          }
         ],
       },
       appengine: {
