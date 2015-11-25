@@ -182,7 +182,7 @@ nav li:hover .dropdown-menu {
 .navbar {
     margin-bottom: 0;
     height: @menu-height;
-//    overflow: hidden;
+    //    overflow: hidden;
     padding: 0;
     .box-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
     background-color: white;
@@ -667,6 +667,14 @@ footer.footer-menu {
     }
 }
 
+.min-height-pro {
+    height: 150px;
+    overflow: hidden;
+    a:hover {
+        text-decoration: none
+    }
+}
+
 .action-button {
     .btn {
         display: block;
@@ -679,6 +687,7 @@ footer.footer-menu {
         text-transform: capitalize;
         font-weight: 500;
         padding: 5px 12px;
+        .transition(all 300ms ease);
         &:hover {
             background-color: darken( @primary, 10%);
             color: white;
@@ -687,6 +696,9 @@ footer.footer-menu {
     .mgbot {
         padding: 5px 15px;
         margin-bottom: 10px;
+        color: @primary;
+        background-color: #fff;
+        border: 1px solid @primary;
     }
 }
 
@@ -762,6 +774,9 @@ footer.footer-menu {
         top: 65px;
         position: fixed;
         width: 21.1%;
+    }
+    .pro-content h3 {
+        margin: 5px 0 10px 0;
     }
 }
 
@@ -1366,7 +1381,8 @@ h4.head {
             }
             .choose-btn {
                 background: #fff;
-                color: #999999;;
+                color: #999999;
+                ;
                 border: 2px solid #d7d7d7;
                 width: 150px;
                 float: left;
@@ -1432,16 +1448,19 @@ textarea.min {
 .ngdialog-close.close {
     display: block;
 }
+
 .ngdialog-overlay {
-background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.35);
 }
+
 .ngdialog-content {
-  background: transparent;
-  .pro-make.box-pro.made-pro.bg-white {
-    border: none;
-    box-shadow: none;
-  }
+    background: transparent;
+    .pro-make.box-pro.made-pro.bg-white {
+        border: none;
+        box-shadow: none;
+    }
 }
+
 .popup-all {
     width: 550px;
     position: absolute;
@@ -1782,7 +1801,7 @@ tags-input {
     border: 1px solid #e4e4e4;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
     .details {
-      padding-top: 10px;
+        padding-top: 10px;
     }
 }
 
@@ -2055,7 +2074,11 @@ span.choose-btn {
 }
 
 .loggy {
-    text-align: center;
+    text-align: right;
+    h4 {
+        margin: 0 0 30px 0;
+        font-size: 24px;
+    }
     .btn-group.btn-yes-no .btn {
         margin-right: 16px;
         padding: 6px 20px;
@@ -2086,7 +2109,9 @@ tags-input .tags .tag-item {
     border: 0;
     margin: 4px 0px 4px 5px;
 }
+
 .popover {
     border-radius: 0px;
 }
+
 @import "mobile.less";

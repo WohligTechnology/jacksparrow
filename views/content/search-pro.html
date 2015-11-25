@@ -74,8 +74,8 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <div class="box-name">
-                        <a href="#/pro">
+                    <div class="box-name min-height-pro">
+                        <a href="#/pro/{{pro.user.id}}">
                             <h3>{{pro.user.firstname}} {{pro.user.lastname}}</h3>
                             <div class="cont-price">
                                 <p class="price">
@@ -98,8 +98,8 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <a href="#/pro">
-                        <div class="cont-decript">
+                    <a href="#/pro/{{pro.user.id}}">
+                        <div class="cont-decript min-height-pro">
                             <p class="bold">Description: </p>
                             <p>
                                 {{pro.profession.description}}
@@ -108,9 +108,9 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <div class="action-button ask-pad">
+                    <div class="action-button button-ouline ask-pad">
                         <a href="#/pro" type="button" class="btn btn-default mgbot"><i class="fa fa-phone"></i> Book Now</a>
-                        <a ng-click="showQuickview(pro);" type="button" class="btn btn-default "><i class="fa fa-eye"></i> Quick View</a>
+                        <a ng-click="showQuickview(pro);" type="button" class="btn btn-default mgbot "><i class="fa fa-eye"></i> Quick View</a>
                     </div>
                 </div>
                 <div class="col-md-1">

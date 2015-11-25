@@ -9,42 +9,52 @@
                         <img ng-src="{{profile.user.image | uploadpath}}" class="img-responsive img-height" ng-if="profile.user.image">
                     </div>
                     <div class="pro-content">
-                        <h3 class="head-name">{{profile.user.firstname}} {{profile.user.lastname}}</h3>
-                        <p class="title">{{profile.user.city}}, {{profile.user.country}} </p>
+                        <h3 class="head-name">{{profile.user.firstname}} {{profile.user.lastname}}
+                        </h3>
+                        <p class="title">{{profile.user.city}}, {{profile.user.country}}
+                        </p>
                         <p class="title">
                             23{{profile.age}} yrs,
                             <span ng-if="profile.user.gender=='1'">Male</span>
                             <span ng-if="profile.user.gender=='2'">Female</span>
                         </p>
-                        <p class="consult">
-                            <label>No of Consults:</label>13 {{profile.consultcount}}</p>
+                        <p class="consult title">
+                            <label>No of Consults:</label>13 {{profile.consultcount}}
+                        </p>
+                        <div class="star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
                     </div>
                     <div class="social">
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-youtube"></i></a>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
-            <div class="min-height">
-                <div class="details">
-                    <h4 class="sub-head">Description</h4>
-                    <!-- <p>Courteous, excellent organisational skills and highly efficient with a unique understanding of the travel industry and the people who work in it. An experienced travel agent who is able to make the best possible travel arrangements for a clients
+                <div class="min-height">
+                    <div class="details">
+                        <h4 class="sub-head">Description</h4>
+                        <!-- <p>Courteous, excellent organisational skills and highly efficient with a unique understanding of the travel industry and the people who work in it. An experienced travel agent who is able to make the best possible travel arrangements for a clients
 							destination, mode of transport and travel dates. Highly motivated, target driven and with exceptional multi tasking skills along with an ability to produce tailor-make itineraries for travel to short or long haul destinations.
 						</p> -->
-                    <p>{{profile.profession.description}}</p>
-                </div>
-                <div class="box-pro" ng-if="profile.profession.skills.length>0">
-                    <div class="skills">
-                        <h4 class="sub-head">Skills</h4>
-                        <span class="badge skill-tag" ng-repeat="skill in profile.profession.skills">{{skill.text}}</span>
-                        <!-- <span class="badge skill-tag">Service Orientation</span>
+                        <p>{{profile.profession.description}}</p>
+                    </div>
+                    <div class="box-pro" ng-if="profile.profession.skills.length>0">
+                        <div class="skills">
+                            <h4 class="sub-head">Skills</h4>
+                            <span class="badge skill-tag" ng-repeat="skill in profile.profession.skills">{{skill.text}}</span>
+                            <!-- <span class="badge skill-tag">Service Orientation</span>
 							<span class="badge skill-tag">Time Management</span>
 							<span class="badge skill-tag"> Instructing </span>
 							<span class="badge skill-tag"> Monitoring </span> -->
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="submit-pro text-center">
                     <button class="btn btn-default text-large">
