@@ -1,7 +1,7 @@
 var tabvalue = '1';
 var uploadres = [];
-// window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
-window.uploadUrl = 'http://wohlig.co.in/jacknowsbackend/index.php/json/uploadImage';
+window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
+// window.uploadUrl = 'http://wohlig.co.in/jacknowsbackend/index.php/json/uploadImage';
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'infinite-scroll', 'toaster', 'ngAnimate', 'ngAutocomplete', 'ngTagsInput', 'ngDialog', 'ngSocial', 'valdr', 'ui.select', 'angular-flexslider', 'mwl.calendar', 'angularFileUpload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state, $state) {
@@ -489,8 +489,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
     $scope.showExpertMsg = true;
-    $scope.showProfessionalWait = true;
-    $scope.showHobbyWait = true;
+    $scope.showProfessionalWait = false;
+    $scope.showHobbyWait = false;
     $scope.invalidContact = false;
     $scope.alreadyRegistered = false;
     $scope.passwordMismatch = false;
@@ -692,12 +692,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.gotoFinish = function() {
         ngDialog.closeAll();
-        ngDialog.open({
-            scope: $scope,
-            template: 'views/content/modal-success.html'
+
+        NavigationService.editHobbyVerification("1", function(data) {
+            if (data) {
+                console.log(data);
+                if (data == "true") {
+                    $scope.showHobbyWait = true;
+                }
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+            }
         });
-        $scope.showProfessionalWait = true;
-        $scope.showHobbyWait = true;
+
+        NavigationService.editProfessionVerification("1", function(data) {
+            if (data) {
+                ngDialog.open({
+                    scope: $scope,
+                    template: 'views/content/modal-success.html'
+                });
+                console.log(data);
+                if (data == "true") {
+                    $scope.showProfessionalWait = true;
+                }
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+
     }
 
     $scope.addQualification = function(obj) {
@@ -1183,15 +1208,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.showExpertMsg = true;
         }
 
+        if ($scope.user.personal.hobbyverification == "1") {
+            $scope.showHobbyWait = true;
+        } else if ($scope.user.personal.hobbyverification == "2") {
+            $scope.showHobbyWait = false;
+        }
+
+        if ($scope.user.personal.professionverification == "1") {
+            $scope.showProfessionalWait = true;
+        } else if ($scope.user.personal.professionverification == "2") {
+            $scope.showProfessionalWait = false;
+        }
+
         $scope.user.professional = data.profession;
         $scope.user.hobbies = data.hobby;
         if (!$scope.user.professional.awards) {
-            $scope.showProfessionalWait = false;
+            // $scope.showProfessionalWait = false;
             $scope.user.professional = {};
             defineProfessionalArrays();
         }
         if (!$scope.user.hobbies.awards) {
-            $scope.showHobbyWait = false;
+            // $scope.showHobbyWait = false;
             $scope.user.hobbies = {};
             defineHobbiesArrays();
         }

@@ -1,6 +1,6 @@
 // var adminbase = "http://192.168.0.102/youtube/";
 var adminbase = "http://localhost/jacknowsbackend/";
-var adminbase = "http://wohlig.co.in/jacknowsbackend/";
+// var adminbase = "http://wohlig.co.in/jacknowsbackend/";
 
 var adminurl = adminbase + "index.php/json/";
 var adminimage = adminbase + "uploads/";
@@ -144,6 +144,12 @@ var navigationservice = angular.module('navigationservice', [])
         },
         searchExpert: function(search, callback, err) {
             $http.get(adminurl + "searchExpert?expertname=" + search).success(callback).error(err)
+        },
+        editHobbyVerification: function(val, callback, err) {
+            $http.get(adminurl + "editHobbyVerification?id=" + $.jStorage.get("user").id + "&hobbyverification=" + val).success(callback).error(err)
+        },
+        editProfessionVerification: function(val, callback, err) {
+            $http.get(adminurl + "editProfessionVerification?id=" + $.jStorage.get("user").id + "&professionverification=" + val).success(callback).error(err)
         },
         setUser: function(data) {
             $.jStorage.set("user", data);
