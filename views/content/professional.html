@@ -270,11 +270,11 @@
                                 </h4>
                                 </div>
                                 <div class="row scroll-y-min">
-                                    <div class="col-md-3" ng-repeat="bill in user.professional.photos" ng-if="user.professional.photos.length!=0">
+                                    <div class="col-md-3" ng-repeat="bill in user.professional.photos" ng-if="user.professional.photos.length>0">
                                         <div class="company-box">
                                             <div class="add-photo-holder">
                                                 <!--                                             <p class="text-center"> Add Photos </p> -->
-                                                <!--                                            <img src="{{bill | uploadpath}}" class="img-responsive">-->
+                                                <img ng-src="{{bill | uploadpath}}" class="img-responsive">
                                                 <!-- <input type="button" ng-click="removeimage(user.professional.photos.indexOf(bill));" value="DELETE" class="bt btn-danger" ng-if="user.professional.photos.length!=0"> -->
                                             </div>
                                         </div>
