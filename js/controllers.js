@@ -934,7 +934,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 
     $scope.saveHobbies = function() {
-        if ($scope.user.hobbies.length > 0) {
+        if ($scope.user.hobbies.skills.length > 0) {
             $scope.enterSkillHobbyErr = false;
             cfpLoadingBar.start();
             $scope.user.hobbies.id = NavigationService.getUser().id;
