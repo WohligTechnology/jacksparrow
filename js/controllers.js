@@ -1,7 +1,7 @@
 var tabvalue = '1';
 var uploadres = [];
-window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
-// window.uploadUrl = 'http://wohlig.co.in/jacknowsbackend/index.php/json/uploadImage';
+// window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
+window.uploadUrl = 'http://wohlig.co.in/jacknowsbackend/index.php/json/uploadImage';
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar','ngTagsInput', 'infinite-scroll', 'ngAnimate', 'ngDialog', 'ui.select', 'angular-flexslider', 'mwl.calendar', 'angularFileUpload'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state, $state) {
