@@ -1522,6 +1522,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.historytab = 1;
     $scope.activate = true;
+    $scope.showLoginMsg = false;
+
+    if (NavigationService.getUser()) {
+        $scope.showLoginMsg = false;
+        NavigationService.questionsForMe(function (data) {
+            if (data) {
+                console.log(data);
+                $scope.questionsForMe = data;
+            }
+        }, function (err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+    } else {
+        $scope.showLoginMsg = true;
+    }
+
     $scope.profile = {
         name: "Amar Chhetri",
         current: "Travel",

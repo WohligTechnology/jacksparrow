@@ -159,6 +159,9 @@ var navigationservice = angular.module('navigationservice', [])
                 data: question
             }).success(callback).error(err);
         },
+        questionsForMe: function (callback, err) {
+            $http.get(adminurl + "getUserQuestions?id=" + $.jStorage.get("user").id).success(callback).error(err)
+        },
         setUser: function (data) {
             $.jStorage.set("user", data);
         },

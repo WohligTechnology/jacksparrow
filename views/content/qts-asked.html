@@ -62,7 +62,7 @@
 					<div class="you padding" ng-if="historytab=='2'">
 						<h3>Following are the question you have to answer</h3>
 						<div class="row">
-							<div class="col-md-3" ng-repeat="user in askedyou">
+							<div class="col-md-3" ng-repeat="question in questionsForMe">
 								<div class="grid-layout">
 									<!--
 									<div class="img-holder">
@@ -70,16 +70,16 @@
 									</div>
 -->
 									<div class="user-data">
-										<a href="#/pro">
-											<h1>{{user.name}}</h1>
+										<a href="#/pro/{{question.fromuser}}">
+											<h1>{{question.category.firstname}} {{question.category.lastname}}</h1>
 											<p>
-												Regarding {{user.questiontag}}
+												Regarding {{question.category.professioncategory}}
 											</p>
 										</a>
 
 										<div class="qts-box">
 											<span class="bold">Question:</span>
-											<br> {{user.question}}
+											<br> {{question.question}}
 										</div>
 
 										<div class="button-dual">
