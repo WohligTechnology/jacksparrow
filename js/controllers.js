@@ -655,8 +655,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         title: 'HOBBY DETAILS',
         url: 'views/content/amature.html',
         myclass: "active"
+    }, {
+        title: 'CALL SETTINGS',
+        url: 'views/content/call-setting.html',
+        myclass: "active"
     }];
     $scope.currentTab = 'views/content/personal.html';
+
+    $scope.time = {
+       from: new Date(0,0,0, 09, 00),
+       to: new Date( 0,0,0, 21, 00)
+     };
 
     $scope.onClickTab = function(tab) {
         $scope.currentTab = tab.url;
