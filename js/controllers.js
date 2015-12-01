@@ -2,9 +2,9 @@ var tabvalue = '1';
 var uploadres = [];
 // window.uploadUrl = 'http://localhost/jacknowsbackend/index.php/json/uploadImage';
 window.uploadUrl = 'http://wohlig.co.in/jacknowsbackend/index.php/json/uploadImage';
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar','ngTagsInput', 'infinite-scroll', 'ngAnimate', 'ngDialog', 'ui.select', 'angular-flexslider', 'mwl.calendar', 'angularFileUpload'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'cfp.loadingBar', 'ngTagsInput', 'infinite-scroll', 'ngAnimate', 'ngDialog', 'ui.select', 'angular-flexslider', 'mwl.calendar', 'angularFileUpload'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state, $state) {
+.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $state, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("Home");
@@ -29,12 +29,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         subline: "Become an expert on the website now."
     }];
 
-    $scope.registerAsExpert = function() {
+    $scope.registerAsExpert = function () {
         $.jStorage.set("isExpert", true);
         $state.go("setting");
     }
 
-    $scope.getSearchResults = function() {
+    $scope.getSearchResults = function () {
         console.log($scope.search);
         if ($scope.search.searchquery) {
             $state.go("searchpro", {
@@ -45,7 +45,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('CalendarCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $modal, ngDialog) {
+.controller('CalendarCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, $modal, ngDialog) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("calendar");
     $scope.menutitle = NavigationService.makeactive("Calendar");
@@ -114,24 +114,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
 
-    $scope.eventClicked = function(event) {
+    $scope.eventClicked = function (event) {
         console.log("sjnkjndv0");
         showModal('Clicked', event);
     };
 
-    $scope.eventEdited = function(event) {
+    $scope.eventEdited = function (event) {
         showModal('Edited', event);
     };
 
-    $scope.eventDeleted = function(event) {
+    $scope.eventDeleted = function (event) {
         showModal('Deleted', event);
     };
 
-    $scope.eventTimesChanged = function(event) {
+    $scope.eventTimesChanged = function (event) {
         showModal('Dropped or resized', event);
     };
 
-    $scope.toggle = function($event, field, event) {
+    $scope.toggle = function ($event, field, event) {
         $event.preventDefault();
         $event.stopPropagation();
         event[field] = !event[field];
@@ -140,7 +140,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('NormalUserCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('NormalUserCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
     $scope.template = TemplateService.changecontent("normal-user");
     $scope.menutitle = NavigationService.makeactive("How-works");
     TemplateService.title = $scope.menutitle;
@@ -150,7 +150,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.worksImg = "works1.png";
 })
 
-.controller('ExpertCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('ExpertCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
     $scope.template = TemplateService.changecontent("expert");
     $scope.menutitle = NavigationService.makeactive("Expert");
     TemplateService.title = $scope.menutitle;
@@ -161,7 +161,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.worksImg = "works5.png";
 })
 
-.controller('ProCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog, $stateParams) {
+.controller('ProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("pro");
     $scope.menutitle = NavigationService.makeactive("Pro");
@@ -169,12 +169,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.video = {};
     $scope.video.id = "A_SESWG5c1g";
-    NavigationService.getUserDetails($stateParams.id, function(data) {
+    NavigationService.getUserDetails($stateParams.id, function (data) {
         if (data) {
             console.log(data);
             $scope.profile = data;
         }
-    }, function(err) {
+    }, function (err) {
         if (err) {
             console.log(err);
         }
@@ -231,10 +231,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     consultcount: "50"
 
     // };
-    $scope.toggle = function() {
+    $scope.toggle = function () {
         $scope.showAmature = !$scope.showAmature;
     }
-    $scope.showVideo = function(url) {
+    $scope.showVideo = function (url) {
         $scope.videourl = url.videos;
         ngDialog.open({
             scope: $scope,
@@ -244,7 +244,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 
-.controller('EditProfessionalCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
+.controller('EditProfessionalCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("edit-professional");
     $scope.menutitle = NavigationService.makeactive("Edit Professional");
@@ -301,13 +301,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         consultcount: "50"
 
     };
-    $scope.toggle = function() {
+    $scope.toggle = function () {
         $scope.showAmature = !$scope.showAmature;
     }
 })
 
 
-.controller('BookingCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('BookingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("booking");
     $scope.menutitle = NavigationService.makeactive("Booking");
@@ -345,7 +345,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     $scope.historytab = 1;
     $scope.activate = true;
-    $scope.changeTab = function(tab) {
+    $scope.changeTab = function (tab) {
         $scope.historytab = tab;
         $scope.activate = $scope.activate === true ? false : true;
         $scope.tab = {
@@ -427,23 +427,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
 
-    $scope.eventClicked = function(event) {
+    $scope.eventClicked = function (event) {
         showModal('Clicked', event);
     };
 
-    $scope.eventEdited = function(event) {
+    $scope.eventEdited = function (event) {
         showModal('Edited', event);
     };
 
-    $scope.eventDeleted = function(event) {
+    $scope.eventDeleted = function (event) {
         showModal('Deleted', event);
     };
 
-    $scope.eventTimesChanged = function(event) {
+    $scope.eventTimesChanged = function (event) {
         showModal('Dropped or resized', event);
     };
 
-    $scope.toggle = function($event, field, event) {
+    $scope.toggle = function ($event, field, event) {
         $event.preventDefault();
         $event.stopPropagation();
         event[field] = !event[field];
@@ -452,21 +452,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('CheckoutCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+.controller('CheckoutCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("checkout");
         $scope.menutitle = NavigationService.makeactive("Checkout");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-    .controller('AccountCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+    .controller('AccountCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("account");
         $scope.menutitle = NavigationService.makeactive("Account");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
     })
-    .controller('WithdrawalCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
+    .controller('WithdrawalCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("withdrawal");
         $scope.menutitle = NavigationService.makeactive("Withdrawal");
@@ -474,7 +474,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
     })
 
-.controller('SettingCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, ngDialog, $timeout, $filter, $http, $upload, $state, cfpLoadingBar) {
+.controller('SettingCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, ngDialog, $timeout, $filter, $http, $upload, $state, cfpLoadingBar) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("setting");
     $scope.menutitle = NavigationService.makeactive("Setting");
@@ -498,16 +498,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.enterSkillErr = false;
     $scope.enterSkillHobbyErr = false;
 
-    $scope.getUserData = function() {
+    $scope.getUserData = function () {
         if (NavigationService.getUser()) {
             cfpLoadingBar.start();
-            NavigationService.getAllUserDetails(function(data) {
+            NavigationService.getAllUserDetails(function (data) {
                 if (data) {
                     console.log(data);
                     cfpLoadingBar.complete();
                     manipulateData(data);
                 }
-            }, function(err) {
+            }, function (err) {
                 if (err) {
                     console.log(err);
                 }
@@ -530,7 +530,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    $scope.becomeExpert = function() {
+    $scope.becomeExpert = function () {
         $.jStorage.set("isExpert", true);
         $scope.user.personal.isexpert = "1";
         $scope.showExpertMsg = false;
@@ -558,10 +558,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         activeclass: ""
     }];
 
-    $scope.makeActiveIcon = function(index) {
+    $scope.makeActiveIcon = function (index) {
         $scope.user.professional.category = $scope.categoryJson[index].name;
         var i = 0;
-        _.each($scope.categoryJson, function(n) {
+        _.each($scope.categoryJson, function (n) {
             if (i == index) {
                 n.activeclass = "active";
             } else {
@@ -663,25 +663,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.currentTab = 'views/content/personal.html';
 
     $scope.time = {
-       from: new Date(0,0,0, 09, 00),
-       to: new Date( 0,0,0, 21, 00)
-     };
+        from: new Date(0, 0, 0, 09, 00),
+        to: new Date(0, 0, 0, 21, 00)
+    };
 
-    $scope.onClickTab = function(tab) {
+
+    $scope.onClickTab = function (tab) {
         $scope.currentTab = tab.url;
     }
 
-    $scope.isActiveTab = function(tabUrl) {
+    $scope.isActiveTab = function (tabUrl) {
         return tabUrl == $scope.currentTab;
     }
-    $scope.showHelp = function() {
+    $scope.showHelp = function () {
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-help.html'
         });
     };
 
-    $scope.gotoProfessional = function() {
+    $scope.gotoProfessional = function () {
         $.jStorage.set("isExpert", true);
         $scope.showExpertMsg = false;
         $scope.user.personal.isexpert = "1";
@@ -689,33 +690,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.currentTab = 'views/content/professional.html';
     }
 
-    $scope.gotoHobbies = function() {
+    $scope.gotoHobbies = function () {
         ngDialog.closeAll();
         $scope.currentTab = 'views/content/amature.html';
     }
 
-    $scope.gotoHome = function() {
+    $scope.gotoHome = function () {
         ngDialog.closeAll();
         $state.go("home");
     }
 
-    $scope.gotoFinish = function() {
+    $scope.gotoFinish = function () {
         ngDialog.closeAll();
 
-        NavigationService.editHobbyVerification("1", function(data) {
+        NavigationService.editHobbyVerification("1", function (data) {
             if (data) {
                 console.log(data);
                 if (data == "true") {
                     $scope.showHobbyWait = true;
                 }
             }
-        }, function(err) {
+        }, function (err) {
             if (err) {
                 console.log(err);
             }
         });
 
-        NavigationService.editProfessionVerification("1", function(data) {
+        NavigationService.editProfessionVerification("1", function (data) {
             if (data) {
                 ngDialog.open({
                     scope: $scope,
@@ -726,7 +727,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.showProfessionalWait = true;
                 }
             }
-        }, function(err) {
+        }, function (err) {
             if (err) {
                 console.log(err);
             }
@@ -734,7 +735,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     }
 
-    $scope.addQualification = function(obj) {
+    $scope.addQualification = function (obj) {
         if (obj[obj.length - 1].degree != "") {
             obj.push({
                 "degree": "",
@@ -744,11 +745,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.deleteQualification = function(obj, index) {
+    $scope.deleteQualification = function (obj, index) {
         obj.splice(index, 1);
     }
 
-    $scope.addExperience = function(obj) {
+    $scope.addExperience = function (obj) {
         if (obj[obj.length - 1].companyname != "") {
             obj.push({
                 "companyname": "",
@@ -761,11 +762,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.deleteExperience = function(obj, index) {
+    $scope.deleteExperience = function (obj, index) {
         obj.splice(index, 1);
     }
 
-    $scope.addAwards = function(obj) {
+    $scope.addAwards = function (obj) {
         if (obj[obj.length - 1].awards != "") {
             obj.push({
                 "awards": ""
@@ -773,11 +774,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.deleteAwards = function(obj, index) {
+    $scope.deleteAwards = function (obj, index) {
         obj.splice(index, 1);
     }
 
-    $scope.addWebsites = function(obj) {
+    $scope.addWebsites = function (obj) {
         if (obj[obj.length - 1].websites != "") {
             obj.push({
                 "websites": ""
@@ -785,11 +786,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.deleteWebsites = function(obj, index) {
+    $scope.deleteWebsites = function (obj, index) {
         obj.splice(index, 1);
     }
 
-    $scope.addVideos = function(obj) {
+    $scope.addVideos = function (obj) {
         if (obj[obj.length - 1].videos != "") {
             obj.push({
                 "videos": ""
@@ -797,11 +798,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.deleteVideos = function(obj, index) {
+    $scope.deleteVideos = function (obj, index) {
         obj.splice(index, 1);
     }
 
-    $scope.savePersonal = function() {
+    $scope.savePersonal = function () {
         if ($scope.user.personal.contact.toString().length == 10) {
             $scope.invalidContact = false;
             if ($scope.showExpertMsg == false) {
@@ -814,7 +815,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     userData.isexpert = "1";
                     //call register
                     cfpLoadingBar.start();
-                    NavigationService.register(userData, function(data) {
+                    NavigationService.register(userData, function (data) {
                         if (data) {
                             console.log(data);
                             if (data != "false") {
@@ -822,7 +823,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 console.log($scope.user.personal);
                                 //call edit profile
                                 $scope.user.personal.isexpert = "1";
-                                NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                                NavigationService.editPersonalDetails($scope.user.personal, function (successdata) {
                                     if (successdata) {
                                         console.log(successdata);
                                         cfpLoadingBar.complete();
@@ -832,7 +833,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                             template: 'views/content/modal-dialogue.html'
                                         });
                                     }
-                                }, function(error) {
+                                }, function (error) {
                                     if (error) {
                                         console.log(error);
                                     }
@@ -842,7 +843,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     $scope.alreadyRegistered = false;
                                     console.log($scope.user.personal);
                                     $scope.user.personal.isexpert = "1";
-                                    NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                                    NavigationService.editPersonalDetails($scope.user.personal, function (successdata) {
                                         if (successdata) {
                                             console.log(successdata);
                                             cfpLoadingBar.complete();
@@ -852,7 +853,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                             });
                                             manipulateData(successdata);
                                         }
-                                    }, function(error) {
+                                    }, function (error) {
                                         if (error) {
                                             console.log(error);
                                         }
@@ -864,7 +865,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 }
                             }
                         }
-                    }, function(err) {
+                    }, function (err) {
                         if (err) {
                             console.log(err);
                         }
@@ -880,7 +881,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //call edit profile
                 cfpLoadingBar.start();
                 $scope.user.personal.isexpert = "2";
-                NavigationService.editPersonalDetails($scope.user.personal, function(successdata) {
+                NavigationService.editPersonalDetails($scope.user.personal, function (successdata) {
                     if (successdata) {
                         console.log(successdata);
                         cfpLoadingBar.complete();
@@ -890,7 +891,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             template: 'views/content/modal-dialogue.html'
                         });
                     }
-                }, function(error) {
+                }, function (error) {
                     if (error) {
                         console.log(error);
                     }
@@ -903,10 +904,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    $scope.saveProfessional = function() {
+    $scope.saveProfessional = function () {
         if ($scope.user.professional.category != "" && $scope.user.professional.skills.length > 0) {
             cfpLoadingBar.start();
-            _.each($scope.user.professional.experience, function(n) {
+            _.each($scope.user.professional.experience, function (n) {
                 n.startdate = new Date(n.sdate);
                 n.startdate = $filter('date')(n.startdate, "dd-MM-yyyy");
                 n.enddate = new Date(n.edate);
@@ -914,7 +915,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
             $scope.user.professional.id = NavigationService.getUser().id;
             console.log($scope.user.professional);
-            NavigationService.editProfessionalDetails($scope.user.professional, function(data) {
+            NavigationService.editProfessionalDetails($scope.user.professional, function (data) {
                 if (data) {
                     console.log(data);
                     cfpLoadingBar.complete();
@@ -929,7 +930,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     //     $scope.currentTab = 'views/content/amature.html';
                     // }, 2500);
                 }
-            }, function(error) {
+            }, function (error) {
                 if (error) {
                     console.log(error);
                 }
@@ -942,13 +943,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    $scope.saveHobbies = function() {
+    $scope.saveHobbies = function () {
         if ($scope.user.hobbies.skills.length > 0) {
             $scope.enterSkillHobbyErr = false;
             cfpLoadingBar.start();
             $scope.user.hobbies.id = NavigationService.getUser().id;
             console.log($scope.user.hobbies);
-            NavigationService.editHobbiesDetails($scope.user.hobbies, function(data) {
+            NavigationService.editHobbiesDetails($scope.user.hobbies, function (data) {
                 if (data) {
                     console.log(data);
                     cfpLoadingBar.complete();
@@ -962,7 +963,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     //     ngDialog.closeAll();
                     // }, 2500);
                 }
-            }, function(error) {
+            }, function (error) {
                 if (error) {
                     console.log(error);
                 }
@@ -977,21 +978,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.usingFlash = FileAPI && FileAPI.upload != null;
     $scope.fileReaderSupported = window.FileReader != null && (window.FileAPI == null || FileAPI.html5 != false);
     $scope.uploadRightAway = true;
-    $scope.changeAngularVersion = function() {
+    $scope.changeAngularVersion = function () {
         window.location.hash = $scope.angularVersion;
         window.location.reload(true);
     };
-    $scope.hasUploader = function(index) {
+    $scope.hasUploader = function (index) {
         return $scope.upload[index] != null;
     };
-    $scope.abort = function(index) {
+    $scope.abort = function (index) {
         $scope.upload[index].abort();
         $scope.upload[index] = null;
     };
     $scope.angularVersion = window.location.hash.length > 1 ? (window.location.hash.indexOf('/') === 1 ?
         window.location.hash.substring(2) : window.location.hash.substring(1)) : '1.2.20';
 
-    $scope.onFileSelect = function($files, whichone) {
+    $scope.onFileSelect = function ($files, whichone) {
         $scope.selectedFiles = [];
         $scope.progress = [];
         console.log($files);
@@ -1011,9 +1012,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
                 var fileReader = new FileReader();
                 fileReader.readAsDataURL($files[i]);
-                var loadFile = function(fileReader, index) {
-                    fileReader.onload = function(e) {
-                        $timeout(function() {
+                var loadFile = function (fileReader, index) {
+                    fileReader.onload = function (e) {
+                        $timeout(function () {
                             $scope.dataUrls[index] = e.target.result;
                         });
                     }
@@ -1026,7 +1027,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.onFileSelectCompany = function($files, obj) {
+    $scope.onFileSelectCompany = function ($files, obj) {
         $scope.selectedFiles = [];
         $scope.progress = [];
         console.log($files);
@@ -1046,9 +1047,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if ($scope.fileReaderSupported && $file.type.indexOf('image') > -1) {
                 var fileReader = new FileReader();
                 fileReader.readAsDataURL($files[i]);
-                var loadFile = function(fileReader, index) {
-                    fileReader.onload = function(e) {
-                        $timeout(function() {
+                var loadFile = function (fileReader, index) {
+                    fileReader.onload = function (e) {
+                        $timeout(function () {
                             $scope.dataUrls[index] = e.target.result;
                         });
                     }
@@ -1061,7 +1062,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.startCompany = function(index, obj) {
+    $scope.startCompany = function (index, obj) {
         cfpLoadingBar.start();
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
@@ -1079,9 +1080,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 file: $scope.selectedFiles[index],
                 fileFormDataName: 'image'
             });
-            $scope.upload[index].then(function(response) {
+            $scope.upload[index].then(function (response) {
                 console.log(response.data)
-                $timeout(function() {
+                $timeout(function () {
                     cfpLoadingBar.complete();
                     $scope.uploadResult.push(response.data);
                     imagejstupld = response.data;
@@ -1090,26 +1091,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         obj.companylogo = imagejstupld;
                     }
                 });
-            }, function(response) {
+            }, function (response) {
                 if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-            }, function(evt) {
+            }, function (evt) {
                 $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
-            $scope.upload[index].xhr(function(xhr) {});
+            $scope.upload[index].xhr(function (xhr) {});
         } else {
             var fileReader = new FileReader();
-            fileReader.onload = function(e) {
+            fileReader.onload = function (e) {
                 $scope.upload[index] = $upload.http({
                     url: uploadUrl,
                     headers: {
                         'Content-Type': $scope.selectedFiles[index].type
                     },
                     data: e.target.result
-                }).then(function(response) {
+                }).then(function (response) {
                     $scope.uploadResult.push(response.data);
-                }, function(response) {
+                }, function (response) {
                     if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                }, function(evt) {
+                }, function (evt) {
                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 });
             }
@@ -1117,7 +1118,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.start = function(index, whichone) {
+    $scope.start = function (index, whichone) {
         cfpLoadingBar.start();
         $scope.progress[index] = 0;
         $scope.errorMsg = null;
@@ -1135,9 +1136,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 file: $scope.selectedFiles[index],
                 fileFormDataName: 'image'
             });
-            $scope.upload[index].then(function(response) {
+            $scope.upload[index].then(function (response) {
                 console.log(response.data)
-                $timeout(function() {
+                $timeout(function () {
                     cfpLoadingBar.complete();
                     $scope.uploadResult.push(response.data);
                     imagejstupld = response.data;
@@ -1155,26 +1156,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }
                     }
                 });
-            }, function(response) {
+            }, function (response) {
                 if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-            }, function(evt) {
+            }, function (evt) {
                 $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
-            $scope.upload[index].xhr(function(xhr) {});
+            $scope.upload[index].xhr(function (xhr) {});
         } else {
             var fileReader = new FileReader();
-            fileReader.onload = function(e) {
+            fileReader.onload = function (e) {
                 $scope.upload[index] = $upload.http({
                     url: uploadUrl,
                     headers: {
                         'Content-Type': $scope.selectedFiles[index].type
                     },
                     data: e.target.result
-                }).then(function(response) {
+                }).then(function (response) {
                     $scope.uploadResult.push(response.data);
-                }, function(response) {
+                }, function (response) {
                     if (response.status > 0) $scope.errorMsg = response.status + ': ' + response.data;
-                }, function(evt) {
+                }, function (evt) {
                     $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 });
             }
@@ -1182,7 +1183,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.dragOverClass = function($event) {
+    $scope.dragOverClass = function ($event) {
         var items = $event.dataTransfer.items;
         var hasFile = false;
         if (items != null) {
@@ -1199,7 +1200,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     //imageupload
 
-    $scope.showQuickview = function() {
+    $scope.showQuickview = function () {
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-dialogue.html'
@@ -1245,7 +1246,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //professional
         if ($scope.user.professional.category) {
             var i = 0;
-            _.each($scope.categoryJson, function(n) {
+            _.each($scope.categoryJson, function (n) {
                 if (n.name == $scope.user.professional.category) {
                     n.activeclass = "active";
                     i++;
@@ -1259,7 +1260,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         }
 
-        _.each($scope.user.professional.experience, function(n) {
+        _.each($scope.user.professional.experience, function (n) {
             if (n.startdate) {
                 n.sdate = new Date(n.startdate);
             }
@@ -1269,13 +1270,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         })
 
         var arr = [];
-        _.each($scope.user.professional.photos, function(n) {
+        _.each($scope.user.professional.photos, function (n) {
             arr.push(n.image);
         })
         $scope.user.professional.photos = arr;
 
         var hobarr = [];
-        _.each($scope.user.hobbies.photos, function(n) {
+        _.each($scope.user.hobbies.photos, function (n) {
             hobarr.push(n.image);
         })
         $scope.user.hobbies.photos = hobarr;
@@ -1346,7 +1347,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('SearchProCtrl', function($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog, $stateParams) {
+.controller('SearchProCtrl', function ($scope, TemplateService, NavigationService, cfpLoadingBar, $timeout, ngDialog, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("search-pro");
     $scope.menutitle = NavigationService.makeactive("search-pro");
@@ -1358,21 +1359,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //  $scope.reload = function() {
     cfpLoadingBar.start();
     $scope.professional = [];
-    NavigationService.searchExpert($stateParams.search, function(data) {
+    NavigationService.searchExpert($stateParams.search, function (data) {
         if (data) {
             console.log(data);
             if (data != "false") {
                 $scope.noData = false;
-                _.each(data, function(n) {
+                _.each(data, function (n) {
                     cfpLoadingBar.start();
-                    NavigationService.getUserDetails(n.id, function(data2) {
+                    NavigationService.getUserDetails(n.id, function (data2) {
                         cfpLoadingBar.complete();
                         if (data2) {
                             // console.log(data2);
                             $scope.professional.push(data2);
                             // console.log($scope.professional);
                         }
-                    }, function(error) {
+                    }, function (error) {
                         if (error) {
                             console.log(error);
                         }
@@ -1384,67 +1385,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             cfpLoadingBar.complete();
             // console.log($scope.professional);
         }
-    }, function(err) {
+    }, function (err) {
         if (err) {
             console.log(err);
         }
     })
 
-    // $scope.professional = [{
-    //     img: 'img/info/info1.jpg',
-    //     ispro: true,
-    //     name: 'Nishant Rathod',
-    //     tech: 'Travel',
-    //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    //     price: '500',
-    //     consultcount: '36',
-    // }, {
-    //     img: 'img/info/info2.jpg',
-    //     ispro: true,
-    //     name: 'Rani Chhetri',
-    //     tech: 'Travel',
-    //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    //     price: '500',
-    //     consultcount: '30',
-    // }, {
-    //     img: 'img/info/info3.jpg',
-    //     ispro: false,
-    //     name: 'Aman Verma',
-    //     tech: 'Travel',
-    //     desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    //     price: '250',
-    //     consultcount: '8',
-    // }];
-
-    // $scope.profile = {
-    //     name: "Amar Chhetri",
-    //     current: "Travel",
-    //     company: "Global Services",
-    //     location: "Mumbai City, India",
-    //     skills: "Service Orientation , Time Management , Instructing  , Monitoring , Management of Personnel Resources , Management of Material Resources , Judgment and Decision Making",
-    //     websites: [{
-    //         link: "www.india.com"
-    //     }, {
-    //         link: "www.wohlig.com"
-    //     }, {
-    //         link: "www.magicmirror.com"
-    //     }, {
-    //         link: "www.auraart.com"
-    //     }],
-    //     honors: {
-    //         name: "ICICI Lombard - Project Manager",
-    //         desc: "Project developed & completed with good presentation in absence of Team Leader along with half of actual timelines"
-    //     },
-    //     experience: "12",
-    //     country: "India",
-    //     city: "Mumbai",
-    //     age: "35",
-    //     cost: "500/-",
-    //     consultcount: "171"
-
-    // };
-
-    $scope.showQuickview = function(expert) {
+    $scope.showQuickview = function (expert) {
         console.log(expert);
         $scope.profile = expert;
         ngDialog.open({
@@ -1455,7 +1402,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('QuestionsCtrl', function($scope, TemplateService, NavigationService, ngDialog) {
+.controller('QuestionsCtrl', function ($scope, TemplateService, NavigationService, ngDialog) {
     $scope.template = TemplateService.changecontent("qts-asked");
     $scope.menutitle = NavigationService.makeactive("Questions");
     TemplateService.title = $scope.menutitle;
@@ -1490,7 +1437,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     };
 
-    $scope.showQuickview = function() {
+    $scope.showQuickview = function () {
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-quickview.html'
@@ -1530,7 +1477,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.historytab = 1;
     $scope.activate = true;
-    $scope.changeTab = function(tab) {
+    $scope.changeTab = function (tab) {
         $scope.historytab = tab;
         $scope.activate = $scope.activate === true ? false : true;
         $scope.tab = {
@@ -1546,7 +1493,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('headerctrl', function($scope, TemplateService, ngDialog, NavigationService, $state) {
+.controller('headerctrl', function ($scope, TemplateService, ngDialog, NavigationService, $state) {
     $scope.template = TemplateService;
     $scope.logintab = {};
     $scope.logintab.tab = tabvalue;
@@ -1564,18 +1511,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.showLoginBtn = true;
     }
 
-    $scope.showLogin = function() {
+    $scope.showLogin = function () {
         tabvalue = '1';
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-login.html'
         });
     };
-    $scope.changeTab = function(tab) {
+    $scope.changeTab = function (tab) {
         $scope.logintab.tab = tab;
     }
 
-    $scope.showSignup = function() {
+    $scope.showSignup = function () {
         $.jStorage.set("isExpert", false);
         tabvalue = '2';
         ngDialog.open({
@@ -1584,17 +1531,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     }
 
-    $scope.logout = function() {
+    $scope.logout = function () {
         $.jStorage.flush();
         $scope.showLoginBtn = true;
         $state.go("home");
     }
 
-    $scope.registerUser = function() {
+    $scope.registerUser = function () {
         if ($scope.register.password === $scope.register.confirmpassword) {
             $scope.register.isexpert = "2";
             console.log($scope.register);
-            NavigationService.register($scope.register, function(data) {
+            NavigationService.register($scope.register, function (data) {
                 if (data) {
                     console.log(data);
                     if (data != "false") {
@@ -1606,7 +1553,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.alreadyRegistered = true;
                     }
                 }
-            }, function(err) {
+            }, function (err) {
                 if (err) {
                     console.log(err);
                 }
@@ -1616,9 +1563,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     }
 
-    $scope.userLogin = function() {
+    $scope.userLogin = function () {
         console.log($scope.login);
-        NavigationService.login($scope.login, function(data) {
+        NavigationService.login($scope.login, function (data) {
             if (data) {
                 console.log(data);
                 if (data != "false") {
@@ -1631,7 +1578,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.invalidLogin = true;
                 }
             }
-        }, function(err) {
+        }, function (err) {
             if (err) {
                 console.log(err);
             }
