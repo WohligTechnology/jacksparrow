@@ -16,13 +16,23 @@
                                     <h4>Category Info</h4>
                                 </div>
                             </div>
-                            <div class="col-md-5 col-sm-6">
-                                <label for="">Category:</label>
-                                <input type="text" class="form-control text-large" placeholder="Please enter category" ng-model="user.hobbies.category" required>
+                            <div class="row text-center">
+                                <div class="col-md-2 col-sm-4" ng-repeat="category in hobbycategoryJson track by $index" ng-click="makeActiveHobbyIcon($index);">
+                                    <div class="select-cat {{category.activeclass}}">
+                                        <p>
+                                            <i class="{{category.icon}}"></i>
+                                        </p>
+                                        <p class="cat-head">{{category.name}}</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-5 col-sm-6">
                                 <label for="">Years of Experience<span> (in years</span>:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter years of experience" ng-model="user.hobbies.yoexp" only-digits required>
+                            </div>
+                            <div class="col-md-5 col-sm-6" ng-show="showHobbyCategoryInput">
+                                <label for="">Category:</label>
+                                <input type="text" class="form-control text-large" placeholder="Please enter category" ng-model="user.hobbies.category" required>
                             </div>
                         </div>
                     </div>

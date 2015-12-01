@@ -10,7 +10,7 @@ var firstapp = angular.module('firstapp', [
 //  cfpLoadingBarProvider.includeSpinner = false;
 //  }])
 
-firstapp.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $httpProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider, $httpProvider) {
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.spinnerTemplate = '<div class="loadingcfp"><div class="in-box"><div class="sk-fading-circle"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div></div>Please wait...</div></div>';
     cfpLoadingBarProvider.includeBar = false;
@@ -111,16 +111,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvid
     $urlRouterProvider.otherwise("/home");
 });
 
-firstapp.directive('img', function($compile, $parse) {
+firstapp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             var $element = $(element);
             if (!attrs.noloading) {
                 $element.after("<img src='img/loading.gif' class='loading' />");
                 var $loading = $element.next(".loading");
-                $element.load(function() {
+                $element.load(function () {
                     $loading.remove();
                     $(this).addClass("doneLoading");
                 });
@@ -131,10 +131,10 @@ firstapp.directive('img', function($compile, $parse) {
     };
 });
 
-firstapp.directive('toggle', function() {
+firstapp.directive('toggle', function () {
     return {
         restrict: 'A',
-        link: function(scope, element, attrs) {
+        link: function (scope, element, attrs) {
             if (attrs.toggle == "tooltip") {
                 $(element).tooltip();
             }
@@ -145,9 +145,9 @@ firstapp.directive('toggle', function() {
     };
 });
 
-firstapp.directive("scroll", function($window) {
-    return function(scope, element, attrs) {
-        angular.element($window).bind("scroll", function() {
+firstapp.directive("scroll", function ($window) {
+    return function (scope, element, attrs) {
+        angular.element($window).bind("scroll", function () {
             if (this.pageYOffset >= 72) {
                 element.addClass('min');
             } else {
@@ -157,11 +157,11 @@ firstapp.directive("scroll", function($window) {
     };
 });
 
-firstapp.directive('onlyDigits', function() {
+firstapp.directive('onlyDigits', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
-        link: function(scope, element, attr, ctrl) {
+        link: function (scope, element, attr, ctrl) {
             function inputValue(val) {
                 if (val) {
                     var digits = val.replace(/[^0-9]/g, '');
@@ -179,16 +179,19 @@ firstapp.directive('onlyDigits', function() {
     };
 });
 
-firstapp.filter('uploadpath', function() {
-    return function(input) {
+firstapp.filter('uploadpath', function () {
+    return function (input) {
         if (input) {
-            return adminimage + input;
+            //            return adminimage + input;
+            return "http://wohlig.co.in/jacknowsbackend/uploads/" + input;
+        } else {
+            return "img/profile.png";
         }
     };
 });
 
-firstapp.filter('youtubeimg', function() {
-    return function(input) {
+firstapp.filter('youtubeimg', function () {
+    return function (input) {
         if (input) {
             input = input.substr(input.indexOf("?v=") + 3);
             return "http://img.youtube.com/vi/" + input + "/default.jpg";
@@ -196,7 +199,7 @@ firstapp.filter('youtubeimg', function() {
     };
 });
 
-firstapp.directive('youtube', function($sce) {
+firstapp.directive('youtube', function ($sce) {
     return {
         restrict: 'A',
         scope: {
@@ -204,8 +207,8 @@ firstapp.directive('youtube', function($sce) {
         },
         replace: true,
         template: '<iframe id="popup-youtube-player" style="overflow:hidden;width:100%" width="100%" height="400px" src="{{url}}" frameborder="0" allowscriptaccess="always" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>',
-        link: function(scope) {
-            scope.$watch('code', function(newVal) {
+        link: function (scope) {
+            scope.$watch('code', function (newVal) {
                 if (newVal) {
                     // console.log(newVal);
                     // console.log(newVal.indexOf("?v=") + 3);

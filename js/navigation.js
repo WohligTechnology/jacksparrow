@@ -142,14 +142,22 @@ var navigationservice = angular.module('navigationservice', [])
         getUserDetails: function (id, callback, err) {
             $http.get(adminurl + "getUserDetails?id=" + id).success(callback).error(err)
         },
-        searchExpert: function (search, callback, err) {
-            $http.get(adminurl + "searchExpert?expertname=" + search).success(callback).error(err)
+        searchExpert: function (search, pageno, callback, err) {
+            $http.get(adminurl + "searchExpert?expertname=" + search + "&pageno=" + pageno).success(callback).error(err)
         },
         editHobbyVerification: function (val, callback, err) {
             $http.get(adminurl + "editHobbyVerification?id=" + $.jStorage.get("user").id + "&hobbyverification=" + val).success(callback).error(err)
         },
         editProfessionVerification: function (val, callback, err) {
             $http.get(adminurl + "editProfessionVerification?id=" + $.jStorage.get("user").id + "&professionverification=" + val).success(callback).error(err)
+        },
+        askQuestion: function (question, callback, err) {
+            $http({
+                url: adminurl + 'askQuestion',
+                method: 'POST',
+                withCredentials: true,
+                data: question
+            }).success(callback).error(err);
         },
         setUser: function (data) {
             $.jStorage.set("user", data);

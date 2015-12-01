@@ -488,6 +488,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.user.professional.photos = [];
     $scope.user.hobbies.photos = [];
     $scope.showCategoryInput = false;
+    $scope.showHobbyCategoryInput = false;
     $scope.showExpertMsg = true;
     $scope.showProfessionalWait = false;
     $scope.showHobbyWait = false;
@@ -553,6 +554,37 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         icon: "fa fa-child fa-2x",
         activeclass: ""
     }, {
+        name: "Real Estate",
+        icon: "fa fa-building fa-2x",
+        activeclass: ""
+    }, {
+        name: "Others",
+        icon: "fa fa-plus fa-2x",
+        activeclass: ""
+    }];
+
+
+    $scope.hobbycategoryJson = [{
+        name: "Career Counselling",
+        icon: "fa fa-graduation-cap fa-2x",
+        activeclass: ""
+    }, {
+        name: "Travel",
+        icon: "fa fa-suitcase fa-2x",
+        activeclass: ""
+    }, {
+        name: "Health",
+        icon: "fa fa-heartbeat fa-2x",
+        activeclass: ""
+    }, {
+        name: "Life style",
+        icon: "fa fa-child fa-2x",
+        activeclass: ""
+    }, {
+        name: "Real Estate",
+        icon: "fa fa-building fa-2x",
+        activeclass: ""
+    }, {
         name: "Others",
         icon: "fa fa-plus fa-2x",
         activeclass: ""
@@ -574,6 +606,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.user.professional.category = "";
         } else {
             $scope.showCategoryInput = false;
+        }
+    }
+
+    $scope.makeActiveHobbyIcon = function (index) {
+        $scope.user.hobbies.category = $scope.hobbycategoryJson[index].name;
+        var i = 0;
+        _.each($scope.hobbycategoryJson, function (n) {
+            if (i == index) {
+                n.activeclass = "active";
+            } else {
+                n.activeclass = "";
+            }
+            i++;
+        })
+        if ($scope.hobbycategoryJson[index].name == "Others") {
+            $scope.showHobbyCategoryInput = true;
+            $scope.user.hobbies.category = "";
+        } else {
+            $scope.showHobbyCategoryInput = false;
         }
     }
 
@@ -1254,8 +1305,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     n.activeclass = "";
                 }
             })
-            if (i == 0) {
-                $scope.categoryJson[4].activeclass = "active";
+            if (_.findIndex($scope.categoryJson, {
+                    'name': $scope.user.professional.category
+                }) == -1) {
+                $scope.categoryJson[5].activeclass = "active";
                 $scope.showCategoryInput = true;
             }
         }
@@ -1317,6 +1370,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //professional
 
         //hobbies
+        if ($scope.user.hobbies.category) {
+            var i = 0;
+            _.each($scope.hobbycategoryJson, function (n) {
+                if (n.name == $scope.user.hobbies.category) {
+                    n.activeclass = "active";
+                    i++;
+                } else {
+                    n.activeclass = "";
+                }
+            })
+
+            if (_.findIndex($scope.hobbycategoryJson, {
+                    'name': $scope.user.hobbies.category
+                }) == -1) {
+                $scope.hobbycategoryJson[5].activeclass = "active";
+                $scope.showHobbyCategoryInput = true;
+            }
+        }
 
         if ($scope.user.hobbies.awards.length == 0) {
             $scope.user.hobbies.awards = [{
@@ -1354,42 +1425,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Search");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.question = {};
+    $scope.question.touser = [];
     $scope.noData = false;
+    $scope.showLoginMsg = false;
+    $scope.showSelectExpertMsg = false;
+    $scope.showSuccessMsg = false;
+    $scope.pageno = 0;
+    var lastpage = 1;
 
     //  $scope.reload = function() {
-    cfpLoadingBar.start();
+
     $scope.professional = [];
-    NavigationService.searchExpert($stateParams.search, function (data) {
-        if (data) {
-            console.log(data);
-            if (data != "false") {
-                $scope.noData = false;
-                _.each(data, function (n) {
-                    cfpLoadingBar.start();
-                    NavigationService.getUserDetails(n.id, function (data2) {
-                        cfpLoadingBar.complete();
-                        if (data2) {
-                            // console.log(data2);
-                            $scope.professional.push(data2);
-                            // console.log($scope.professional);
-                        }
-                    }, function (error) {
-                        if (error) {
-                            console.log(error);
-                        }
-                    });
-                });
-            } else {
-                $scope.noData = true;
-            }
-            cfpLoadingBar.complete();
-            // console.log($scope.professional);
+    $scope.getMoreResults = function () {
+        ++$scope.pageno;
+        if ($scope.pageno <= lastpage) {
+            cfpLoadingBar.start();
+            NavigationService.searchExpert($stateParams.search, $scope.pageno, function (data) {
+                if (data) {
+                    console.log(data);
+                    lastpage = data.lastpage;
+                    if (data != "false") {
+                        $scope.noData = false;
+                        _.each(data.queryresult, function (n) {
+                            $scope.professional.push(n);
+                        })
+                    } else {
+                        $scope.noData = true;
+                    }
+                    cfpLoadingBar.complete();
+                    // console.log($scope.professional);
+                }
+            }, function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            })
         }
-    }, function (err) {
-        if (err) {
-            console.log(err);
-        }
-    })
+    }
+
+    $scope.getMoreResults();
 
     $scope.showQuickview = function (expert) {
         console.log(expert);
@@ -1399,6 +1475,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             template: 'views/content/modal-quickview.html'
         });
     };
+
+    $scope.pushorpop = function (expertid) {
+        var popindex = $scope.question.touser.indexOf(expertid);
+        if (popindex == -1) {
+            $scope.question.touser.push(expertid);
+        } else {
+            $scope.question.touser.splice(popindex, 1);
+        }
+    }
+
+    $scope.askQuestion = function () {
+        if (NavigationService.getUser()) {
+            $scope.showLoginMsg = false;
+            $scope.question.id = NavigationService.getUser().id;
+            if ($scope.question.touser.length > 0) {
+                $scope.showSelectExpertMsg = false;
+                NavigationService.askQuestion($scope.question, function (data) {
+                    if (data) {
+                        console.log(data);
+                        if (data == "true") {
+                            $scope.showSuccessMsg = true;
+                        } else {
+                            $scope.showSuccessMsg = false;
+                        }
+                    }
+                }, function (err) {
+                    if (err) {
+                        console.log(err)
+                    }
+                });
+            } else {
+                $scope.showSelectExpertMsg = true;
+            }
+        } else {
+            $scope.showLoginMsg = true;
+        }
+    }
 
 })
 
