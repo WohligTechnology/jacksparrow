@@ -1,137 +1,144 @@
 <section class="container-fluid content-min-set">
-  <div class="setting min-height">
-    <div class="text-center sub-head" ng-show="!showHobbyWait">
-      <h4>Will be activated once your profile is verified.</h4>
-    </div>
-    <form ng-submit="">
-      <div class="cont-setting" ng-hide="showExpertMsg">
-        <div class="tab2">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="head border-btm">
-                <h4>Call Settings</h4>
-              </div>
-            </div>
-            <div class="col-md-5 col-sm-6">
-              <label class="">Please select your preferred call time:</label>
-              <div class="pad-btm">
-                <label class="radio-inline">
-                  <input name="optradio" ng-model="user.timing.fixed" type="radio" value="1">Monday to Sunday (9AM - 9PM)</label>
-                <br>
-                <label class="radio-inline">
-                  <input name="optradio" ng-model="user.timing.custom" type="radio" value="2">Custom Timing</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="custom-timing">
-            <div class="row">
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Monday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Tuesday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Wednesday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Thursday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Friday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Saturday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="head border-btm">
-                  <h5>Sunday</h5>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label for="">From:</label>
-                    <input ng-model="time.from" type="time" class="form-control">
-                  </div>
-                  <div class="col-md-5">
-                    <label for="">To:</label>
-                    <input type="time" class="form-control" ng-model="time.to"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="margin-top-btm btn-group">
-            <button class="btn btn-primary" type="submit">Save</button>
-          </div>
+    <div class="setting min-height">
+        <div class="text-center sub-head" ng-show="!showHobbyWait">
+            <h4>Will be activated once your profile is verified.</h4>
         </div>
-      </div>
-    </form>
-  </div>
+        <form ng-submit="">
+            <div class="cont-setting" ng-hide="showExpertMsg">
+                <div class="tab2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head border-btm">
+                                <h4>Call Settings</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
+                            <label class="">Please select your preferred call time:</label>
+                            <div class="pad-btm">
+                                <label class="radio-inline" ng-click="showOrHideTiming(1);">
+                                    <input name="optradio" ng-model="timing" type="radio" value="1">Monday to Sunday (9AM - 9PM)</label>
+                                <br>
+                                <label class="radio-inline" ng-click="showOrHideTiming(2);">
+                                    <input name="optradio" ng-model="timing" type="radio" value="2">Custom Timing</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="custom-timing" ng-show="showTiming;">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Monday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Tuesday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Wednesday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Thursday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Friday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Saturday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="head border-btm">
+                                    <h5>Sunday</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="">From:</label>
+                                        <input ng-model="time.from" type="time" class="form-control">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="">To:</label>
+                                        <input type="time" class="form-control" ng-model="time.to">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="margin-top-btm btn-group">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>

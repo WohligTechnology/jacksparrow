@@ -498,6 +498,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.selectCategoryErr = false;
     $scope.enterSkillErr = false;
     $scope.enterSkillHobbyErr = false;
+    $scope.showTiming = false;
+    $scope.timing = 1;
 
     $scope.getUserData = function () {
         if (NavigationService.getUser()) {
@@ -1414,6 +1416,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         //hobbies
         console.log($scope.user);
+    }
+
+    $scope.showOrHideTiming = function (val) {
+        if (val == 1) {
+            $scope.showTiming = false;
+        } else {
+            $scope.showTiming = true;
+        }
     }
 
 })
