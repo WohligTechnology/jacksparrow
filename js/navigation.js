@@ -14,21 +14,7 @@ var navigationservice = angular.module('navigationservice', [])
         name: "BOOKINGS",
         classis: "active",
         link: "#/booking",
-        subnav: [
-            //            {
-            //            name: "Subnav1",
-            //            classis: "active",
-            //            link: "#/home"
-            //        }, {
-            //            name: "Subnav2",
-            //            classis: "active",
-            //            link: "#/home"
-            //        }, {
-            //            name: "Subnav3",
-            //            classis: "active",
-            //            link: "#/home"
-            //        }
-        ]
+        subnav: []
     }, {
         name: "Calendar",
         active: "",

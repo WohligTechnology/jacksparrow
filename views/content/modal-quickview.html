@@ -30,9 +30,9 @@
                         </div>
                     </div>
                     <div class="social">
-                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="{{profile.user.twittersocial}}" target="_blank" ng-if="profile.user.twittersocial"><i class="fa fa-twitter"></i></a>
+                        <a href="{{profile.user.youtubesocial}}" target="_blank" ng-if="profile.user.youtubesocial"><i class="fa fa-youtube"></i></a>
+                        <a href="{{profile.user.facebooksocial}}" target="_blank" ng-if="profile.user.facebooksocial"><i class="fa fa-facebook"></i></a>
                     </div>
                 </div>
             </div>

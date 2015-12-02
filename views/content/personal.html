@@ -24,7 +24,7 @@
                                 <label for="">EMAIL ADDRESS
                                     <span>(Wont be shared publicaly)</span>:</label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your current email id" ng-model="user.personal.email" required>
-                                <p ng-show="alreadyRegistered" style="color:red">Email id already registered</p>
+                                <p class="red" ng-show="alreadyRegistered">Email id already registered</p>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <label for="" class="popup">
@@ -32,7 +32,7 @@
                                     <span class="">(OTP Verified)</span> <i class="fa fa-eye-slash"  data-toggle="popover" data-placement="top" data-content="Will not been shown publicly" data-trigger="hover"></i>:
                                     </label>
                                 <input type="text" class="form-control text-large" placeholder="Please enter your mobile no." ng-model="user.personal.contact" maxlength="10" only-digits>
-                                <p ng-show="invalidContact" style="color:red">Invalid Mobile Number</p>
+                                <p class="red" ng-show="invalidContact">Invalid Mobile Number</p>
                             </div>
                         </div>
                         <div class="row" ng-hide="showExpertMsg">
@@ -43,7 +43,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <label for="">CONFIRM PASSWORD:</label>
                                 <input type="password" class="form-control text-large" placeholder="Please re-enter your password" ng-model="user.personal.confirmpassword">
-                                <p ng-show="passwordMismatch" style="color:red">Password Mismatch</p>
+                                <p class="red" ng-show="passwordMismatch">Password Mismatch</p>
                             </div>
                         </div>
                         <div class="row">

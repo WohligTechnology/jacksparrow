@@ -72,6 +72,7 @@ module.exports = function(grunt) {
           './bower_components/lodash/lodash.min.js',
           './bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js',
           './bower_components/jStorage/jstorage.min.js',
+          './bower_components/moment/moment.js',
           './lib/fileupload/angular-file-upload.js',
           './lib/fileupload/FileAPI.js',
           './lib/fileupload/upload.js',

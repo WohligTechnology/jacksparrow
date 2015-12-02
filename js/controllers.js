@@ -1469,7 +1469,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.showQuickview = function (expert) {
         console.log(expert);
-        $scope.profile = expert;
+        cfpLoadingBar.start();
+        NavigationService.getUserDetails(expert.id, function (data) {
+            console.log(data);
+            cfpLoadingBar.complete();
+            $scope.profile = data;
+        }, function (err) {
+            if (err) {
+                console.log(err);
+            }
+        });
         ngDialog.open({
             scope: $scope,
             template: 'views/content/modal-quickview.html'
@@ -1523,6 +1532,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.historytab = 1;
     $scope.activate = true;
     $scope.showLoginMsg = false;
+    $scope.showNoQstsMsg = false;
+    $scope.showQstsData = false;
 
     if (NavigationService.getUser()) {
         $scope.showLoginMsg = false;
@@ -1530,6 +1541,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (data) {
                 console.log(data);
                 $scope.questionsForMe = data;
+                if (data.length == 0) {
+                    $scope.showNoQstsMsg = true;
+                    $scope.showQstsData = false;
+                } else {
+                    $scope.showNoQstsMsg = false;
+                    $scope.showQstsData = true;
+                }
             }
         }, function (err) {
             if (err) {
@@ -1620,7 +1638,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.tab.left = true;
         else
             $scope.tab.right = true;
-        console.log($scope.tab);
     };
 })
 

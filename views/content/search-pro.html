@@ -59,8 +59,8 @@
             </form>
         </div>
     </div>
-    <p class="text-center" style="color:red" ng-show="showLoginMsg">Please login to ask a question</p>
-    <p class="text-center" style="color:red" ng-show="showSelectExpertMsg">Please select an expert to ask a question</p>
+    <p class="text-center red" ng-show="showLoginMsg">Please login to ask a question</p>
+    <p class="text-center red" ng-show="showSelectExpertMsg">Please select an expert to ask a question</p>
     <p class="text-center" style="color:green" ng-show="showSuccessMsg">Your question is asked to the selected experts. Please wait for the response</p>
     <div class="pad-btm">
         <div class="holder-pro bg-white" ng-repeat="pro in professional" infinite-scroll-disabled="shouldscroll" infinite-scroll-distance="0" infinite-scroll='getMoreResults();'>
