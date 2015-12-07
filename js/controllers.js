@@ -1297,10 +1297,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         //professional
-        if ($scope.user.professional.category) {
+        if ($scope.user.professional.categoryid) {
             var i = 0;
             _.each($scope.categoryJson, function (n) {
-                if (n.name == $scope.user.professional.category) {
+                if (n.name == $scope.user.professional.categoryid) {
                     n.activeclass = "active";
                     i++;
                 } else {
@@ -1308,7 +1308,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             })
             if (_.findIndex($scope.categoryJson, {
-                    'name': $scope.user.professional.category
+                    'name': $scope.user.professional.categoryid
                 }) == -1) {
                 $scope.categoryJson[5].activeclass = "active";
                 $scope.showCategoryInput = true;
@@ -1372,10 +1372,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //professional
 
         //hobbies
-        if ($scope.user.hobbies.category) {
+        if ($scope.user.hobbies.categoryid) {
             var i = 0;
             _.each($scope.hobbycategoryJson, function (n) {
-                if (n.name == $scope.user.hobbies.category) {
+                if (n.name == $scope.user.hobbies.categoryid) {
                     n.activeclass = "active";
                     i++;
                 } else {
@@ -1384,7 +1384,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
 
             if (_.findIndex($scope.hobbycategoryJson, {
-                    'name': $scope.user.hobbies.category
+                    'name': $scope.user.hobbies.categoryid
                 }) == -1) {
                 $scope.hobbycategoryJson[5].activeclass = "active";
                 $scope.showHobbyCategoryInput = true;

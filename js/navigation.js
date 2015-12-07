@@ -1,6 +1,6 @@
 // var adminbase = "http://192.168.0.102/youtube/";
 var adminbase = "http://localhost/jacknowsbackend/";
-//var adminbase = "http://wohlig.co.in/jacknowsbackend/";
+// var adminbase = "http://wohlig.co.in/jacknowsbackend/";
 
 var adminurl = adminbase + "index.php/json/";
 var adminimage = adminbase + "uploads/";
@@ -9,7 +9,7 @@ var imgpath = adminimage + "image?name=";
 
 var navigationservice = angular.module('navigationservice', [])
 
-.factory('NavigationService', function ($http) {
+.factory('NavigationService', function($http) {
     var navigation = [{
         name: "BOOKINGS",
         classis: "active",
@@ -48,10 +48,10 @@ var navigationservice = angular.module('navigationservice', [])
     }];
 
     return {
-        getnav: function () {
+        getnav: function() {
             return navigation;
         },
-        makeactive: function (menuname) {
+        makeactive: function(menuname) {
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -61,17 +61,18 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
-        test: function (callback, err) {
+        test: function(callback, err) {
             $http.get(adminurl + "loginuser").success(callback).error(err)
         },
-        login: function (userData, callback, err) {
+        login: function(userData, callback, err) {
             $http({
                 url: adminurl + 'loginuser',
                 method: 'POST',
+                withCredentials: true,
                 data: userData
             }).success(callback).error(err);
         },
-        register: function (userData, callback, err) {
+        register: function(userData, callback, err) {
             delete userData.confirmpassword;
             $http({
                 url: adminurl + 'registeruser',
@@ -80,7 +81,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: userData
             }).success(callback).error(err);
         },
-        editPersonalDetails: function (userData, callback, err) {
+        editPersonalDetails: function(userData, callback, err) {
             delete userData.confirmpassword;
             $http({
                 url: adminurl + 'editPersonalDetails',
@@ -106,7 +107,7 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback).error(err);
         },
-        editProfessionalDetails: function (userData, callback, err) {
+        editProfessionalDetails: function(userData, callback, err) {
             $http({
                 url: adminurl + 'editProfessionDetails',
                 method: 'POST',
@@ -114,7 +115,7 @@ var navigationservice = angular.module('navigationservice', [])
                 data: userData
             }).success(callback).error(err);
         },
-        editHobbiesDetails: function (userData, callback, err) {
+        editHobbiesDetails: function(userData, callback, err) {
             $http({
                 url: adminurl + 'editHobbyDetails',
                 method: 'POST',
@@ -122,22 +123,22 @@ var navigationservice = angular.module('navigationservice', [])
                 data: userData
             }).success(callback).error(err);
         },
-        getAllUserDetails: function (callback, err) {
+        getAllUserDetails: function(callback, err) {
             $http.get(adminurl + "getUserDetails?id=" + $.jStorage.get("user").id).success(callback).error(err)
         },
-        getUserDetails: function (id, callback, err) {
+        getUserDetails: function(id, callback, err) {
             $http.get(adminurl + "getUserDetails?id=" + id).success(callback).error(err)
         },
-        searchExpert: function (search, pageno, callback, err) {
+        searchExpert: function(search, pageno, callback, err) {
             $http.get(adminurl + "searchExpert?expertname=" + search + "&pageno=" + pageno).success(callback).error(err)
         },
-        editHobbyVerification: function (val, callback, err) {
+        editHobbyVerification: function(val, callback, err) {
             $http.get(adminurl + "editHobbyVerification?id=" + $.jStorage.get("user").id + "&hobbyverification=" + val).success(callback).error(err)
         },
-        editProfessionVerification: function (val, callback, err) {
+        editProfessionVerification: function(val, callback, err) {
             $http.get(adminurl + "editProfessionVerification?id=" + $.jStorage.get("user").id + "&professionverification=" + val).success(callback).error(err)
         },
-        askQuestion: function (question, callback, err) {
+        askQuestion: function(question, callback, err) {
             $http({
                 url: adminurl + 'askQuestion',
                 method: 'POST',
@@ -145,13 +146,13 @@ var navigationservice = angular.module('navigationservice', [])
                 data: question
             }).success(callback).error(err);
         },
-        questionsForMe: function (callback, err) {
+        questionsForMe: function(callback, err) {
             $http.get(adminurl + "getUserQuestions?id=" + $.jStorage.get("user").id).success(callback).error(err)
         },
-        setUser: function (data) {
+        setUser: function(data) {
             $.jStorage.set("user", data);
         },
-        getUser: function () {
+        getUser: function() {
             return $.jStorage.get("user");
         },
     }
