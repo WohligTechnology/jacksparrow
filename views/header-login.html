@@ -12,7 +12,6 @@
                     <img src="img/logo.png" class="logo">
                 </a>
             </div>
-
             <div class="collapse navbar-collapse" id="jacknows">
                 <ul class="nav navbar-nav navbar-right nav-outer" ng-show="showLoginBtn">
                     <li ng-click="showLogin();">
@@ -23,6 +22,9 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right nav-outer" ng-hide="showLoginBtn">
+                    <li ng-repeat="menu in navigation" class="{{menu.classis}}">
+                        <a href="{{menu.link}}">{{menu.name}}</a>
+                    </li>
                     <li>
                         <a href="#/setting" class="btn btn-primary">{{user.name}}</a>
                     </li>

@@ -33,19 +33,21 @@ var navigationservice = angular.module('navigationservice', [])
         link: "#/account",
         classis: "active",
         subnav: []
-    }, {
-        name: "My Profile",
-        active: "",
-        link: "#/setting",
-        classis: "active",
-        subnav: []
-    }, {
-        name: "logout",
-        active: "",
-        link: "#/home",
-        classis: "active",
-        subnav: []
-    }];
+    }
+    // , {
+    //     name: "My Profile",
+    //     active: "",
+    //     link: "#/setting",
+    //     classis: "active",
+    //     subnav: []
+    // }, {
+    //     name: "logout",
+    //     active: "",
+    //     link: "#/home",
+    //     classis: "active",
+    //     subnav: []
+    // }
+    ];
 
     return {
         getnav: function() {
