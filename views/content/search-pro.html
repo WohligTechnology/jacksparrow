@@ -69,21 +69,22 @@
     <div class="col-md-4">
 
       <div class="news-box">
-        <div class="news">
+        <div class="news" ng-repeat="news in newsBox">
           <div class="news-head">
-            <div class="pull-right"><button class="btn btn-clear no-pad">
-              <i class="fa fa-heart"></i>
-            </button></div>
+            <div class="pull-right">
+              <button class="btn btn-clear no-pad">
+                <i class="fa fa-heart"></i>
+              </button>
+            </div>
             <h4>
-              Rahul Bose <span class="timestamp">31st December 2015</span>
+              {{news.name}}
+              <span class="timestamp">{{news.timestamp}}</span>
             </h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
+            <p ng-bind="news.text"></p>
           </div>
           <div class="news-foot">
             <div class="like-count">
-              Total Likes: 38
+              Total Likes: {{news.totallikes}}
             </div>
             <button class="btn btn-clear">Read More</button>
           </div>
