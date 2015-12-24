@@ -1472,27 +1472,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   //  $scope.reload = function() {
 
   $scope.newsBox = [{
-    name: "Rahul Bose",
+    name: "Dhaval Gada",
     timestamp: "31st December 2015",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     totallikes: "12"
   }, {
-    name: "Rahul Bose",
+    name: "Dhaval Gada",
     timestamp: "31st December 2015",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     totallikes: "12"
   }, {
-    name: "Rahul Bose",
+    name: "Dhaval Gada",
     timestamp: "31st December 2015",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     totallikes: "12"
   }, {
-    name: "Rahul Bose",
+    name: "Dhaval Gada",
     timestamp: "31st December 2015",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     totallikes: "12"
   }, {
-    name: "Rahul Bose",
+    name: "Dhaval Gada",
     timestamp: "31st December 2015",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     totallikes: "12"
@@ -1527,6 +1527,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   }
 
   $scope.getMoreResults();
+
+  $scope.showBookNow = function() {
+    ngDialog.open({
+      scope: $scope,
+      template: 'views/content/modal-booknow.html'
+    });
+  };
 
   $scope.showQuickview = function(expert) {
     console.log(expert);
@@ -1712,6 +1719,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.showLoginBtn = true;
   $scope.invalidLogin = false;
   $scope.alreadyRegistered = false;
+  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    $(window).scrollTop(0);
+  });
 
   if (NavigationService.getUser()) {
     $scope.user = NavigationService.getUser();
